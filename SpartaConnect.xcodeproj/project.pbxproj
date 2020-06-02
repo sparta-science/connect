@@ -40,10 +40,10 @@
 		4AA188932486FA90009CFACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AA188952486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA188962486FA90009CFACE /* SpartaConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpartaConnect.entitlements; sourceTree = "<group>"; };
-		4AA1889B2486FA90009CFACE /* SpartaConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpartaConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AA1889B2486FA90009CFACE /* UnitSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA1889F2486FA90009CFACE /* SpartaConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectTests.swift; sourceTree = "<group>"; };
 		4AA188A12486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AA188A62486FA90009CFACE /* SpartaConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpartaConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AA188A62486FA90009CFACE /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectUITests.swift; sourceTree = "<group>"; };
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,9 +76,9 @@
 		4AA188802486FA90009CFACE = {
 			isa = PBXGroup;
 			children = (
-				4AA1888B2486FA90009CFACE /* SpartaConnect */,
-				4AA1889E2486FA90009CFACE /* SpartaConnectTests */,
-				4AA188A92486FA90009CFACE /* SpartaConnectUITests */,
+				4AA1888B2486FA90009CFACE /* App */,
+				4AA1889E2486FA90009CFACE /* UnitSpecs */,
+				4AA188A92486FA90009CFACE /* UITests */,
 				4AA1888A2486FA90009CFACE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,13 +87,13 @@
 			isa = PBXGroup;
 			children = (
 				4AA188892486FA90009CFACE /* SpartaConnect.app */,
-				4AA1889B2486FA90009CFACE /* SpartaConnectTests.xctest */,
-				4AA188A62486FA90009CFACE /* SpartaConnectUITests.xctest */,
+				4AA1889B2486FA90009CFACE /* UnitSpecs.xctest */,
+				4AA188A62486FA90009CFACE /* UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4AA1888B2486FA90009CFACE /* SpartaConnect */ = {
+		4AA1888B2486FA90009CFACE /* App */ = {
 			isa = PBXGroup;
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
@@ -103,33 +103,33 @@
 				4AA188952486FA90009CFACE /* Info.plist */,
 				4AA188962486FA90009CFACE /* SpartaConnect.entitlements */,
 			);
-			path = SpartaConnect;
+			path = App;
 			sourceTree = "<group>";
 		};
-		4AA1889E2486FA90009CFACE /* SpartaConnectTests */ = {
+		4AA1889E2486FA90009CFACE /* UnitSpecs */ = {
 			isa = PBXGroup;
 			children = (
 				4AA1889F2486FA90009CFACE /* SpartaConnectTests.swift */,
 				4AA188A12486FA90009CFACE /* Info.plist */,
 			);
-			path = SpartaConnectTests;
+			path = UnitSpecs;
 			sourceTree = "<group>";
 		};
-		4AA188A92486FA90009CFACE /* SpartaConnectUITests */ = {
+		4AA188A92486FA90009CFACE /* UITests */ = {
 			isa = PBXGroup;
 			children = (
 				4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */,
 				4AA188AC2486FA90009CFACE /* Info.plist */,
 			);
-			path = SpartaConnectUITests;
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4AA188882486FA90009CFACE /* SpartaConnect */ = {
+		4AA188882486FA90009CFACE /* App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnect" */;
+			buildConfigurationList = 4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
 				4AA188852486FA90009CFACE /* Sources */,
 				4AA188862486FA90009CFACE /* Frameworks */,
@@ -139,14 +139,14 @@
 			);
 			dependencies = (
 			);
-			name = SpartaConnect;
+			name = App;
 			productName = SpartaConnect;
 			productReference = 4AA188892486FA90009CFACE /* SpartaConnect.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4AA1889A2486FA90009CFACE /* SpartaConnectTests */ = {
+		4AA1889A2486FA90009CFACE /* UnitSpecs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AA188B22486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnectTests" */;
+			buildConfigurationList = 4AA188B22486FA90009CFACE /* Build configuration list for PBXNativeTarget "UnitSpecs" */;
 			buildPhases = (
 				4AA188972486FA90009CFACE /* Sources */,
 				4AA188982486FA90009CFACE /* Frameworks */,
@@ -157,14 +157,14 @@
 			dependencies = (
 				4AA1889D2486FA90009CFACE /* PBXTargetDependency */,
 			);
-			name = SpartaConnectTests;
+			name = UnitSpecs;
 			productName = SpartaConnectTests;
-			productReference = 4AA1889B2486FA90009CFACE /* SpartaConnectTests.xctest */;
+			productReference = 4AA1889B2486FA90009CFACE /* UnitSpecs.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4AA188A52486FA90009CFACE /* SpartaConnectUITests */ = {
+		4AA188A52486FA90009CFACE /* UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AA188B52486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnectUITests" */;
+			buildConfigurationList = 4AA188B52486FA90009CFACE /* Build configuration list for PBXNativeTarget "UITests" */;
 			buildPhases = (
 				4AA188A22486FA90009CFACE /* Sources */,
 				4AA188A32486FA90009CFACE /* Frameworks */,
@@ -175,9 +175,9 @@
 			dependencies = (
 				4AA188A82486FA90009CFACE /* PBXTargetDependency */,
 			);
-			name = SpartaConnectUITests;
+			name = UITests;
 			productName = SpartaConnectUITests;
-			productReference = 4AA188A62486FA90009CFACE /* SpartaConnectUITests.xctest */;
+			productReference = 4AA188A62486FA90009CFACE /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -216,9 +216,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4AA188882486FA90009CFACE /* SpartaConnect */,
-				4AA1889A2486FA90009CFACE /* SpartaConnectTests */,
-				4AA188A52486FA90009CFACE /* SpartaConnectUITests */,
+				4AA188882486FA90009CFACE /* App */,
+				4AA1889A2486FA90009CFACE /* UnitSpecs */,
+				4AA188A52486FA90009CFACE /* UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -280,12 +280,12 @@
 /* Begin PBXTargetDependency section */
 		4AA1889D2486FA90009CFACE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4AA188882486FA90009CFACE /* SpartaConnect */;
+			target = 4AA188882486FA90009CFACE /* App */;
 			targetProxy = 4AA1889C2486FA90009CFACE /* PBXContainerItemProxy */;
 		};
 		4AA188A82486FA90009CFACE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4AA188882486FA90009CFACE /* SpartaConnect */;
+			target = 4AA188882486FA90009CFACE /* App */;
 			targetProxy = 4AA188A72486FA90009CFACE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -359,6 +359,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -412,6 +413,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -419,17 +421,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SpartaConnect/SpartaConnect.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SpartaConnect/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnect;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PRODUCT_NAME = SpartaConnect;
 			};
 			name = Debug;
 		};
@@ -437,17 +437,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SpartaConnect/SpartaConnect.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SpartaConnect/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnect;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				PRODUCT_NAME = SpartaConnect;
 			};
 			name = Release;
 		};
@@ -457,17 +455,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SpartaConnectTests/Info.plist;
+				INFOPLIST_FILE = UnitSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaConnect.app/Contents/MacOS/SpartaConnect";
 			};
 			name = Debug;
@@ -478,17 +473,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SpartaConnectTests/Info.plist;
+				INFOPLIST_FILE = UnitSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaConnect.app/Contents/MacOS/SpartaConnect";
 			};
 			name = Release;
@@ -499,7 +491,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SpartaConnectUITests/Info.plist;
+				INFOPLIST_FILE = UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -507,8 +499,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SpartaConnect;
+				PROVISIONING_PROFILE = "";
+				TEST_TARGET_NAME = App;
 			};
 			name = Debug;
 		};
@@ -518,7 +510,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = SpartaConnectUITests/Info.plist;
+				INFOPLIST_FILE = UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -526,8 +518,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = SpartaConnect;
+				PROVISIONING_PROFILE = "";
+				TEST_TARGET_NAME = App;
 			};
 			name = Release;
 		};
@@ -543,7 +535,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnect" */ = {
+		4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AA188B02486FA90009CFACE /* Debug */,
@@ -552,7 +544,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AA188B22486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnectTests" */ = {
+		4AA188B22486FA90009CFACE /* Build configuration list for PBXNativeTarget "UnitSpecs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AA188B32486FA90009CFACE /* Debug */,
@@ -561,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AA188B52486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnectUITests" */ = {
+		4AA188B52486FA90009CFACE /* Build configuration list for PBXNativeTarget "UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AA188B62486FA90009CFACE /* Debug */,
