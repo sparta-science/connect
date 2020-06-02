@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4AA188882486FA90009CFACE"
-               BuildableName = "App.app"
+               BuildableName = "SpartaConnect.app"
                BlueprintName = "App"
                ReferencedContainer = "container:SpartaConnect.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4AA188882486FA90009CFACE"
-            BuildableName = "App.app"
+            BuildableName = "SpartaConnect.app"
             BlueprintName = "App"
             ReferencedContainer = "container:SpartaConnect.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4AA188882486FA90009CFACE"
-            BuildableName = "App.app"
+            BuildableName = "SpartaConnect.app"
             BlueprintName = "App"
             ReferencedContainer = "container:SpartaConnect.xcodeproj">
          </BuildableReference>

@@ -33,7 +33,7 @@ class SpartaConnectUITests: XCTestCase {
     }
 
     func testLaunchPerformance() throws {
-        measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
+        measure {
             XCUIApplication().launch()
         }
     }
