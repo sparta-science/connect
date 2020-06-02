@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888C2486FA90009CFACE /* AppDelegate.swift */; };
+		4AA1888F2486FA90009CFACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888E2486FA90009CFACE /* ViewController.swift */; };
+		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
+		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
+		4AA188A02486FA90009CFACE /* SpartaConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1889F2486FA90009CFACE /* SpartaConnectTests.swift */; };
+		4AA188AB2486FA90009CFACE /* SpartaConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4AA1889C2486FA90009CFACE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AA188812486FA90009CFACE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AA188882486FA90009CFACE;
+			remoteInfo = SpartaConnect;
+		};
+		4AA188A72486FA90009CFACE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AA188812486FA90009CFACE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AA188882486FA90009CFACE;
+			remoteInfo = SpartaConnect;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4AA188892486FA90009CFACE /* SpartaConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AA1888C2486FA90009CFACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AA1888E2486FA90009CFACE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AA188902486FA90009CFACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AA188932486FA90009CFACE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4AA188952486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AA188962486FA90009CFACE /* SpartaConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpartaConnect.entitlements; sourceTree = "<group>"; };
+		4AA1889B2486FA90009CFACE /* SpartaConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpartaConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AA1889F2486FA90009CFACE /* SpartaConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectTests.swift; sourceTree = "<group>"; };
+		4AA188A12486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AA188A62486FA90009CFACE /* SpartaConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpartaConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectUITests.swift; sourceTree = "<group>"; };
+		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AA188862486FA90009CFACE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA188982486FA90009CFACE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA188A32486FA90009CFACE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AA188802486FA90009CFACE = {
+			isa = PBXGroup;
+			children = (
+				4AA1888B2486FA90009CFACE /* SpartaConnect */,
+				4AA1889E2486FA90009CFACE /* SpartaConnectTests */,
+				4AA188A92486FA90009CFACE /* SpartaConnectUITests */,
+				4AA1888A2486FA90009CFACE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AA1888A2486FA90009CFACE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AA188892486FA90009CFACE /* SpartaConnect.app */,
+				4AA1889B2486FA90009CFACE /* SpartaConnectTests.xctest */,
+				4AA188A62486FA90009CFACE /* SpartaConnectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4AA1888B2486FA90009CFACE /* SpartaConnect */ = {
+			isa = PBXGroup;
+			children = (
+				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
+				4AA1888E2486FA90009CFACE /* ViewController.swift */,
+				4AA188902486FA90009CFACE /* Assets.xcassets */,
+				4AA188922486FA90009CFACE /* Main.storyboard */,
+				4AA188952486FA90009CFACE /* Info.plist */,
+				4AA188962486FA90009CFACE /* SpartaConnect.entitlements */,
+			);
+			path = SpartaConnect;
+			sourceTree = "<group>";
+		};
+		4AA1889E2486FA90009CFACE /* SpartaConnectTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AA1889F2486FA90009CFACE /* SpartaConnectTests.swift */,
+				4AA188A12486FA90009CFACE /* Info.plist */,
+			);
+			path = SpartaConnectTests;
+			sourceTree = "<group>";
+		};
+		4AA188A92486FA90009CFACE /* SpartaConnectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */,
+				4AA188AC2486FA90009CFACE /* Info.plist */,
+			);
+			path = SpartaConnectUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AA188882486FA90009CFACE /* SpartaConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnect" */;
+			buildPhases = (
+				4AA188852486FA90009CFACE /* Sources */,
+				4AA188862486FA90009CFACE /* Frameworks */,
+				4AA188872486FA90009CFACE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpartaConnect;
+			productName = SpartaConnect;
+			productReference = 4AA188892486FA90009CFACE /* SpartaConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4AA1889A2486FA90009CFACE /* SpartaConnectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AA188B22486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnectTests" */;
+			buildPhases = (
+				4AA188972486FA90009CFACE /* Sources */,
+				4AA188982486FA90009CFACE /* Frameworks */,
+				4AA188992486FA90009CFACE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AA1889D2486FA90009CFACE /* PBXTargetDependency */,
+			);
+			name = SpartaConnectTests;
+			productName = SpartaConnectTests;
+			productReference = 4AA1889B2486FA90009CFACE /* SpartaConnectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4AA188A52486FA90009CFACE /* SpartaConnectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AA188B52486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnectUITests" */;
+			buildPhases = (
+				4AA188A22486FA90009CFACE /* Sources */,
+				4AA188A32486FA90009CFACE /* Frameworks */,
+				4AA188A42486FA90009CFACE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AA188A82486FA90009CFACE /* PBXTargetDependency */,
+			);
+			name = SpartaConnectUITests;
+			productName = SpartaConnectUITests;
+			productReference = 4AA188A62486FA90009CFACE /* SpartaConnectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AA188812486FA90009CFACE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Sparta Science";
+				TargetAttributes = {
+					4AA188882486FA90009CFACE = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					4AA1889A2486FA90009CFACE = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 4AA188882486FA90009CFACE;
+					};
+					4AA188A52486FA90009CFACE = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 4AA188882486FA90009CFACE;
+					};
+				};
+			};
+			buildConfigurationList = 4AA188842486FA90009CFACE /* Build configuration list for PBXProject "SpartaConnect" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AA188802486FA90009CFACE;
+			productRefGroup = 4AA1888A2486FA90009CFACE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AA188882486FA90009CFACE /* SpartaConnect */,
+				4AA1889A2486FA90009CFACE /* SpartaConnectTests */,
+				4AA188A52486FA90009CFACE /* SpartaConnectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AA188872486FA90009CFACE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AA188912486FA90009CFACE /* Assets.xcassets in Resources */,
+				4AA188942486FA90009CFACE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA188992486FA90009CFACE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA188A42486FA90009CFACE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AA188852486FA90009CFACE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AA1888F2486FA90009CFACE /* ViewController.swift in Sources */,
+				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA188972486FA90009CFACE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AA188A02486FA90009CFACE /* SpartaConnectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AA188A22486FA90009CFACE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AA188AB2486FA90009CFACE /* SpartaConnectUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AA1889D2486FA90009CFACE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AA188882486FA90009CFACE /* SpartaConnect */;
+			targetProxy = 4AA1889C2486FA90009CFACE /* PBXContainerItemProxy */;
+		};
+		4AA188A82486FA90009CFACE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AA188882486FA90009CFACE /* SpartaConnect */;
+			targetProxy = 4AA188A72486FA90009CFACE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4AA188922486FA90009CFACE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4AA188932486FA90009CFACE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4AA188AD2486FA90009CFACE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AA188AE2486FA90009CFACE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		4AA188B02486FA90009CFACE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SpartaConnect/SpartaConnect.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SpartaConnect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4AA188B12486FA90009CFACE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SpartaConnect/SpartaConnect.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SpartaConnect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4AA188B32486FA90009CFACE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SpartaConnectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaConnect.app/Contents/MacOS/SpartaConnect";
+			};
+			name = Debug;
+		};
+		4AA188B42486FA90009CFACE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SpartaConnectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaConnect.app/Contents/MacOS/SpartaConnect";
+			};
+			name = Release;
+		};
+		4AA188B62486FA90009CFACE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SpartaConnectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SpartaConnect;
+			};
+			name = Debug;
+		};
+		4AA188B72486FA90009CFACE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SpartaConnectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = SpartaConnect;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AA188842486FA90009CFACE /* Build configuration list for PBXProject "SpartaConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AA188AD2486FA90009CFACE /* Debug */,
+				4AA188AE2486FA90009CFACE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AA188B02486FA90009CFACE /* Debug */,
+				4AA188B12486FA90009CFACE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AA188B22486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AA188B32486FA90009CFACE /* Debug */,
+				4AA188B42486FA90009CFACE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AA188B52486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AA188B62486FA90009CFACE /* Debug */,
+				4AA188B72486FA90009CFACE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AA188812486FA90009CFACE /* Project object */;
+}
