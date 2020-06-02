@@ -1,0 +1,19 @@
+name: OnGitHub
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build
+    - name: Run tests
+      run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App test
