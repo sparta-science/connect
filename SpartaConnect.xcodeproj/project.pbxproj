@@ -11,8 +11,8 @@
 		4AA1888F2486FA90009CFACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888E2486FA90009CFACE /* ViewController.swift */; };
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
-		4AA188A02486FA90009CFACE /* SpartaConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1889F2486FA90009CFACE /* SpartaConnectTests.swift */; };
 		4AA188AB2486FA90009CFACE /* SpartaConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */; };
+		4AD40A9124870708002728DA /* FirstSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* FirstSpec.swift */; };
 		8A5F1AE9407C253DE06D7659 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEAB539467E58B9019619D15 /* Pods_UnitSpecs.framework */; };
 		F9D986880EA1EDE43366AA60 /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98963E8A58AA9C03B3DEEDB9 /* Pods_App.framework */; };
 /* End PBXBuildFile section */
@@ -44,11 +44,11 @@
 		4AA188952486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA188962486FA90009CFACE /* SpartaConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpartaConnect.entitlements; sourceTree = "<group>"; };
 		4AA1889B2486FA90009CFACE /* UnitSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AA1889F2486FA90009CFACE /* SpartaConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectTests.swift; sourceTree = "<group>"; };
 		4AA188A12486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA188A62486FA90009CFACE /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectUITests.swift; sourceTree = "<group>"; };
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AD40A9024870708002728DA /* FirstSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSpec.swift; sourceTree = "<group>"; };
 		4F6D20E6D4A8B716F1187D7F /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		62C3517740FE74FE30E501E8 /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
 		98963E8A58AA9C03B3DEEDB9 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,8 +132,8 @@
 		4AA1889E2486FA90009CFACE /* UnitSpecs */ = {
 			isa = PBXGroup;
 			children = (
-				4AA1889F2486FA90009CFACE /* SpartaConnectTests.swift */,
 				4AA188A12486FA90009CFACE /* Info.plist */,
+				4AD40A9024870708002728DA /* FirstSpec.swift */,
 			);
 			path = UnitSpecs;
 			sourceTree = "<group>";
@@ -230,6 +230,7 @@
 					};
 					4AA1889A2486FA90009CFACE = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = 4AA188882486FA90009CFACE;
 					};
 					4AA188A52486FA90009CFACE = {
@@ -362,7 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AA188A02486FA90009CFACE /* SpartaConnectTests.swift in Sources */,
+				4AD40A9124870708002728DA /* FirstSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +556,7 @@
 			baseConfigurationReference = D1F4DEA75D91E9DAA8B4F01A /* Pods-UnitSpecs.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UnitSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -564,6 +566,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaConnect.app/Contents/MacOS/SpartaConnect";
 			};
 			name = Debug;
@@ -573,6 +577,7 @@
 			baseConfigurationReference = 4A1DC8D06D85415B5E5370B8 /* Pods-UnitSpecs.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UnitSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -582,6 +587,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpartaConnect.app/Contents/MacOS/SpartaConnect";
 			};
 			name = Release;
