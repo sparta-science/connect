@@ -30,6 +30,8 @@ class UITests: XCTestCase {
         menuBarsQuery.menuBarItems["Help"].click()
         menuBarsQuery.menuItems["Check for updates..."].click()
         app.dialogs["alert"].buttons["OK"].click()
+        _ = app.dialogs["Software Update"].waitForExistence(timeout: 10)
+        XCTAssert(app.dialogs["Software Update"].staticTexts["Version 1.3.1 (3/26/17)"].exists, "should find release notes")
         app.dialogs["Software Update"].buttons["Install Update"].click()
         app.dialogs["alert"].buttons["Cancel Update"].click()
     }

@@ -7,7 +7,7 @@
         <item>
             <title>Version 1.0 (2 bugs fixed; 3 new features)</title>
             <sparkle:releaseNotesLink>
-                http://you.com/app/2.0.html
+                http://localhost:8000/changelog.html
             </sparkle:releaseNotesLink>
             <pubDate>Tue, 02 Jun 2020 19:20:11 +0000</pubDate>
             <!-- Sparkle 1.21+ uses sparkle::edSignature="ed25519" instead of sparkle::dsaSignature="deprecated DSA" -->

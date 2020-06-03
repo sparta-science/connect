@@ -50,6 +50,7 @@
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* FirstSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; };
+		4AD40A94248848B0002728DA /* appcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		4F6D20E6D4A8B716F1187D7F /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		62C3517740FE74FE30E501E8 /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
 		98963E8A58AA9C03B3DEEDB9 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,9 +145,18 @@
 			isa = PBXGroup;
 			children = (
 				4AA188AA2486FA90009CFACE /* UITests.swift */,
+				4AD40A93248848B0002728DA /* mockHttpServer */,
 				4AA188AC2486FA90009CFACE /* Info.plist */,
 			);
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		4AD40A93248848B0002728DA /* mockHttpServer */ = {
+			isa = PBXGroup;
+			children = (
+				4AD40A94248848B0002728DA /* appcast.xml */,
+			);
+			path = mockHttpServer;
 			sourceTree = "<group>";
 		};
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
