@@ -11,7 +11,7 @@
 		4AA1888F2486FA90009CFACE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888E2486FA90009CFACE /* ViewController.swift */; };
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
-		4AA188AB2486FA90009CFACE /* SpartaConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */; };
+		4AA188AB2486FA90009CFACE /* UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UITests.swift */; };
 		4AD40A9124870708002728DA /* FirstSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* FirstSpec.swift */; };
 		8A5F1AE9407C253DE06D7659 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEAB539467E58B9019619D15 /* Pods_UnitSpecs.framework */; };
 		F9D986880EA1EDE43366AA60 /* Pods_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98963E8A58AA9C03B3DEEDB9 /* Pods_App.framework */; };
@@ -46,7 +46,7 @@
 		4AA1889B2486FA90009CFACE /* UnitSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA188A12486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA188A62486FA90009CFACE /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectUITests.swift; sourceTree = "<group>"; };
+		4AA188AA2486FA90009CFACE /* UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITests.swift; sourceTree = "<group>"; };
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* FirstSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		4AA188A92486FA90009CFACE /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				4AA188AA2486FA90009CFACE /* SpartaConnectUITests.swift */,
+				4AA188AA2486FA90009CFACE /* UITests.swift */,
 				4AA188AC2486FA90009CFACE /* Info.plist */,
 			);
 			path = UITests;
@@ -391,7 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AA188AB2486FA90009CFACE /* SpartaConnectUITests.swift in Sources */,
+				4AA188AB2486FA90009CFACE /* UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
