@@ -36,8 +36,10 @@ class UITests: XCTestCase {
         updateDialog.waitToAppear()
         updateDialog.staticTexts["Version 1.3.1 (3/26/17)"].waitToAppear()
         updateDialog.buttons["Install Update"].click()
-        app.windows["Updating SpartaConnect"].staticTexts["Ready to Install"].waitToAppear()
-        app.windows["Updating SpartaConnect"].buttons["Install and Relaunch"].click()
+        
+        let updatingWindow = app.windows["Updating SpartaConnect"]
+        updatingWindow.staticTexts["Ready to Install"].waitToAppear()
+        updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         app.dialogs["alert"].buttons["Cancel Update"].click()
     }
 
