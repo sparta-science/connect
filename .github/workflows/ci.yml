@@ -2,7 +2,7 @@ name: OnGitHub
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dirt-ball ]
   pull_request:
     branches: [ master ]
 
