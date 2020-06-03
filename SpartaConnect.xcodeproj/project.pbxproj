@@ -54,6 +54,8 @@
 		4AD40A94248848B0002728DA /* appcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		4AD40A9524884ABE002728DA /* changelog.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = changelog.html; sourceTree = "<group>"; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
+		4AD40A9824885070002728DA /* SpartaConnect1.0.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SpartaConnect1.0.zip; sourceTree = "<group>"; };
+		4AD40A99248850E1002728DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4F6D20E6D4A8B716F1187D7F /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		62C3517740FE74FE30E501E8 /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
 		98963E8A58AA9C03B3DEEDB9 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 		4AA188802486FA90009CFACE = {
 			isa = PBXGroup;
 			children = (
+				4AD40A99248850E1002728DA /* README.md */,
 				4AD40A9224870C00002728DA /* ci.yml */,
 				4AA1888B2486FA90009CFACE /* App */,
 				4AA1889E2486FA90009CFACE /* UnitSpecs */,
@@ -158,6 +161,7 @@
 		4AD40A93248848B0002728DA /* mockHttpServer */ = {
 			isa = PBXGroup;
 			children = (
+				4AD40A9824885070002728DA /* SpartaConnect1.0.zip */,
 				4AD40A9524884ABE002728DA /* changelog.html */,
 				4AD40A94248848B0002728DA /* appcast.xml */,
 			);
