@@ -11,7 +11,7 @@
             </sparkle:releaseNotesLink>
             <pubDate>Tue, 02 Jun 2020 19:20:11 +0000</pubDate>
             <!-- Sparkle 1.21+ uses sparkle::edSignature="ed25519" instead of sparkle::dsaSignature="deprecated DSA" -->
-            <enclosure url="http://localhost:8000/SpartaConnect.zip" sparkle:version="1.0" length="3372554" type="application/octet-stream" />
+            <enclosure url="http://localhost:8000/SpartaConnect1.0.zip" sparkle:version="1.0" length="3373520" type="application/octet-stream" />
             <sparkle:minimumSystemVersion>10.7</sparkle:minimumSystemVersion>
         </item>
 

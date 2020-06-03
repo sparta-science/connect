@@ -8,6 +8,8 @@
 
 import XCTest
 
+let kDefaultTimeout: TimeInterval = 5
+
 class UITests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -30,9 +32,12 @@ class UITests: XCTestCase {
         menuBarsQuery.menuBarItems["Help"].click()
         menuBarsQuery.menuItems["Check for updates..."].click()
         app.dialogs["alert"].buttons["OK"].click()
-        _ = app.dialogs["Software Update"].waitForExistence(timeout: 10)
-        XCTAssert(app.dialogs["Software Update"].staticTexts["Version 1.3.1 (3/26/17)"].exists, "should find release notes")
-        app.dialogs["Software Update"].buttons["Install Update"].click()
+        let updateDialog = app.dialogs["Software Update"]
+        updateDialog.waitToAppear()
+        updateDialog.staticTexts["Version 1.3.1 (3/26/17)"].waitToAppear()
+        updateDialog.buttons["Install Update"].click()
+        app.windows["Updating SpartaConnect"].staticTexts["Ready to Install"].waitToAppear()
+        app.windows["Updating SpartaConnect"].buttons["Install and Relaunch"].click()
         app.dialogs["alert"].buttons["Cancel Update"].click()
     }
 
