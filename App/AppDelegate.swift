@@ -7,11 +7,16 @@
 //
 
 import Cocoa
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 
+    @IBAction func checkForUpdates(_ sender: Any) {
+        let updater = SUUpdater()
+        updater.checkForUpdates(sender)
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
