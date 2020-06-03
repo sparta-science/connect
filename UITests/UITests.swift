@@ -23,11 +23,18 @@ class UITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    func testAutoUpgrade() throws {
         // UI tests must launch the application that they test.
+
         let app = XCUIApplication()
         app.launch()
-
+        let menuBarsQuery = app.menuBars
+        menuBarsQuery.menuBarItems["Help"].click()
+        menuBarsQuery.menuItems["Check for updates..."].click()
+        app.dialogs["alert"].buttons["OK"].click()
+        app.dialogs["Software Update"].buttons["Install Update"].click()
+        app.dialogs["alert"].buttons["Cancel Update"].click()
+        
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
