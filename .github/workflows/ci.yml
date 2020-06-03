@@ -15,5 +15,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
+    - name: Start HTTP mock server
+      run: |
+        cd UITests/mockHttpServer
+        python -m SimpleHTTPServer &
     - name: Run tests
       run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App test | xcpretty

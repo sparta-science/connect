@@ -24,8 +24,6 @@ class UITests: XCTestCase {
     }
 
     func testAutoUpgrade() throws {
-        // UI tests must launch the application that they test.
-
         let app = XCUIApplication()
         app.launch()
         let menuBarsQuery = app.menuBars
@@ -34,12 +32,9 @@ class UITests: XCTestCase {
         app.dialogs["alert"].buttons["OK"].click()
         app.dialogs["Software Update"].buttons["Install Update"].click()
         app.dialogs["alert"].buttons["Cancel Update"].click()
-        
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
-    func testLaunchPerformance() throws {
+    func XtestLaunchPerformance() throws {
         measure {
             XCUIApplication().launch()
         }
