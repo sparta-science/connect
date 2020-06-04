@@ -1,24 +1,36 @@
 PODS:
+  - Http.swift (2.2.1):
+    - Socket.swift (~> 2.3)
   - Nimble (8.0.9)
   - Quick (2.2.0)
+  - Socket.swift (2.4.0)
   - Sparkle (1.23.0)
+  - Swifter (1.4.7)
 
 DEPENDENCIES:
+  - Http.swift
   - Nimble
   - Quick
   - Sparkle
+  - Swifter
 
 SPEC REPOS:
   trunk:
+    - Http.swift
     - Nimble
     - Quick
+    - Socket.swift
     - Sparkle
+    - Swifter
 
 SPEC CHECKSUMS:
+  Http.swift: b65e9385e0bb3a4ff6b3b80e2952a615e124ecbd
   Nimble: 98b888285a615fd34f20e61753cf58ea1402bde4
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  Socket.swift: 4af9137d6b2d2dec00efd8b007704d0af3c3f27a
   Sparkle: 55b1a87ba69d56913375a281546b7c82dec95bb0
+  Swifter: 2327ef5d872c638aebab79646ce494af508b0c8f
 
-PODFILE CHECKSUM: c0f3d1b6383c38cc2051ba322bbb5bc0fa9fc5d6
+PODFILE CHECKSUM: 648b8fbf7ae38120bbea7b786b0116b7a5470558
 
 COCOAPODS: 1.9.3

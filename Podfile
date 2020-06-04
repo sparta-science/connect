@@ -11,3 +11,9 @@ target 'App' do
     inherit! :search_paths
   end
 end
+
+target 'UITests' do
+  use_frameworks!
+  pod 'Swifter'
+  pod 'Http.swift'
+end
