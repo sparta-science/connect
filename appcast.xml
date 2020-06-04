@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Sparta Connect Changelog</title>
+    <link>http://sparkle-project.org/files/sparkletestcast.xml</link>
+    <description>Most recent changes with links to updates.</description>
+    <language>en</language>
+      <item>
+        <title>Version 1.0</title>
+        <description>
+          <![CDATA[
+            <h2>Initial Release.</h2>
+            <ul>
+              <li>Automatic Updates.</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Thu, 4 Jun 2020 15:50:11 PST</pubDate>
+        <enclosure url="https://sparkle-project.org/files/Sparkle%20Test%20App.zip" sparkle:version="1.0" length="107758" type="application/octet-stream"/>
+      </item>
+  </channel>
+</rss>
