@@ -16,7 +16,13 @@
           ]]>
         </description>
         <pubDate>Thu, 4 Jun 2020 15:50:11 PST</pubDate>
-        <enclosure url="https://github.com/sparta-science/connect/releases/download/1.0/SpartaConnect1.0.zip" sparkle:version="1.0" length="107758" type="application/octet-stream"/>
+        <enclosure
+            url="https://github.com/sparta-science/connect/releases/download/1.0/SpartaConnect1.0.zip"
+            sparkle:shortVersionString="1.0"
+            sparkle:version="1"
+            length="3383618"
+            type="application/octet-stream"
+        />
       </item>
   </channel>
 </rss>
