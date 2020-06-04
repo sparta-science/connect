@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>Sparta Connect Changelog</title>
-    <link>http://sparkle-project.org/files/sparkletestcast.xml</link>
+    <link>https://raw.githubusercontent.com/sparta-science/connect/pz/manual-appcast/appcast.xml</link>
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
       <item>
@@ -16,7 +16,7 @@
           ]]>
         </description>
         <pubDate>Thu, 4 Jun 2020 15:50:11 PST</pubDate>
-        <enclosure url="https://sparkle-project.org/files/Sparkle%20Test%20App.zip" sparkle:version="1.0" length="107758" type="application/octet-stream"/>
+        <enclosure url="https://github.com/sparta-science/connect/releases/download/1.0/SpartaConnect1.0.zip" sparkle:version="1.0" length="107758" type="application/octet-stream"/>
       </item>
   </channel>
 </rss>
