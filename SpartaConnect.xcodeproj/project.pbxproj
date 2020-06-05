@@ -545,7 +545,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AC696VB3L2;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -554,6 +555,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnect;
 				PRODUCT_NAME = SpartaConnect;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -563,7 +565,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AC696VB3L2;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -572,6 +575,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnect;
 				PRODUCT_NAME = SpartaConnect;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
