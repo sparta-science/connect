@@ -13,9 +13,13 @@ jobs:
 
     steps:
     - uses: apple-actions/import-codesign-certs@v1
+      id: codesign
+      keychain: certs
       with:
         p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+    - name: unlock keychain
+      run: security unlock-keychain -p "${{ steps.codesign.outputs.keychain-password }}" ~/Library/Keychains/certs.keychain-db
     - uses: actions/checkout@v2
     - name: Build
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
