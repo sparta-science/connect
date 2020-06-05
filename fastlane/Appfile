@@ -1,0 +1,6 @@
+app_identifier("com.spartascience.SpartaConnect")
+apple_id("developer.computers@spartascience.com")
+team_id("AC696VB3L2")
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

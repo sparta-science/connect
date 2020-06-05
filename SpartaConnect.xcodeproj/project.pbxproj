@@ -53,6 +53,8 @@
 		4AD40A9F2489B332002728DA /* appcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		4AD40AA0248A3650002728DA /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		4AD40AA1248A3650002728DA /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
+		4AD40AA3248A372E002728DA /* Appfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Appfile; sourceTree = "<group>"; };
+		4AD40AA4248A372E002728DA /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
 		4F6D20E6D4A8B716F1187D7F /* Pods-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.release.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.release.xcconfig"; sourceTree = "<group>"; };
 		62C3517740FE74FE30E501E8 /* Pods-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App.debug.xcconfig"; path = "Target Support Files/Pods-App/Pods-App.debug.xcconfig"; sourceTree = "<group>"; };
 		98963E8A58AA9C03B3DEEDB9 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 				4AD40A9224870C00002728DA /* ci.yml */,
 				4AD40AA0248A3650002728DA /* Gemfile */,
 				4AD40AA1248A3650002728DA /* Gemfile.lock */,
+				4AD40AA2248A372E002728DA /* fastlane */,
 				4AA1888B2486FA90009CFACE /* App */,
 				4AA1889E2486FA90009CFACE /* UnitSpecs */,
 				4AA188A92486FA90009CFACE /* UITests */,
@@ -153,6 +156,15 @@
 				4AA188AC2486FA90009CFACE /* Info.plist */,
 			);
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		4AD40AA2248A372E002728DA /* fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				4AD40AA3248A372E002728DA /* Appfile */,
+				4AD40AA4248A372E002728DA /* Fastfile */,
+			);
+			path = fastlane;
 			sourceTree = "<group>";
 		};
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
@@ -571,7 +583,7 @@
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = AC696VB3L2;
+				DEVELOPMENT_TEAM = 35KC7LV9BL;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
