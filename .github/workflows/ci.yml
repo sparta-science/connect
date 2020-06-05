@@ -2,7 +2,7 @@ name: OnGitHub
 
 on:
   push:
-    branches: [ master ]
+    branches: [ pz/manual-appcast ]
   pull_request:
     branches: [ master ]
 
