@@ -12,8 +12,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
+    - uses: apple-actions/import-codesign-certs@v1
+      with:
+        p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+        p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
     - name: Run tests
-      run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App test | xcpretty
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App test | xcpretty
