@@ -1,13 +1,17 @@
 # Sparta Connect
+
 ### Sparta Force plate Mac OS client
+
 ![OnGitHub](https://github.com/sparta-science/connect/workflows/OnGitHub/badge.svg)
 
 ## Features
+
 1. [Sparkle Updates](https://sparkle-project.org/)
   - automatically downloaded
   - click "Check for updates..." menu
 
 ## Development
+
 1. Continuous Integration
   - builds code signed app
   - triggle new build on [Github Actions](https://github.com/sparta-science/connect/actions)

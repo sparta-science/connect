@@ -1,0 +1,670 @@
+<h1>Version 1.3.1 (3/26/17)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.3.0...v1.3.1">Full changelog</a></p>
+
+<ul>
+<li>[added by @paullj1] Allow display of play/pause status in the Dock to be disabled (#278)</li>
+<li>[added by @paullj1] Add “Skip” button to macOS song notifications</li>
+<li>[added by @nriley] Better distinguish the play/pause icon from the album art in the Dock (#277)</li>
+<li>[added by @nriley] Use native Touch Bar controls (when Hermes is not the active application) in macOS 10.12.2 and later (#287)</li>
+<li>[added by @brettpynn] Provide notification of stream stopping when Hermes is quit (#293)</li>
+<li>[changed by @nriley] Clarify “thumbs up” and “rating” in scripting (#196)</li>
+<li>[fixed by @nriley] Fix “current song” reference in scripting</li>
+<li>[fixed by @nriley] Work around a regression in macOS 10.12 which caused issues when showing drawers</li>
+<li>[fixed by @elemongw] Fix checking then unchecking “Use proxy for audio” leaving proxy enabled (#290)</li>
+<li>[fixed by @nriley] Don’t crash, instead display a message when proxy information is invalid</li>
+<li>[fixed by @yerke] Work around Pandora API returning errors in user.canSubscribe (#296)</li>
+<li>[fixed by @grimreaper] Several code cleanups (#283)</li>
+</ul>
+
+<h1>Version 1.3.0 (9/20/16)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.8...v1.3.0">Full changelog</a></p>
+
+<ul>
+<li>[added by @paullj1] Allow skipping songs (if using banners) and liking/disliking songs (if using alerts) from macOS notifications (#273)</li>
+<li>[added by @paullj1] Optionally show album art and/or track titles in the menu bar (#208, #275)</li>
+<li>[added by @paullj1] Optionally show album art and play/pause status in the Dock (#275)</li>
+<li>[added by @paullj1 and @nriley] Display currently playing station in menubar and Dock menu</li>
+<li>[changed by @paullj1] Make Hermes macOS song notifications look more like iTunes notifications (#273)</li>
+<li>[changed by @nriley] Simplify and reduce screen space used by main window</li>
+<li>[fixed by @nriley] Allow the Hermes to appear over fullscreen applications when the Dock icon is hidden</li>
+<li>[fixed by @nriley] Work around OS X 10.10 bug causing strange drawer background coloring</li>
+<li>[fixed by @nriley] Work around macOS 10.12 bug causing volume slider and song progress not to display</li>
+<li>[fixed by @nriley] More reliably respond to the play/pause keyboard shortcut (space bar)</li>
+<li>[fixed by @nriley] Properly show the About Hermes window when Hermes’ Dock icon is hidden</li>
+</ul>
+
+<h1>Version 1.2.8 (6/24/16)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.7...v1.2.8">Full changelog</a></p>
+
+<ul>
+<li>[changed by @nriley] Fix a regression introduced in 1.2.7 which degraded audio quality for non-Pandora One users (#263)</li>
+<li>[changed by @nriley] Always display Shuffle (formerly QuickMix) at the top of the station list, more like the Pandora Web site</li>
+<li>[changed by @reedloden] Scrobble securely where possible</li>
+<li>[added by @nriley] Only display song/artist/album arrows in the playback screen on mouseover</li>
+<li>[added by @nriley] Allow double-clicking seeds or genres to create a station or add a seed</li>
+<li>[added by @nriley] Allow the likes/dislikes lists in the Edit Station window to be sorted (#266)</li>
+<li>[added by @nriley] Save the size and position of the Edit Station window</li>
+<li>[added by @nriley] Sort station genres and improve their display</li>
+<li>[added by @nriley] Show playback date/time with tooltips in history drawer</li>
+<li>[added by @nriley] Sign with Developer ID for Gatekeeper</li>
+<li>[fixed by @nriley] Don’t allow the drawer or toolbar to be used before you’re logged into Pandora (#170)</li>
+<li>[fixed by @nriley] Display the station drawer when asking the user to “Choose a station” (#170)</li>
+<li>[fixed by @nriley] Don’t crash when adding or removing seeds from a station</li>
+<li>[fixed by @nriley] Don’t show the add station sheet after dismissing another sheet</li>
+<li>[fixed by @nriley] Fix search results showing up in unexpected places</li>
+<li>[fixed by @nriley] Allow clicking on album art in the history drawer (#178)</li>
+<li>[fixed by @nriley] Improve history display (e.g. no longer scrolls to/selects the oldest song)</li>
+<li>[fixed by @nriley] Better handle deleting the current station</li>
+<li>[fixed by @nriley] Allow editing seeds in genre stations (#267)</li>
+<li>[fixed by @nriley] Immediately reflect changes to likes/dislikes in the Edit Station window</li>
+<li>[fixed by @nriley] Display a progress indicator rather than appearing to get “stuck” when changing stations</li>
+</ul>
+
+<h1>Version 1.2.7 (5/11/16)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.6...v1.2.7">Full changelog</a></p>
+
+<ul>
+<li>[changed by @nriley] Dropped support for OS X 10.9 and earlier</li>
+<li>[changed by @winny-] Removed “Tired of Song” from default toolbar</li>
+<li>[added by @ericmason] Support for high quality, 192 Kbps MP3 streams</li>
+<li>[added by @obycode] Add distributed notification for state changes</li>
+<li>[added by @nriley] Only enable station menu items/buttons where appropriate (#240)</li>
+<li>[fixed by @jmjones88] Update to build with Xcode 7.3 and fix for OS X 10.11</li>
+<li>[fixed by @dwaite] Fix truncation at 1024 bytes of response, usually impacting the ability to log in (#244)</li>
+<li>[fixed by @reedloden] Update Sparkle and use SSL to retrieve Hermes’ appcast to address a Sparkle security vulnerability (#254)</li>
+<li>[fixed by @nriley] Make lyrics button work again (LyricWikia API change)</li>
+<li>[fixed by @nriley] Make Last.fm authorization work again (#242)</li>
+<li>[fixed by @nriley] Rename QuickMix to Shuffle to be consistent with current Pandora terminology (#201)</li>
+<li>[fixed by @nriley] Use monospaced numbers in OS X 10.11 for song progress</li>
+<li>[fixed by @nriley] Better handle errors when opening a connection</li>
+<li>[fixed by @nriley] Fix an error when handling media keys</li>
+</ul>
+
+<h1>Version 1.2.6 (5/6/15)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.5...v1.2.6">Full changelog</a></p>
+
+<ul>
+<li>[changed by @winny-] Dropped support for OS X 10.8 and earlier</li>
+<li>[changed by @winny-] Use Apple’s JSON parser instead of SBJSON (#213)</li>
+<li>[fixed by @nriley] Station sort-by-date works again (#209)</li>
+<li>[fixed by @Aahung] Toolbar “Stations” button’s text now correctly reads as “Stations” (#224)</li>
+<li>[added by @Aahung] Playback progress bar replaced with iTunes-like progress bar (#223)</li>
+</ul>
+
+<h1>Version 1.2.5 (12/28/14)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.4...v1.2.5">Full changelog</a></p>
+
+<ul>
+<li>[fixed by @nriley] Restore OS X 10.7 support</li>
+</ul>
+
+<h1>Version 1.2.4 (12/26/14)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.3...v1.2.4">Full changelog</a></p>
+
+<ul>
+<li>[fixed by @nriley] General UI cleanup of the seed editor and main Hermes window</li>
+<li>[added by @Djspaceg, @nriley] Play/pause menubar icons</li>
+<li>[changed by @winny-] Stop asking for donations</li>
+</ul>
+
+<h1>Version 1.2.3 (11/9/14)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.2...v1.2.3">Full changelog</a></p>
+
+<ul>
+<li>[fixed by @vadimpanin] Fix HTTPS proxy support (#193)</li>
+<li>[fixed by @cazierb] Fix issue with the Hermes menubar icon and the Yosemite dark theme (#198)</li>
+<li>[added by @winny-] Add menu item Window → Main Window ⌘1</li>
+<li>[changed by @winny-] Default to only show notifications for track change</li>
+</ul>
+
+<h1>Version 1.2.2 (7/12/14)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.1...v1.2.2">Full changelog</a></p>
+
+<ul>
+<li>[fixed by @gbooker] Always re-grab media keys after opening other app that uses media keys (#184)</li>
+<li>[changed by @winny-] Default to Notification Center type notifications</li>
+<li>[fixed by @winny-] Small improvements to logging and the login UI</li>
+<li>[added by @winny-, @nriley] Document keyboard shortcuts in <a href="https://github.com/HermesApp/Hermes/blob/master/Documentation/KeyboardShortcuts.md">Documentation/KeyboardShortcuts.md</a></li>
+</ul>
+
+<h1>Version 1.2.1 (5/29/14)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.2.0...v1.2.1">Full changelog</a></p>
+
+<ul>
+<li>[added by @winny-] Internal support to switch device partner logins. Currently uses
+      Android for regular Pandora users, and Pandora One Desktop for
+      Pandora One users.</li>
+<li>[fixed by @winny-] Set volume even if paused (#169).</li>
+<li>[fixed by @nriley, @winny-] Various UI improvements including sanity-checking login
+      credentials and adding transparency to music note icon.</li>
+<li>[fixed by @nriley] Resolve issue with SPMediaKeyTap (media keys library) (#172).</li>
+<li>[added by @winny-] Show album art in non-Growl notifications on Mavericks.</li>
+<li>[fixed by @winny-] Issue where non-Growl notification clicked does not raise Hermes.</li>
+<li>[added by @winny-] Optional debug logging to <code>~/Library/Logs/Hermes/</code> enabled at startup
+      — hold down Option (⌥) and look for ladybug emoji (🐞) in menubar.</li>
+<li>[fixed by @nriley, @winny-] Do not disable Like/Dislike in menu bar and Dock menu,
+      instead simply show status using a checkmark — this way one may “undo” Like
+      or Dislike from any menu item.</li>
+</ul>
+
+<h1>Version 1.2.0 (4/4/14)</h1>
+
+<p><a href="https://github.com/HermesApp/Hermes/compare/v1.1.20...v1.2.0">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Always display the menubar on startup, thanks @nriley!</li>
+<li>[fixed] Several improvements to the menubar including reclaiming ⌘M for
+      minimize, show liked status (#146), rename ambiguious menu items.
+      Thanks @nriley!</li>
+<li>[added] Pause on Screen lock (Try Control-Shift-Power) (#154), thanks @Elemecca!</li>
+<li>[fixed] Spacebar always pauses even when drawer visible except when searching
+      for a station (#150), thanks @winny-!</li>
+<li>[added] AppleScript variables to get current playback progress
+      <code>playback position</code> and song length <code>current song duration</code>
+      (#157) Thanks @winny-!</li>
+<li>[fixed] Preferences window now resizes to fit contents, shows current section
+      title, cleaner layout. Thanks @nriley!</li>
+<li>[fixed] Do not show menubar when Hermes is a status bar item and expose
+      functionality in status bar item dropdown menu (#134), thanks @nriley!</li>
+<li>[added] Show tooltips for now playing title, artist, and album. Thanks @nriley!</li>
+<li>[fixed] Only show display current song in Notification Center. Thanks @winny-!</li>
+<li>[fixed] Support PC media keys (#122). Thanks @winny-!</li>
+<li>[fixed] The “Help” dropdown now has functionality. (Reported by @nriley)
+      Thanks @winny- &amp; @nriley!</li>
+<li>[fixed] Show authors and contributors in the “About” window. Also show links
+      from the previously mentioned “Help” dropdown menu. (Reported by
+      @nriley) Thanks @winny- &amp; @nriley!</li>
+</ul>
+
+<h1>Version 1.1.20 (9/16/13)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.19...v1.1.20">Full changelog</a></p>
+
+<p>This release entirely brought to you through the fantastic contributions of
+@nriley.</p>
+
+<ul>
+<li>[added] Various improvements to managing the drawer of songs/stations, thanks
+      @nriley!</li>
+<li>[fixed] Don’t switch to the discrete graphics card (#144), thanks to @nriley</li>
+</ul>
+
+<h1>Version 1.1.19 (9/4/13)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.18...v1.1.19">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Actually fixed for 10.6 (retargeting AudioStreamer as well as SBJson),
+      thanks again to @nriley</li>
+</ul>
+
+<h1>Version 1.1.18 (9/3/13)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.17...v1.1.18">Full changelog</a></p>
+
+<ul>
+<li>[added] Pause playback on screensaver start, optionally resume on stop, thanks
+      @winny-!</li>
+<li>[added] New shortcuts for increasing/decreasing volume, thanks @winny-!</li>
+<li>[added] The window title is now the station title, thanks @nriley!</li>
+<li>[added] The progress bar is no longer animated and fits the theme better,
+      thanks @nriley!</li>
+<li>[added] The album art is now clickable to zoom it and get a nicer preview,
+      thanks @nriley!</li>
+<li>[fixed] Now runs on 10.6 again, thanks @nriley!</li>
+</ul>
+
+<h1>Version 1.1.17 (7/30/13)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.16...v1.1.17">Full changelog</a></p>
+
+<ul>
+<li>[fixed] No longer crashes when switching stations</li>
+</ul>
+
+<h1>Version 1.1.16 (7/30/13)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.15...v1.1.16">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Increase stability when running for a long time</li>
+<li>[fixed] Other various bug fixes</li>
+</ul>
+
+<h1>Version 1.1.15 (6/26/13)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.14...v1.1.15">Full changelog</a></p>
+
+<ul>
+<li>[fixed] The nrating property for AppleScript has been fixed, thanks to @dlh</li>
+<li>[fixed] The state of buttons in both the drawer and main playback view are now
+      better synchronized with each other, thanks to @dlh</li>
+<li>[fixed] Attempted to fix issues associated with a few assertions cropping up</li>
+</ul>
+
+<h1>Version 1.1.14 (4/10/13)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.13...v1.1.14">Full changelog</a></p>
+
+<ul>
+<li>[added] Added the option of using a black/white status bar icon instead of one
+      which has color, thanks to @bradmkjr</li>
+<li>[fixed] Be sure a blank process name doesn’t show up in the Activity Monitor</li>
+<li>[fixed] The ⌘H shortcut now works again</li>
+</ul>
+
+<h1>Version 1.1.13 (1/4/13)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.12...v1.1.13">Full changelog</a></p>
+
+<ul>
+<li>[added] On 10.7+, use a thumbs-up emoji, thanks to @kirbylover4000</li>
+<li>[added] Option to have Hermes be purely a status-bar app (not in dock)</li>
+<li>[added] Thumbs up/down are now selectable buttons (which means they can be
+      de-selected to remove feedback)</li>
+<li>[added] There is now an option to have Hermes always be on top of all other
+      windows</li>
+<li>[added] Hermes automatically retries failed requests in addition to showing an
+      error screen</li>
+<li>[fixed] Don’t show extra labels on the auth view by default, thanks to
+      @kirbylover4000</li>
+<li>[fixed] Resolve a problem where the application could not be quit through
+      applescript</li>
+</ul>
+
+<h1>Version 1.1.12 (11/11/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.11...v1.1.12">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Fix a few crashes related to loading lists of songs saved from the
+      last session of Hermes</li>
+<li>[fixed] Song notifications are now only displayed if the song is actually
+      playing</li>
+<li>[added] Changed how liked songs are displayed in notifications, thanks to
+      @viveksjain</li>
+</ul>
+
+<h1>Version 1.1.11 (9/21/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.10...v1.1.11">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Do not drop the last few seconds of audio periodically</li>
+<li>[fixed] Resume in the middle of a song across application instances fixed</li>
+</ul>
+
+<h1>Version 1.1.10 (8/10/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.9...v1.1.10">Full changelog</a></p>
+
+<ul>
+<li>[added] Ability to sort stations list by name or date of creation</li>
+<li>[added] Receive notifications through Growl or Mountain Lion’s new
+      Notification Center</li>
+<li>[fixed] Reduced memory retained over time</li>
+</ul>
+
+<h1>Version 1.1.9 (7/30/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.8...v1.1.9">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Last.fm scrobbling time stamps are now correct again</li>
+<li>[fixed] Fix a duplication of a UI item in preferences</li>
+</ul>
+
+<h1>Version 1.1.8 (7/30/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.7...v1.1.8">Full changelog</a></p>
+
+<ul>
+<li>[added] The internal timer to update the GUI is now paused when the
+      application is not visible</li>
+<li>[added] Respect permissions on pandora stations for liking/disliking songs,
+      renaming stations, and adding seeds to stations</li>
+<li>[added] Growl notifications now indicate whether a song is liked</li>
+<li>[fixed] The tooltip on the station/history toolbar item now correctly reflects
+      the current state of the button</li>
+</ul>
+
+<h1>Version 1.1.7 (7/4/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.6...v1.1.7">Full changelog</a></p>
+
+<ul>
+<li>[added] New UI for viewing song history in a drawer instead of a popup</li>
+<li>[added] Stations can now be created by genre as well as by seed</li>
+<li>[added] Button in history view to view the lyrics of a song</li>
+<li>[fixed] Disliking the current song in the history skips it and moves on</li>
+</ul>
+
+<h1>Version 1.1.6 (6/17/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.5...v1.1.6">Full changelog</a></p>
+
+<ul>
+<li>[added] Add an option to not proxy audio streams because it’s not necessarily
+      required by Pandora. Thanks to @osener for the suggestion.</li>
+<li>[fixed] Switching stations no longer plays two songs</li>
+</ul>
+
+<h1>Version 1.1.5 (6/16/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.4...v1.1.5">Full changelog</a></p>
+
+<ul>
+<li>[added] Proxy configuration for just the Hermes application. Be aware that
+      software updates will still go through the system proxy instead of the
+      Hermes-configured proxy</li>
+<li>[added] If network connectivity is lost, and then regained, automatically
+      resume playback if playback was previously happening.</li>
+<li>[fixed] Improve error handling in cases of intermittent network connectivity
+      by providing a way to maintain listening to the last song as soon as
+      the network connection is restored</li>
+<li>[fixed] An assertion no longer trips when re-authenticating with Pandora</li>
+<li>[misc ] massive internal cleanup across the code base</li>
+</ul>
+
+<h1>Version 1.1.4 (6/5/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.3...v1.1.4">Full changelog</a></p>
+
+<ul>
+<li>[added] Preferences for tweaking how software update works</li>
+<li>[fixed] Toolbar items no longer randomly disable themselves</li>
+<li>[fixed] Fix a bug fetching songs from pandora with bad formats specified</li>
+</ul>
+
+<h1>Version 1.1.3 (6/2/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.2...v1.1.3">Full changelog</a></p>
+
+<ul>
+<li>[added] When an error happens because the network is having trouble, there is
+      now a button to retry the last request</li>
+<li>[fixed] Stations no longer randomly remove themselves when a new
+      authentication token is fetched</li>
+</ul>
+
+<h1>Version 1.1.2 (5/26/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.1...v1.1.2">Full changelog</a></p>
+
+<ul>
+<li>[added] Remember stations drawer width across application restarts</li>
+<li>[added] Keyboard shortcut to edit a station (⇧+⌘+d)</li>
+<li>[fixed] General UI tweaks for better quality and a better application</li>
+<li>[fixed] When deletion of a seed fails, have a better notification</li>
+<li>[fixed] Error handling (reauthentication and during authentication) working
+      again</li>
+</ul>
+
+<h1>Version 1.1.1 (5/20/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.1.0...v1.1.1">Full changelog</a></p>
+
+<ul>
+<li>[added] New UI for editing a station</li>
+<li>[fixed] Fix an issue where non-Pandora One users couldn’t play more than four
+      songs without a crash happening, thanks to @viveksjain</li>
+</ul>
+
+<h1>Version 1.1.0 (5/18/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.22...v1.1.0">Full changelog</a></p>
+
+<ul>
+<li>[added] Move to using Pandora’s JSON API instead of the XMLRPC one in hopes of
+      being more stable and requiring fewer updates</li>
+<li>[added] After creating a station, immediately begin playback of the station</li>
+<li>[added] Preference option for high/medium/low quality audio</li>
+<li>[fixed] Always make sure that toolbar items are enabled when a new song plays</li>
+<li>[fixed] Ensure the station drawer opens when there’s no saved station</li>
+</ul>
+
+<h1>Version 1.0.22 (4/27/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.21...v1.0.22">Full changelog</a></p>
+
+<ul>
+<li>[added] Preference option to not send liked tracks as “loved” to last.fm,
+      thanks to @tresni</li>
+<li>[fixed] Updated to Pandora’s v34 protocol</li>
+<li>[fixed] <code>track.unlove</code> now properly sent to last.fm</li>
+<li>[fixed] Fixed a memory leak with the dock menu opening/closing</li>
+</ul>
+
+<h1>Version 1.0.21 (3/22/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.20...v1.0.21">Full changelog</a></p>
+
+<ul>
+<li>[added] Fine-grained control for which Growl notifications are received,
+      configurable through Hermes’ preferences, or also through Growl’s</li>
+<li>[added] Tell last.fm when a track starts playing via the
+      <code>track.updateNowPlaying</code> API method, thanks to @tresni</li>
+<li>[added] Tell last.fm about liked/disliked tracks via the <code>track.love</code> and
+      <code>track.unlove</code> methods, thanks to @ginader for the idea</li>
+<li>[added] Add a preference for only scrobbling liked tracks, thanks to
+      @ginader for the idea.</li>
+<li>[added] Dock menu now displays the playing song, if there is one, thanks to
+      @viveksjain</li>
+<li>[added] Preserve stations drawer state across launches, thanks to @viveksjain</li>
+<li>[fixed] Fixed scrobbling in some situations where the saved session key was
+      wrong, thanks to @tresni</li>
+<li>[fixed] Growl notifications now globally coalesce, instead of on a song-level,
+      thanks to @viveksjain</li>
+</ul>
+
+<h1>Version 1.0.20 (2/23/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.19...v1.0.20">Full changelog</a></p>
+
+<ul>
+<li>[added] Keyboard shortcut to play selected station, bring Hermes to the front
+      as selected application, and to show history thanks to @Sheyne</li>
+<li>[fixed] Pandora wants all requests over https now</li>
+</ul>
+
+<h1>Version 1.0.19 (2/17/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.18...v1.0.19">Full changelog</a></p>
+
+<ul>
+<li>[fixed] AppleScript “tired of song” now actually performs the right action,
+      thanks to @tresni</li>
+<li>[fixed] Creating stations clears the search field from the previous search</li>
+<li>[fixed] Updated Growl to 1.3, thanks to @terinjokes</li>
+</ul>
+
+<h1>Version 1.0.18 (1/12/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.17...v1.0.18">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Parsing error messages works again to correctly refetch a token with
+      Pandora</li>
+</ul>
+
+<h1>Version 1.0.17 (1/10/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.16...v1.0.17">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Don’t use “https” on most API requests to Pandora</li>
+<li>[fixed] Use smaller request IDs to appease Pandora</li>
+</ul>
+
+<h1>Version 1.0.16 (1/6/12)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.15...v1.0.16">Full changelog</a></p>
+
+<ul>
+<li>[added] Dock icon menu now has options for play/pause/like/dislike</li>
+<li>[added] AppleScript for getting/setting the station playing</li>
+<li>[added] AppleScript for getting the current song and attributes about it</li>
+</ul>
+
+<h1>Version 1.0.15 (12/17/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.14...v1.0.15">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Volume control works again</li>
+</ul>
+
+<h1>Version 1.0.14 (12/15/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.13...v1.0.14">Full changelog</a></p>
+
+<ul>
+<li>[added] <code>tired of song</code> command in AppleScript</li>
+<li>[added] <code>current volume</code> read/write attribute in AppleScript</li>
+<li>[added] <code>unmute</code> command in AppleScript</li>
+<li>[added] <code>playback state</code> read/write attribute in AppleScript</li>
+<li>[fixed] A few memory leaks have been resolved</li>
+<li>[fixed] Use Pandora’s <code>sync</code> API for real</li>
+</ul>
+
+<h1>Version 1.0.13 (11/20/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.12...v1.0.13">Full changelog</a></p>
+
+<ul>
+<li>[added] Broadcast new songs with NSDistributedNotificationCenter so programs
+can listen in if they’d like. The notification name is <code>hermes.song</code> and the
+object sending the notification is <code>hermes</code></li>
+<li>[added] The stations drawer is now manually collapsible and preserves state
+when the window loses focus</li>
+<li>[added] AppleScript support. See the
+<a href="https://github.com/alexcrichton/hermes/blob/master/README.md">README</a> for
+more information</li>
+<li>[fixed] Don’t use <code>@throw</code>, it doesn’t play nicely with ARC. Fixes a crash
+on startup if first time running.</li>
+</ul>
+
+<h1>Version 1.0.12 (11/18/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.11...v1.0.12">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Logging out and then back in works much better now</li>
+</ul>
+
+<h1>Version 1.0.11 (11/16/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.10...v1.0.11">Full changelog</a></p>
+
+<ul>
+<li>[added] Support OSX 10.6</li>
+<li>[fixed] Fix an intermittent crash occuring upon resume.</li>
+</ul>
+
+<h1>Version 1.0.10 (11/9/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.9...v1.0.10">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Pandora prefers SSL connections</li>
+<li>[fixed] Enable the logout menu item</li>
+</ul>
+
+<h1>Version 1.0.9 (11/9/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.8...v1.0.9">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Pandora protocol version bump</li>
+</ul>
+
+<h1>Version 1.0.8 (10/31/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.7...v1.0.8">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Scrobbler correctly gets session key from user’s keychain</li>
+<li>[added] Growl notifications occur when songs play (can be turned off)</li>
+<li>[added] Growl and media keys turned on by default</li>
+<li>[added] History view for seeing past songs and liking/disliking past songs</li>
+<li>[added] On application restore, don’t start playing music</li>
+</ul>
+
+<h1>Version 1.0.6 (9/21/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.5...v1.0.6">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Updated to Pandora’s v32 API (no changes yet)</li>
+</ul>
+
+<h1>Version 1.0.5 (8/16/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.4...v1.0.5">Full changelog</a></p>
+
+<ul>
+<li>[added] Much better error handling/reporting</li>
+<li>[added] App now slides between windows instead of appearing</li>
+<li>[fixed] Much more developer-friendly interface design</li>
+<li>[fixed] Addressed some issues with receiving a station list from Pandora</li>
+<li>[changed] Supporting 10.7+ now</li>
+</ul>
+
+<h1>Version 1.0.4 (7/9/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.3...v1.0.4">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Correctly escape characters when submitting to last.fm</li>
+<li>[fixed] Removed some memory leaks in FMEngine</li>
+<li>[fixed] Removed memory leaks in Scrobbler</li>
+<li>[fixed] Removed multiple release bug when deleting a station</li>
+<li>[fixed] Smoother updating of progress on the time lapse bar</li>
+<li>[fixed] Updated to new Pandora API version</li>
+<li>[added] Don’t log debug messages in the Release build target</li>
+<li>[added] Better resuming of interrupted streams</li>
+<li>[added] Updated for Xcode 4</li>
+</ul>
+
+<h1>Version 1.0.3 (4/29/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.2...v1.0.3">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Updated the JSON framework to support OSX 10.5+</li>
+</ul>
+
+<h1>Version 1.0.2 (4/29/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.1...v1.0.2">Full changelog</a></p>
+
+<ul>
+<li>[added] Scrobbling via last.fm</li>
+<li>[added] Binding of media keys on apple keyboards</li>
+<li>[added] Preferences pane for tweaking configuration</li>
+</ul>
+
+<h1>Version 1.0.1 (4/28/11)</h1>
+
+<p><a href="https://github.com/alexcrichton/hermes/compare/v1.0.0...v1.0.1">Full changelog</a></p>
+
+<ul>
+<li>[fixed] Pandora crypto keys updated to newer versions</li>
+<li>[fixed] Pandora protocol now uses v30 (no API changes, however)</li>
+</ul>
+
+<h1>Version 1.0.0 (3/25/11)</h1>
+
+<ul>
+<li>Initial release</li>
+</ul>

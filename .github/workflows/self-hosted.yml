@@ -1,0 +1,37 @@
+name: self-hosted-test
+
+on:
+  [push]
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  build-then-test:
+
+    runs-on: self-hosted
+    env:
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+      NSUnbufferedIO: YES
+
+    steps:
+    - run: bundle
+    - name: Checkout
+      uses: actions/checkout@v2.2.0
+    - name: Build
+      run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
+    - name: Run Unit Specs
+      run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App test -only-testing UnitSpecs | xcpretty
+    - name: Start HTTP mock server
+      run: |
+        cd UITests/mockHttpServer
+        python -m SimpleHTTPServer &
+    - name: Run UI Tests
+      run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App test -only-testing UITests -resultBundlePath test-results | xcpretty
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui-tests.xcresult.zip
+        path: test-results.xcresult/
