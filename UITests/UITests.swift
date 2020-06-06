@@ -46,7 +46,6 @@ class UITests: XCTestCase {
     }
 
     func testAutoUpgrade() throws {
-
         let app = XCUIApplication()
         app.launch()
         let menuBarsQuery = app.menuBars
@@ -54,13 +53,19 @@ class UITests: XCTestCase {
         menuBarsQuery.menuItems["Check for updates..."].click()
         let updateDialog = app.dialogs["Software Update"]
         updateDialog.waitToAppear()
-        updateDialog.staticTexts["Initial Release."].waitToAppear()
+        updateDialog.staticTexts["Initial Release"].waitToAppear()
         updateDialog.buttons["Install Update"].click()
         
         let updatingWindow = app.windows["Updating SpartaConnect"]
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
-        app.dialogs["alert"].buttons["Cancel Update"].click()
+        updatingWindow.waitToDisappear()
+        
+        app.windows["Window"].waitToAppear()
+        app.menuBars.menuBarItems["SpartaConnect"].click()
+        app.menuBars.menus.menuItems["About SpartaConnect"].click()
+        app.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
+        app.dialogs.buttons[XCUIIdentifierCloseWindow].click()
     }
 
     func XtestLaunchPerformance() throws {
