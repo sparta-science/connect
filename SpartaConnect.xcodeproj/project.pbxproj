@@ -65,7 +65,6 @@
 		18383CF04CD5A0B420B6B253 /* Pods-AppSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppSpecs.debug.xcconfig"; path = "Target Support Files/Pods-AppSpecs/Pods-AppSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		2480A208D16FB9455A8E32E1 /* Pods_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1DC8D06D85415B5E5370B8 /* Pods-UnitSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitSpecs.release.xcconfig"; path = "Target Support Files/Pods-UnitSpecs/Pods-UnitSpecs.release.xcconfig"; sourceTree = "<group>"; };
-		4A3F3C6C248C09BB0058C5D4 /* appcast.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		4A3F3C72248C92720058C5D4 /* Testable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Testable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3F3C74248C92720058C5D4 /* Testable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Testable.h; sourceTree = "<group>"; };
 		4A3F3C75248C92720058C5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -175,7 +174,6 @@
 			children = (
 				4AD40A99248850E1002728DA /* README.md */,
 				4AD40A9224870C00002728DA /* ci.yml */,
-				4A3F3C6C248C09BB0058C5D4 /* appcast.xml */,
 				4AD40A9D24897F51002728DA /* self-hosted.yml */,
 			);
 			name = "Supporting Files";

@@ -37,6 +37,6 @@
 	<key>SUAutomaticallyUpdate</key>
 	<true/>
 	<key>SUFeedURL</key>
-	<string>https://raw.githubusercontent.com/sparta-science/connect/master/appcast.xml</string>
+	<string>https://github.com/sparta-science/connect/releases/latest/download/appcast.xml</string>
 </dict>
 </plist>
