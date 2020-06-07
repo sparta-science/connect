@@ -10,7 +10,6 @@ jobs:
   build-and-test:
 
     runs-on: macos-latest
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
     - name: Disable firewall
       run: |
