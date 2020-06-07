@@ -24,12 +24,14 @@ jobs:
         keychain: certs
     - name: Checkout
       uses: actions/checkout@v2.2.0
+    - name: Unit Specs
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
     - name: Build
-      run: xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
-    - name: Run Unit Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App test -only-testing UnitSpecs | xcpretty
-    - name: Run UI Tests
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App test -only-testing UITests -resultBundlePath test-results | xcpretty
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
+    - name: App Specs
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
+    - name: UI Tests
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath test-results | xcpretty
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
