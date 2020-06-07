@@ -1,5 +1,4 @@
-import Cocoa
+import AppKit
 
 @NSApplicationMain
-public class AppDelegate: NSObject, NSApplicationDelegate {
-}
+public class AppDelegate: NSObject, NSApplicationDelegate {}

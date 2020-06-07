@@ -12,7 +12,7 @@
 		4A3F3C76248C92720058C5D4 /* Testable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3F3C74248C92720058C5D4 /* Testable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A3F3C79248C92720058C5D4 /* Testable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F3C72248C92720058C5D4 /* Testable.framework */; };
 		4A3F3C7A248C92720058C5D4 /* Testable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F3C72248C92720058C5D4 /* Testable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		4A3F3C86248C92AE0058C5D4 /* AppSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C85248C92AE0058C5D4 /* AppSpecs.swift */; };
+		4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */; };
 		4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888C2486FA90009CFACE /* AppDelegate.swift */; };
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
@@ -70,7 +70,7 @@
 		4A3F3C74248C92720058C5D4 /* Testable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Testable.h; sourceTree = "<group>"; };
 		4A3F3C75248C92720058C5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A3F3C83248C92AE0058C5D4 /* AppSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A3F3C85248C92AE0058C5D4 /* AppSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSpecs.swift; sourceTree = "<group>"; };
+		4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUpdaterSpec.swift; sourceTree = "<group>"; };
 		4A3F3C87248C92AE0058C5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA188892486FA90009CFACE /* SpartaConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA1888C2486FA90009CFACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		4A3F3C84248C92AE0058C5D4 /* AppSpecs */ = {
 			isa = PBXGroup;
 			children = (
-				4A3F3C85248C92AE0058C5D4 /* AppSpecs.swift */,
+				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
 			);
 			path = AppSpecs;
@@ -585,7 +585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A3F3C86248C92AE0058C5D4 /* AppSpecs.swift in Sources */,
+				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
