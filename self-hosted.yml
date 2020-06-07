@@ -16,6 +16,7 @@ jobs:
       NSUnbufferedIO: YES
 
     steps:
+    - run: rm ~/Library/Keychains/certs.keychain-db || true
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
       with:
