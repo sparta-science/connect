@@ -14,7 +14,7 @@
 
 1. Continuous Integration
    - builds code signed app
-   - triggle new build on [Github Actions](https://github.com/sparta-science/connect/actions)
+   - trigger new build on [Github Actions](https://github.com/sparta-science/connect/actions)
    - [Self-hosted](https://github.com/sparta-science/connect/actions?query=workflow%3Aself-hosted-test+branch%3Amaster) and [onGitHub](https://github.com/sparta-science/connect/actions?query=workflow%3AOnGitHub+branch%3Amaster)
 2. Sparkle updates
    - not a sandbox app to allow updating the app by Sparkle
