@@ -32,6 +32,16 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4AA1889A2486FA90009CFACE"
+               BuildableName = "UnitSpecs.xctest"
+               BlueprintName = "UnitSpecs"
+               ReferencedContainer = "container:SpartaConnect.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "4A3F3C82248C92AE0058C5D4"
                BuildableName = "AppSpecs.xctest"
                BlueprintName = "AppSpecs"
