@@ -33,7 +33,7 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         updatingWindow.waitToDisappear()
         
-        app.windows["Window"].waitToAppear()
+        app.windows["Window"].waitToAppear(timeout: 3 * kDefaultTimeout)
         app.menuBars.menuBarItems["SpartaConnect"].click()
         app.menuBars.menus.menuItems["About SpartaConnect"].click()
         app.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
