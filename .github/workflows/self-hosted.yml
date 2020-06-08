@@ -28,7 +28,7 @@ jobs:
     - name: Unit Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
     - name: Build
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App clean build | xcpretty
     - name: App Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
     - name: UI Tests
