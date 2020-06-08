@@ -92,3 +92,6 @@ iOSInjectionProject/
 # Test Results
 /test-results
 /test-results.xcresult/
+
+# Intellij IDEA
+.idea/
