@@ -10,6 +10,7 @@ end
 
 target 'App' do
   pod 'Sparkle'
+  pod 'LetsMove'
   
   target 'AppSpecs' do
     inherit! :search_paths

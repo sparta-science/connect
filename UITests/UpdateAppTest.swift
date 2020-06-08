@@ -2,12 +2,15 @@ import XCTest
 
 let kDefaultTimeout: TimeInterval = 5
 
-class UITests: XCTestCase {
+class UpdateAppTest: XCTestCase {
     let app = XCUIApplication()
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
+        app.launchArguments = [
+            "-moveToApplicationsFolderAlertSuppress", "YES",
+        ]
         app.launch()
     }
 

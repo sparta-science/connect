@@ -17,6 +17,7 @@
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
 		4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */; };
+		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
 		4AD40A9124870708002728DA /* FirstSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* FirstSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
@@ -82,6 +83,7 @@
 		4AA188A62486FA90009CFACE /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAppTest.swift; sourceTree = "<group>"; };
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsTest.swift; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* FirstSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */,
+				4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */,
 				4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */,
 				4AA188AC2486FA90009CFACE /* Info.plist */,
 				4AD40A9B24897C85002728DA /* UITests.entitlements */,
@@ -609,6 +612,7 @@
 			files = (
 				4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */,
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
+				4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
