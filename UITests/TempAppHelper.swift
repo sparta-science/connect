@@ -17,3 +17,14 @@ class TempAppHelper {
         fileHelper.remove(url: tempUrl)
     }
 }
+
+class MoveAppHelper: TempAppHelper {
+    let movedUrl = URL(fileURLWithPath: "/Applications/SpartaConnect.app")
+    func movedApp() -> XCUIApplication {
+        XCUIApplication(url: movedUrl)
+    }
+    override func cleanup() {
+        super.cleanup()
+        fileHelper.remove(url: movedUrl)
+    }
+}

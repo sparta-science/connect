@@ -1,32 +1,18 @@
 import XCTest
 
 class MoveToApplicationsTest: XCTestCase {
-    let movedUrl = URL(fileURLWithPath: "/Applications/SpartaConnect.app")
-    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect.app")
-    let fileManager = FileManager.default
-    let builtApp = XCUIApplication()
-    lazy var tempApp = XCUIApplication(url: tempUrl)
-    lazy var movedApp = XCUIApplication(url: movedUrl)
-
-    func remove(url: URL) {
-        try? fileManager.removeItem(at: url)
-        XCTAssertFalse(fileManager.fileExists(atPath: url.path),
-                       "should not be in Applications")
-    }
-    
-    func cleanup() {
-        [movedUrl, tempUrl].forEach { remove(url: $0) }
-    }
+    let moveAppHelper = MoveAppHelper()
+    lazy var tempApp = moveAppHelper.tempApp()
+    lazy var movedApp = moveAppHelper.movedApp()
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
-        cleanup()
-        prepareTempApp()
+        moveAppHelper.prepare()
     }
 
     override func tearDownWithError() throws {
-        cleanup()
+        moveAppHelper.cleanup()
         try super.tearDownWithError()
     }
     
@@ -45,12 +31,6 @@ class MoveToApplicationsTest: XCTestCase {
         XCTAssertTrue(tempApp.wait(for: .notRunning, timeout: 1), "wait for app to terminate")
     }
     
-    func prepareTempApp() {
-        let pathBeforeMove = builtApp.value(forKeyPath: "_applicationImpl._path") as! String
-        try! fileManager.copyItem(at: URL(fileURLWithPath: pathBeforeMove), to: tempUrl)
-        XCTAssertTrue(fileManager.fileExists(atPath: tempUrl.path))
-    }
-
     func testMoveToApplications() throws {
         launchAndChooseToMoveToApplications()
         verifyRunningFromApplications()
