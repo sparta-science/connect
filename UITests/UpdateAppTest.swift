@@ -10,10 +10,11 @@ class UpdateAppTest: XCTestCase {
         try super.setUpWithError()
         continueAfterFailure = false
         tempAppHelper.prepare()
+        tempAppHelper.clearDefaults()
+        tempAppHelper.clearCache()
         app.launchArguments = [
             "-moveToApplicationsFolderAlertSuppress", "YES",
         ]
-        app.launch()
     }
 
     override func tearDownWithError() throws {
@@ -53,8 +54,46 @@ class UpdateAppTest: XCTestCase {
     }
     
     func testAutoUpgrade() throws {
+        tempAppHelper.persistDefaults([
+            "SULastCheckTime": Date()
+        ])
+        app.launch()
         checkForUpdatesAndInstall()
         installAndRelaunch()
+        verifyUpdated()
+    }
+    
+    func quitApp() {
+        app.activate()
+        app.menuBars.menuBarItems["SpartaConnect"].click()
+        app.menuItems["Quit SpartaConnect"].click()
+        XCTAssertTrue(app.wait(for: .notRunning, timeout: 5 * kDefaultTimeout))
+    }
+    
+    func checkUpdateDownloads() -> NSPredicate {
+        tempAppHelper.hasDownloaded(fileName: "SpartaConnect.app")
+    }
+    
+    func waitForUpdatesDownloaded() {
+        let expectDownload = expectation(for: checkUpdateDownloads(), evaluatedWith: nil)
+        wait(for: [expectDownload], timeout: 20 * kDefaultTimeout)
+    }
+    
+    func waitForUpdatesInstalled() {
+        let predicate = NSCompoundPredicate(notPredicateWithSubpredicate: checkUpdateDownloads())
+        let expectDownload = expectation(for: predicate, evaluatedWith: nil)
+        wait(for: [expectDownload], timeout: 5 * kDefaultTimeout)
+    }
+
+    
+    func testUpgradeOnQuit() {
+        app.launch()
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout))
+        waitForUpdatesDownloaded()
+        quitApp()
+        waitForUpdatesInstalled()
+        app.launch()
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout))
         verifyUpdated()
     }
 }

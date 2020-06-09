@@ -7,6 +7,32 @@ class TempAppHelper {
         XCUIApplication(url: tempUrl)
     }
     
+    let bundleId = "com.spartascience.SpartaConnect"
+    
+    func clearCache() {
+        fileHelper.removeCache(bundleId: bundleId)
+    }
+    
+    func hasDownloaded(fileName: String) -> NSPredicate {
+        fileHelper.exists(inCache: "org.sparkle-project.Sparkle/PersistentDownloads",
+                          forBundle: bundleId,
+                          file: fileName)
+    }
+    
+    func persistDefaults(_ values: [String: Any])  {
+        let defaults = bundleDefaults()
+        defaults.setPersistentDomain(values, forName: bundleId)
+        defaults.synchronize()
+    }
+    
+    func bundleDefaults() -> UserDefaults {
+        UserDefaults(suiteName: bundleId)!
+    }
+    
+    func clearDefaults() {
+        bundleDefaults().removePersistentDomain(forName: bundleId)
+    }
+    
     func prepare() {
         cleanup()
         let builtApp = XCUIApplication()
