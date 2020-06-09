@@ -41,7 +41,7 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         updatingWindow.waitToDisappear()
-        XCTAssertTrue(app.wait(for: .notRunning, timeout: 1), "wait for app to terminate")
+        XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout), "wait for app to terminate")
     }
     
     func verifyUpdated() {
