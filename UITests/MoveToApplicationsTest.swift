@@ -9,8 +9,8 @@ class MoveToApplicationsTest: XCTestCase {
     lazy var movedApp = XCUIApplication(url: movedUrl)
 
     func remove(url: URL) {
-        try? fileManager.removeItem(at: movedUrl)
-        XCTAssertFalse(fileManager.fileExists(atPath: movedUrl.path),
+        try? fileManager.removeItem(at: url)
+        XCTAssertFalse(fileManager.fileExists(atPath: url.path),
                        "should not be in Applications")
     }
     
