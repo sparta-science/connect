@@ -37,4 +37,4 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        path: test-results/*
+        path: test-results/**/*
