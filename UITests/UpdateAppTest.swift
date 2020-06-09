@@ -2,27 +2,48 @@ import XCTest
 
 let kDefaultTimeout: TimeInterval = 5
 
-class UpdateAppTest: XCTestCase {
+class TempAppHelper {
     let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect.app")
     let fileManager = FileManager.default
     let builtApp = XCUIApplication()
     lazy var tempApp = XCUIApplication(url: tempUrl)
+    let fileHelper = FileHelper()
+    
+    func prepare() {
+        cleanup()
+        let pathBeforeMove = builtApp.value(forKeyPath: "_applicationImpl._path") as! String
+        fileHelper.copy(path: pathBeforeMove, to: tempUrl)
+    }
+    func cleanup() {
+        fileHelper.remove(url: tempUrl)
+    }
+}
 
-    func remove(url: URL) {
+class FileHelper {
+    let fileManager = FileManager.default
+
+    func remove(url: URL, file: StaticString = #file, line: UInt = #line) {
         try? fileManager.removeItem(at: url)
         XCTAssertFalse(fileManager.fileExists(atPath: url.path),
-                       "should not be in Applications")
+                       "should be removed", file: file, line: line)
     }
     
-    func cleanup() {
-        remove(url: tempUrl)
+    func copy(path: String, to destination: URL) {
+        try! fileManager.copyItem(at: URL(fileURLWithPath: path), to: destination)
+        XCTAssertTrue(fileManager.fileExists(atPath: destination.path))
     }
+}
+
+class UpdateAppTest: XCTestCase {
+    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect.app")
+    let builtApp = XCUIApplication()
+    lazy var tempApp = XCUIApplication(url: tempUrl)
+    let tempAppHelper = TempAppHelper()
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
-        cleanup()
-        prepareTempApp()
+        tempAppHelper.prepare()
         tempApp.launchArguments = [
             "-moveToApplicationsFolderAlertSuppress", "YES",
         ]
@@ -31,14 +52,8 @@ class UpdateAppTest: XCTestCase {
 
     override func tearDownWithError() throws {
         tempApp.terminate()
-        cleanup()
+        tempAppHelper.cleanup()
         try super.tearDownWithError()
-    }
-    
-    func prepareTempApp() {
-        let pathBeforeMove = builtApp.value(forKeyPath: "_applicationImpl._path") as! String
-        try! fileManager.copyItem(at: URL(fileURLWithPath: pathBeforeMove), to: tempUrl)
-        XCTAssertTrue(fileManager.fileExists(atPath: tempUrl.path))
     }
     
     func checkForUpdatesAndInstall() {
@@ -71,6 +86,6 @@ class UpdateAppTest: XCTestCase {
     func testAutoUpgrade() throws {
         checkForUpdatesAndInstall()
         installAndRelaunch()
-        verifyUpdated()        
+        verifyUpdated()
     }
 }
