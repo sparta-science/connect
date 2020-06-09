@@ -1,0 +1,6 @@
+framework module NSBundle_LoginItem {
+  umbrella header "NSBundle+LoginItem-umbrella.h"
+
+  export *
+  module * { export * }
+}
