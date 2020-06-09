@@ -28,6 +28,9 @@ class UpdateAppTest: XCTestCase {
         menuBarsQuery.menuItems["Check for updates..."].click()
         let updateDialog = app.dialogs["Software Update"]
         updateDialog.waitToAppear()
+        XCTAssertTrue(updateDialog
+            .checkBoxes["Automatically download and install updates in the future"]
+            .value as! Bool, "should be enabled")
         updateDialog.staticTexts["Initial Release"].waitToAppear()
         updateDialog.buttons["Install Update"].click()
     }
