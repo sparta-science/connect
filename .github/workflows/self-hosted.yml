@@ -32,10 +32,9 @@ jobs:
     - name: App Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
     - name: UI Tests
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath test-results | xcpretty
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath test-results/ui-tests | xcpretty
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: ui-tests.xcresult.zip
-        path: test-results.xcresult/
+        path: test-results/
