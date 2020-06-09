@@ -40,7 +40,6 @@ class UpdateAppTest: XCTestCase {
         let updatingWindow = app.windows["Updating SpartaConnect"]
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
-        updatingWindow.waitToDisappear()
         XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout), "wait for app to terminate")
     }
     
