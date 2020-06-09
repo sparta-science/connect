@@ -13,6 +13,8 @@
 		4A3F3C79248C92720058C5D4 /* Testable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F3C72248C92720058C5D4 /* Testable.framework */; };
 		4A3F3C7A248C92720058C5D4 /* Testable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F3C72248C92720058C5D4 /* Testable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */; };
+		4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */; };
+		4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C96248F604B0058C5D4 /* FileHelper.swift */; };
 		4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888C2486FA90009CFACE /* AppDelegate.swift */; };
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
@@ -72,6 +74,8 @@
 		4A3F3C83248C92AE0058C5D4 /* AppSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUpdaterSpec.swift; sourceTree = "<group>"; };
 		4A3F3C87248C92AE0058C5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempAppHelper.swift; sourceTree = "<group>"; };
+		4A3F3C96248F604B0058C5D4 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4AA188892486FA90009CFACE /* SpartaConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA1888C2486FA90009CFACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AA188902486FA90009CFACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,6 +185,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4A3F3C99248F607F0058C5D4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */,
+				4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */,
+				4A3F3C96248F604B0058C5D4 /* FileHelper.swift */,
+				4AA188AC2486FA90009CFACE /* Info.plist */,
+				4AD40A9B24897C85002728DA /* UITests.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		4AA188802486FA90009CFACE = {
 			isa = PBXGroup;
 			children = (
@@ -234,9 +250,7 @@
 			children = (
 				4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */,
 				4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */,
-				4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */,
-				4AA188AC2486FA90009CFACE /* Info.plist */,
-				4AD40A9B24897C85002728DA /* UITests.entitlements */,
+				4A3F3C99248F607F0058C5D4 /* Supporting Files */,
 			);
 			path = UITests;
 			sourceTree = "<group>";
@@ -611,8 +625,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */,
+				4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */,
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
 				4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */,
+				4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

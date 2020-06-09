@@ -2,85 +2,51 @@ import XCTest
 
 let kDefaultTimeout: TimeInterval = 5
 
-class TempAppHelper {
-    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect.app")
-    let fileManager = FileManager.default
-    let builtApp = XCUIApplication()
-    lazy var tempApp = XCUIApplication(url: tempUrl)
-    let fileHelper = FileHelper()
-    
-    func prepare() {
-        cleanup()
-        let pathBeforeMove = builtApp.value(forKeyPath: "_applicationImpl._path") as! String
-        fileHelper.copy(path: pathBeforeMove, to: tempUrl)
-    }
-    func cleanup() {
-        fileHelper.remove(url: tempUrl)
-    }
-}
-
-class FileHelper {
-    let fileManager = FileManager.default
-
-    func remove(url: URL, file: StaticString = #file, line: UInt = #line) {
-        try? fileManager.removeItem(at: url)
-        XCTAssertFalse(fileManager.fileExists(atPath: url.path),
-                       "should be removed", file: file, line: line)
-    }
-    
-    func copy(path: String, to destination: URL) {
-        try! fileManager.copyItem(at: URL(fileURLWithPath: path), to: destination)
-        XCTAssertTrue(fileManager.fileExists(atPath: destination.path))
-    }
-}
-
 class UpdateAppTest: XCTestCase {
-    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect.app")
-    let builtApp = XCUIApplication()
-    lazy var tempApp = XCUIApplication(url: tempUrl)
     let tempAppHelper = TempAppHelper()
+    lazy var app = tempAppHelper.tempApp()
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         tempAppHelper.prepare()
-        tempApp.launchArguments = [
+        app.launchArguments = [
             "-moveToApplicationsFolderAlertSuppress", "YES",
         ]
-        tempApp.launch()
+        app.launch()
     }
 
     override func tearDownWithError() throws {
-        tempApp.terminate()
+        app.terminate()
         tempAppHelper.cleanup()
         try super.tearDownWithError()
     }
     
     func checkForUpdatesAndInstall() {
-        let menuBarsQuery = tempApp.menuBars
+        let menuBarsQuery = app.menuBars
         menuBarsQuery.menuBarItems["Help"].click()
         menuBarsQuery.menuItems["Check for updates..."].click()
-        let updateDialog = tempApp.dialogs["Software Update"]
+        let updateDialog = app.dialogs["Software Update"]
         updateDialog.waitToAppear()
         updateDialog.staticTexts["Initial Release"].waitToAppear()
         updateDialog.buttons["Install Update"].click()
     }
     
     func installAndRelaunch() {
-        let updatingWindow = tempApp.windows["Updating SpartaConnect"]
+        let updatingWindow = app.windows["Updating SpartaConnect"]
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         updatingWindow.waitToDisappear()
-        XCTAssertTrue(tempApp.wait(for: .notRunning, timeout: 1), "wait for app to terminate")
+        XCTAssertTrue(app.wait(for: .notRunning, timeout: 1), "wait for app to terminate")
     }
     
     func verifyUpdated() {
-        XCTAssertTrue(tempApp.wait(for: .runningForeground, timeout: 5), "wait for app to relaunch")
-        tempApp.windows["Window"].waitToAppear(timeout: 3 * kDefaultTimeout)
-        tempApp.menuBars.menuBarItems["SpartaConnect"].click()
-        tempApp.menuBars.menus.menuItems["About SpartaConnect"].click()
-        tempApp.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
-        tempApp.dialogs.buttons[XCUIIdentifierCloseWindow].click()
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5), "wait for app to relaunch")
+        app.windows["Window"].waitToAppear(timeout: 3 * kDefaultTimeout)
+        app.menuBars.menuBarItems["SpartaConnect"].click()
+        app.menuBars.menus.menuItems["About SpartaConnect"].click()
+        app.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
+        app.dialogs.buttons[XCUIIdentifierCloseWindow].click()
     }
     
     func testAutoUpgrade() throws {
