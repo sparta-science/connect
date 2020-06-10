@@ -12,7 +12,7 @@ target 'App' do
   pod 'Sparkle'             # auto-update the app
   pod 'LetsMove'            # move app to Applications folder
   pod 'NSBundle+LoginItem', # launch at login option
-    :git => 'https://github.com/gotow/NSBundle-LoginItem.git'
+    :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
 
   target 'AppSpecs' do
     inherit! :search_paths
@@ -27,5 +27,5 @@ end
 
 target 'UITests' do
   pod 'NSBundle+LoginItem', # launch at login option
-    :git => 'https://github.com/gotow/NSBundle-LoginItem.git'
+    :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
 end
