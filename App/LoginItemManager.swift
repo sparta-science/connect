@@ -8,11 +8,7 @@ public class LoginItemManager: NSObject {
             bundle.isLoginItemEnabled()
         }
         set {
-            if newValue {
-                bundle.enableLoginItem()
-            } else {
-                bundle.disableLoginItem()
-            }
+            bundle.setEnabledAtLogin(newValue)
         }
     }
 }
