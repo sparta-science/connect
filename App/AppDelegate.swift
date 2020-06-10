@@ -8,6 +8,7 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
         PFMoveToApplicationsFolderIfNecessary()
         updateLaunchAtLogin()
     }
+    @IBOutlet weak var openAtLogin: NSMenuItem!
     
     @IBAction func toggleLaunchAtLogin(_ sender: NSMenuItem) {
         if sender.state == .on {
@@ -19,7 +20,6 @@ public class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func updateLaunchAtLogin() {
-        let launchAtLoginMenuItem = NSApp.mainMenu!.item(withTag: 3)
-        launchAtLoginMenuItem?.state = Bundle.main.isLoginItemEnabled() ? .on : .off
+        openAtLogin.state = Bundle.main.isLoginItemEnabled() ? .on : .off
     }
 }
