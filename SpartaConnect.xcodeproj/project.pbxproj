@@ -340,9 +340,9 @@
 			productReference = 4A3F3C83248C92AE0058C5D4 /* AppSpecs.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4AA188882486FA90009CFACE /* App */ = {
+		4AA188882486FA90009CFACE /* SpartaConnect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "App" */;
+			buildConfigurationList = 4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnect" */;
 			buildPhases = (
 				BE4C2F2C83983B15E70C5C0D /* [CP] Check Pods Manifest.lock */,
 				4AA188852486FA90009CFACE /* Sources */,
@@ -356,7 +356,7 @@
 			dependencies = (
 				4A3F3C78248C92720058C5D4 /* PBXTargetDependency */,
 			);
-			name = App;
+			name = SpartaConnect;
 			productName = SpartaConnect;
 			productReference = 4AA188892486FA90009CFACE /* SpartaConnect.app */;
 			productType = "com.apple.product-type.application";
@@ -444,7 +444,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4AA188882486FA90009CFACE /* App */,
+				4AA188882486FA90009CFACE /* SpartaConnect */,
 				4A3F3C82248C92AE0058C5D4 /* AppSpecs */,
 				4AA188A52486FA90009CFACE /* UITests */,
 				4A3F3C71248C92720058C5D4 /* Testable */,
@@ -711,12 +711,12 @@
 		};
 		4A3F3C89248C92AE0058C5D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4AA188882486FA90009CFACE /* App */;
+			target = 4AA188882486FA90009CFACE /* SpartaConnect */;
 			targetProxy = 4A3F3C88248C92AE0058C5D4 /* PBXContainerItemProxy */;
 		};
 		4AA188A82486FA90009CFACE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4AA188882486FA90009CFACE /* App */;
+			target = 4AA188882486FA90009CFACE /* SpartaConnect */;
 			targetProxy = 4AA188A72486FA90009CFACE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1118,7 +1118,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "App" */ = {
+		4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AA188B02486FA90009CFACE /* Debug */,
