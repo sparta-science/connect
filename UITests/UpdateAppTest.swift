@@ -41,7 +41,16 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout), "wait for app to terminate")
+        
     }
+    
+    func dismissMoveToApplicationsAlert() {
+        let alert = app.dialogs["alert"]
+        alert.staticTexts["Move to Applications folder?"].waitToAppear()
+        alert.buttons["Do Not Move"].click()
+        alert.waitToDisappear()
+    }
+    
     
     func verifyUpdated() {
         XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5), "wait for app to relaunch")
@@ -59,6 +68,7 @@ class UpdateAppTest: XCTestCase {
         app.launch()
         checkForUpdatesAndInstall()
         installAndRelaunch()
+        dismissMoveToApplicationsAlert()
         verifyUpdated()
     }
     
