@@ -19,6 +19,7 @@
 		4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */; };
 		4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */; };
 		4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */; };
+		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
 		4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888C2486FA90009CFACE /* AppDelegate.swift */; };
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 		4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
 		4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManagerSpec.swift; sourceTree = "<group>"; };
+		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 		4AA188892486FA90009CFACE /* SpartaConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA1888C2486FA90009CFACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AA188902486FA90009CFACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */,
 				4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */,
 				4A3F3C96248F604B0058C5D4 /* FileHelper.swift */,
+				4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */,
 				4AA188AC2486FA90009CFACE /* Info.plist */,
 				4AD40A9B24897C85002728DA /* UITests.entitlements */,
 			);
@@ -694,6 +697,7 @@
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
 				4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */,
 				4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */,
+				4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

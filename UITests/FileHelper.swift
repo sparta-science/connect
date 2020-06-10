@@ -2,7 +2,7 @@ import XCTest
 
 class FileHelper {
     let fileManager = FileManager.default
-
+    
     func remove(url: URL, file: StaticString = #file, line: UInt = #line) {
         try? fileManager.removeItem(at: url)
         XCTAssertFalse(fileManager.fileExists(atPath: url.path),
@@ -14,32 +14,17 @@ class FileHelper {
         XCTAssertTrue(fileManager.fileExists(atPath: destination.path))
     }
     
-    func exists(inCache: String, forBundle bundleId: String, file withName: String) -> NSPredicate {
-        let bundleCache = cacheUrl(bundleId: bundleId)
-        let downloads = bundleCache.appendingPathComponent(inCache)
-        return NSPredicate { object, variables  in
-            let list = self.fileManager.enumerator(at: downloads,
-                                              includingPropertiesForKeys: [.isDirectoryKey])!
-            for case let fileURL as URL in list {
-                if fileURL.lastPathComponent == withName {
-                    NSLog(fileURL.lastPathComponent)
-                    return true
-                }
-            }
-            return false
-        }
-    }
-
-    func cacheUrl(bundleId: String) -> URL {
-        let userCache = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        return userCache.appendingPathComponent(bundleId)
-    }
-    
-    func removeCache(bundleId: String) {
-        let bundleCache = cacheUrl(bundleId: bundleId)
-        let subfolders = fileManager.enumerator(at: bundleCache, includingPropertiesForKeys: nil)!
+    func clearSubfolders(_ url: URL) {
+        let subfolders = fileManager.enumerator(at: url,
+                                                includingPropertiesForKeys: nil)!
         for case let fileURL as URL in subfolders {
             try? fileManager.removeItem(at: fileURL)
         }
+    }
+    
+    func fileUrl(path: String, in directory: FileManager.SearchPathDirectory) -> URL {
+        fileManager.urls(for: directory,
+                         in: .userDomainMask).first!
+            .appendingPathComponent(path)
     }
 }

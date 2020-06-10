@@ -10,7 +10,7 @@ class UpdateAppTest: XCTestCase {
         try super.setUpWithError()
         continueAfterFailure = false
         tempAppHelper.prepare()
-        tempAppHelper.clearDefaults()
+        tempAppHelper.bundleHelper.clearDefaults()
         tempAppHelper.clearCache()
         app.launchArguments = [
             "-moveToApplicationsFolderAlertSuppress", "YES",
@@ -53,7 +53,7 @@ class UpdateAppTest: XCTestCase {
     }
     
     func testAutoUpgrade() throws {
-        tempAppHelper.persistDefaults([
+        tempAppHelper.bundleHelper.persistDefaults([
             "SULastCheckTime": Date()
         ])
         app.launch()
@@ -69,19 +69,37 @@ class UpdateAppTest: XCTestCase {
         XCTAssertTrue(app.wait(for: .notRunning, timeout: 5 * kDefaultTimeout))
     }
     
-    func checkUpdateDownloads() -> NSPredicate {
+    func checkUpdateDownloaded() -> NSPredicate {
         tempAppHelper.hasDownloaded(fileName: "SpartaConnect.app")
     }
     
     func waitForUpdatesDownloaded() {
-        let expectDownload = expectation(for: checkUpdateDownloads(), evaluatedWith: nil)
-        wait(for: [expectDownload], timeout: 20 * kDefaultTimeout)
+        let downloadComplete = expectation(for: checkUpdateDownloaded(), evaluatedWith: nil)
+        let downloadTimeout = 20 * kDefaultTimeout
+        wait(for: [downloadComplete], timeout: downloadTimeout)
     }
     
     func waitForUpdatesInstalled() {
-        let predicate = NSCompoundPredicate(notPredicateWithSubpredicate: checkUpdateDownloads())
-        let expectDownload = expectation(for: predicate, evaluatedWith: nil)
-        wait(for: [expectDownload], timeout: 5 * kDefaultTimeout)
+        let downloadedDeleted = NSCompoundPredicate(
+            notPredicateWithSubpredicate: checkUpdateDownloaded()
+        )
+        let expectDownload = expectation(for: downloadedDeleted, evaluatedWith: nil)
+        let installTimeout = 5 * kDefaultTimeout
+        wait(for: [expectDownload], timeout: installTimeout)
+    }
+    
+    func checkForUpdatesAndInstallOnQuit() {
+        let menuBarsQuery = app.menuBars
+        menuBarsQuery.menuBarItems["Help"].click()
+        menuBarsQuery.menuItems["Check for updates..."].click()
+        let popup = app.windows.containing(.button, identifier:"Install and Relaunch").element
+        popup.waitToAppear()
+
+        XCTAssertTrue(popup
+            .staticTexts["A new version of SpartaConnect is ready to install!"].exists)
+        XCTAssertTrue(popup.buttons["Don't Install"].exists)
+        popup.buttons["Install on Quit"].click()
+        popup.waitToDisappear()
     }
 
     
@@ -89,6 +107,7 @@ class UpdateAppTest: XCTestCase {
         app.launch()
         XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout))
         waitForUpdatesDownloaded()
+        checkForUpdatesAndInstallOnQuit()
         quitApp()
         waitForUpdatesInstalled()
         app.launch()
