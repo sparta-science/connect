@@ -2,7 +2,7 @@
 
 ### Sparta Force plate Mac OS client
 
-[![OnGitHub](https://github.com/sparta-science/connect/workflows/OnGitHub/badge.svg)](https://github.com/sparta-science/connect/actions?query=workflow:on-github)
+[![self-hosted-test](https://github.com/sparta-science/connect/workflows/self-hosted-test/badge.svg)](https://github.com/sparta-science/connect/actions?query=workflow:self-hosted-test)
 
 ## Features
 
