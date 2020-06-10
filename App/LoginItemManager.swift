@@ -1,7 +1,6 @@
-import Foundation
 import NSBundle_LoginItem
 
-class LoginItemManager: NSObject {
+public class LoginItemManager: NSObject {
     let bundle = Bundle.main
     @objc
     public var openAtLogin: Bool {
