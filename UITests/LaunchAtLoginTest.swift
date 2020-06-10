@@ -2,9 +2,10 @@ import XCTest
 import NSBundle_LoginItem
 
 class LaunchAtLoginTest: XCTestCase {
-    
     let app = XCUIApplication()
+    
     override func setUpWithError() throws {
+        try super.setUpWithError()
         continueAfterFailure = false
         removeLoginItem()
         app.launchArguments = [
@@ -15,6 +16,7 @@ class LaunchAtLoginTest: XCTestCase {
     
     override func tearDownWithError() throws {
         removeLoginItem()
+        try super.tearDownWithError()
     }
     
     func verifyLoginItemPresent() {
