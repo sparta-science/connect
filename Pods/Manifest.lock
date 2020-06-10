@@ -8,7 +8,7 @@ PODS:
 DEPENDENCIES:
   - LetsMove
   - Nimble
-  - "NSBundle+LoginItem (from `https://github.com/nklizhe/NSBundle-LoginItem.git`)"
+  - "NSBundle+LoginItem (from `https://github.com/paulz/NSBundle-LoginItem.git`)"
   - Quick
   - Sparkle
 
@@ -21,12 +21,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   "NSBundle+LoginItem":
-    :git: https://github.com/nklizhe/NSBundle-LoginItem.git
+    :git: https://github.com/paulz/NSBundle-LoginItem.git
 
 CHECKOUT OPTIONS:
   "NSBundle+LoginItem":
-    :commit: 408c13a192dffd9eb46228a03ed81ff9a1e2457d
-    :git: https://github.com/nklizhe/NSBundle-LoginItem.git
+    :commit: 9d693174c815a348a9ee9c7bb45297ec809e1d88
+    :git: https://github.com/paulz/NSBundle-LoginItem.git
 
 SPEC CHECKSUMS:
   LetsMove: fefe56bc7bc7fb7d37049e28a14f297961229fc5
@@ -35,6 +35,6 @@ SPEC CHECKSUMS:
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   Sparkle: 55b1a87ba69d56913375a281546b7c82dec95bb0
 
-PODFILE CHECKSUM: 0f23632ec2b66b0dbb8672b00a4a75f84f1ad157
+PODFILE CHECKSUM: a0542ddd45b28fe9c6aca5c6859c3ed5bdae7c00
 
 COCOAPODS: 1.9.3
