@@ -1,21 +1,21 @@
 import Foundation
 
-class BundleHelper: FileHelper {
+class BundleHelper {
+    let fileHelper = FileHelper()
     let bundleId: String
     init(bundleId: String) {
         self.bundleId = bundleId
     }
-    func exists(inCache subpath: String,
-                file fileName: String) -> NSPredicate {
-        find(file: fileName, at: cacheUrl().appendingPathComponent(subpath))
+    func find(file fileName: String, inCache subpath: String) -> NSPredicate {
+        fileHelper.find(file: fileName, at: cacheUrl().appendingPathComponent(subpath))
     }
     
     private func cacheUrl() -> URL {
-        fileUrl(path: bundleId, in: .cachesDirectory)
+        fileHelper.fileUrl(path: bundleId, in: .cachesDirectory)
     }
     
     func clearCache() {
-        clearSubfolders(cacheUrl())
+        fileHelper.clearSubfolders(cacheUrl())
     }
     
     private func defaults() -> UserDefaults {

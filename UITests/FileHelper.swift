@@ -9,8 +9,8 @@ class FileHelper {
                        "should be removed", file: file, line: line)
     }
     
-    func copy(path: String, to destination: URL) {
-        try! fileManager.copyItem(at: URL(fileURLWithPath: path), to: destination)
+    func copy(_ from: URL, to destination: URL) {
+        try! fileManager.copyItem(at: from, to: destination)
         XCTAssertTrue(fileManager.fileExists(atPath: destination.path))
     }
     

@@ -3,6 +3,7 @@ import XCTest
 class TempAppHelper {
     let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect.app")
     let bundleHelper = BundleHelper(bundleId: "com.spartascience.SpartaConnect")
+    let fileHelper = FileHelper()
     func tempApp() -> XCUIApplication {
         XCUIApplication(url: tempUrl)
     }
@@ -12,18 +13,16 @@ class TempAppHelper {
     }
     
     func hasDownloaded(fileName: String) -> NSPredicate {
-        bundleHelper.exists(inCache: "org.sparkle-project.Sparkle/PersistentDownloads",
-                          file: fileName)
+        bundleHelper.find(file: fileName,
+                          inCache: "org.sparkle-project.Sparkle/PersistentDownloads")
     }
     
     func prepare() {
         cleanup()
-        let builtApp = XCUIApplication()
-        let builtAppPath = builtApp.value(forKeyPath: "_applicationImpl._path") as! String
-        bundleHelper.copy(path: builtAppPath, to: tempUrl)
+        fileHelper.copy(XCUIApplication().url, to: tempUrl)
     }
     func cleanup() {
-        bundleHelper.remove(url: tempUrl)
+        fileHelper.remove(url: tempUrl)
     }
 }
 
@@ -34,6 +33,6 @@ class MoveAppHelper: TempAppHelper {
     }
     override func cleanup() {
         super.cleanup()
-        bundleHelper.remove(url: movedUrl)
+        fileHelper.remove(url: movedUrl)
     }
 }
