@@ -30,7 +30,7 @@ class LaunchAtLoginTest: XCTestCase {
     func testLaunchAtLoginSelectedByDefault() throws {
         let menuBarsQuery = app.menuBars
         menuBarsQuery.menuBarItems["SpartaConnect"].click()
-        menuBarsQuery.menuItems["Open At Login"].click()
+        menuBarsQuery.menuItems["Open at Login"].click()
         verifyLoginItemPresent()
     }
 }
