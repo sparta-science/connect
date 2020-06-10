@@ -20,7 +20,10 @@ class LoginItemManagerSpec: QuickSpec {
                 it("should toggle login item") {
                     [true, false].forEach {
                         subject.openAtLogin = $0
-                        expect(Bundle.main.isLoginItemEnabled()).toEventually(equal($0))
+                        expect(Bundle.main.isLoginItemEnabled())
+                            .toEventually(equal($0),
+                                          timeout: 5,
+                                          pollInterval: 1)
                         expect(subject.openAtLogin) == $0
                     }
                 }

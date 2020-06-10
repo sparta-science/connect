@@ -27,10 +27,6 @@ jobs:
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
     - uses: actions/checkout@v2
-    - name: Unit Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
-    - name: Build
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme App build | xcpretty
     - name: App Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
     - name: UI Tests
