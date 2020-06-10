@@ -27,4 +27,12 @@ class FileHelper {
                          in: .userDomainMask).first!
             .appendingPathComponent(path)
     }
+    
+    func find(file: String, at url: URL) -> NSPredicate {
+        NSPredicate { _, _  in
+            let list = self.fileManager.enumerator(at: url,
+                                                   includingPropertiesForKeys: nil)!
+            return list.contains { ($0 as? URL)?.lastPathComponent == file }
+        }
+    }
 }

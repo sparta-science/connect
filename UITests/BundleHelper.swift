@@ -7,12 +7,7 @@ class BundleHelper: FileHelper {
     }
     func exists(inCache subpath: String,
                 file fileName: String) -> NSPredicate {
-        let url = cacheUrl().appendingPathComponent(subpath)
-        return NSPredicate { _, _  in
-            let list = self.fileManager.enumerator(at: url,
-                                                   includingPropertiesForKeys: nil)!
-            return list.contains { ($0 as? URL)?.lastPathComponent == fileName }
-        }
+        find(file: fileName, at: cacheUrl().appendingPathComponent(subpath))
     }
     
     private func cacheUrl() -> URL {
