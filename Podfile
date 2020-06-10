@@ -24,3 +24,8 @@ target 'UnitSpecs' do
   inherit! :search_paths
   bdd
 end
+
+target 'UITests' do
+  pod 'NSBundle+LoginItem', # launch at login option
+    :git => 'https://github.com/nklizhe/NSBundle-LoginItem.git'
+end
