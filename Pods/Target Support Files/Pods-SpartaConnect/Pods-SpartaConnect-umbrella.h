@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_AppVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_AppVersionString[];
+FOUNDATION_EXPORT double Pods_SpartaConnectVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_SpartaConnectVersionString[];
 

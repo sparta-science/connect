@@ -1,4 +1,4 @@
-${PODS_ROOT}/Target Support Files/Pods-App/Pods-App-frameworks.sh
+${PODS_ROOT}/Target Support Files/Pods-SpartaConnect/Pods-SpartaConnect-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework
 ${BUILT_PRODUCTS_DIR}/NSBundle+LoginItem/NSBundle_LoginItem.framework
 ${PODS_ROOT}/Sparkle/Sparkle.framework

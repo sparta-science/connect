@@ -1,0 +1,6 @@
+framework module Pods_SpartaConnect {
+  umbrella header "Pods-SpartaConnect-umbrella.h"
+
+  export *
+  module * { export * }
+}
