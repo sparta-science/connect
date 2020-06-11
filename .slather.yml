@@ -1,0 +1,7 @@
+workspace: SpartaConnect.xcworkspace
+xcodeproj: SpartaConnect.xcodeproj
+configuration: Debug
+scheme: SpartaConnect
+source_directory: .
+output_directory: test-results/coverage
+binary_basename: SpartaConnect
