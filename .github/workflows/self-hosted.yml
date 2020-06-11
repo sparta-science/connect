@@ -32,6 +32,9 @@ jobs:
     - name: App Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
     - uses: codecov/codecov-action@v1
+      with:
+        flags: AppSpecs
+        name: self-hosted
     - name: UI Tests
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
