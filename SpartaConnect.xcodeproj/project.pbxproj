@@ -88,6 +88,10 @@
 		4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
 		4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManagerSpec.swift; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
+		4A9F06D02491D91300714B04 /* Gemfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Gemfile.lock; sourceTree = "<group>"; };
+		4A9F06D12491D91400714B04 /* Podfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Podfile.lock; sourceTree = "<group>"; };
+		4A9F06D22491D91400714B04 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
+		4A9F06D32491D91400714B04 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Podfile; sourceTree = "<group>"; };
 		4AA188892486FA90009CFACE /* SpartaConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA1888C2486FA90009CFACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AA188902486FA90009CFACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,6 +203,10 @@
 				4AD40A99248850E1002728DA /* README.md */,
 				4AD40A9224870C00002728DA /* ci.yml */,
 				4AD40A9D24897F51002728DA /* self-hosted.yml */,
+				4A9F06D32491D91400714B04 /* Podfile */,
+				4A9F06D12491D91400714B04 /* Podfile.lock */,
+				4A9F06D22491D91400714B04 /* Gemfile */,
+				4A9F06D02491D91300714B04 /* Gemfile.lock */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
