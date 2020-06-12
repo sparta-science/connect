@@ -17,7 +17,7 @@ class MoveToApplicationsTest: XCTestCase {
     }
     
     func verifyRunningFromApplications() {
-        XCTAssertTrue(movedApp.wait(for: .runningForeground, timeout: 5),
+        XCTAssertTrue(movedApp.wait(for: .runningBackground, timeout: 5),
                       "wait for app to restart from /Applications")
         movedApp.terminate()
     }
