@@ -24,10 +24,9 @@ class UpdateAppTest: XCTestCase {
     }
     
     func checkForUpdatesAndInstall() {
-        let menuBarsQuery = app.menuBars
-        menuBarsQuery.menuBarItems["Help"].click()
-        menuBarsQuery.menuItems["Check for updates..."].click()
-        let updateDialog = app.dialogs["Software Update"]
+        app.clickStatusItem()
+        app.statusBarMenu().menuItems["Check for updates..."].click()
+        let updateDialog = app.windows["Software Update"]
         updateDialog.waitToAppear()
         XCTAssertTrue(updateDialog
             .checkBoxes["Automatically download and install updates in the future"]
@@ -66,6 +65,7 @@ class UpdateAppTest: XCTestCase {
             "SULastCheckTime": Date()
         ])
         app.launch()
+        XCTAssertTrue(app.wait(for: .runningBackground, timeout: kDefaultTimeout))
         checkForUpdatesAndInstall()
         installAndRelaunch()
         dismissMoveToApplicationsAlert()
@@ -74,8 +74,8 @@ class UpdateAppTest: XCTestCase {
     
     func quitApp() {
         app.activate()
-        app.menuBars.menuBarItems["SpartaConnect"].click()
-        app.menuItems["Quit SpartaConnect"].click()
+        app.clickStatusItem()
+        app.statusBarMenu().menuItems["Quit SpartaConnect"].click()
         XCTAssertTrue(app.wait(for: .notRunning, timeout: 5 * kDefaultTimeout))
     }
     
@@ -99,9 +99,8 @@ class UpdateAppTest: XCTestCase {
     }
     
     func checkForUpdatesAndInstallOnQuit() {
-        let menuBarsQuery = app.menuBars
-        menuBarsQuery.menuBarItems["Help"].click()
-        menuBarsQuery.menuItems["Check for updates..."].click()
+        app.clickStatusItem()
+        app.statusBarMenu().menuItems["Check for updates..."].click()
         let popup = app.windows.containing(.button, identifier:"Install and Relaunch").element
         popup.waitToAppear()
 
@@ -115,7 +114,7 @@ class UpdateAppTest: XCTestCase {
     
     func testUpgradeOnQuit() {
         app.launch()
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout))
+        XCTAssertTrue(app.wait(for: .runningBackground, timeout: kDefaultTimeout))
         waitForUpdatesDownloaded()
         checkForUpdatesAndInstallOnQuit()
         quitApp()
