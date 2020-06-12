@@ -28,15 +28,13 @@ class OpenAtLoginTest: XCTestCase {
     }
     
     func testOpenAtLoginAddsLoginItem() throws {
-        let menuBarsQuery = app.menuBars
-        let statusItem = menuBarsQuery.statusItems.element
-        statusItem.click()
+        app.clickStatusItem()
         
-        let openAtLoginMenuItem = menuBarsQuery.menuItems["Open at Login"]
+        let openAtLoginMenuItem = app.statusBarMenu().menuItems["Open at Login"]
         openAtLoginMenuItem.click()
         verifyLoginItem(enabled: true)
 
-        statusItem.click()
+        app.clickStatusItem()
         openAtLoginMenuItem.click()
         verifyLoginItem(enabled: false)
     }
