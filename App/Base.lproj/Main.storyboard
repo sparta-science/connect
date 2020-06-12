@@ -61,6 +61,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
                 <customObject id="wDy-CS-sRL" customClass="LoginItemManager" customModule="SpartaConnect" customModuleProvider="target"/>
+                <customObject id="3xX-Pg-K5i" customClass="MenuBarButton" customModule="SpartaConnect" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
