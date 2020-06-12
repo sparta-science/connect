@@ -19,18 +19,25 @@ class LaunchAtLoginTest: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func verifyLoginItemPresent() {
-        XCTAssertTrue(app.bundle.isLoginItemEnabled(), "should be enabled")
+    func verifyLoginItem(enabled: Bool) {
+        XCTAssertEqual(enabled, app.bundle.isLoginItemEnabled(), "should be enabled")
     }
     
     func removeLoginItem() {
         app.bundle.disableLoginItem()
     }
     
-    func testLaunchAtLoginSelectedByDefault() throws {
+    func testLaunchAtLoginSelectedByDefault() throws {        
         let menuBarsQuery = app.menuBars
-        menuBarsQuery.menuBarItems["SpartaConnect"].click()
-        menuBarsQuery.menuItems["Open at Login"].click()
-        verifyLoginItemPresent()
+        let statusItem = menuBarsQuery.statusItems.element
+        statusItem.click()
+        
+        let openAtLoginMenuItem = menuBarsQuery.menuItems["Open at Login"]
+        openAtLoginMenuItem.click()
+        verifyLoginItem(enabled: true)
+
+        statusItem.click()
+        openAtLoginMenuItem.click()
+        verifyLoginItem(enabled: false)
     }
 }
