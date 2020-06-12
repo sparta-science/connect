@@ -1,7 +1,7 @@
 import XCTest
 import NSBundle_LoginItem
 
-class LaunchAtLoginTest: XCTestCase {
+class OpenAtLoginTest: XCTestCase {
     let app = XCUIApplication()
     
     override func setUpWithError() throws {
@@ -27,7 +27,7 @@ class LaunchAtLoginTest: XCTestCase {
         app.bundle.disableLoginItem()
     }
     
-    func testLaunchAtLoginSelectedByDefault() throws {        
+    func testOpenAtLoginAddsLoginItem() throws {
         let menuBarsQuery = app.menuBars
         let statusItem = menuBarsQuery.statusItems.element
         statusItem.click()
