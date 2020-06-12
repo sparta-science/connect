@@ -16,6 +16,6 @@ extension XCUIApplication {
     }
 
     func clickStatusItem() {
-        menuBars.statusItems.element.click()
+        menuBars.statusItems.element.waitToAppear().click()
     }
 }
