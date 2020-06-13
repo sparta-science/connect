@@ -16,6 +16,9 @@ jobs:
       run: |
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw -k
+#   Breaks clicking on menu bar button
+#    - name: Close Finder windows
+#      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
     - name: Close Notification window
       run: killall UserNotificationCenter || true
     - uses: apple-actions/import-codesign-certs@v1
@@ -25,6 +28,12 @@ jobs:
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
     - uses: actions/checkout@v2
+    - name: Unit Specs
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
+    - name: Build
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect build | xcpretty
+    - name: App Specs
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
     - name: UI Tests
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
