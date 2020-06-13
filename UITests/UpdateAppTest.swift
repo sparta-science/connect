@@ -64,6 +64,7 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.bundleHelper.persistDefaults([
             "SULastCheckTime": Date()
         ])
+        XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout))
         app.launch()
         XCTAssertTrue(app.wait(for: .runningBackground, timeout: kDefaultTimeout))
         checkForUpdatesAndInstall()

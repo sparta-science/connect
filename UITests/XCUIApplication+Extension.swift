@@ -12,10 +12,14 @@ extension XCUIApplication {
     }
 
     func statusBarMenu() -> XCUIElement {
-        menuBars.statusItems.menus.element
+        statusBarItem().menus.element
+    }
+
+    func statusBarItem() -> XCUIElement {
+        menuBars.statusItems.element
     }
 
     func clickStatusItem() {
-        menuBars.statusItems.element.waitToAppear().click()
+        statusBarItem().hoverAnd().click()
     }
 }
