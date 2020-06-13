@@ -23,24 +23,4 @@ extension XCUIElement {
                       "\(self) has not appeared", file: file, line: line)
         return self
     }
-    
-    func waitForHittable(timeout: TimeInterval = kDefaultTimeout,
-                         file: StaticString = #file,
-                         line: UInt = #line) -> XCUIElement{
-        let hittablePredicate = NSPredicate(format: "hittable == true")
-        let becameHittable = XCTNSPredicateExpectation(predicate: hittablePredicate, object: self)
-        let waiter = XCTWaiter()
-        XCTAssertEqual(waiter.wait(for: [becameHittable], timeout: timeout), .completed,
-                       "\(self) has not became hittable", file: file, line: line)
-        return self
-    }
-    
-    func clickOnIt() {
-        coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0)).click()
-    }
-    
-    func hoverAnd() -> Self {
-        hover()
-        return self
-    }
 }
