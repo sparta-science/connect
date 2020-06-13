@@ -16,8 +16,6 @@ jobs:
       run: |
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw -k
-    - name: Close Finder
-      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
     - name: Close Notification window
       run: killall UserNotificationCenter || true
     - uses: apple-actions/import-codesign-certs@v1
