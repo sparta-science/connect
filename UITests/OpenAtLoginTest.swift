@@ -1,7 +1,7 @@
 import XCTest
 import NSBundle_LoginItem
 
-class LaunchAtLoginTest: XCTestCase {
+class OpenAtLoginTest: XCTestCase {
     let app = XCUIApplication()
     
     override func setUpWithError() throws {
@@ -16,21 +16,27 @@ class LaunchAtLoginTest: XCTestCase {
     
     override func tearDownWithError() throws {
         removeLoginItem()
+        app.terminate()
         try super.tearDownWithError()
     }
     
-    func verifyLoginItemPresent() {
-        XCTAssertTrue(app.bundle.isLoginItemEnabled(), "should be enabled")
+    func verifyLoginItem(enabled: Bool) {
+        XCTAssertEqual(enabled, app.bundle.isLoginItemEnabled(), "should be enabled")
     }
     
     func removeLoginItem() {
         app.bundle.disableLoginItem()
     }
     
-    func testLaunchAtLoginSelectedByDefault() throws {
-        let menuBarsQuery = app.menuBars
-        menuBarsQuery.menuBarItems["SpartaConnect"].click()
-        menuBarsQuery.menuItems["Open at Login"].click()
-        verifyLoginItemPresent()
+    func testOpenAtLoginAddsLoginItem() throws {
+        app.clickStatusItem()
+        
+        let openAtLoginMenuItem = app.statusBarMenu().menuItems["Open at Login"]
+        openAtLoginMenuItem.click()
+        verifyLoginItem(enabled: true)
+
+        app.clickStatusItem()
+        openAtLoginMenuItem.click()
+        verifyLoginItem(enabled: false)
     }
 }

@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.9</string>
 	<key>CFBundleVersion</key>
-    <string>0.9.1</string>
+	<string>0.9.1</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.healthcare-fitness</string>
 	<key>LSMinimumSystemVersion</key>
@@ -31,14 +31,18 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticTermination</key>
-	<true/>
+	<false/>
 	<key>NSSupportsSuddenTermination</key>
-	<true/>
+	<false/>
 	<key>SUAutomaticallyUpdate</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedURL</key>
 	<string>https://github.com/sparta-science/connect/releases/latest/download/appcast.xml</string>
+	<key>LSUIElement</key>
+	<true/>
+	<key>LSMultipleInstancesProhibited</key>
+	<true/>
 </dict>
 </plist>

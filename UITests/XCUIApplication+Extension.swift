@@ -10,4 +10,16 @@ extension XCUIApplication {
     var url: URL {
         URL(fileURLWithPath: path)
     }
+
+    func statusBarMenu() -> XCUIElement {
+        statusBarItem().menus.element
+    }
+
+    func statusBarItem() -> XCUIElement {
+        menuBars.statusItems.element
+    }
+
+    func clickStatusItem() {
+        statusBarItem().click()
+    }
 }
