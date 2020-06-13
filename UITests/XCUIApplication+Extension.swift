@@ -20,6 +20,6 @@ extension XCUIApplication {
     }
 
     func clickStatusItem() {
-        statusBarItem().hoverAnd().click()
+        statusBarItem().coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).click()
     }
 }
