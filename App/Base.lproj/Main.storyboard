@@ -57,12 +57,12 @@
                         <menuItem title="About SpartaConnect" id="8A0-15-8iO">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="KSi-fs-Dxa"/>
+                                <action selector="orderFrontStandardAboutPanel:" target="hnw-xV-0zn" id="bna-uv-Zym"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Quit SpartaConnect" keyEquivalent="q" id="fIG-Kc-wco">
                             <connections>
-                                <action selector="terminate:" target="Ady-hI-5gd" id="2Iu-5M-Dpa"/>
+                                <action selector="terminate:" target="hnw-xV-0zn" id="baW-Rk-3Pd"/>
                             </connections>
                         </menuItem>
                     </items>
