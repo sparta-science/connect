@@ -5,35 +5,19 @@ let kDefaultTimeout: TimeInterval = 5
 class UpdateAppTest: XCTestCase {
     let tempAppHelper = TempAppHelper()
     lazy var app = tempAppHelper.tempApp()
-    var openFirstTimeMonitor: NSObjectProtocol!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
-        tempAppHelper.prepare()
+        tempAppHelper.prepare(for: self)
         tempAppHelper.bundleHelper.clearDefaults()
         tempAppHelper.clearCache()
         app.launchArguments = [
             "-moveToApplicationsFolderAlertSuppress", "YES",
         ]
-        openFirstTimeMonitor = addUIInterruptionMonitor(
-            withDescription: "open first time"
-        ) { alert -> Bool in
-            print(alert)
-            if alert.buttons["Show Application"].exists {
-                XCTAssertTrue(alert.staticTexts[
-                    "You are opening the application “SpartaConnect” for the first time. "
-                        + "Are you sure you want to open this application?"
-                ].exists)
-                alert.buttons["Open"].click()
-                return true
-            }
-            return false
-        }
     }
 
     override func tearDownWithError() throws {
-        removeUIInterruptionMonitor(openFirstTimeMonitor)
         app.terminate()
         tempAppHelper.cleanup()
         try super.tearDownWithError()
