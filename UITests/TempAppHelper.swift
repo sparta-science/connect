@@ -6,9 +6,7 @@ class TempAppHelper {
     let fileHelper = FileHelper()
     var removeMonitor: (()->Void)!
     func tempApp() -> XCUIApplication {
-        let url = LSCopyDefaultApplicationURLForURL(tempUrl as CFURL, .all, nil)
-        XCTAssertEqual(url?.takeRetainedValue() as URL?, tempUrl)
-        return XCUIApplication(url: tempUrl)
+        XCUIApplication(url: tempUrl)
     }
     
     func clearCache() {
@@ -38,6 +36,7 @@ class TempAppHelper {
         removeMonitor = {test.removeUIInterruptionMonitor(openFirstTimeMonitor)}
         removeTempApp()
         fileHelper.copy(XCUIApplication().url, to: tempUrl)
+        LaunchService.waitForAppToBeReadyForLaunch(at: tempUrl)
     }
     private func removeTempApp() {
         fileHelper.remove(url: tempUrl)

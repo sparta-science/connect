@@ -19,6 +19,7 @@
 		4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */; };
 		4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */; };
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
+		4A8A3637249638100071624E /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8A3636249638100071624E /* LaunchService.swift */; };
 		4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888C2486FA90009CFACE /* AppDelegate.swift */; };
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
@@ -90,6 +91,7 @@
 		4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
 		4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManagerSpec.swift; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
+		4A8A3636249638100071624E /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
 		4A9F06D02491D91300714B04 /* Gemfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Gemfile.lock; sourceTree = "<group>"; };
 		4A9F06D12491D91400714B04 /* Podfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Podfile.lock; sourceTree = "<group>"; };
 		4A9F06D22491D91400714B04 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */,
 				4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */,
 				4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */,
+				4A8A3636249638100071624E /* LaunchService.swift */,
 				4A3F3C96248F604B0058C5D4 /* FileHelper.swift */,
 				4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */,
 				4AA188AC2486FA90009CFACE /* Info.plist */,
@@ -716,6 +719,7 @@
 				4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */,
 				4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */,
 				4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */,
+				4A8A3637249638100071624E /* LaunchService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
