@@ -9,45 +9,7 @@
         <scene sceneID="JPo-4y-FX3">
             <objects>
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
-                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
-                        <items>
-                            <menuItem title="SpartaConnect Help" keyEquivalent="?" id="FKE-Sm-Kum">
-                                <connections>
-                                    <action selector="showHelp:" target="hnw-xV-0zn" id="2CP-cF-Gqd"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Open at Login" tag="3" id="1Fp-L2-cET">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <binding destination="wDy-CS-sRL" name="value" keyPath="self.openAtLogin" id="XwY-J0-gh7">
-                                        <dictionary key="options">
-                                            <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
-                                            <bool key="NSConditionallySetsEnabled" value="NO"/>
-                                            <bool key="NSValidatesImmediately" value="YES"/>
-                                        </dictionary>
-                                    </binding>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Check for updates..." id="V34-U7-gWg">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="checkForUpdates:" target="ldg-rZ-XtS" id="UuF-pw-GH9"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="About SpartaConnect" id="5kV-Vb-QxS">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Quit SpartaConnect" keyEquivalent="q" id="4sb-4s-VLi">
-                                <connections>
-                                    <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6"/>
                     <connections>
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
@@ -61,7 +23,50 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
                 <customObject id="wDy-CS-sRL" customClass="LoginItemManager" customModule="SpartaConnect" customModuleProvider="target"/>
-                <customObject id="3xX-Pg-K5i" customClass="MenuBarButton" customModule="SpartaConnect" customModuleProvider="target"/>
+                <customObject id="3xX-Pg-K5i" customClass="MenuBarButton" customModule="SpartaConnect" customModuleProvider="target">
+                    <connections>
+                        <outlet property="menu" destination="daY-3C-00p" id="mXL-00-VRf"/>
+                    </connections>
+                </customObject>
+                <menu id="daY-3C-00p" userLabel="Status Bar Menu">
+                    <items>
+                        <menuItem title="SpartaConnect Help" keyEquivalent="?" id="73L-I2-jcr">
+                            <connections>
+                                <action selector="showHelp:" target="hnw-xV-0zn" id="SQo-c9-GxC"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Open at Login" state="on" tag="3" id="5yh-Zc-JVB">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <binding destination="wDy-CS-sRL" name="value" keyPath="self.openAtLogin" id="iuU-oz-2Xr">
+                                    <dictionary key="options">
+                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                        <bool key="NSValidatesImmediately" value="YES"/>
+                                    </dictionary>
+                                </binding>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Check for updates..." id="VzE-ht-sPy">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="checkForUpdates:" target="ldg-rZ-XtS" id="m7A-MJ-a8t"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="Bgq-wi-6hi"/>
+                        <menuItem title="About SpartaConnect" id="8A0-15-8iO">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="KSi-fs-Dxa"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Quit SpartaConnect" keyEquivalent="q" id="fIG-Kc-wco">
+                            <connections>
+                                <action selector="terminate:" target="Ady-hI-5gd" id="2Iu-5M-Dpa"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
