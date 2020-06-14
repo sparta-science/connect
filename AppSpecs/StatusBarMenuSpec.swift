@@ -2,28 +2,32 @@ import Quick
 import Nimble
 import SpartaConnect
 
-class MenuBarButtonSpec: QuickSpec {
+class StatusBarMenuSpec: QuickSpec {
     override func spec() {
-        describe("MenuBarButton") {
-            var subject: MenuBarButton!
-            var statusMenu: NSMenu!
+        describe("StatusBarMenu") {
+            var subject: StatusBarMenu!
+            var image: NSImage!
             beforeEach {
                 subject = .init()
-                statusMenu = .init(title: "test menu")
-                subject.menu = statusMenu
+                image = .init(size: .zero)
+                let item = subject.addItem(withTitle: "first", action: nil, keyEquivalent: "")
+                item.image = image
             }
             context("awakeFromNib") {
+                beforeEach {
+                    subject.awakeFromNib()
+                }
                 context("statusItem") {
                     var statusItem: NSStatusItem!
                     beforeEach {
-                        subject.awakeFromNib()
                         statusItem = subject.statusItem
                     }
-                    it("should have take main menu from subject") {
-                        expect(statusItem.menu) === statusMenu
+                    it("configures status item with menu") {
+                        expect(statusItem.button?.title) == "first"
+                        expect(statusItem.button?.image) === image
+                        expect(statusItem.menu) === subject
                     }
-                    it("should have correct properties") {
-                        expect(statusItem.button?.image) == #imageLiteral(resourceName: "menu-bar-icon")
+                    it("should have expected properties") {
                         expect(statusItem.isVisible) == true
                         expect(statusItem.behavior) == [.terminationOnRemoval, .removalAllowed]
                         expect(statusItem.autosaveName) == Bundle.main.bundleIdentifier

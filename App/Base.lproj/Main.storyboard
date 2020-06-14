@@ -650,20 +650,11 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SpartaConnect" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="ldg-rZ-XtS" customClass="SUUpdater">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="automaticallyDownloadsUpdates" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="automaticallyChecksForUpdates" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
-                <customObject id="wDy-CS-sRL" customClass="LoginItemManager" customModule="SpartaConnect" customModuleProvider="target"/>
-                <customObject id="3xX-Pg-K5i" customClass="MenuBarButton" customModule="SpartaConnect" customModuleProvider="target">
-                    <connections>
-                        <outlet property="menu" destination="daY-3C-00p" id="mXL-00-VRf"/>
-                    </connections>
-                </customObject>
-                <menu id="daY-3C-00p" userLabel="Status Bar Menu">
+                <menu id="daY-3C-00p" userLabel="Status Bar Menu" customClass="StatusBarMenu" customModule="SpartaConnect" customModuleProvider="target">
                     <items>
+                        <menuItem image="menu-bar-icon" id="sPV-0T-nLh">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
                         <menuItem title="SpartaConnect Help" keyEquivalent="?" id="73L-I2-jcr">
                             <connections>
                                 <action selector="showHelp:" target="hnw-xV-0zn" id="SQo-c9-GxC"/>
@@ -701,8 +692,15 @@
                         </menuItem>
                     </items>
                 </menu>
+                <customObject id="ldg-rZ-XtS" customClass="SUUpdater">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="automaticallyDownloadsUpdates" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="automaticallyChecksForUpdates" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </customObject>
+                <customObject id="wDy-CS-sRL" customClass="LoginItemManager" customModule="SpartaConnect" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="63" y="-145"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -739,4 +737,7 @@
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu-bar-icon" width="19" height="19"/>
+    </resources>
 </document>

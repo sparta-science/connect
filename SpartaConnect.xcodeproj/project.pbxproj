@@ -26,8 +26,8 @@
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
 		4AD40A9124870708002728DA /* FirstSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* FirstSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
-		4BC13F50249409D000360A26 /* MenuBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* MenuBarButton.swift */; };
-		4BC13F5224940AD400360A26 /* MenuBarButtonSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* MenuBarButtonSpec.swift */; };
+		4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
+		4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069AB125D9A11E885ED84E2B /* Pods_SpartaConnect.framework */; };
@@ -113,8 +113,8 @@
 		4AD40A99248850E1002728DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AD40A9B24897C85002728DA /* UITests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UITests.entitlements; sourceTree = "<group>"; };
 		4AD40A9D24897F51002728DA /* self-hosted.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = "self-hosted.yml"; path = ".github/workflows/self-hosted.yml"; sourceTree = "<group>"; };
-		4BC13F4F249409D000360A26 /* MenuBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarButton.swift; sourceTree = "<group>"; };
-		4BC13F5124940AD400360A26 /* MenuBarButtonSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarButtonSpec.swift; sourceTree = "<group>"; };
+		4BC13F4F249409D000360A26 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
+		4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenuSpec.swift; sourceTree = "<group>"; };
 		55ACDC80CAFF61B83E74C6FC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
-				4BC13F5124940AD400360A26 /* MenuBarButtonSpec.swift */,
+				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
 				4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
 			);
@@ -263,7 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
-				4BC13F4F249409D000360A26 /* MenuBarButton.swift */,
+				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
 				4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */,
 				4AA188902486FA90009CFACE /* Assets.xcassets */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
@@ -680,7 +680,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BC13F5224940AD400360A26 /* MenuBarButtonSpec.swift in Sources */,
+				4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */,
 			);
@@ -690,7 +690,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BC13F50249409D000360A26 /* MenuBarButton.swift in Sources */,
+				4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */,
 				4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 			);
