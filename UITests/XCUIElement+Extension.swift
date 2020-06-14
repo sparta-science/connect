@@ -23,4 +23,18 @@ extension XCUIElement {
                       "\(self) has not appeared", file: file, line: line)
         return self
     }
+    @discardableResult
+    func waitToBeClickable(timeout: TimeInterval = kDefaultTimeout, file: StaticString = #file, line: UInt = #line) -> XCUIElement {
+        let hittable = NSPredicate(format: "hittable == true")
+        let becameHittable = XCTNSPredicateExpectation(predicate: hittable, object: self)
+        XCTAssertEqual(
+            XCTWaiter().wait(for: [becameHittable], timeout: timeout),
+            .completed,
+            "\(self) has not became hittable, isHittable:\(isHittable)",
+            file: file,
+            line: line
+        )
+        return self
+    }
+
 }
