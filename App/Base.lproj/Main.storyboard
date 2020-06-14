@@ -35,7 +35,7 @@
                                 <action selector="showHelp:" target="hnw-xV-0zn" id="SQo-c9-GxC"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Open at Login" state="on" tag="3" id="5yh-Zc-JVB">
+                        <menuItem title="Open at Login" state="on" id="5yh-Zc-JVB">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <binding destination="wDy-CS-sRL" name="value" keyPath="self.openAtLogin" id="iuU-oz-2Xr">
