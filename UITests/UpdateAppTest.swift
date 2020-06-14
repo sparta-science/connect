@@ -39,8 +39,8 @@ class UpdateAppTest: XCTestCase {
         let updatingWindow = app.windows["Updating SpartaConnect"]
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
-        XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout), "wait for app to terminate")
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout), "wait for app to relaunch")
+        app.wait(until: .notRunning, "wait for app to terminate")
+        app.wait(until: .runningForeground, "wait for app to relaunch")
     }
     
     func dismissMoveToApplicationsAlert() {
@@ -52,7 +52,7 @@ class UpdateAppTest: XCTestCase {
     
     
     func verifyUpdated() {
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5), "wait for app to relaunch")
+        app.wait(until: .runningForeground, timeout: 5, "wait for app to relaunch")
         app.windows["Window"].waitToAppear(timeout: 3 * kDefaultTimeout)
         app.menuBars.menuBarItems["SpartaConnect"].click()
         app.menuBars.menus.menuItems["About SpartaConnect"].click()
@@ -64,9 +64,9 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.bundleHelper.persistDefaults([
             "SULastCheckTime": Date()
         ])
-        XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout))
+        app.wait(until: .notRunning)
         app.launch()
-        XCTAssertTrue(app.wait(for: .runningBackground, timeout: kDefaultTimeout))
+        app.wait(until: .runningBackground)
         checkForUpdatesAndInstall()
         installAndRelaunch()
         dismissMoveToApplicationsAlert()
@@ -77,7 +77,7 @@ class UpdateAppTest: XCTestCase {
         app.activate()
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Quit SpartaConnect"].click()
-        XCTAssertTrue(app.wait(for: .notRunning, timeout: 5 * kDefaultTimeout))
+        app.wait(until: .notRunning, timeout: 5 * kDefaultTimeout)
     }
     
     func checkUpdateDownloaded() -> NSPredicate {
@@ -115,13 +115,13 @@ class UpdateAppTest: XCTestCase {
     
     func testUpgradeOnQuit() {
         app.launch()
-        XCTAssertTrue(app.wait(for: .runningBackground, timeout: kDefaultTimeout))
+        app.wait(until: .runningBackground)
         waitForUpdatesDownloaded()
         checkForUpdatesAndInstallOnQuit()
         quitApp()
         waitForUpdatesInstalled()
         app.launch()
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout))
+        app.wait(until: .runningForeground)
         verifyUpdated()
     }
 }

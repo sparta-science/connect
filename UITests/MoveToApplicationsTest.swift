@@ -17,8 +17,7 @@ class MoveToApplicationsTest: XCTestCase {
     }
     
     func verifyRunningFromApplications() {
-        XCTAssertTrue(movedApp.wait(for: .runningBackground, timeout: 5),
-                      "wait for app to restart from /Applications")
+        movedApp.wait(until: .runningBackground, "wait for app to restart from /Applications")
         movedApp.terminate()
     }
     
@@ -28,7 +27,7 @@ class MoveToApplicationsTest: XCTestCase {
         alert.staticTexts["Move to Applications folder?"].waitToAppear()
         alert.buttons["Move to Applications Folder"].click()
         alert.waitToDisappear()
-        XCTAssertTrue(tempApp.wait(for: .notRunning, timeout: 1), "wait for app to terminate")
+        tempApp.wait(until: .notRunning, "wait for app to terminate")
     }
     
     func testMoveToApplications() throws {

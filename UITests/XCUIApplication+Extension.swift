@@ -23,4 +23,9 @@ extension XCUIApplication {
         activate()
         statusBarItem().coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).click()
     }
+    
+    func wait(until newState: XCUIApplication.State, timeout: TimeInterval = kDefaultTimeout, _ reason: String = "") {
+        XCTAssertTrue(wait(for: newState, timeout: timeout),
+                      reason + " got \(state.rawValue)")
+    }
 }
