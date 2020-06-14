@@ -20,6 +20,7 @@ extension XCUIApplication {
     }
 
     func clickStatusItem() {
+        activate()
         statusBarItem().waitToBeClickable().click()
     }
     
