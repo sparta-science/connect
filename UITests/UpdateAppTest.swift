@@ -38,8 +38,10 @@ class UpdateAppTest: XCTestCase {
     func installAndRelaunch() {
         let updatingWindow = app.windows["Updating SpartaConnect"]
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
+        let appUrl = app.url
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         app.wait(until: .notRunning, "wait for app to terminate")
+        LaunchService.waitForAppToBeReadyForLaunch(at: appUrl)
         app.wait(until: .runningForeground, "wait for app to relaunch")
     }
     
