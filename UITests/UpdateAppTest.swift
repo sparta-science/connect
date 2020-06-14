@@ -5,6 +5,7 @@ let kDefaultTimeout: TimeInterval = 5
 class UpdateAppTest: XCTestCase {
     let tempAppHelper = TempAppHelper()
     lazy var app = tempAppHelper.tempApp()
+    var openFirstTimeMonitor: NSObjectProtocol!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -15,9 +16,24 @@ class UpdateAppTest: XCTestCase {
         app.launchArguments = [
             "-moveToApplicationsFolderAlertSuppress", "YES",
         ]
+        openFirstTimeMonitor = addUIInterruptionMonitor(
+            withDescription: "open first time"
+        ) { alert -> Bool in
+            print(alert)
+            if alert.buttons["Show Application"].exists {
+                XCTAssertTrue(alert.staticTexts[
+                    "You are opening the application “SpartaConnect” for the first time. "
+                        + "Are you sure you want to open this application?"
+                ].exists)
+                alert.buttons["Open"].click()
+                return true
+            }
+            return false
+        }
     }
 
     override func tearDownWithError() throws {
+        removeUIInterruptionMonitor(openFirstTimeMonitor)
         app.terminate()
         tempAppHelper.cleanup()
         try super.tearDownWithError()
@@ -40,7 +56,7 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout), "wait for app to terminate")
-        
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout), "wait for app to relaunch")
     }
     
     func dismissMoveToApplicationsAlert() {
