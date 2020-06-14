@@ -37,7 +37,7 @@ class UpdateAppTest: XCTestCase {
     
     func installAndRelaunch() {
         let updatingWindow = app.windows["Updating SpartaConnect"]
-        updatingWindow.waitToAppear(timeout: 2 * kDefaultTimeout)
+        updatingWindow.waitToAppear(timeout: 5 * kDefaultTimeout)
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         let appUrl = app.url
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
