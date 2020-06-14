@@ -55,6 +55,10 @@
                BlueprintName = "UnitSpecs"
                ReferencedContainer = "container:SpartaConnect.xcodeproj">
             </BuildableReference>
+            <LocationScenarioReference
+               identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+               referenceType = "1">
+            </LocationScenarioReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -65,6 +69,10 @@
                BlueprintName = "AppSpecs"
                ReferencedContainer = "container:SpartaConnect.xcodeproj">
             </BuildableReference>
+            <LocationScenarioReference
+               identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+               referenceType = "1">
+            </LocationScenarioReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
@@ -75,6 +83,10 @@
                BlueprintName = "UITests"
                ReferencedContainer = "container:SpartaConnect.xcodeproj">
             </BuildableReference>
+            <LocationScenarioReference
+               identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+               referenceType = "1">
+            </LocationScenarioReference>
          </TestableReference>
       </Testables>
    </TestAction>
