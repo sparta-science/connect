@@ -49,7 +49,27 @@ class TempAppHelper {
 }
 
 class MoveAppHelper: TempAppHelper {
-    let movedUrl = URL(fileURLWithPath: "/Applications/SpartaConnect.app")
+    static func applications(home: URL) -> URL {
+        home.appendingPathComponent("Applications")
+    }
+    // TODO: pz - refactor to fileHelper
+    static func preferredApplicationsUrl() -> URL {
+        let fileManager = FileManager.default
+
+        let home = fileManager.homeDirectoryForCurrentUser
+        let apps = applications(home: home)
+        if let list = try? fileManager.contentsOfDirectory(at: apps, includingPropertiesForKeys: nil, options: []), list.count > 1 {
+            return apps
+        }
+        return applications(home: URL(fileURLWithPath: "/"))
+    }
+    override init() {
+        movedUrl = Self.preferredApplicationsUrl()
+            .appendingPathComponent("SpartaConnect.app")
+        super.init()
+    }
+    private let movedUrl: URL
+
     func movedApp() -> XCUIApplication {
         XCUIApplication(url: movedUrl)
     }
