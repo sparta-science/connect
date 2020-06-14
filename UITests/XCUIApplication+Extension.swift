@@ -36,4 +36,12 @@ extension XCUIApplication {
             line: line
         )
     }
+
+    // MARK: Project specific
+
+    func waitForMoveAlert() -> XCUIElement {
+        let alert = dialogs["alert"]
+        alert.staticTexts["I can move myself to the Applications folder if you'd like."].waitToAppear()
+        return alert
+    }
 }

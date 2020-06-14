@@ -47,8 +47,7 @@ class UpdateAppTest: XCTestCase {
     }
     
     func dismissMoveToApplicationsAlert() {
-        let alert = app.dialogs["alert"]
-        alert.staticTexts["Move to Applications folder?"].waitToAppear()
+        let alert = app.waitForMoveAlert()
         alert.buttons["Do Not Move"].click()
         alert.waitToDisappear()
     }

@@ -23,8 +23,7 @@ class MoveToApplicationsTest: XCTestCase {
     
     func launchAndChooseToMoveToApplications() {
         tempApp.launch()
-        let alert = tempApp.dialogs["alert"]
-        alert.staticTexts["Move to Applications folder?"].waitToAppear()
+        let alert = tempApp.waitForMoveAlert()
         alert.buttons["Move to Applications Folder"].click()
         alert.waitToDisappear()
         tempApp.wait(until: .notRunning, "wait for app to terminate")
