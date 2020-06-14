@@ -122,6 +122,7 @@ class UpdateAppTest: XCTestCase {
         checkForUpdatesAndInstallOnQuit()
         quitApp()
         waitForUpdatesInstalled()
+        LaunchService.waitForAppToBeReadyForLaunch(at: app.url)
         app.launch()
         app.wait(until: .runningForeground)
         verifyUpdated()
