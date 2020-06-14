@@ -8,7 +8,7 @@ class MoveToApplicationsTest: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
-        moveAppHelper.prepare()
+        moveAppHelper.prepare(for: self)
     }
 
     override func tearDownWithError() throws {

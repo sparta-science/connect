@@ -9,7 +9,7 @@ class UpdateAppTest: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
-        tempAppHelper.prepare()
+        tempAppHelper.prepare(for: self)
         tempAppHelper.bundleHelper.clearDefaults()
         tempAppHelper.clearCache()
         app.launchArguments = [
@@ -40,7 +40,7 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.staticTexts["Ready to Install"].waitToAppear()
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout), "wait for app to terminate")
-        
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout), "wait for app to relaunch")
     }
     
     func dismissMoveToApplicationsAlert() {
