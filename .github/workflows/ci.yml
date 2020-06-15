@@ -32,6 +32,8 @@ jobs:
       run: pwd
     - name: ls -la
       run: ls -la
+    - name: ruby version
+      run: ruby --version
     - name: bundle
       run: bundle
     - name: pod install
