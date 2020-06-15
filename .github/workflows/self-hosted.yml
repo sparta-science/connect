@@ -24,13 +24,7 @@ jobs:
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
     - uses: actions/checkout@v2
-    - uses: actions/cache@v2
-      with:
-        path: ./vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
     - name: bundle
-      run: |
-        bundle config path ./vendor/bundle
-        bundle install --jobs 4 --retry 3
+      run: bundle
     - name: Unit Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
