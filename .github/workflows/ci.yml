@@ -19,6 +19,8 @@ jobs:
 #   Breaks clicking on menu bar button
 #    - name: Close Finder windows
 #      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
+    - run: pwd
+    - run: ls -la
     - run: bundle
     - run: pod install
     - run: pod update
