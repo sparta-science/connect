@@ -16,12 +16,13 @@ extension XCUIApplication {
     }
 
     func statusBarItem() -> XCUIElement {
-        menuBars.statusItems.element
+        statusItems.element
     }
 
     func clickStatusItem() {
-        activate()
-        statusBarItem().waitToBeClickable().coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).click()
+        repeat {
+            statusBarItem().coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).click()
+        } while !statusBarMenu().waitForExistence(timeout: kDefaultTimeout)
     }
     
     func wait(until newState: XCUIApplication.State,
