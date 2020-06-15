@@ -10,6 +10,8 @@ enum Timeout: TimeInterval {
 class UpdateAppTest: XCTestCase {
     let tempAppHelper = TempAppHelper()
     lazy var app = tempAppHelper.tempApp()
+    let arguments = ["-moveToApplicationsFolderAlertSuppress", "YES"]
+
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -17,9 +19,6 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.prepare(for: self)
         tempAppHelper.bundleHelper.clearDefaults()
         tempAppHelper.clearCache()
-        app.launchArguments = [
-            "-moveToApplicationsFolderAlertSuppress", "YES",
-        ]
     }
 
     override func tearDownWithError() throws {
@@ -45,10 +44,9 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.waitToAppear()
         updatingWindow.staticTexts["Ready to Install"]
             .waitToAppear(time: .install)
-        let appUrl = app.url
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         app.wait(until: .notRunning, "wait for app to terminate")
-        LaunchService.waitForAppToBeReadyForLaunch(at: appUrl)
+        LaunchService.waitForAppToBeReadyForLaunch(at: tempAppHelper.tempUrl)
         let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
         repeat {
             agent.activate()
@@ -81,8 +79,7 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.bundleHelper.persistDefaults([
             "SULastCheckTime": Date()
         ])
-        app.wait(until: .notRunning)
-        app.launch()
+        tempAppHelper.launch(arguments: arguments)
         app.wait(until: .runningBackground)
         checkForUpdatesAndInstall()
         installAndRelaunch()
@@ -131,14 +128,13 @@ class UpdateAppTest: XCTestCase {
 
     
     func testUpgradeOnQuit() {
-        app.launch()
+        tempAppHelper.launch(arguments: arguments)
         app.wait(until: .runningBackground)
         waitForUpdatesDownloaded()
         checkForUpdatesAndInstallOnQuit()
         quitApp()
         waitForUpdatesInstalled()
-        LaunchService.waitForAppToBeReadyForLaunch(at: app.url)
-        app.launch()
+        tempAppHelper.launch(arguments: arguments)
         app.wait(until: .runningForeground)
         verifyUpdated()
     }

@@ -17,6 +17,19 @@ class TempAppHelper {
         bundleHelper.find(file: fileName,
                           inCache: "org.sparkle-project.Sparkle/PersistentDownloads")
     }
+
+    func launch(arguments:[String] = []) {
+        let workspace = NSWorkspace.shared
+        let config = NSWorkspace.OpenConfiguration()
+        config.arguments = arguments
+        let running = XCTestExpectation(description: "running")
+        running.assertForOverFulfill = true
+        workspace.open(tempUrl, configuration: config) { app, err in
+            running.fulfill()
+            XCTAssertNil(err)
+        }
+        XCTWaiter.wait(until: running, "should be running")
+    }
     
     func prepare(for test: XCTestCase) {
         let openFirstTimeMonitor = test.addUIInterruptionMonitor(
@@ -38,7 +51,7 @@ class TempAppHelper {
         let original = XCUIApplication().url
         NSLog("original app: \(original)")
         fileHelper.copy(original, to: tempUrl)
-        LaunchService.waitForAppToBeReadyForLaunch(at: tempUrl)
+//        LaunchService.waitForAppToBeReadyForLaunch(at: tempUrl)
     }
     private func removeTempApp() {
         fileHelper.remove(url: tempUrl)
