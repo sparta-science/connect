@@ -43,7 +43,16 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         app.wait(until: .notRunning, "wait for app to terminate")
         LaunchService.waitForAppToBeReadyForLaunch(at: appUrl)
-        app.wait(until: .runningForeground, "wait for app to relaunch")
+        let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
+        repeat {
+            agent.activate()
+            let predicate = NSPredicate(format: "title == Open")
+            let button = agent.buttons.matching(predicate).element
+            if button.exists {
+                NSLog("agent: " + agent.debugDescription)
+                button.click()
+            }
+        } while !app.wait(for: .runningForeground, timeout: kDefaultTimeout)
     }
     
     func dismissMoveToApplicationsAlert() {
