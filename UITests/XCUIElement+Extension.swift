@@ -8,12 +8,17 @@ extension XCUIElement {
         let firstLine = debugDescription[..<endOfLine]
         return firstLine.contains("label: '\(debugLabel)'")
     }
-    func waitToDisappear(timeout: TimeInterval = kDefaultTimeout, file: StaticString = #file, line: UInt = #line) {
+    func waitToDisappear(timeout: Timeout = .test,
+                         file: StaticString = #file, line: UInt = #line) {
         let doesNotExists = NSPredicate(format: "exists == false")
         let disappered = XCTNSPredicateExpectation(predicate: doesNotExists, object: self)
-        let waiter = XCTWaiter()
-        XCTAssertEqual(waiter.wait(for: [disappered], timeout: timeout), .completed,
-                       "\(self) has not disappeared", file: file, line: line)
+        XCTWaiter.wait(
+            until: disappered,
+            timeout: timeout,
+            "\(self) has not disappeared",
+            file: file,
+            line: line
+        )
     }
     
     @discardableResult
@@ -30,12 +35,14 @@ extension XCUIElement {
     }
 
     @discardableResult
-    func waitToBeClickable(timeout: TimeInterval = kDefaultTimeout, file: StaticString = #file, line: UInt = #line) -> XCUIElement {
+    func waitToBeClickable(timeout: Timeout = .test,
+                           file: StaticString = #file,
+                           line: UInt = #line) -> XCUIElement {
         let hittable = NSPredicate(format: "hittable == true")
         let becameHittable = XCTNSPredicateExpectation(predicate: hittable, object: self)
-        XCTAssertEqual(
-            XCTWaiter().wait(for: [becameHittable], timeout: timeout),
-            .completed,
+        XCTWaiter.wait(
+            until: becameHittable,
+            timeout: timeout,
             "\(self) has not became hittable, isHittable:\(isHittable)",
             file: file,
             line: line

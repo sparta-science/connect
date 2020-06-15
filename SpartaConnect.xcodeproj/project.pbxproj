@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		302D1458B2EB23D6A2F0ED09 /* Pods_AppSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */; };
+		4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */; };
 		4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */; };
 		4A3F3C76248C92720058C5D4 /* Testable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3F3C74248C92720058C5D4 /* Testable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A3F3C79248C92720058C5D4 /* Testable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3F3C72248C92720058C5D4 /* Testable.framework */; };
@@ -77,6 +78,7 @@
 		1752C341CDE3B953C9942626 /* Pods-AppSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppSpecs.release.xcconfig"; path = "Target Support Files/Pods-AppSpecs/Pods-AppSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		18383CF04CD5A0B420B6B253 /* Pods-AppSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppSpecs.debug.xcconfig"; path = "Target Support Files/Pods-AppSpecs/Pods-AppSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		4275614E6C55701F69F0E518 /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTWaiter+Extension.swift"; sourceTree = "<group>"; };
 		4A1DC8D06D85415B5E5370B8 /* Pods-UnitSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitSpecs.release.xcconfig"; path = "Target Support Files/Pods-UnitSpecs/Pods-UnitSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAtLoginTest.swift; sourceTree = "<group>"; };
 		4A3F3C72248C92720058C5D4 /* Testable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Testable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */,
+				4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */,
 				4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */,
 				4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */,
 				4A8A3636249638100071624E /* LaunchService.swift */,
@@ -714,6 +717,7 @@
 				4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */,
 				4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */,
 				4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */,
+				4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */,
 				4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */,
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
 				4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */,

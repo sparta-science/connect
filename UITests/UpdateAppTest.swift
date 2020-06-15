@@ -1,7 +1,5 @@
 import XCTest
 
-let kDefaultTimeout: TimeInterval = 5
-
 enum Timeout: TimeInterval {
     case test = 5
     case launch = 10
@@ -71,7 +69,7 @@ class UpdateAppTest: XCTestCase {
     
     
     func verifyUpdated() {
-        app.wait(until: .runningForeground, timeout: 5, "wait for app to relaunch")
+        app.wait(until: .runningForeground, "wait for app to relaunch")
         app.windows["Window"].waitToAppear(time: .launch)
         app.menuBars.menuBarItems["SpartaConnect"].click()
         app.menuBars.menus.menuItems["About SpartaConnect"].click()
@@ -96,7 +94,7 @@ class UpdateAppTest: XCTestCase {
         app.activate()
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Quit SpartaConnect"].click()
-        app.wait(until: .notRunning, timeout: Timeout.install.rawValue)
+        app.wait(until: .notRunning, timeout: .install)
     }
     
     func checkUpdateDownloaded() -> NSPredicate {

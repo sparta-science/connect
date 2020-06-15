@@ -31,12 +31,12 @@ extension XCUIApplication {
     }
     
     func wait(until newState: XCUIApplication.State,
-              timeout: TimeInterval = kDefaultTimeout,
+              timeout: Timeout = .test,
               _ reason: String = "waiting for app state, ",
               file: StaticString = #file,
               line: UInt = #line) {
         XCTAssertTrue(
-            wait(for: newState, timeout: timeout),
+            wait(for: newState, timeout: timeout.rawValue),
             reason + " got \(state.rawValue)",
             file: file,
             line: line
