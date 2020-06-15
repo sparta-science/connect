@@ -19,6 +19,10 @@ jobs:
 #   Breaks clicking on menu bar button
 #    - name: Close Finder windows
 #      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
+    - run: bundle
+    - run: pod install
+    - run: pod update
+    - run: git diff
     - name: Close Notification window
       run: killall UserNotificationCenter || true
     - uses: apple-actions/import-codesign-certs@v1
