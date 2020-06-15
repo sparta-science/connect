@@ -28,10 +28,14 @@ jobs:
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
     - uses: actions/checkout@v2
-    - run: pwd
-    - run: ls -la
-    - run: bundle
-    - run: pod install
+    - name: Our Commands pwd
+      run: pwd
+    - name: ls -la
+      run: ls -la
+    - name: bundle
+      run: bundle
+    - name: pod install
+      run: pod install
     - run: pod update
     - run: git diff
     - name: Unit Specs
