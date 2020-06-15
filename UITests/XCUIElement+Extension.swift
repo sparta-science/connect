@@ -16,13 +16,14 @@ extension XCUIElement {
                        "\(self) has not disappeared", file: file, line: line)
     }
     @discardableResult
-    func waitToAppear(timeout: TimeInterval = kDefaultTimeout,
+    func waitToAppear(time timeout: Timeout = .test,
                       file: StaticString = #file,
                       line: UInt = #line) -> XCUIElement{
-        XCTAssertTrue(waitForExistence(timeout: timeout),
+        XCTAssertTrue(waitForExistence(timeout: timeout.rawValue),
                       "\(self) has not appeared", file: file, line: line)
         return self
     }
+
     @discardableResult
     func waitToBeClickable(timeout: TimeInterval = kDefaultTimeout, file: StaticString = #file, line: UInt = #line) -> XCUIElement {
         let hittable = NSPredicate(format: "hittable == true")

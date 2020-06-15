@@ -2,6 +2,13 @@ import XCTest
 
 let kDefaultTimeout: TimeInterval = 5
 
+enum Timeout: TimeInterval {
+    case test = 5
+    case launch = 10
+    case install = 30
+    case network = 60
+}
+
 class UpdateAppTest: XCTestCase {
     let tempAppHelper = TempAppHelper()
     lazy var app = tempAppHelper.tempApp()
@@ -38,7 +45,8 @@ class UpdateAppTest: XCTestCase {
     func installAndRelaunch() {
         let updatingWindow = app.windows["Updating SpartaConnect"]
         updatingWindow.waitToAppear()
-        updatingWindow.staticTexts["Ready to Install"].waitToAppear(timeout: 5 * kDefaultTimeout)
+        updatingWindow.staticTexts["Ready to Install"]
+            .waitToAppear(time: .install)
         let appUrl = app.url
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         app.wait(until: .notRunning, "wait for app to terminate")
@@ -64,7 +72,7 @@ class UpdateAppTest: XCTestCase {
     
     func verifyUpdated() {
         app.wait(until: .runningForeground, timeout: 5, "wait for app to relaunch")
-        app.windows["Window"].waitToAppear(timeout: 3 * kDefaultTimeout)
+        app.windows["Window"].waitToAppear(time: .launch)
         app.menuBars.menuBarItems["SpartaConnect"].click()
         app.menuBars.menus.menuItems["About SpartaConnect"].click()
         app.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
