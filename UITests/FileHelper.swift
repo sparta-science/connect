@@ -10,7 +10,13 @@ class FileHelper {
     }
     
     func copy(_ from: URL, to destination: URL) {
-        try! fileManager.copyItem(at: from, to: destination)
+        let duplicated = XCTestExpectation(description: "duplicated")
+        NSWorkspace.shared.duplicate([from]) { (map, error) in
+            XCTAssertNil(error)
+            _ = try! self.fileManager.replaceItemAt(destination, withItemAt: map[from]!, backupItemName: nil, options: .usingNewMetadataOnly)
+            duplicated.fulfill()
+        }
+        XCTWaiter.wait(until: duplicated, timeout: .install, "should copy")
         XCTAssertTrue(fileManager.fileExists(atPath: destination.path))
     }
     
