@@ -96,7 +96,7 @@ class UpdateAppTest: XCTestCase {
         app.activate()
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Quit SpartaConnect"].click()
-        app.wait(until: .notRunning, timeout: 5 * kDefaultTimeout)
+        app.wait(until: .notRunning, timeout: Timeout.install.rawValue)
     }
     
     func checkUpdateDownloaded() -> NSPredicate {
@@ -104,8 +104,9 @@ class UpdateAppTest: XCTestCase {
     }
     
     func waitForUpdatesDownloaded() {
-        let downloadComplete = expectation(for: checkUpdateDownloaded(), evaluatedWith: nil)
-        let downloadTimeout = 20 * kDefaultTimeout
+        let downloadComplete = expectation(for: checkUpdateDownloaded(),
+                                           evaluatedWith: nil)
+        let downloadTimeout = 2 * Timeout.network.rawValue
         wait(for: [downloadComplete], timeout: downloadTimeout)
     }
     
@@ -114,8 +115,7 @@ class UpdateAppTest: XCTestCase {
             notPredicateWithSubpredicate: checkUpdateDownloaded()
         )
         let expectDownload = expectation(for: downloadedDeleted, evaluatedWith: nil)
-        let installTimeout = 5 * kDefaultTimeout
-        wait(for: [expectDownload], timeout: installTimeout)
+        wait(for: [expectDownload], timeout: Timeout.install.rawValue)
     }
     
     func checkForUpdatesAndInstallOnQuit() {
