@@ -51,7 +51,6 @@ class TempAppHelper {
         let original = XCUIApplication().url
         NSLog("original app: \(original)")
         fileHelper.copy(original, to: tempUrl)
-//        LaunchService.waitForAppToBeReadyForLaunch(at: tempUrl)
     }
     private func removeTempApp() {
         fileHelper.remove(url: tempUrl)

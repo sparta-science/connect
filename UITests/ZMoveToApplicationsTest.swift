@@ -22,7 +22,7 @@ class ZMoveToApplicationsTest: XCTestCase {
     }
     
     func launchAndChooseToMoveToApplications() {
-        tempApp.launch()
+        moveAppHelper.launch()
         let alert = tempApp.waitForMoveAlert()
         alert.buttons["Move to Applications Folder"].click()
         alert.waitToDisappear()
