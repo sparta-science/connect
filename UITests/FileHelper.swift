@@ -35,4 +35,27 @@ class FileHelper {
             return list.contains { ($0 as? URL)?.lastPathComponent == file }
         }
     }
+    
+    func applications(home: URL) -> URL {
+        home.appendingPathComponent("Applications")
+    }
+    
+    func hasFilesIn(url: URL) -> Bool {
+        if let list = try? fileManager.contentsOfDirectory(
+            at: url,
+            includingPropertiesForKeys: nil,
+            options: []) {
+            return list.count > 1
+        }
+        return false
+    }
+    
+    func preferredApplicationsUrl() -> URL {
+        let home = fileManager.homeDirectoryForCurrentUser
+        let userAppsUrl = applications(home: home)
+        if hasFilesIn(url: userAppsUrl) {
+            return userAppsUrl
+        }
+        return applications(home: URL(fileURLWithPath: "/"))
+    }
 }
