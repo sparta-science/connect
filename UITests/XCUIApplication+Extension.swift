@@ -16,7 +16,7 @@ extension XCUIApplication {
     }
 
     func statusBarItem() -> XCUIElement {
-        statusItems.element
+        menuBars.statusItems.element
     }
 
     func clickStatusItem() {
