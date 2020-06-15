@@ -40,8 +40,8 @@ jobs:
       run: ls -la
     - name: ruby version
       run: ruby --version
-    - run: ls -l vendor/bundle/ruby/
-    - run: gem install bundler -v 2.1.4
+#    - run: ls -l vendor/bundle/ruby/
+#    - run: gem install bundler -v 2.1.4
     - name: bundle
       run: |
         bundle config path vendor/bundle
