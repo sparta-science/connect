@@ -8,19 +8,46 @@ extension XCUIElement {
         let firstLine = debugDescription[..<endOfLine]
         return firstLine.contains("label: '\(debugLabel)'")
     }
-    func waitToDisappear(timeout: TimeInterval = kDefaultTimeout, file: StaticString = #file, line: UInt = #line) {
+    func waitToDisappear(timeout: Timeout = .test,
+                         file: StaticString = #file, line: UInt = #line) {
         let doesNotExists = NSPredicate(format: "exists == false")
         let disappered = XCTNSPredicateExpectation(predicate: doesNotExists, object: self)
-        let waiter = XCTWaiter()
-        XCTAssertEqual(waiter.wait(for: [disappered], timeout: timeout), .completed,
-                       "\(self) has not disappeared", file: file, line: line)
+        XCTWaiter.wait(
+            until: disappered,
+            timeout: timeout,
+            "\(self) has not disappeared",
+            file: file,
+            line: line
+        )
     }
+    
     @discardableResult
-    func waitToAppear(timeout: TimeInterval = kDefaultTimeout,
+    func waitToAppear(time timeout: Timeout = .test,
                       file: StaticString = #file,
-                      line: UInt = #line) -> XCUIElement{
+                      line: UInt = #line) -> XCUIElement {
         XCTAssertTrue(waitForExistence(timeout: timeout),
                       "\(self) has not appeared", file: file, line: line)
         return self
     }
+    
+    func waitForExistence(timeout: Timeout = .test) -> Bool {
+        waitForExistence(timeout: timeout.rawValue)
+    }
+
+    @discardableResult
+    func waitToBeClickable(timeout: Timeout = .test,
+                           file: StaticString = #file,
+                           line: UInt = #line) -> XCUIElement {
+        let hittable = NSPredicate(format: "hittable == true")
+        let becameHittable = XCTNSPredicateExpectation(predicate: hittable, object: self)
+        XCTWaiter.wait(
+            until: becameHittable,
+            timeout: timeout,
+            "\(self) has not became hittable, isHittable:\(isHittable)",
+            file: file,
+            line: line
+        )
+        return self
+    }
+
 }

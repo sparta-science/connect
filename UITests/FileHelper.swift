@@ -10,7 +10,13 @@ class FileHelper {
     }
     
     func copy(_ from: URL, to destination: URL) {
-        try! fileManager.copyItem(at: from, to: destination)
+        let duplicated = XCTestExpectation(description: "duplicated")
+        NSWorkspace.shared.duplicate([from]) { (map, error) in
+            XCTAssertNil(error)
+            _ = try! self.fileManager.replaceItemAt(destination, withItemAt: map[from]!, backupItemName: nil, options: .usingNewMetadataOnly)
+            duplicated.fulfill()
+        }
+        XCTWaiter.wait(until: duplicated, timeout: .install, "should copy")
         XCTAssertTrue(fileManager.fileExists(atPath: destination.path))
     }
     
@@ -34,5 +40,28 @@ class FileHelper {
                                                    includingPropertiesForKeys: nil)!
             return list.contains { ($0 as? URL)?.lastPathComponent == file }
         }
+    }
+    
+    func applications(home: URL) -> URL {
+        home.appendingPathComponent("Applications")
+    }
+    
+    func hasFilesIn(url: URL) -> Bool {
+        if let list = try? fileManager.contentsOfDirectory(
+            at: url,
+            includingPropertiesForKeys: nil,
+            options: []) {
+            return list.count > 1
+        }
+        return false
+    }
+    
+    func preferredApplicationsUrl() -> URL {
+        let home = fileManager.homeDirectoryForCurrentUser
+        let userAppsUrl = applications(home: home)
+        if hasFilesIn(url: userAppsUrl) {
+            return userAppsUrl
+        }
+        return applications(home: URL(fileURLWithPath: "/"))
     }
 }

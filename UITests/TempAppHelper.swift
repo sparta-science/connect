@@ -1,7 +1,7 @@
 import XCTest
 
 class TempAppHelper {
-    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect.app")
+    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect-\(arc4random()).app")
     let bundleHelper = BundleHelper(bundleId: "com.spartascience.SpartaConnect")
     let fileHelper = FileHelper()
     var removeMonitor: (()->Void)!
@@ -17,13 +17,26 @@ class TempAppHelper {
         bundleHelper.find(file: fileName,
                           inCache: "org.sparkle-project.Sparkle/PersistentDownloads")
     }
+
+    func launch(arguments:[String] = []) {
+        let workspace = NSWorkspace.shared
+        let config = NSWorkspace.OpenConfiguration()
+        config.arguments = arguments
+        let running = XCTestExpectation(description: "running")
+        running.assertForOverFulfill = true
+        workspace.open(tempUrl, configuration: config) { app, err in
+            running.fulfill()
+            XCTAssertNil(err)
+        }
+        XCTWaiter.wait(until: running, "should be running")
+    }
     
     func prepare(for test: XCTestCase) {
         let openFirstTimeMonitor = test.addUIInterruptionMonitor(
             withDescription: "open first time"
         ) { alert -> Bool in
-            print(alert)
             if alert.buttons["Show Application"].exists {
+                NSLog("alert: " + alert.debugDescription)
                 XCTAssertTrue(alert.staticTexts[
                     "You are opening the application “SpartaConnect” for the first time. "
                         + "Are you sure you want to open this application?"
@@ -35,8 +48,9 @@ class TempAppHelper {
         }
         removeMonitor = {test.removeUIInterruptionMonitor(openFirstTimeMonitor)}
         removeTempApp()
-        fileHelper.copy(XCUIApplication().url, to: tempUrl)
-        LaunchService.waitForAppToBeReadyForLaunch(at: tempUrl)
+        let original = XCUIApplication().url
+        NSLog("original app: \(original)")
+        fileHelper.copy(original, to: tempUrl)
     }
     private func removeTempApp() {
         fileHelper.remove(url: tempUrl)
@@ -49,7 +63,10 @@ class TempAppHelper {
 }
 
 class MoveAppHelper: TempAppHelper {
-    let movedUrl = URL(fileURLWithPath: "/Applications/SpartaConnect.app")
+    lazy var movedUrl = fileHelper
+        .preferredApplicationsUrl()
+        .appendingPathComponent(tempUrl.lastPathComponent)
+
     func movedApp() -> XCUIApplication {
         XCUIApplication(url: movedUrl)
     }

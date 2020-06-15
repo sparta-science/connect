@@ -1,10 +1,17 @@
 import XCTest
 
-let kDefaultTimeout: TimeInterval = 5
+enum Timeout: TimeInterval {
+    case test = 5
+    case launch = 10
+    case install = 30
+    case network = 60
+}
 
 class UpdateAppTest: XCTestCase {
     let tempAppHelper = TempAppHelper()
     lazy var app = tempAppHelper.tempApp()
+    let arguments = ["-moveToApplicationsFolderAlertSuppress", "YES"]
+
 
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -12,9 +19,6 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.prepare(for: self)
         tempAppHelper.bundleHelper.clearDefaults()
         tempAppHelper.clearCache()
-        app.launchArguments = [
-            "-moveToApplicationsFolderAlertSuppress", "YES",
-        ]
     }
 
     override func tearDownWithError() throws {
@@ -37,23 +41,34 @@ class UpdateAppTest: XCTestCase {
     
     func installAndRelaunch() {
         let updatingWindow = app.windows["Updating SpartaConnect"]
-        updatingWindow.staticTexts["Ready to Install"].waitToAppear()
+        updatingWindow.waitToAppear()
+        updatingWindow.staticTexts["Ready to Install"]
+            .waitToAppear(time: .install)
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
-        XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout), "wait for app to terminate")
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout), "wait for app to relaunch")
+        app.wait(until: .notRunning, "wait for app to terminate")
+        LaunchService.waitForAppToBeReadyForLaunch(at: tempAppHelper.tempUrl)
+        let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
+        repeat {
+            agent.activate()
+            let predicate = NSPredicate(format: "title == Open")
+            let button = agent.buttons.matching(predicate).element
+            if agent.state != .notRunning, button.exists {
+                NSLog("agent: " + agent.debugDescription)
+                button.click()
+            }
+        } while !app.wait(for: .runningForeground)
     }
     
     func dismissMoveToApplicationsAlert() {
-        let alert = app.dialogs["alert"]
-        alert.staticTexts["Move to Applications folder?"].waitToAppear()
+        let alert = app.waitForMoveAlert()
         alert.buttons["Do Not Move"].click()
         alert.waitToDisappear()
     }
     
     
     func verifyUpdated() {
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: 5), "wait for app to relaunch")
-        app.windows["Window"].waitToAppear(timeout: 3 * kDefaultTimeout)
+        app.wait(until: .runningForeground, "wait for app to relaunch")
+        app.windows["Window"].waitToAppear(time: .launch)
         app.menuBars.menuBarItems["SpartaConnect"].click()
         app.menuBars.menus.menuItems["About SpartaConnect"].click()
         app.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
@@ -64,9 +79,8 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.bundleHelper.persistDefaults([
             "SULastCheckTime": Date()
         ])
-        XCTAssertTrue(app.wait(for: .notRunning, timeout: kDefaultTimeout))
-        app.launch()
-        XCTAssertTrue(app.wait(for: .runningBackground, timeout: kDefaultTimeout))
+        tempAppHelper.launch(arguments: arguments)
+        app.wait(until: .runningBackground)
         checkForUpdatesAndInstall()
         installAndRelaunch()
         dismissMoveToApplicationsAlert()
@@ -77,7 +91,7 @@ class UpdateAppTest: XCTestCase {
         app.activate()
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Quit SpartaConnect"].click()
-        XCTAssertTrue(app.wait(for: .notRunning, timeout: 5 * kDefaultTimeout))
+        app.wait(until: .notRunning, timeout: .install)
     }
     
     func checkUpdateDownloaded() -> NSPredicate {
@@ -85,8 +99,9 @@ class UpdateAppTest: XCTestCase {
     }
     
     func waitForUpdatesDownloaded() {
-        let downloadComplete = expectation(for: checkUpdateDownloaded(), evaluatedWith: nil)
-        let downloadTimeout = 20 * kDefaultTimeout
+        let downloadComplete = expectation(for: checkUpdateDownloaded(),
+                                           evaluatedWith: nil)
+        let downloadTimeout = 2 * Timeout.network.rawValue
         wait(for: [downloadComplete], timeout: downloadTimeout)
     }
     
@@ -95,8 +110,7 @@ class UpdateAppTest: XCTestCase {
             notPredicateWithSubpredicate: checkUpdateDownloaded()
         )
         let expectDownload = expectation(for: downloadedDeleted, evaluatedWith: nil)
-        let installTimeout = 5 * kDefaultTimeout
-        wait(for: [expectDownload], timeout: installTimeout)
+        wait(for: [expectDownload], timeout: Timeout.install.rawValue)
     }
     
     func checkForUpdatesAndInstallOnQuit() {
@@ -114,14 +128,14 @@ class UpdateAppTest: XCTestCase {
 
     
     func testUpgradeOnQuit() {
-        app.launch()
-        XCTAssertTrue(app.wait(for: .runningBackground, timeout: kDefaultTimeout))
+        tempAppHelper.launch(arguments: arguments)
+        app.wait(until: .runningBackground)
         waitForUpdatesDownloaded()
         checkForUpdatesAndInstallOnQuit()
         quitApp()
         waitForUpdatesInstalled()
-        app.launch()
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: kDefaultTimeout))
+        tempAppHelper.launch(arguments: arguments)
+        app.wait(until: .runningForeground)
         verifyUpdated()
     }
 }

@@ -1,6 +1,6 @@
 import XCTest
 
-class MoveToApplicationsTest: XCTestCase {
+class ZMoveToApplicationsTest: XCTestCase {
     let moveAppHelper = MoveAppHelper()
     lazy var tempApp = moveAppHelper.tempApp()
     lazy var movedApp = moveAppHelper.movedApp()
@@ -17,18 +17,16 @@ class MoveToApplicationsTest: XCTestCase {
     }
     
     func verifyRunningFromApplications() {
-        XCTAssertTrue(movedApp.wait(for: .runningBackground, timeout: 5),
-                      "wait for app to restart from /Applications")
+        movedApp.wait(until: .runningBackground, "wait for app to restart from /Applications")
         movedApp.terminate()
     }
     
     func launchAndChooseToMoveToApplications() {
-        tempApp.launch()
-        let alert = tempApp.dialogs["alert"]
-        alert.staticTexts["Move to Applications folder?"].waitToAppear()
+        moveAppHelper.launch()
+        let alert = tempApp.waitForMoveAlert()
         alert.buttons["Move to Applications Folder"].click()
         alert.waitToDisappear()
-        XCTAssertTrue(tempApp.wait(for: .notRunning, timeout: 1), "wait for app to terminate")
+        tempApp.wait(until: .notRunning, "wait for app to terminate")
     }
     
     func testMoveToApplications() throws {
