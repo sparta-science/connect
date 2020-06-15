@@ -14,7 +14,8 @@ enum LaunchService {
     static func waitForAppToBeReadyForLaunch(at url: URL) {
         let ready = XCTNSPredicateExpectation(predicate: isReadyToBeLaunched(),
                                               object: url)
-        XCTWaiter.wait(until: ready, "app is not ready for launch at: \(url)")
+        XCTWaiter.wait(until: ready, timeout: .install,
+                       "app is not ready for launch at: \(url)")
         let values = try! url.resourceValues(forKeys: [.quarantinePropertiesKey])
         XCTAssertNil(values.quarantineProperties, "should have no quarantine properties")
     }
