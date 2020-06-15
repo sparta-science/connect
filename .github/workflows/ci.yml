@@ -19,12 +19,6 @@ jobs:
 #   Breaks clicking on menu bar button
 #    - name: Close Finder windows
 #      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
-    - run: pwd
-    - run: ls -la
-    - run: bundle
-    - run: pod install
-    - run: pod update
-    - run: git diff
     - name: Close Notification window
       run: killall UserNotificationCenter || true
     - uses: apple-actions/import-codesign-certs@v1
@@ -34,6 +28,12 @@ jobs:
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
     - uses: actions/checkout@v2
+    - run: pwd
+    - run: ls -la
+    - run: bundle
+    - run: pod install
+    - run: pod update
+    - run: git diff
     - name: Unit Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
     - name: Build
