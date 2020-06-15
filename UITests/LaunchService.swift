@@ -6,8 +6,10 @@ enum LaunchService {
         return NSPredicate { object, _  in
             if let appUrl = object as? URL,
                 let url = workspace.urlForApplication(toOpen: appUrl) {
+                NSLog("url:\(url), appUrl: \(appUrl)")
                 return url == appUrl
             }
+            NSLog("no app for url:\(object)")
             return false
         }
     }

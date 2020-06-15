@@ -1,7 +1,7 @@
 import XCTest
 
 class TempAppHelper {
-    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect.app")
+    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnect-\(arc4random()).app")
     let bundleHelper = BundleHelper(bundleId: "com.spartascience.SpartaConnect")
     let fileHelper = FileHelper()
     var removeMonitor: (()->Void)!
@@ -35,7 +35,9 @@ class TempAppHelper {
         }
         removeMonitor = {test.removeUIInterruptionMonitor(openFirstTimeMonitor)}
         removeTempApp()
-        fileHelper.copy(XCUIApplication().url, to: tempUrl)
+        let original = XCUIApplication().url
+        NSLog("original app: \(original)")
+        fileHelper.copy(original, to: tempUrl)
         LaunchService.waitForAppToBeReadyForLaunch(at: tempUrl)
     }
     private func removeTempApp() {
@@ -51,7 +53,7 @@ class TempAppHelper {
 class MoveAppHelper: TempAppHelper {
     lazy var movedUrl = fileHelper
         .preferredApplicationsUrl()
-        .appendingPathComponent("SpartaConnect.app")
+        .appendingPathComponent(tempUrl.lastPathComponent)
 
     func movedApp() -> XCUIApplication {
         XCUIApplication(url: movedUrl)
