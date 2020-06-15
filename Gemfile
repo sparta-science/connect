@@ -6,3 +6,5 @@ gem 'slather'       # test coverage report
 
 # We use whatever ruby is available/we don't want to require a
 # specific ruby or rvm install.
+#
+# "If you think they will hit the wall, help them hit the wall faster." --Splinter
