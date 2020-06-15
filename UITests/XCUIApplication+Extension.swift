@@ -18,11 +18,16 @@ extension XCUIApplication {
     func statusBarItem() -> XCUIElement {
         menuBars.statusItems.element
     }
+    
+    @discardableResult
+    func wait(for state: XCUIApplication.State, timeout: Timeout = .test) -> Bool {
+        wait(for: state, timeout: timeout.rawValue)
+    }
 
     func clickStatusItem() {
         repeat {
             statusBarItem().coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).click()
-        } while !statusBarMenu().waitForExistence(timeout: kDefaultTimeout)
+        } while !statusBarMenu().waitForExistence()
     }
     
     func wait(until newState: XCUIApplication.State,

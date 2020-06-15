@@ -60,7 +60,7 @@ class UpdateAppTest: XCTestCase {
                 NSLog("agent: " + agent.debugDescription)
                 button.click()
             }
-        } while !app.wait(for: .runningForeground, timeout: kDefaultTimeout)
+        } while !app.wait(for: .runningForeground)
     }
     
     func dismissMoveToApplicationsAlert() {

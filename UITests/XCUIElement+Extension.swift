@@ -15,13 +15,18 @@ extension XCUIElement {
         XCTAssertEqual(waiter.wait(for: [disappered], timeout: timeout), .completed,
                        "\(self) has not disappeared", file: file, line: line)
     }
+    
     @discardableResult
     func waitToAppear(time timeout: Timeout = .test,
                       file: StaticString = #file,
-                      line: UInt = #line) -> XCUIElement{
-        XCTAssertTrue(waitForExistence(timeout: timeout.rawValue),
+                      line: UInt = #line) -> XCUIElement {
+        XCTAssertTrue(waitForExistence(timeout: timeout),
                       "\(self) has not appeared", file: file, line: line)
         return self
+    }
+    
+    func waitForExistence(timeout: Timeout = .test) -> Bool {
+        waitForExistence(timeout: timeout.rawValue)
     }
 
     @discardableResult
