@@ -24,17 +24,31 @@ jobs:
     - name: Ruby version
       run: echo $(ruby -v)
     - name: Unit Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: Testable
     - name: Build
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect clean build | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: SpartaConnect
+        action: build
     - name: App Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: AppSpecs
     - uses: codecov/codecov-action@v1
       with:
         flags: AppSpecs
         name: self-hosted
     - name: UI Tests
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: UITests
+        build-settings: -resultBundlePath ui-tests
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: zip -r results.zip ui-tests.xcresult
