@@ -21,6 +21,7 @@ class WorkspaceHelper {
         checkIfApp(url: url)
         verify(workspace.urlForApplication(toOpen: url) == url)
         let config = launchConfiguration(arguments: arguments)
+        LaunchService.waitForAppToBeReadyForLaunch(at: url)
         wait("app is running") { done in
             workspace.open(url, configuration: config) { app, err in
                 verifyNoError(err, "opening url: \(url)")
