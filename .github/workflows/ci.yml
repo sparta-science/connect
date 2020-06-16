@@ -40,9 +40,16 @@ jobs:
         bundle config path ./vendor/bundle
         bundle install --jobs 4 --retry 3
     - name: Unit Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: Testable
     - name: Build
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect build | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: SpartaConnect
+        action: build
     - name: App Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
     - name: UI Tests
