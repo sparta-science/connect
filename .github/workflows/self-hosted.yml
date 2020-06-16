@@ -3,6 +3,10 @@ name: self-hosted-test
 on:
   [push]
 
+defaults:
+  run:
+    shell: bash -l {0}
+
 jobs:
   build-then-test:
 
