@@ -9,7 +9,7 @@ enum LaunchService {
                 NSLog("url:\(url), appUrl: \(appUrl)")
                 return url == appUrl
             }
-            NSLog("no app for url:\(object)")
+            NSLog("no app for url:\(object!)")
             return false
         }
     }

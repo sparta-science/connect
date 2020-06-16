@@ -11,9 +11,19 @@ class FileHelper {
             file: file, line: line
         )
     }
+
+    func isSameVolume(_ left: URL, _ right: URL) -> Bool {
+        let leftRes = try? left.resourceValues(forKeys: [.volumeIdentifierKey])
+        let rightRes = try? right.resourceValues(forKeys: [.volumeIdentifierKey])
+        return leftRes?.volumeIdentifier?.isEqual(rightRes?.volumeIdentifier) ?? false
+    }
     
     func copy(_ from: URL, to destination: URL) {
-        try! fileManager.linkItem(at: from, to: destination)
+        if isSameVolume(from, destination) {
+            try! fileManager.linkItem(at: from, to: destination)
+        } else {
+            try! fileManager.copyItem(at: from, to: destination)
+        }
         flushAllOpenStreams()
         syncFileSystem(for: destination)
     }
