@@ -25,6 +25,12 @@ jobs:
         keychain: certs
     - name: Checkout
       uses: actions/checkout@v2.2.0
+    - name: Ruby version
+      run: echo $(ruby -v)
+    - name: bundle
+      run: |
+        gem install bundler
+        bundle
     - name: Unit Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
     - name: Build

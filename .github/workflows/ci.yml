@@ -17,7 +17,7 @@ jobs:
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw -k
 #   Breaks clicking on menu bar button
-#    - name: Close Finder windows
+#    - name: Close Finder windows not to obscure test screenshots
 #      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
     - name: Close Notification window
       run: killall UserNotificationCenter || true
@@ -28,14 +28,39 @@ jobs:
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
     - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+        path: ./vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+    - name: ruby version
+      run: ruby --version
+    - name: bundle
+      run: |
+        gem install bundler
+        bundle config path ./vendor/bundle
+        bundle install --jobs 4 --retry 3
     - name: Unit Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: Testable
     - name: Build
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect build | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: SpartaConnect
+        action: build
     - name: App Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: AppSpecs
     - name: UI Tests
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: UITests
+        build-settings: -resultBundlePath ui-tests
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: zip -r results.zip ui-tests.xcresult
