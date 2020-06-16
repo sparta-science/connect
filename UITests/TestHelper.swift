@@ -12,8 +12,7 @@ func verifyNoError(_ error: Error?,
             _ message: @autoclosure () -> String = "",
             file: StaticString = #file,
             line: UInt = #line) {
-    XCTAssertNil(error, "error: \(error!) while " + message(),
-                 file: file, line: line)
+    XCTAssertNil(error, message(), file: file, line: line)
 }
 
 func verify(_ condition: Bool,
