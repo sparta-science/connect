@@ -16,6 +16,7 @@ jobs:
       NSUnbufferedIO: YES
 
     steps:
+    - run: echo "::group::setup"
     - run: rm ~/Library/Keychains/certs.keychain-db || true
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
@@ -25,6 +26,8 @@ jobs:
         keychain: certs
     - name: Checkout
       uses: actions/checkout@v2.2.0
+    - name: $(ruby -v)
+    - run: echo "::endgroup::"
     - name: Setup tmate session
       uses: mxschmitt/action-tmate@v2
     - name: Unit Specs
