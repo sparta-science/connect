@@ -23,8 +23,26 @@ jobs:
         p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
-    - uses: actions/checkout@v2
-    - name: bundle
-      run: bundle
+    - name: Checkout
+      uses: actions/checkout@v2.2.0
     - name: Unit Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
+    - name: Build
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect clean build | xcpretty
+    - name: App Specs
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
+    - uses: codecov/codecov-action@v1
+      with:
+        flags: AppSpecs
+        name: self-hosted
+    - name: UI Tests
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
+    - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
+      if: always()
+      run: zip -r results.zip ui-tests.xcresult
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui-tests.xcresult
+        path: results.zip
