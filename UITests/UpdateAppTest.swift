@@ -23,7 +23,9 @@ class UpdateAppTest: XCTestCase {
 
     override func tearDownWithError() throws {
         app.terminate()
-        tempAppHelper.cleanup()
+        if testRun?.hasSucceeded == true {
+            tempAppHelper.cleanup()
+        }
         try super.tearDownWithError()
     }
     
