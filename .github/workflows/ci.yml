@@ -40,20 +40,27 @@ jobs:
         bundle config path ./vendor/bundle
         bundle install --jobs 4 --retry 3
     - name: Unit Specs
-      uses: sersoft-gmbh/xcodebuild-action@v1
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
         workspace: SpartaConnect.xcworkspace
         scheme: Testable
     - name: Build
-      uses: sersoft-gmbh/xcodebuild-action@v1
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
         workspace: SpartaConnect.xcworkspace
         scheme: SpartaConnect
         action: build
     - name: App Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: AppSpecs
     - name: UI Tests
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: UITests
+        build-settings: -resultBundlePath ui-tests
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: zip -r results.zip ui-tests.xcresult
