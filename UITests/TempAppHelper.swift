@@ -5,6 +5,7 @@ class TempAppHelper {
     let bundleHelper = BundleHelper(bundleId: "com.spartascience.SpartaConnect")
     let fileHelper = FileHelper()
     var removeMonitor: (()->Void)!
+    let workspaceHelper = WorkspaceHelper()
     func tempApp() -> XCUIApplication {
         XCUIApplication(url: tempUrl)
     }
@@ -19,16 +20,8 @@ class TempAppHelper {
     }
 
     func launch(arguments:[String] = []) {
-        let workspace = NSWorkspace.shared
-        let config = NSWorkspace.OpenConfiguration()
-        config.arguments = arguments
-        let running = XCTestExpectation(description: "running")
-        running.assertForOverFulfill = true
-        workspace.open(tempUrl, configuration: config) { app, err in
-            running.fulfill()
-            XCTAssertNil(err)
-        }
-        XCTWaiter.wait(until: running, "should be running")
+        workspaceHelper.launch(url: tempUrl,
+                               arguments: arguments)
     }
     
     func prepare(for test: XCTestCase) {

@@ -22,6 +22,7 @@
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
 		4A8A3637249638100071624E /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8A3636249638100071624E /* LaunchService.swift */; };
 		4A9F71CB24989E5F0023C93F /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* TestHelper.swift */; };
+		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
 		4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888C2486FA90009CFACE /* AppDelegate.swift */; };
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		4A9F06D32491D91400714B04 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Podfile; sourceTree = "<group>"; };
 		4A9F06D52491DFFD00714B04 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4A9F71CA24989E5F0023C93F /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHelper.swift; sourceTree = "<group>"; };
 		4AA188892486FA90009CFACE /* SpartaConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA1888C2486FA90009CFACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AA188902486FA90009CFACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */,
 				4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */,
 				4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */,
+				4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */,
 				4A8A3636249638100071624E /* LaunchService.swift */,
 				4A3F3C96248F604B0058C5D4 /* FileHelper.swift */,
 				4A9F71CA24989E5F0023C93F /* TestHelper.swift */,
@@ -720,6 +723,7 @@
 				4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */,
 				4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */,
 				4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */,
+				4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */,
 				4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */,
 				4A9F71CB24989E5F0023C93F /* TestHelper.swift in Sources */,
 				4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */,

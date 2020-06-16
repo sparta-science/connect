@@ -14,3 +14,12 @@ func verify(_ condition: Bool,
             line: UInt = #line) {
     XCTAssertTrue(condition, message(), file: file, line: line)
 }
+
+func wait(_ reason:String, until block:(_ done: @escaping ()->Void)->Void) {
+    let expectation = XCTestExpectation(description: reason)
+    expectation.assertForOverFulfill = true
+    block {
+        expectation.fulfill()
+    }
+    XCTWaiter.wait(until: expectation, "should be " + reason)
+}
