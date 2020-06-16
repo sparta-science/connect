@@ -1,23 +1,31 @@
-import XCTest
+import Foundation
 
 class FileHelper {
     let fileManager = FileManager.default
     
     func remove(url: URL, file: StaticString = #file, line: UInt = #line) {
         try? fileManager.removeItem(at: url)
-        XCTAssertFalse(fileManager.fileExists(atPath: url.path),
-                       "should be removed", file: file, line: line)
+        verify(
+            !fileManager.fileExists(atPath: url.path),
+            "should be removed: \(url.path)",
+            file: file, line: line
+        )
     }
     
     func copy(_ from: URL, to destination: URL) {
-        let duplicated = XCTestExpectation(description: "duplicated")
-        NSWorkspace.shared.duplicate([from]) { (map, error) in
-            XCTAssertNil(error)
-            _ = try! self.fileManager.replaceItemAt(destination, withItemAt: map[from]!, backupItemName: nil, options: .usingNewMetadataOnly)
-            duplicated.fulfill()
-        }
-        XCTWaiter.wait(until: duplicated, timeout: .install, "should copy")
-        XCTAssertTrue(fileManager.fileExists(atPath: destination.path))
+        try! fileManager.linkItem(at: from, to: destination)
+        flushAllOpenStreams()
+        syncFileSystem(for: destination)
+    }
+    
+    func syncFileSystem(for fileUrl: URL) {
+        let flushAndWait = SYNC_VOLUME_FULLSYNC & SYNC_VOLUME_WAIT
+        let path = fileUrl.path.cString(using: .macOSRoman)!
+        verifySuccess(sync_volume_np(path, flushAndWait))
+    }
+    
+    func flushAllOpenStreams() {
+        verifySuccess(fflush(nil))
     }
     
     func clearSubfolders(_ url: URL) {
