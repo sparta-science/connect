@@ -18,6 +18,8 @@ class WorkspaceHelper {
     }
     
     func launch(url: URL, arguments:[String] = []) {
+        checkIfApp(url: url)
+        verify(workspace.urlForApplication(toOpen: url) == url)
         let config = launchConfiguration(arguments: arguments)
         wait("app is running") { done in
             workspace.open(url, configuration: config) { app, err in
