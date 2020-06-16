@@ -106,6 +106,7 @@ class UpdateAppTest: XCTestCase {
                                            evaluatedWith: nil)
         let downloadTimeout = 2 * Timeout.network.rawValue
         wait(for: [downloadComplete], timeout: downloadTimeout)
+        tempAppHelper.syncFileSystem()
     }
     
     func waitForUpdatesInstalled() {
@@ -114,6 +115,7 @@ class UpdateAppTest: XCTestCase {
         )
         let expectDownload = expectation(for: downloadedDeleted, evaluatedWith: nil)
         wait(for: [expectDownload], timeout: Timeout.install.rawValue)
+        tempAppHelper.syncFileSystem()
     }
     
     func checkForUpdatesAndInstallOnQuit() {

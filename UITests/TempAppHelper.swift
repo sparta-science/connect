@@ -13,6 +13,10 @@ class TempAppHelper {
     func clearCache() {
         bundleHelper.clearCache()
     }
+
+    func syncFileSystem() {
+        fileHelper.syncFileSystem(for: tempUrl)
+    }
     
     func hasDownloaded(fileName: String) -> NSPredicate {
         bundleHelper.find(file: fileName,
