@@ -17,7 +17,7 @@ jobs:
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw -k
 #   Breaks clicking on menu bar button
-#    - name: Close Finder windows
+#    - name: Close Finder windows not to obscure test screenshots
 #      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
     - name: Close Notification window
       run: killall UserNotificationCenter || true
@@ -32,23 +32,27 @@ jobs:
       with:
         path: ./vendor/bundle
         key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-    - name: Our Commands pwd
-      run: pwd
-    - name: ls -la
-      run: ls -la
-    - name: gem environment
-      run: gem environment
     - name: ruby version
       run: ruby --version
-#    - run: ls -l vendor/bundle/ruby/
-#    - run: gem install bundler -v 2.1.4
     - name: bundle
       run: |
+        gem install bundler
         bundle config path ./vendor/bundle
         bundle install --jobs 4 --retry 3
-    - name: pod install
-      run: pod install
-    - run: pod update
-    - run: git diff
     - name: Unit Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable test | xcpretty
+    - name: Build
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect build | xcpretty
+    - name: App Specs
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
+    - name: UI Tests
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
+    - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
+      if: always()
+      run: zip -r results.zip ui-tests.xcresult
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui-tests.xcresult
+        path: results.zip
