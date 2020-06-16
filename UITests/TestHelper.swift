@@ -8,6 +8,14 @@ func verifySuccess(_ result: Int32) {
     XCTAssertEqual(noErr, result, lastErrorDescription())
 }
 
+func verifyNoError(_ error: Error?,
+            _ message: @autoclosure () -> String = "",
+            file: StaticString = #file,
+            line: UInt = #line) {
+    XCTAssertNil(error, "error: \(error!) while " + message(),
+                 file: file, line: line)
+}
+
 func verify(_ condition: Bool,
             _ message: @autoclosure () -> String = "",
             file: StaticString = #file,

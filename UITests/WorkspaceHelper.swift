@@ -21,7 +21,7 @@ class WorkspaceHelper {
         let config = launchConfiguration(arguments: arguments)
         wait("app is running") { done in
             workspace.open(url, configuration: config) { app, err in
-                verify(err == nil)
+                verifyNoError(err, "opening url: \(url)")
                 done()
             }
         }
