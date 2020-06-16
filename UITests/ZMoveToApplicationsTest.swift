@@ -12,7 +12,7 @@ class ZMoveToApplicationsTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        if testRun?.hasSucceeded == true {
+        if testRun?.totalFailureCount == 0 {
             moveAppHelper.cleanup()
         }
         try super.tearDownWithError()
