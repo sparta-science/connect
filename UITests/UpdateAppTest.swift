@@ -59,6 +59,7 @@ class UpdateAppTest: XCTestCase {
                 button.click()
             }
         } while !app.wait(for: .runningForeground)
+        app.activate()
     }
     
     func dismissMoveToApplicationsAlert() {
