@@ -27,6 +27,7 @@ extension XCUIElement {
                       line: UInt = #line) -> XCUIElement {
         XCTAssertTrue(waitForExistence(timeout: timeout),
                       "\(self) has not appeared", file: file, line: line)
+        XCTAssertTrue(exists, "\(self) does not exists", file: file, line: line)
         return self
     }
     

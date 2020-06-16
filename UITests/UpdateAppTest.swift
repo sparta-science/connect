@@ -23,7 +23,9 @@ class UpdateAppTest: XCTestCase {
 
     override func tearDownWithError() throws {
         app.terminate()
-        tempAppHelper.cleanup()
+        if testRun?.totalFailureCount == 0 {
+            tempAppHelper.cleanup()
+        }
         try super.tearDownWithError()
     }
     
@@ -57,6 +59,7 @@ class UpdateAppTest: XCTestCase {
                 button.click()
             }
         } while !app.wait(for: .runningForeground)
+        app.activate()
     }
     
     func dismissMoveToApplicationsAlert() {
@@ -103,6 +106,7 @@ class UpdateAppTest: XCTestCase {
                                            evaluatedWith: nil)
         let downloadTimeout = 2 * Timeout.network.rawValue
         wait(for: [downloadComplete], timeout: downloadTimeout)
+        tempAppHelper.syncFileSystem()
     }
     
     func waitForUpdatesInstalled() {
@@ -111,6 +115,7 @@ class UpdateAppTest: XCTestCase {
         )
         let expectDownload = expectation(for: downloadedDeleted, evaluatedWith: nil)
         wait(for: [expectDownload], timeout: Timeout.install.rawValue)
+        tempAppHelper.syncFileSystem()
     }
     
     func checkForUpdatesAndInstallOnQuit() {

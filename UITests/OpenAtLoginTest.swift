@@ -17,6 +17,7 @@ class OpenAtLoginTest: XCTestCase {
     override func tearDownWithError() throws {
         removeLoginItem()
         app.terminate()
+        app.wait(until: .notRunning)
         try super.tearDownWithError()
     }
     
