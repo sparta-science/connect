@@ -3,7 +3,7 @@ import Nimble
 
 class TabBarControllerSpec: QuickSpec {
     override func spec() {
-        describe("TabBarController") {
+        describe("MainWindow") {
             context("awakeFromNib") {
                 var mainWindow: NSWindow!
                 beforeEach {
@@ -11,6 +11,15 @@ class TabBarControllerSpec: QuickSpec {
                 }
                 it("should be content view controller") {
                     expect(mainWindow.contentViewController).to(beAKindOf(NSTabViewController.self))
+                }
+                context("tabViewController") {
+                    var tabController: NSTabViewController!
+                    beforeEach {
+                        tabController = mainWindow.contentViewController as? NSTabViewController
+                    }
+                    it("should have three tabs") {
+                        expect(tabController?.tabViewItems).to(haveCount(3))
+                    }
                 }
             }
         }
