@@ -32,6 +32,9 @@
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
 		4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
+		B50E811B249ABBA600A84A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E811A249ABBA600A84A90 /* AppDelegate.swift */; };
+		B50E811D249ABBA700A84A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B50E811C249ABBA700A84A90 /* Assets.xcassets */; };
+		B50E8120249ABBA700A84A90 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50E811E249ABBA700A84A90 /* MainMenu.xib */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069AB125D9A11E885ED84E2B /* Pods_SpartaConnect.framework */; };
@@ -127,6 +130,12 @@
 		6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90E02B24A18480BFAE8694AE /* Pods-UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.debug.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B50E8118249ABBA600A84A90 /* ConnectCredentials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConnectCredentials.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50E811A249ABBA600A84A90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B50E811C249ABBA700A84A90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B50E811F249ABBA700A84A90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B50E8121249ABBA700A84A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B50E8122249ABBA700A84A90 /* ConnectCredentials.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConnectCredentials.entitlements; sourceTree = "<group>"; };
 		C0571494849A7D807A1DC064 /* Pods-SpartaConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaConnect.debug.xcconfig"; path = "Target Support Files/Pods-SpartaConnect/Pods-SpartaConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F4DEA75D91E9DAA8B4F01A /* Pods-UnitSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitSpecs.debug.xcconfig"; path = "Target Support Files/Pods-UnitSpecs/Pods-UnitSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		F255137FDAD2130F5982520D /* Pods-SpartaConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaConnect.release.xcconfig"; path = "Target Support Files/Pods-SpartaConnect/Pods-SpartaConnect.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +179,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B50E8115249ABBA600A84A90 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +269,7 @@
 				4A3F3C84248C92AE0058C5D4 /* AppSpecs */,
 				4AA188A92486FA90009CFACE /* UITests */,
 				4A3F3C8D248C93210058C5D4 /* Supporting Files */,
+				B50E8119249ABBA600A84A90 /* ConnectCredentials */,
 				4AA1888A2486FA90009CFACE /* Products */,
 				063DB6B416CC39F0745B790A /* Pods */,
 				94E1F5559CB8D4D75B27F03B /* Frameworks */,
@@ -267,6 +284,7 @@
 				4AA188A62486FA90009CFACE /* UITests.xctest */,
 				4A3F3C72248C92720058C5D4 /* Testable.framework */,
 				4A3F3C83248C92AE0058C5D4 /* AppSpecs.xctest */,
+				B50E8118249ABBA600A84A90 /* ConnectCredentials.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,6 +332,18 @@
 				069AB125D9A11E885ED84E2B /* Pods_SpartaConnect.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B50E8119249ABBA600A84A90 /* ConnectCredentials */ = {
+			isa = PBXGroup;
+			children = (
+				B50E811A249ABBA600A84A90 /* AppDelegate.swift */,
+				B50E811C249ABBA700A84A90 /* Assets.xcassets */,
+				B50E811E249ABBA700A84A90 /* MainMenu.xib */,
+				B50E8121249ABBA700A84A90 /* Info.plist */,
+				B50E8122249ABBA700A84A90 /* ConnectCredentials.entitlements */,
+			);
+			path = ConnectCredentials;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,6 +458,23 @@
 			productReference = 4AA188A62486FA90009CFACE /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		B50E8117249ABBA600A84A90 /* ConnectCredentials */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B50E8125249ABBA700A84A90 /* Build configuration list for PBXNativeTarget "ConnectCredentials" */;
+			buildPhases = (
+				B50E8114249ABBA600A84A90 /* Sources */,
+				B50E8115249ABBA600A84A90 /* Frameworks */,
+				B50E8116249ABBA600A84A90 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConnectCredentials;
+			productName = ConnectCredentials;
+			productReference = B50E8118249ABBA600A84A90 /* ConnectCredentials.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -457,6 +504,9 @@
 						CreatedOnToolsVersion = 11.5;
 						TestTargetID = 4AA188882486FA90009CFACE;
 					};
+					B50E8117249ABBA600A84A90 = {
+						CreatedOnToolsVersion = 11.5;
+					};
 				};
 			};
 			buildConfigurationList = 4AA188842486FA90009CFACE /* Build configuration list for PBXProject "SpartaConnect" */;
@@ -477,6 +527,7 @@
 				4AA188A52486FA90009CFACE /* UITests */,
 				4A3F3C71248C92720058C5D4 /* Testable */,
 				4AA1889A2486FA90009CFACE /* UnitSpecs */,
+				B50E8117249ABBA600A84A90 /* ConnectCredentials */,
 			);
 		};
 /* End PBXProject section */
@@ -516,6 +567,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B50E8116249ABBA600A84A90 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B50E811D249ABBA700A84A90 /* Assets.xcassets in Resources */,
+				B50E8120249ABBA700A84A90 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +795,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B50E8114249ABBA600A84A90 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B50E811B249ABBA600A84A90 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -762,6 +830,14 @@
 				4AA188932486FA90009CFACE /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B50E811E249ABBA700A84A90 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B50E811F249ABBA700A84A90 /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1122,6 +1198,46 @@
 			};
 			name = Release;
 		};
+		B50E8123249ABBA700A84A90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ConnectCredentials/ConnectCredentials.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = YY6CWUX533;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ConnectCredentials/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.ConnectCredentials;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B50E8124249ABBA700A84A90 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ConnectCredentials/ConnectCredentials.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = YY6CWUX533;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = ConnectCredentials/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.ConnectCredentials;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1175,6 +1291,15 @@
 			buildConfigurations = (
 				4AA188B62486FA90009CFACE /* Debug */,
 				4AA188B72486FA90009CFACE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B50E8125249ABBA700A84A90 /* Build configuration list for PBXNativeTarget "ConnectCredentials" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B50E8123249ABBA700A84A90 /* Debug */,
+				B50E8124249ABBA700A84A90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
