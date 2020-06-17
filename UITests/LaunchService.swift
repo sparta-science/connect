@@ -2,14 +2,11 @@ import XCTest
 
 enum LaunchService {
     private static func isReadyToBeLaunched() -> NSPredicate {
-        let workspace = NSWorkspace.shared
-        return NSPredicate { object, _  in
+        NSPredicate { object, _  in
             if let appUrl = object as? URL,
-                let url = workspace.urlForApplication(toOpen: appUrl) {
-                NSLog("url:\(url), appUrl: \(appUrl)")
-                return url == appUrl
+                let url = LSCopyDefaultApplicationURLForURL(appUrl as CFURL, .all, nil) {
+                return (url.takeRetainedValue() as URL) == appUrl
             }
-            NSLog("no app for url:\(object!)")
             return false
         }
     }
