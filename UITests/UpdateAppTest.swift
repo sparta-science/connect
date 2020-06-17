@@ -110,11 +110,7 @@ class UpdateAppTest: XCTestCase {
     }
     
     func waitForUpdatesInstalled() {
-        let downloadedDeleted = NSCompoundPredicate(
-            notPredicateWithSubpredicate: checkUpdateDownloaded()
-        )
-        let expectDownload = expectation(for: downloadedDeleted, evaluatedWith: nil)
-        wait(for: [expectDownload], timeout: Timeout.install.rawValue)
+        waitForAppToStartAndTerminate(bundleId: "org.sparkle-project.Sparkle.Autoupdate")
         tempAppHelper.syncFileSystem()
     }
     
