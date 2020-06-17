@@ -109,13 +109,12 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.syncFileSystem()
     }
     
-    var runningAutoUpdate: NSRunningApplication?
-    
-    func waitForUpdatesInstalled() {
+    func waitForAppToStartAndTerminate(bundleId: String) {
+        var runningAutoUpdate: NSRunningApplication?
         let startUpdate = keyValueObservingExpectation(for: NSWorkspace.shared, keyPath: "runningApplications") { (value, changed) -> Bool in
             if let apps = changed[NSKeyValueChangeKey.newKey] as? [NSRunningApplication],
-                let sparkle = apps.first(where: { $0.bundleIdentifier == "org.sparkle-project.Sparkle.Autoupdate" }) {
-                self.runningAutoUpdate = sparkle
+                let sparkle = apps.first(where: { $0.bundleIdentifier == bundleId }) {
+                runningAutoUpdate = sparkle
                 return true
             }
             return false
@@ -129,6 +128,10 @@ class UpdateAppTest: XCTestCase {
                 wait(for: [updateComplete], timeout: Timeout.install.rawValue)
             }
         }
+    }
+    
+    func waitForUpdatesInstalled() {
+        waitForAppToStartAndTerminate(bundleId: "org.sparkle-project.Sparkle.Autoupdate")
         tempAppHelper.syncFileSystem()
     }
     
