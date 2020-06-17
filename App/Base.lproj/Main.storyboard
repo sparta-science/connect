@@ -732,7 +732,7 @@
                         <tabViewItem identifier="" id="JMJ-Jr-veJ"/>
                         <tabViewItem identifier="" id="tL6-UN-IV4"/>
                     </tabViewItems>
-                    <tabView key="tabView" id="yIT-lt-JTs">
+                    <tabView key="tabView" type="noTabsBezelBorder" id="yIT-lt-JTs">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="system"/>
