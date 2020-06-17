@@ -109,12 +109,26 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.syncFileSystem()
     }
     
+    var runningAutoUpdate: NSRunningApplication?
+    
     func waitForUpdatesInstalled() {
-        let downloadedDeleted = NSCompoundPredicate(
-            notPredicateWithSubpredicate: checkUpdateDownloaded()
-        )
-        let expectDownload = expectation(for: downloadedDeleted, evaluatedWith: nil)
-        wait(for: [expectDownload], timeout: Timeout.install.rawValue)
+        let startUpdate = keyValueObservingExpectation(for: NSWorkspace.shared, keyPath: "runningApplications") { (value, changed) -> Bool in
+            if let apps = changed[NSKeyValueChangeKey.newKey] as? [NSRunningApplication],
+                let sparkle = apps.first(where: { $0.bundleIdentifier == "org.sparkle-project.Sparkle.Autoupdate" }) {
+                self.runningAutoUpdate = sparkle
+                return true
+            }
+            return false
+        }
+        wait(for: [startUpdate], timeout: Timeout.install.rawValue)
+        if let update = runningAutoUpdate, update.isTerminated != true {
+                    let updateComplete = keyValueObservingExpectation(for: update, keyPath: "isTerminated", expectedValue: true)
+            if update.isTerminated {
+                updateComplete.fulfill()
+            } else {
+                wait(for: [updateComplete], timeout: Timeout.install.rawValue)
+            }
+        }
         tempAppHelper.syncFileSystem()
     }
     
