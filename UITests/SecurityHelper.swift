@@ -35,7 +35,7 @@ class SecurityHelper {
     
     func verify(codeSign: [String: Any]) {
         let date = codeSign["signing-time"] as? Date
-        XCTAssertGreaterThan(date!, DateComponents(year: 2020, month: 06, day: 1).date!)
+        XCTAssertGreaterThan(date!, DateComponents(calendar: Calendar(identifier: .gregorian), year: 2020, month: 06, day: 1).date!)
         XCTAssertEqual("com.spartascience.SpartaConnect", codeSign["identifier"] as? String)
         XCTAssertEqual("GB9B5L6A6K", codeSign["teamid"] as? String)
     }
