@@ -23,7 +23,7 @@ class TempAppHelper {
                           inCache: "org.sparkle-project.Sparkle/PersistentDownloads")
     }
 
-    func launch(arguments:[String] = []) {
+    func launch(arguments: [String] = []) {
         workspaceHelper.launch(url: tempUrl,
                                arguments: arguments)
     }

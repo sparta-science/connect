@@ -2,9 +2,11 @@ import AppKit
 
 class WorkspaceHelper {
     let workspace = NSWorkspace.shared
+    let securityHelper = SecurityHelper()
     
     private func checkIfApp(url: URL) {
         verify(try! workspace.type(ofFile: url.path) == kUTTypeApplicationBundle as String)
+        securityHelper.verify(url: url)
     }
     
     private func launchConfiguration(arguments:[String]) -> NSWorkspace.OpenConfiguration {
