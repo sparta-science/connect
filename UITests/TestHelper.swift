@@ -22,13 +22,13 @@ func verify(_ condition: Bool,
     XCTAssertTrue(condition, message(), file: file, line: line)
 }
 
-func wait(_ reason:String, until block:(_ done: @escaping ()->Void)->Void) {
+func wait(_ reason:String, timeout: Timeout = .test, until block:(_ done: @escaping ()->Void)->Void) {
     let expectation = XCTestExpectation(description: reason)
     expectation.assertForOverFulfill = true
     block {
         expectation.fulfill()
     }
-    XCTWaiter.wait(until: expectation, "should be " + reason)
+    XCTWaiter.wait(until: expectation, timeout: timeout, "should be " + reason)
 }
 
 extension XCTestCase {

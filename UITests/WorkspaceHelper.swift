@@ -25,11 +25,31 @@ class WorkspaceHelper {
         verify(workspace.urlForApplication(toOpen: url) == url)
         let config = launchConfiguration(arguments: arguments)
         LaunchService.waitForAppToBeReadyForLaunch(at: url)
-        wait("app is running") { done in
-            workspace.open(url, configuration: config) { app, err in
-                verifyNoError(err, "opening url: \(url)")
-                done()
+        wait("app is running", timeout: .install) { done in
+            retry(times: 5) { onError in
+                self.workspace.open(url, configuration: config) { app, err in
+                    if !onError(err) {
+                        done()
+                    }
+                }
             }
         }
     }
 }
+
+func retry(times: Int, block: @escaping (_ onError: @escaping (Error?)->Bool)->Void) {
+    block { error in
+        if error != nil {
+            if times > 0 {
+                RunLoop.current.run(until: .init(timeIntervalSinceNow: 1))
+                NSLog("retrying \(times) time")
+                retry(times: times - 1, block: block)
+            } else {
+                verifyNoError(error, "failed to retry")
+            }
+            return true
+        }
+        return false
+    }
+}
+
