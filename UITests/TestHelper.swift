@@ -32,24 +32,21 @@ func wait(_ reason:String, until block:(_ done: @escaping ()->Void)->Void) {
 }
 
 extension XCTestCase {
-    func waitForAppToStartAndTerminate(bundleId: String) {
-        var runningAutoUpdate: NSRunningApplication?
+    func waitForAppToStartAndTerminate(bundleId: String, timeout: Timeout) {
+        var runningApp: NSRunningApplication!
         let startUpdate = keyValueObservingExpectation(for: NSWorkspace.shared, keyPath: "runningApplications") { (value, changed) -> Bool in
             if let apps = changed[NSKeyValueChangeKey.newKey] as? [NSRunningApplication],
-                let sparkle = apps.first(where: { $0.bundleIdentifier == bundleId }) {
-                runningAutoUpdate = sparkle
+                let found = apps.first(where: { $0.bundleIdentifier == bundleId }) {
+                runningApp = found
                 return true
             }
             return false
         }
-        wait(for: [startUpdate], timeout: Timeout.install.rawValue)
-        if let update = runningAutoUpdate, update.isTerminated != true {
-            let updateComplete = keyValueObservingExpectation(for: update, keyPath: "isTerminated", expectedValue: true)
-            if update.isTerminated {
-                updateComplete.fulfill()
-            } else {
-                wait(for: [updateComplete], timeout: Timeout.install.rawValue)
-            }
-        }
+        XCTWaiter.wait(until: startUpdate,
+                       timeout: timeout,
+                       "should start app: " + bundleId)
+        XCTAssertFalse(runningApp.isTerminated, "should not terminate immediately")
+        let updateComplete = keyValueObservingExpectation(for: runningApp!, keyPath: "isTerminated", expectedValue: true)
+        XCTWaiter.wait(until: updateComplete, timeout: timeout, "should terminate: " + bundleId)
     }
 }

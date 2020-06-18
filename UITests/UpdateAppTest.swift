@@ -110,7 +110,10 @@ class UpdateAppTest: XCTestCase {
     }
     
     func waitForUpdatesInstalled() {
-        waitForAppToStartAndTerminate(bundleId: "org.sparkle-project.Sparkle.Autoupdate")
+        waitForAppToStartAndTerminate(
+            bundleId: "org.sparkle-project.Sparkle.Autoupdate",
+            timeout: .install
+        )
         tempAppHelper.syncFileSystem()
     }
     
