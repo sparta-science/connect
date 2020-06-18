@@ -1,7 +1,9 @@
 name: self-hosted-test
 
 on:
-  [push]
+  push:
+  schedule:
+    - cron:  '*/10 20-23 * * *'
 
 defaults:
   run:
