@@ -35,6 +35,10 @@
 		B50E811B249ABBA600A84A90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E811A249ABBA600A84A90 /* AppDelegate.swift */; };
 		B50E811D249ABBA700A84A90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B50E811C249ABBA700A84A90 /* Assets.xcassets */; };
 		B50E8120249ABBA700A84A90 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50E811E249ABBA700A84A90 /* MainMenu.xib */; };
+		B50E8128249AF8C600A84A90 /* CredentialsWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E8126249AF8C600A84A90 /* CredentialsWindow.swift */; };
+		B50E8129249AF8C600A84A90 /* CredentialsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50E8127249AF8C600A84A90 /* CredentialsWindow.xib */; };
+		B50E812D249AF96800A84A90 /* ConnectCredentials.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = B50E8118249ABBA600A84A90 /* ConnectCredentials.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B50E8130249AFAB000A84A90 /* ShowCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50E812E249AF9EA00A84A90 /* ShowCredentials.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069AB125D9A11E885ED84E2B /* Pods_SpartaConnect.framework */; };
@@ -62,6 +66,13 @@
 			remoteGlobalIDString = 4AA188882486FA90009CFACE;
 			remoteInfo = SpartaConnect;
 		};
+		B50E812A249AF95900A84A90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AA188812486FA90009CFACE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B50E8117249ABBA600A84A90;
+			remoteInfo = ConnectCredentials;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +85,16 @@
 				4A3F3C7A248C92720058C5D4 /* Testable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B50E812C249AF95F00A84A90 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				B50E812D249AF96800A84A90 /* ConnectCredentials.app in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -136,6 +157,9 @@
 		B50E811F249ABBA700A84A90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		B50E8121249ABBA700A84A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B50E8122249ABBA700A84A90 /* ConnectCredentials.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConnectCredentials.entitlements; sourceTree = "<group>"; };
+		B50E8126249AF8C600A84A90 /* CredentialsWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsWindow.swift; sourceTree = "<group>"; };
+		B50E8127249AF8C600A84A90 /* CredentialsWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredentialsWindow.xib; sourceTree = "<group>"; };
+		B50E812E249AF9EA00A84A90 /* ShowCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCredentials.swift; sourceTree = "<group>"; };
 		C0571494849A7D807A1DC064 /* Pods-SpartaConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaConnect.debug.xcconfig"; path = "Target Support Files/Pods-SpartaConnect/Pods-SpartaConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F4DEA75D91E9DAA8B4F01A /* Pods-UnitSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitSpecs.debug.xcconfig"; path = "Target Support Files/Pods-UnitSpecs/Pods-UnitSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		F255137FDAD2130F5982520D /* Pods-SpartaConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpartaConnect.release.xcconfig"; path = "Target Support Files/Pods-SpartaConnect/Pods-SpartaConnect.release.xcconfig"; sourceTree = "<group>"; };
@@ -338,6 +362,9 @@
 			isa = PBXGroup;
 			children = (
 				B50E811A249ABBA600A84A90 /* AppDelegate.swift */,
+				B50E812E249AF9EA00A84A90 /* ShowCredentials.swift */,
+				B50E8126249AF8C600A84A90 /* CredentialsWindow.swift */,
+				B50E8127249AF8C600A84A90 /* CredentialsWindow.xib */,
 				B50E811C249ABBA700A84A90 /* Assets.xcassets */,
 				B50E811E249ABBA700A84A90 /* MainMenu.xib */,
 				B50E8121249ABBA700A84A90 /* Info.plist */,
@@ -408,11 +435,13 @@
 				4AA188872486FA90009CFACE /* Resources */,
 				371616C32BFF65F4BDB6979B /* [CP] Embed Pods Frameworks */,
 				4A3F3C7E248C92720058C5D4 /* Embed Frameworks */,
+				B50E812C249AF95F00A84A90 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				4A3F3C78248C92720058C5D4 /* PBXTargetDependency */,
+				B50E812B249AF95900A84A90 /* PBXTargetDependency */,
 			);
 			name = SpartaConnect;
 			productName = SpartaConnect;
@@ -574,6 +603,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50E8129249AF8C600A84A90 /* CredentialsWindow.xib in Resources */,
 				B50E811D249ABBA700A84A90 /* Assets.xcassets in Resources */,
 				B50E8120249ABBA700A84A90 /* MainMenu.xib in Resources */,
 			);
@@ -765,6 +795,7 @@
 				4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */,
 				4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
+				B50E8130249AFAB000A84A90 /* ShowCredentials.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +830,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B50E8128249AF8C600A84A90 /* CredentialsWindow.swift in Sources */,
 				B50E811B249ABBA600A84A90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -820,6 +852,11 @@
 			isa = PBXTargetDependency;
 			target = 4AA188882486FA90009CFACE /* SpartaConnect */;
 			targetProxy = 4AA188A72486FA90009CFACE /* PBXContainerItemProxy */;
+		};
+		B50E812B249AF95900A84A90 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B50E8117249ABBA600A84A90 /* ConnectCredentials */;
+			targetProxy = B50E812A249AF95900A84A90 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

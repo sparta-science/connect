@@ -11,11 +11,10 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-	@IBOutlet weak var window: NSWindow!
-
+	let credentialsWindow = CredentialsWindow(windowNibName: NSNib.Name("CredentialsWindow"))
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		// Insert code here to initialize your application
+		self.credentialsWindow.showWindow(nil)
 	}
 
 	func applicationWillTerminate(_ aNotification: Notification) {
