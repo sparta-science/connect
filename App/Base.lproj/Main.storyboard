@@ -723,10 +723,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--My Touch View Controller-->
         <scene sceneID="V56-PY-zGm">
             <objects>
-                <tabViewController tabStyle="unspecified" id="Gaj-C8-dnr" sceneMemberID="viewController">
+                <tabViewController tabStyle="unspecified" id="Gaj-C8-dnr" customClass="MyTouchViewController" customModule="SpartaConnect" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem id="iZh-eD-Euv"/>
                         <tabViewItem identifier="" id="JMJ-Jr-veJ"/>
@@ -754,7 +754,7 @@
         <!--Login-->
         <scene sceneID="ZpF-95-PgA">
             <objects>
-                <viewController title="Login" id="vXD-5U-YWX" sceneMemberID="viewController">
+                <viewController title="Login" id="vXD-5U-YWX" customClass="LoginViewController" customModule="SpartaConnect" sceneMemberID="viewController">
                     <view key="view" id="0iQ-Cq-t9F">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -766,7 +766,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="selectNextTabViewItem:" target="Nhb-9u-t1X" id="5D9-Wm-T7Y"/>
+                                    <action selector="clickLoginWithSender:" target="vXD-5U-YWX" id="TVF-Tu-rnf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -783,7 +783,7 @@
         <!--Downloading-->
         <scene sceneID="aXL-FD-rRa">
             <objects>
-                <viewController title="Downloading" id="w6A-gB-Rt5" sceneMemberID="viewController">
+                <viewController title="Downloading" id="w6A-gB-Rt5" customClass="DownloadViewController" customModule="SpartaConnect" sceneMemberID="viewController">
                     <view key="view" id="wwD-3l-0CH">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -795,7 +795,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="selectPreviousTabViewItem:" target="O6h-8d-Q0F" id="s3H-18-BRQ"/>
+                                    <action selector="clickCancelWithSender:" target="w6A-gB-Rt5" id="TLy-s7-Xd0"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
@@ -805,7 +805,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="selectNextTabViewItem:" target="O6h-8d-Q0F" id="948-du-dHq"/>
+                                    <action selector="clickDownloadWithSender:" target="w6A-gB-Rt5" id="EOU-ud-mOI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -813,7 +813,7 @@
                             <constraint firstAttribute="bottom" secondItem="ks0-c5-IkH" secondAttribute="bottom" constant="20" symbolic="YES" id="Kp8-gk-Pzd"/>
                             <constraint firstItem="ks0-c5-IkH" firstAttribute="leading" secondItem="wwD-3l-0CH" secondAttribute="leading" constant="98" id="Lul-gN-6cg"/>
                             <constraint firstItem="ks0-c5-IkH" firstAttribute="baseline" secondItem="ZHj-f5-V2I" secondAttribute="baseline" id="UUe-Bz-q5j"/>
-                            <constraint firstItem="ZHj-f5-V2I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ks0-c5-IkH" secondAttribute="trailing" symbolic="YES" id="ZwW-20-QWs"/>
+                            <constraint firstItem="ZHj-f5-V2I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ks0-c5-IkH" secondAttribute="trailing" constant="12" symbolic="YES" id="ZwW-20-QWs"/>
                             <constraint firstAttribute="trailing" secondItem="ZHj-f5-V2I" secondAttribute="trailing" constant="57" id="eYt-je-AoJ"/>
                         </constraints>
                     </view>
@@ -825,7 +825,7 @@
         <!--Connected-->
         <scene sceneID="Y5P-KF-FyG">
             <objects>
-                <viewController title="Connected" id="MMH-yp-aMN" sceneMemberID="viewController">
+                <viewController title="Connected" id="MMH-yp-aMN" customClass="DisconnectViewController" customModule="SpartaConnect" sceneMemberID="viewController">
                     <view key="view" id="7aV-aO-OVm">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -838,7 +838,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="selectPreviousTabViewItem:" target="Av8-CC-Vcx" id="uAx-xu-dcm"/>
+                                    <action selector="clickDisconnectWithSender:" target="MMH-yp-aMN" id="eQT-N7-9F6"/>
                                 </connections>
                             </button>
                         </subviews>
