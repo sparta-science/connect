@@ -89,7 +89,7 @@
 		};
 		B50E812C249AF95F00A84A90 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
@@ -1257,6 +1257,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnect.ConnectCredentials;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1279,6 +1280,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnect.ConnectCredentials;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
