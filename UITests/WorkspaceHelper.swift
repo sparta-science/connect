@@ -14,6 +14,7 @@ class WorkspaceHelper {
         config.allowsRunningApplicationSubstitution = true
         config.promptsUserIfNeeded = false
         config.addsToRecentItems = false
+        config.architecture = CPU_TYPE_X86_64
         return config
     }
     
