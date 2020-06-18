@@ -9,6 +9,7 @@ public class StatusBarMenu: NSMenu {
         let button = statusItem.button
         button?.image = first.image
         button?.title = first.title
+        button?.setAccessibilityIdentifier(first.accessibilityIdentifier())
     }
     func setupStatusItem() {
         statusItem.menu = self

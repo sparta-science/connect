@@ -654,6 +654,7 @@
                     <items>
                         <menuItem image="menu-bar-icon" id="sPV-0T-nLh">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <accessibility identifier="Sparta"/>
                         </menuItem>
                         <menuItem title="SpartaConnect Help" keyEquivalent="?" id="73L-I2-jcr">
                             <connections>

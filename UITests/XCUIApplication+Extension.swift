@@ -16,7 +16,7 @@ extension XCUIApplication {
     }
 
     func statusBarItem() -> XCUIElement {
-        menuBars.statusItems.element
+        menuBars.statusItems.element(matching: .statusItem, identifier: "Sparta")
     }
     
     @discardableResult
