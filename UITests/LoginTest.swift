@@ -22,7 +22,7 @@ class LoginTest: XCTestCase {
         window.waitToAppear()
         let groups = window.groups
         let popUpButton = groups.children(matching: .popUpButton).element
-        popUpButton.click()
+        popUpButton.waitToBeClickable().click()
         popUpButton.menuItems["localhost"].click()
         
         let textField = groups.children(matching: .textField).element
