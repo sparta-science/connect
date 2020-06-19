@@ -26,7 +26,7 @@ extension XCUIApplication {
 
     func clickStatusItem() {
         repeat {
-            statusBarItem().coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).click()
+            statusBarItem().clickView()
         } while !statusBarMenu().waitForExistence()
     }
     

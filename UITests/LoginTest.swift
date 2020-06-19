@@ -16,13 +16,19 @@ class LoginTest: XCTestCase {
         app.terminate()
         try super.tearDownWithError()
     }
+    
+    func activateWindow(window: XCUIElement) {
+        window.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0)).click()
+    }
 
     func testLogin() throws {
         let window = XCUIApplication().windows["Window"]
         window.waitToAppear()
         let groups = window.groups
-        let popUpButton = groups.children(matching: .popUpButton).element
-        popUpButton.waitToBeClickable().click()
+        XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
+        activateWindow(window: window)
+        let popUpButton = window.popUpButtons.element
+        popUpButton.clickView()
         popUpButton.menuItems["localhost"].click()
         
         let textField = groups.children(matching: .textField).element
