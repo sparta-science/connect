@@ -725,7 +725,7 @@
                     </connections>
                 </windowController>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="-217" y="219"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="V56-PY-zGm">
@@ -753,75 +753,7 @@
                 </tabViewController>
                 <customObject id="QWh-P2-ed0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="712"/>
-        </scene>
-        <!--Downloading-->
-        <scene sceneID="aXL-FD-rRa">
-            <objects>
-                <viewController title="Downloading" id="w6A-gB-Rt5" sceneMemberID="viewController">
-                    <view key="view" id="wwD-3l-0CH">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                <rect key="frame" x="97.5" y="123" width="56" height="23"/>
-                                <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="selectPreviousTabViewItem:" target="O6h-8d-Q0F" id="s3H-18-BRQ"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
-                                <rect key="frame" x="287.5" y="123" width="136" height="23"/>
-                                <buttonCell key="cell" type="roundTextured" title="Download Complete" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1VP-Pl-z3u">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="selectNextTabViewItem:" target="O6h-8d-Q0F" id="948-du-dHq"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="ks0-c5-IkH" firstAttribute="centerY" secondItem="wwD-3l-0CH" secondAttribute="centerY" id="5bQ-wl-NLD"/>
-                            <constraint firstItem="ks0-c5-IkH" firstAttribute="leading" secondItem="wwD-3l-0CH" secondAttribute="leading" constant="98" id="Lul-gN-6cg"/>
-                            <constraint firstItem="ks0-c5-IkH" firstAttribute="baseline" secondItem="ZHj-f5-V2I" secondAttribute="baseline" id="UUe-Bz-q5j"/>
-                            <constraint firstItem="ZHj-f5-V2I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ks0-c5-IkH" secondAttribute="trailing" constant="8" symbolic="YES" id="ZwW-20-QWs"/>
-                            <constraint firstAttribute="trailing" secondItem="ZHj-f5-V2I" secondAttribute="trailing" constant="57" id="eYt-je-AoJ"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <customObject id="O6h-8d-Q0F" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-221" y="1185"/>
-        </scene>
-        <!--Connected-->
-        <scene sceneID="Y5P-KF-FyG">
-            <objects>
-                <viewController title="Connected" id="MMH-yp-aMN" sceneMemberID="viewController">
-                    <view key="view" id="7aV-aO-OVm">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
-                                <rect key="frame" x="157.5" y="97" width="109" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="selectPreviousTabViewItem:" target="Av8-CC-Vcx" id="uAx-xu-dcm"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </view>
-                </viewController>
-                <customObject id="Av8-CC-Vcx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="240" y="1185"/>
+            <point key="canvasLocation" x="-217" y="687"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="UFQ-5p-aWW">
@@ -907,6 +839,74 @@
                 <customObject id="9u9-l2-C0K" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-708" y="1170"/>
+        </scene>
+        <!--Downloading-->
+        <scene sceneID="aXL-FD-rRa">
+            <objects>
+                <viewController title="Downloading" id="w6A-gB-Rt5" sceneMemberID="viewController">
+                    <view key="view" id="wwD-3l-0CH">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
+                                <rect key="frame" x="97.5" y="123" width="56" height="23"/>
+                                <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectPreviousTabViewItem:" target="O6h-8d-Q0F" id="s3H-18-BRQ"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
+                                <rect key="frame" x="287.5" y="123" width="136" height="23"/>
+                                <buttonCell key="cell" type="roundTextured" title="Download Complete" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1VP-Pl-z3u">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectNextTabViewItem:" target="O6h-8d-Q0F" id="948-du-dHq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ks0-c5-IkH" firstAttribute="centerY" secondItem="wwD-3l-0CH" secondAttribute="centerY" id="5bQ-wl-NLD"/>
+                            <constraint firstItem="ks0-c5-IkH" firstAttribute="leading" secondItem="wwD-3l-0CH" secondAttribute="leading" constant="98" id="Lul-gN-6cg"/>
+                            <constraint firstItem="ks0-c5-IkH" firstAttribute="baseline" secondItem="ZHj-f5-V2I" secondAttribute="baseline" id="UUe-Bz-q5j"/>
+                            <constraint firstItem="ZHj-f5-V2I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ks0-c5-IkH" secondAttribute="trailing" constant="8" symbolic="YES" id="ZwW-20-QWs"/>
+                            <constraint firstAttribute="trailing" secondItem="ZHj-f5-V2I" secondAttribute="trailing" constant="57" id="eYt-je-AoJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="O6h-8d-Q0F" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-217" y="1170"/>
+        </scene>
+        <!--Connected-->
+        <scene sceneID="Y5P-KF-FyG">
+            <objects>
+                <viewController title="Connected" id="MMH-yp-aMN" sceneMemberID="viewController">
+                    <view key="view" id="7aV-aO-OVm">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
+                                <rect key="frame" x="157.5" y="97" width="109" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectPreviousTabViewItem:" target="Av8-CC-Vcx" id="uAx-xu-dcm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="Av8-CC-Vcx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="281" y="1176"/>
         </scene>
     </scenes>
     <resources>
