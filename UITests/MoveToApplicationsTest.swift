@@ -1,6 +1,6 @@
 import XCTest
 
-class ZMoveToApplicationsTest: XCTestCase {
+class MoveToApplicationsTest: XCTestCase {
     let moveAppHelper = MoveAppHelper()
     lazy var tempApp = moveAppHelper.tempApp()
     lazy var movedApp = moveAppHelper.movedApp()
