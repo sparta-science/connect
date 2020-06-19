@@ -18,7 +18,9 @@ class LoginTest: XCTestCase {
     }
 
     func testLogin() throws {
-        let groups = XCUIApplication().windows["Window"].groups
+        let window = XCUIApplication().windows["Window"]
+        window.waitToAppear()
+        let groups = window.groups
         let popUpButton = groups.children(matching: .popUpButton).element
         popUpButton.click()
         popUpButton.menuItems["localhost"].click()
