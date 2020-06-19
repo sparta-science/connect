@@ -10,6 +10,7 @@ class LoginTest: XCTestCase {
             "-moveToApplicationsFolderAlertSuppress", "YES",
         ]
         app.launch()
+        app.wait(until: .runningBackground)
     }
 
     override func tearDownWithError() throws {
@@ -38,7 +39,7 @@ class LoginTest: XCTestCase {
         passwordField.click()
         passwordField.typeText("password123")
 
-        groups.buttons["connect"].click()
-        groups.element.waitToDisappear()
+        groups.buttons["Login"].click()
+        textField.waitToDisappear()
     }
 }
