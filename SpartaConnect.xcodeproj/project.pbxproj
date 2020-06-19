@@ -25,6 +25,8 @@
 		4A9F71CB24989E5F0023C93F /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* TestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
 		4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CE249B52930023C93F /* SecurityHelper.swift */; };
+		4A9F71D1249C644E0023C93F /* MoveToApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71D0249C644E0023C93F /* MoveToApplications.swift */; };
+		4A9F71D3249C67990023C93F /* MoveToApplicationsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */; };
 		4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA1888C2486FA90009CFACE /* AppDelegate.swift */; };
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
@@ -107,6 +109,8 @@
 		4A9F71CA24989E5F0023C93F /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHelper.swift; sourceTree = "<group>"; };
 		4A9F71CE249B52930023C93F /* SecurityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityHelper.swift; sourceTree = "<group>"; };
+		4A9F71D0249C644E0023C93F /* MoveToApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplications.swift; sourceTree = "<group>"; };
+		4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsSpec.swift; sourceTree = "<group>"; };
 		4AA188892486FA90009CFACE /* SpartaConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpartaConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA1888C2486FA90009CFACE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AA188902486FA90009CFACE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
 				4A03F473249A8D27000A2929 /* TabBarControllerSpec.swift */,
 				4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */,
+				4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
 			);
 			path = AppSpecs;
@@ -282,6 +287,7 @@
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
+				4A9F71D0249C644E0023C93F /* MoveToApplications.swift */,
 				4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */,
 				4AA188902486FA90009CFACE /* Assets.xcassets */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
@@ -699,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A03F474249A8D27000A2929 /* TabBarControllerSpec.swift in Sources */,
+				4A9F71D3249C67990023C93F /* MoveToApplicationsSpec.swift in Sources */,
 				4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */,
@@ -709,6 +716,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A9F71D1249C644E0023C93F /* MoveToApplications.swift in Sources */,
 				4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */,
 				4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,

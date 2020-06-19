@@ -700,6 +700,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
                 <customObject id="wDy-CS-sRL" customClass="LoginItemManager" customModule="SpartaConnect" customModuleProvider="target"/>
+                <customObject id="Iwp-kM-eAr" customClass="MoveToApplications" customModule="SpartaConnect" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="63" y="-145"/>
         </scene>

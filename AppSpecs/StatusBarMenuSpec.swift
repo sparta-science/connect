@@ -10,7 +10,11 @@ class StatusBarMenuSpec: QuickSpec {
             beforeEach {
                 subject = .init()
                 image = .init(size: .zero)
-                let item = subject.addItem(withTitle: "first", action: nil, keyEquivalent: "")
+                let item = subject.addItem(
+                    withTitle: "first",
+                    action: nil,
+                    keyEquivalent: ""
+                )
                 item.image = image
             }
             context("awakeFromNib") {
@@ -29,7 +33,9 @@ class StatusBarMenuSpec: QuickSpec {
                     }
                     it("should have expected properties") {
                         expect(statusItem.isVisible) == true
-                        expect(statusItem.behavior) == [.terminationOnRemoval, .removalAllowed]
+                        expect(statusItem.behavior) == [
+                            .terminationOnRemoval, .removalAllowed
+                        ]
                         expect(statusItem.autosaveName) == Bundle.main.bundleIdentifier
                         expect(statusItem.length) == NSStatusItem.squareLength
                     }
