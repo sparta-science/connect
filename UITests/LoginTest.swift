@@ -10,7 +10,8 @@ class LoginTest: XCTestCase {
             "-moveToApplicationsFolderAlertSuppress", "YES",
         ]
         app.launch()
-        app.wait(until: .runningBackground)
+        app.activate()
+        app.wait(until: .runningForeground)
     }
 
     override func tearDownWithError() throws {
