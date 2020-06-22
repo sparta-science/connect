@@ -793,6 +793,9 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
+                                            <connections>
+                                                <binding destination="xf9-aD-9fM" name="selectedValue" keyPath="self.login.environment" id="X7P-GA-xfs"/>
+                                            </connections>
                                         </popUpButton>
                                     </gridCell>
                                     <gridCell row="Dbj-dT-LxX" column="qfz-VJ-eeS" id="1Ls-Ms-Lly">
@@ -803,6 +806,14 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <binding destination="xf9-aD-9fM" name="value" keyPath="self.login.username" id="boq-kB-sZg">
+                                                    <dictionary key="options">
+                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                                        <string key="NSNullPlaceholder">email@example.com</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
                                         </textField>
                                     </gridCell>
                                     <gridCell row="D5I-e5-LMg" column="qfz-VJ-eeS" id="4DH-qm-PmH">
@@ -816,17 +827,20 @@
                                                     <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                                 </allowedInputSourceLocales>
                                             </secureTextFieldCell>
+                                            <connections>
+                                                <binding destination="xf9-aD-9fM" name="value" keyPath="self.login.password" id="NCO-sW-Hmx"/>
+                                            </connections>
                                         </secureTextField>
                                     </gridCell>
                                     <gridCell row="DZf-o3-6fq" column="qfz-VJ-eeS" id="CNQ-u5-oEb">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bgq-XU-cem">
-                                            <rect key="frame" x="0.0" y="-1" width="200" height="23"/>
+                                            <rect key="frame" x="-0.5" y="-1" width="201" height="23"/>
                                             <buttonCell key="cell" type="roundTextured" title="Login" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HPO-8B-9Ka">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="selectNextTabViewItem:" target="9u9-l2-C0K" id="gip-Ey-l8K"/>
+                                                <action selector="connectAction:" target="xf9-aD-9fM" id="ezU-90-jPy"/>
                                             </connections>
                                         </button>
                                     </gridCell>
@@ -853,7 +867,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                <rect key="frame" x="98" y="123" width="56" height="23"/>
+                                <rect key="frame" x="97.5" y="123" width="56" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -863,7 +877,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
-                                <rect key="frame" x="287" y="123" width="136" height="23"/>
+                                <rect key="frame" x="287.5" y="123" width="136" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Download Complete" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1VP-Pl-z3u">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -895,7 +909,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
-                                <rect key="frame" x="158" y="97" width="109" height="23"/>
+                                <rect key="frame" x="158.5" y="97" width="109" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>

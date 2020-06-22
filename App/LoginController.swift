@@ -16,11 +16,17 @@ public class NetworkService: NetworkServiceProtocol {
     }
 }
 
+@objcMembers
+class Login: NSObject {
+    var environment: String = "production"
+    var username: String?
+    var password: String?
+}
+
 public class LoginController: NSViewController {
     @objc var hideEnvironments: Bool = isReleaseBuild()
-    @IBOutlet weak var environmentButton: NSPopUpButton!
-    @IBOutlet weak var usernameField: NSTextField!
-    @IBOutlet weak var passwordField: NSSecureTextField!
+    @objc var login = Login()
+
     public var networkService: NetworkServiceProtocol = NetworkService()
     public var alertService: AlertProtocol!
     @IBAction public func connectAction(_ sender: NSButton) {
