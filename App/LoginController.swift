@@ -1,4 +1,5 @@
 import Cocoa
+import Testable
 
 public protocol NetworkServiceProtocol {
     func login(username: String) -> String
@@ -13,14 +14,6 @@ public class NetworkService: NetworkServiceProtocol {
     public func login(username: String) -> String {
         "success"
     }
-}
-
-func isReleaseBuild() -> Bool {
-    !isDebugBuild()
-}
-
-func isDebugBuild() -> Bool {
-    _isDebugAssertConfiguration()
 }
 
 public class LoginController: NSViewController {

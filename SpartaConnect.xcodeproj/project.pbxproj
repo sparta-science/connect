@@ -36,8 +36,9 @@
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
 		4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */; };
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
-		4AD40A9124870708002728DA /* FirstSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* FirstSpec.swift */; };
+		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
+		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
 		4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
@@ -131,12 +132,13 @@
 		4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAppTest.swift; sourceTree = "<group>"; };
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsTest.swift; sourceTree = "<group>"; };
-		4AD40A9024870708002728DA /* FirstSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSpec.swift; sourceTree = "<group>"; };
+		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		4AD40A99248850E1002728DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AD40A9B24897C85002728DA /* UITests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UITests.entitlements; sourceTree = "<group>"; };
 		4AD40A9D24897F51002728DA /* self-hosted.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "self-hosted.yml"; path = ".github/workflows/self-hosted.yml"; sourceTree = "<group>"; tabWidth = 2; };
+		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BC13F4F249409D000360A26 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
 		4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenuSpec.swift; sourceTree = "<group>"; };
 		55ACDC80CAFF61B83E74C6FC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3F3C74248C92720058C5D4 /* Testable.h */,
+				4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */,
 				4A3F3C75248C92720058C5D4 /* Info.plist */,
 			);
 			path = Testable;
@@ -312,7 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA188A12486FA90009CFACE /* Info.plist */,
-				4AD40A9024870708002728DA /* FirstSpec.swift */,
+				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
 			);
 			path = UnitSpecs;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,7 +746,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AD40A9124870708002728DA /* FirstSpec.swift in Sources */,
+				4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1033,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C0571494849A7D807A1DC064 /* Pods-SpartaConnect.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application: Sparta Software Corporation (GB9B5L6A6K)";
@@ -1050,6 +1055,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F255137FDAD2130F5982520D /* Pods-SpartaConnect.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application: Sparta Software Corporation (GB9B5L6A6K)";
