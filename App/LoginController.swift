@@ -15,7 +15,16 @@ public class NetworkService: NetworkServiceProtocol {
     }
 }
 
+func isReleaseBuild() -> Bool {
+    !isDebugBuild()
+}
+
+func isDebugBuild() -> Bool {
+    _isDebugAssertConfiguration()
+}
+
 public class LoginController: NSViewController {
+    @objc var hideEnvironments: Bool = isReleaseBuild()
     @IBOutlet weak var environmentButton: NSPopUpButton!
     @IBOutlet weak var usernameField: NSTextField!
     @IBOutlet weak var passwordField: NSSecureTextField!
@@ -28,5 +37,4 @@ public class LoginController: NSViewController {
             alertService.show(alert: NSAlert())
         }
     }
-    
 }

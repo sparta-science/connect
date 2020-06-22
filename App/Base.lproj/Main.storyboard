@@ -766,7 +766,11 @@
                             <gridView fixedFrame="YES" xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZO8-NI-6hU">
                                 <rect key="frame" x="140" y="82" width="200" height="104"/>
                                 <rows>
-                                    <gridRow id="U7b-GX-FRB"/>
+                                    <gridRow id="U7b-GX-FRB">
+                                        <connections>
+                                            <binding destination="xf9-aD-9fM" name="hidden" keyPath="self.hideEnvironments" id="1X5-uS-ZBG"/>
+                                        </connections>
+                                    </gridRow>
                                     <gridRow id="Dbj-dT-LxX"/>
                                     <gridRow id="D5I-e5-LMg"/>
                                     <gridRow id="DZf-o3-6fq"/>
