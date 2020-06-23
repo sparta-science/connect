@@ -95,3 +95,6 @@ iOSInjectionProject/
 
 # Intellij IDEA
 .idea/
+
+# Code signing identity and development team
+TeamConfig.xcconfig
