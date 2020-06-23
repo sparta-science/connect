@@ -870,8 +870,9 @@
                                                 </allowedInputSourceLocales>
                                             </secureTextFieldCell>
                                             <connections>
-                                                <binding destination="xf9-aD-9fM" name="value" keyPath="self.login.password" id="Zw4-Go-F6w">
+                                                <binding destination="xf9-aD-9fM" name="value" keyPath="self.login.password" id="pzo-u6-ONf">
                                                     <dictionary key="options">
+                                                        <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                         <string key="NSNullPlaceholder">password</string>
                                                     </dictionary>
                                                 </binding>
@@ -887,6 +888,20 @@
                                             </buttonCell>
                                             <connections>
                                                 <action selector="connectAction:" target="xf9-aD-9fM" id="ezU-90-jPy"/>
+                                                <binding destination="xf9-aD-9fM" name="enabled2" keyPath="self.login.username" previousBinding="6QL-KN-dqQ" id="BEY-F0-HsU">
+                                                    <dictionary key="options">
+                                                        <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                        <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                        <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                        <integer key="NSNullPlaceholder" value="-1"/>
+                                                        <string key="NSValueTransformerName">NSIsNotNil</string>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="xf9-aD-9fM" name="enabled" keyPath="self.login.password" id="6QL-KN-dqQ">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">NSIsNotNil</string>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </button>
                                     </gridCell>
