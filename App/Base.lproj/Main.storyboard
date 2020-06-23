@@ -702,7 +702,7 @@
                 <customObject id="wDy-CS-sRL" customClass="LoginItemManager" customModule="SpartaConnect" customModuleProvider="target"/>
                 <customObject id="Iwp-kM-eAr" customClass="MoveToApplications" customModule="SpartaConnect" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="63" y="-145"/>
+            <point key="canvasLocation" x="-205" y="-288"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -712,20 +712,20 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="320" height="260"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
-                        <value key="maxSize" type="size" width="480" height="270"/>
+                        <value key="minSize" type="size" width="320" height="260"/>
+                        <value key="maxSize" type="size" width="320" height="260"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="Gaj-C8-dnr" kind="relationship" relationship="window.shadowedContentViewController" id="xxy-Wq-sMi"/>
+                        <segue destination="thc-wQ-ERs" kind="relationship" relationship="window.shadowedContentViewController" id="7RO-GI-51C"/>
                     </connections>
                 </windowController>
             </objects>
-            <point key="canvasLocation" x="-217" y="219"/>
+            <point key="canvasLocation" x="-217" y="-21"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="V56-PY-zGm">
@@ -737,7 +737,7 @@
                         <tabViewItem identifier="" id="tL6-UN-IV4"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsBezelBorder" id="yIT-lt-JTs">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" metaFont="system"/>
                         <connections>
@@ -755,16 +755,55 @@
             </objects>
             <point key="canvasLocation" x="-217" y="687"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Qh9-k3-dpq">
+            <objects>
+                <viewController id="thc-wQ-ERs" sceneMemberID="viewController">
+                    <view key="view" id="NqU-NO-LH9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="FVH-YO-zH3">
+                                <rect key="frame" x="10" y="60" width="300" height="186"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="186" id="3Kq-7d-k2q"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Gaj-C8-dnr" kind="embed" id="fUk-ww-lIg"/>
+                                </connections>
+                            </containerView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fdS-do-IcA">
+                                <rect key="frame" x="244" y="16" width="72" height="32"/>
+                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7JR-y5-oOb">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fdS-do-IcA" firstAttribute="trailing" secondItem="FVH-YO-zH3" secondAttribute="trailing" id="3Ed-OP-lkr"/>
+                            <constraint firstItem="FVH-YO-zH3" firstAttribute="leading" secondItem="NqU-NO-LH9" secondAttribute="leading" constant="10" id="8De-gW-zP3"/>
+                            <constraint firstAttribute="trailing" secondItem="FVH-YO-zH3" secondAttribute="trailing" constant="10" id="MEi-pc-5iX"/>
+                            <constraint firstItem="FVH-YO-zH3" firstAttribute="top" secondItem="NqU-NO-LH9" secondAttribute="top" constant="14" id="rgz-EP-IKG"/>
+                            <constraint firstItem="fdS-do-IcA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NqU-NO-LH9" secondAttribute="leading" constant="20" symbolic="YES" id="tWQ-3Q-QVu"/>
+                            <constraint firstItem="fdS-do-IcA" firstAttribute="top" secondItem="FVH-YO-zH3" secondAttribute="bottom" constant="16" id="zVQ-q8-REB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="wla-aZ-U1J" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-217" y="358"/>
+        </scene>
         <!--Login Controller-->
         <scene sceneID="UFQ-5p-aWW">
             <objects>
                 <viewController id="xf9-aD-9fM" customClass="LoginController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="YxZ-ab-r8N">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <gridView fixedFrame="YES" xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZO8-NI-6hU">
-                                <rect key="frame" x="140" y="82" width="200" height="104"/>
+                            <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZO8-NI-6hU">
+                                <rect key="frame" x="50" y="38" width="200" height="104"/>
                                 <rows>
                                     <gridRow id="U7b-GX-FRB">
                                         <connections>
@@ -846,7 +885,24 @@
                                     </gridCell>
                                 </gridCells>
                             </gridView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ki2-KB-mmN">
+                                <rect key="frame" x="208.5" y="7" width="43" height="23"/>
+                                <buttonCell key="cell" type="roundTextured" title="Next" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1mn-Zy-SKf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectNextTabViewItem:" target="O6h-8d-Q0F" id="jda-9b-eaw"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Ki2-KB-mmN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YxZ-ab-r8N" secondAttribute="leading" constant="20" symbolic="YES" id="6qo-Z2-aIu"/>
+                            <constraint firstItem="ZO8-NI-6hU" firstAttribute="centerY" secondItem="YxZ-ab-r8N" secondAttribute="centerY" id="K8J-BL-zOt"/>
+                            <constraint firstItem="ZO8-NI-6hU" firstAttribute="centerX" secondItem="YxZ-ab-r8N" secondAttribute="centerX" id="SFi-em-bwc"/>
+                            <constraint firstAttribute="trailing" secondItem="Ki2-KB-mmN" secondAttribute="trailing" constant="49.5" id="VAj-oS-mb2"/>
+                            <constraint firstItem="Ki2-KB-mmN" firstAttribute="top" secondItem="ZO8-NI-6hU" secondAttribute="bottom" constant="8" id="aOQ-Vm-6OJ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="environmentButton" destination="vZf-rK-tfG" id="Vgf-X7-0ur"/>
@@ -856,18 +912,18 @@
                 </viewController>
                 <customObject id="9u9-l2-C0K" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-708" y="1170"/>
+            <point key="canvasLocation" x="-529" y="1054"/>
         </scene>
         <!--Downloading-->
         <scene sceneID="aXL-FD-rRa">
             <objects>
                 <viewController title="Downloading" id="w6A-gB-Rt5" sceneMemberID="viewController">
                     <view key="view" id="wwD-3l-0CH">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="316" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                <rect key="frame" x="97.5" y="123" width="56" height="23"/>
+                                <rect key="frame" x="55.5" y="78" width="56" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -877,7 +933,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
-                                <rect key="frame" x="287.5" y="123" width="136" height="23"/>
+                                <rect key="frame" x="144.5" y="78" width="136" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Download Complete" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1VP-Pl-z3u">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -889,27 +945,27 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="ks0-c5-IkH" firstAttribute="centerY" secondItem="wwD-3l-0CH" secondAttribute="centerY" id="5bQ-wl-NLD"/>
-                            <constraint firstItem="ks0-c5-IkH" firstAttribute="leading" secondItem="wwD-3l-0CH" secondAttribute="leading" constant="98" id="Lul-gN-6cg"/>
+                            <constraint firstItem="ks0-c5-IkH" firstAttribute="leading" secondItem="wwD-3l-0CH" secondAttribute="leading" constant="56" id="Lul-gN-6cg"/>
                             <constraint firstItem="ks0-c5-IkH" firstAttribute="baseline" secondItem="ZHj-f5-V2I" secondAttribute="baseline" id="UUe-Bz-q5j"/>
                             <constraint firstItem="ZHj-f5-V2I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ks0-c5-IkH" secondAttribute="trailing" constant="8" symbolic="YES" id="ZwW-20-QWs"/>
-                            <constraint firstAttribute="trailing" secondItem="ZHj-f5-V2I" secondAttribute="trailing" constant="57" id="eYt-je-AoJ"/>
+                            <constraint firstAttribute="trailing" secondItem="ZHj-f5-V2I" secondAttribute="trailing" constant="36" id="eYt-je-AoJ"/>
                         </constraints>
                     </view>
                 </viewController>
                 <customObject id="O6h-8d-Q0F" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-217" y="1170"/>
+            <point key="canvasLocation" x="-217" y="1054"/>
         </scene>
         <!--Connected-->
         <scene sceneID="Y5P-KF-FyG">
             <objects>
                 <viewController title="Connected" id="MMH-yp-aMN" sceneMemberID="viewController">
                     <view key="view" id="7aV-aO-OVm">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
-                                <rect key="frame" x="158.5" y="97" width="109" height="23"/>
+                                <rect key="frame" x="158.5" y="7" width="109" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -924,7 +980,7 @@
                 </viewController>
                 <customObject id="Av8-CC-Vcx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="1176"/>
+            <point key="canvasLocation" x="99" y="1054"/>
         </scene>
     </scenes>
     <resources>

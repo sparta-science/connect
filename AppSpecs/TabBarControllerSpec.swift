@@ -9,13 +9,17 @@ class TabBarControllerSpec: QuickSpec {
                 beforeEach {
                     mainWindow = NSApp.orderedWindows.first!
                 }
-                it("should be content view controller") {
-                    expect(mainWindow.contentViewController).to(beAKindOf(NSTabViewController.self))
+                it("should be a view controller") {
+                    expect(mainWindow.contentViewController)
+                        .to(beAKindOf(NSViewController.self))
                 }
                 context("tabViewController") {
                     var tabController: NSTabViewController!
                     beforeEach {
-                        tabController = mainWindow.contentViewController as? NSTabViewController
+                        tabController = mainWindow
+                            .contentViewController?
+                            .children
+                            .first as? NSTabViewController
                     }
                     it("should have three tabs") {
                         expect(tabController?.tabViewItems).to(haveCount(3))
