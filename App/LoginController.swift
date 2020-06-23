@@ -25,7 +25,6 @@ class Login: NSObject {
 
 public class LoginController: NSViewController {
     @objc var hideEnvironments: Bool = isReleaseBuild()
-    @objc var login = Login()
 
     public var networkService: NetworkServiceProtocol = NetworkService()
     public var alertService: AlertProtocol!
@@ -35,5 +34,9 @@ public class LoginController: NSViewController {
         } else {
             alertService.show(alert: NSAlert())
         }
+    }
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        representedObject = Login()
     }
 }
