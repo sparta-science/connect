@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		302D1458B2EB23D6A2F0ED09 /* Pods_AppSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */; };
-		4A03F474249A8D27000A2929 /* TabBarControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F473249A8D27000A2929 /* TabBarControllerSpec.swift */; };
+		4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */; };
 		4A0AB978249D369A00D74826 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB977249D369A00D74826 /* LoginController.swift */; };
 		4A0AB97A249D36C200D74826 /* LoginControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */; };
 		4A0AB97C249D371800D74826 /* NetworkServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */; };
@@ -89,7 +89,7 @@
 		1752C341CDE3B953C9942626 /* Pods-AppSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppSpecs.release.xcconfig"; path = "Target Support Files/Pods-AppSpecs/Pods-AppSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		18383CF04CD5A0B420B6B253 /* Pods-AppSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppSpecs.debug.xcconfig"; path = "Target Support Files/Pods-AppSpecs/Pods-AppSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		4275614E6C55701F69F0E518 /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A03F473249A8D27000A2929 /* TabBarControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerSpec.swift; sourceTree = "<group>"; };
+		4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboardSpec.swift; sourceTree = "<group>"; };
 		4A0AB977249D369A00D74826 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerSpec.swift; sourceTree = "<group>"; };
 		4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpec.swift; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 				4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */,
 				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
 				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
-				4A03F473249A8D27000A2929 /* TabBarControllerSpec.swift */,
+				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
 				4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */,
 				4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
@@ -721,7 +721,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A0AB97A249D36C200D74826 /* LoginControllerSpec.swift in Sources */,
-				4A03F474249A8D27000A2929 /* TabBarControllerSpec.swift in Sources */,
+				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
 				4A9F71D3249C67990023C93F /* MoveToApplicationsSpec.swift in Sources */,
 				4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
