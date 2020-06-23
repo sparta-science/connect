@@ -1,0 +1,13 @@
+//
+//  TeamConfig.xcconfig
+//  SpartaConnect
+//
+//  Created by Sparta Science on 6/23/20.
+//  Copyright © 2020 Sparta Science. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+CODE_SIGN_IDENTITY = Developer ID Application: Sparta Software Corporation (GB9B5L6A6K)
+DEVELOPMENT_TEAM = GB9B5L6A6K
