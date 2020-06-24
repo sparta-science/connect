@@ -730,12 +730,13 @@
         <!--Tab View Controller-->
         <scene sceneID="V56-PY-zGm">
             <objects>
-                <tabViewController tabStyle="unspecified" id="Gaj-C8-dnr" sceneMemberID="viewController">
+                <tabViewController showSeguePresentationStyle="single" tabStyle="unspecified" id="Gaj-C8-dnr" customClass="TabViewController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem id="agr-wU-Eai"/>
                         <tabViewItem identifier="" id="JMJ-Jr-veJ"/>
                         <tabViewItem identifier="" id="tL6-UN-IV4"/>
                     </tabViewItems>
+                    <viewControllerTransitionOptions key="transitionOptions" crossfade="YES"/>
                     <tabView key="tabView" type="noTabsBezelBorder" id="yIT-lt-JTs">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -755,10 +756,10 @@
             </objects>
             <point key="canvasLocation" x="-217" y="687"/>
         </scene>
-        <!--View Controller-->
+        <!--Connect-->
         <scene sceneID="Qh9-k3-dpq">
             <objects>
-                <viewController id="thc-wQ-ERs" sceneMemberID="viewController">
+                <viewController title="Connect" showSeguePresentationStyle="single" id="thc-wQ-ERs" sceneMemberID="viewController">
                     <view key="view" id="NqU-NO-LH9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -800,7 +801,7 @@
         <!--Login Controller-->
         <scene sceneID="UFQ-5p-aWW">
             <objects>
-                <viewController id="xf9-aD-9fM" customClass="LoginController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="xf9-aD-9fM" customClass="LoginController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="YxZ-ab-r8N">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -888,17 +889,17 @@
                                             </buttonCell>
                                             <connections>
                                                 <action selector="connectAction:" target="xf9-aD-9fM" id="ezU-90-jPy"/>
+                                                <binding destination="xf9-aD-9fM" name="enabled" keyPath="self.representedObject.password" id="BfR-Fy-hvn">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">NSIsNotNil</string>
+                                                    </dictionary>
+                                                </binding>
                                                 <binding destination="xf9-aD-9fM" name="enabled2" keyPath="self.representedObject.username" previousBinding="BfR-Fy-hvn" id="WqN-0S-Gff">
                                                     <dictionary key="options">
                                                         <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                                         <integer key="NSNoSelectionPlaceholder" value="-1"/>
                                                         <integer key="NSNotApplicablePlaceholder" value="-1"/>
                                                         <integer key="NSNullPlaceholder" value="-1"/>
-                                                        <string key="NSValueTransformerName">NSIsNotNil</string>
-                                                    </dictionary>
-                                                </binding>
-                                                <binding destination="xf9-aD-9fM" name="enabled" keyPath="self.representedObject.password" id="BfR-Fy-hvn">
-                                                    <dictionary key="options">
                                                         <string key="NSValueTransformerName">NSIsNotNil</string>
                                                     </dictionary>
                                                 </binding>
@@ -935,7 +936,7 @@
         <!--Downloading-->
         <scene sceneID="aXL-FD-rRa">
             <objects>
-                <viewController title="Downloading" id="w6A-gB-Rt5" sceneMemberID="viewController">
+                <viewController title="Downloading" showSeguePresentationStyle="single" id="w6A-gB-Rt5" customClass="ProgressController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="wwD-3l-0CH">
                         <rect key="frame" x="0.0" y="0.0" width="316" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -977,7 +978,7 @@
         <!--Connected-->
         <scene sceneID="Y5P-KF-FyG">
             <objects>
-                <viewController title="Connected" id="MMH-yp-aMN" sceneMemberID="viewController">
+                <viewController title="Connected" showSeguePresentationStyle="single" id="MMH-yp-aMN" customClass="ConnectedController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="7aV-aO-OVm">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
