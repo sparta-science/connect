@@ -19,6 +19,10 @@ jobs:
 #   Breaks clicking on menu bar button
 #    - name: Close Finder windows not to obscure test screenshots
 #      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
+    - name: Close Finder Windows using Apple Script
+      run: |
+        sqlite3 "$HOME/Library/Application Support/com.apple.TCC/TCC.db" "insert into access (service, client, client_type, allowed, prompt_count, indirect_object_identifier_type, indirect_object_identifier) values ('kTCCServiceAppleEvents', '/bin/bash', 1, 1, 1, 0, 'com.apple.finder')"
+        osascript -e 'tell application "Finder" to close windows'
     - name: Close Notification window
       run: killall UserNotificationCenter || true
     - uses: apple-actions/import-codesign-certs@v1
