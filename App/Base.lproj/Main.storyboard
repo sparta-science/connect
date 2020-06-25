@@ -882,7 +882,7 @@
                                     </gridCell>
                                     <gridCell row="DZf-o3-6fq" column="qfz-VJ-eeS" id="CNQ-u5-oEb">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bgq-XU-cem">
-                                            <rect key="frame" x="0.0" y="-1" width="200" height="23"/>
+                                            <rect key="frame" x="-0.5" y="-1" width="201" height="23"/>
                                             <buttonCell key="cell" type="roundTextured" title="Login" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HPO-8B-9Ka">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -942,7 +942,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                <rect key="frame" x="56" y="78" width="56" height="23"/>
+                                <rect key="frame" x="55.5" y="78" width="56" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -952,7 +952,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
-                                <rect key="frame" x="144" y="78" width="136" height="23"/>
+                                <rect key="frame" x="144.5" y="78" width="136" height="23"/>
                                 <buttonCell key="cell" type="roundTextured" title="Download Complete" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1VP-Pl-z3u">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -961,6 +961,10 @@
                                     <action selector="selectNextTabViewItem:" target="O6h-8d-Q0F" id="948-du-dHq"/>
                                 </connections>
                             </button>
+                            <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" doubleValue="65" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="TJz-ir-jsN">
+                                <rect key="frame" x="142" y="109" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ks0-c5-IkH" firstAttribute="centerY" secondItem="wwD-3l-0CH" secondAttribute="centerY" id="5bQ-wl-NLD"/>
@@ -970,6 +974,9 @@
                             <constraint firstAttribute="trailing" secondItem="ZHj-f5-V2I" secondAttribute="trailing" constant="36" id="eYt-je-AoJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="progressIndicator" destination="TJz-ir-jsN" id="oD7-bx-hSx"/>
+                    </connections>
                 </viewController>
                 <customObject id="O6h-8d-Q0F" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -984,7 +991,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
-                                <rect key="frame" x="159" y="7" width="109" height="23"/>
+                                <rect key="frame" x="159.5" y="7" width="109" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
