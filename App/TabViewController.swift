@@ -1,17 +1,21 @@
 import Cocoa
+import Combine
 
 class TabViewController: NSTabViewController {
-    var observation: NSKeyValueObservation!
-    var center: NotificationCenter = .default
-    let name: Notification.Name = .init("user operation")
-    var notePublisher: NotificationCenter.Publisher!
+    var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        notePublisher = center.publisher(for: name)
-        
-        observation = observe(\.selectedTabViewItemIndex, options: [.new, .old]) { controller, change in
-            print("transition from \(change.oldValue!) to \(change.newValue!)")
-            
-        }
+        Installer.shared.$state
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { state in
+                switch state {
+                case .complete:
+                    self.selectedTabViewItemIndex = 2
+                default:
+                    break
+                }
+            })
+            .store(in: &cancellables)
     }
 }

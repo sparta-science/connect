@@ -29,11 +29,7 @@ public class LoginController: NSViewController {
     public var networkService: NetworkServiceProtocol = NetworkService()
     public var alertService: AlertProtocol!
     @IBAction public func connectAction(_ sender: NSButton) {
-        if networkService.login(username: "sparta@example.com") == "success" {
-            sender.window?.close()
-        } else {
-            alertService.show(alert: NSAlert())
-        }
+        Installer.shared.beginInstallation(login: representedObject as! Login)
     }
     public override func awakeFromNib() {
         super.awakeFromNib()

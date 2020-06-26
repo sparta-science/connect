@@ -1,20 +1,23 @@
 import Foundation
 
-class Installer: NSObject {
-    var center: NotificationCenter = .default
-    let name: Notification.Name = .init("user operation")
+enum State {
+    case login
+    case progress
+    case complete
+}
 
-    override func awakeFromNib() {
-//        let subscriber =
-//        center.publisher(for: name).receive(subscriber: Subscriber)
-    }
+class Installer: NSObject {
+    static let shared = Installer()
+    @Published var state: State = .login
+    
     func beginInstallation(login: Login) {
-        
+        assert(state == .login)
+        state = .progress
     }
     func cancelInstallation() {
-        
+        state = .login
     }
     func uninstall() {
-        
+        state = .login
     }
 }
