@@ -10,10 +10,12 @@ class TabViewController: NSTabViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: { state in
                 switch state {
+                case .login:
+                    self.selectedTabViewItemIndex = 0
+                case .progress:
+                    self.selectedTabViewItemIndex = 1
                 case .complete:
                     self.selectedTabViewItemIndex = 2
-                default:
-                    break
                 }
             })
             .store(in: &cancellables)

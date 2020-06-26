@@ -948,7 +948,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="selectPreviousTabViewItem:" target="O6h-8d-Q0F" id="s3H-18-BRQ"/>
+                                    <action selector="cancelOperation:" target="w6A-gB-Rt5" id="nsP-4x-oOH"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
@@ -975,6 +975,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="ks0-c5-IkH" id="QB8-KY-UZY"/>
                         <outlet property="progressIndicator" destination="TJz-ir-jsN" id="oD7-bx-hSx"/>
                     </connections>
                 </viewController>
