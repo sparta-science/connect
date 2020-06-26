@@ -4,6 +4,13 @@ enum State: Equatable {
     case login
     case progress(value: Progress)
     case complete
+    func onlyProgress() -> Progress? {
+        if case let .progress(value: progress) = self {
+            return progress
+        } else {
+            return nil
+        }
+    }
 }
 
 class Installer: NSObject {
@@ -16,14 +23,14 @@ class Installer: NSObject {
             } else {
                 value.completedUnitCount += 1
                 state = .progress(value: value)
-                perform(#selector(downloadStep), with: nil, afterDelay: 1)
+                perform(#selector(downloadStep), with: nil, afterDelay: 0.1)
             }
         }
     }
     @objc func downloadStart() {
         let progress = Progress()
         progress.isCancellable = true
-        progress.totalUnitCount = 5
+        progress.totalUnitCount = 20
         progress.completedUnitCount = 1
         self.state = .progress(value: progress)
         perform(#selector(downloadStep), with: nil, afterDelay: 1)

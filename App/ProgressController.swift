@@ -10,16 +10,20 @@ class ProgressController: NSViewController {
     @IBOutlet weak var progressLabel: NSTextField!
     var cancellables = Set<AnyCancellable>()
     
+    func update(progress: Progress) {
+        cancelButton.isHidden = !progress.isCancellable
+        progressIndicator.doubleValue = 100 * progress.fractionCompleted
+        progressIndicator.isIndeterminate = progress.isIndeterminate
+        progressIndicator.startAnimation(nil)
+        progressLabel.stringValue = progress.localizedDescription
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        Installer.shared.$state.sink { state in
-            if case let .progress(value: progress) = state {
-                self.cancelButton.isHidden = !progress.isCancellable
-                self.progressIndicator.doubleValue = 100 * progress.fractionCompleted
-                self.progressIndicator.isIndeterminate = progress.isIndeterminate
-                self.progressIndicator.startAnimation(nil)
-                self.progressLabel.stringValue = progress.localizedDescription
-            }
-        }.store(in: &cancellables)
+        Installer.shared.$state
+            .receive(on: DispatchQueue.main)
+            .compactMap {$0.onlyProgress()}
+            .sink { self.update(progress: $0) }
+            .store(in: &cancellables)
     }
 }
