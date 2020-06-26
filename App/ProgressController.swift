@@ -4,8 +4,7 @@ import Combine
 class ProgressController: NSViewController {
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var cancelButton: NSButton!
-    @IBAction override func cancelOperation(_ sender: Any?) {
-        super.cancelOperation(sender)
+    @IBAction func cancelInstallation(_ sender: NSButton) {
         Installer.shared.cancelInstallation()
     }
     var cancellables = Set<AnyCancellable>()

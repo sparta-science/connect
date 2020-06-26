@@ -948,7 +948,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="cancelOperation:" target="w6A-gB-Rt5" id="nsP-4x-oOH"/>
+                                    <action selector="cancelInstallation:" target="w6A-gB-Rt5" id="Mc7-Ma-bZW"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
@@ -999,7 +999,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="selectPreviousTabViewItem:" target="Av8-CC-Vcx" id="uAx-xu-dcm"/>
+                                    <action selector="disconnect:" target="MMH-yp-aMN" id="7Eh-OY-WDD"/>
                                 </connections>
                             </button>
                         </subviews>
