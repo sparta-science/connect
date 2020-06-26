@@ -7,6 +7,7 @@ class ProgressController: NSViewController {
     @IBAction func cancelInstallation(_ sender: NSButton) {
         Installer.shared.cancelInstallation()
     }
+    @IBOutlet weak var progressLabel: NSTextField!
     var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -17,6 +18,7 @@ class ProgressController: NSViewController {
                 self.progressIndicator.doubleValue = 100 * progress.fractionCompleted
                 self.progressIndicator.isIndeterminate = progress.isIndeterminate
                 self.progressIndicator.startAnimation(nil)
+                self.progressLabel.stringValue = progress.localizedDescription
             }
         }.store(in: &cancellables)
     }

@@ -882,7 +882,7 @@
                                     </gridCell>
                                     <gridCell row="DZf-o3-6fq" column="qfz-VJ-eeS" id="CNQ-u5-oEb">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bgq-XU-cem">
-                                            <rect key="frame" x="-0.5" y="-1" width="201" height="23"/>
+                                            <rect key="frame" x="0.0" y="-1" width="200" height="23"/>
                                             <buttonCell key="cell" type="roundTextured" title="Login" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HPO-8B-9Ka">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -908,24 +908,10 @@
                                     </gridCell>
                                 </gridCells>
                             </gridView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ki2-KB-mmN">
-                                <rect key="frame" x="208" y="11" width="43" height="19"/>
-                                <buttonCell key="cell" type="recessed" title="Next" bezelStyle="recessed" alignment="center" borderStyle="border" inset="2" id="1mn-Zy-SKf">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                    <font key="font" metaFont="systemBold" size="12"/>
-                                </buttonCell>
-                                <color key="contentTintColor" name="systemBrownColor" catalog="System" colorSpace="catalog"/>
-                                <connections>
-                                    <action selector="selectNextTabViewItem:" target="O6h-8d-Q0F" id="jda-9b-eaw"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Ki2-KB-mmN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YxZ-ab-r8N" secondAttribute="leading" constant="20" symbolic="YES" id="6qo-Z2-aIu"/>
                             <constraint firstItem="ZO8-NI-6hU" firstAttribute="centerY" secondItem="YxZ-ab-r8N" secondAttribute="centerY" id="K8J-BL-zOt"/>
                             <constraint firstItem="ZO8-NI-6hU" firstAttribute="centerX" secondItem="YxZ-ab-r8N" secondAttribute="centerX" id="SFi-em-bwc"/>
-                            <constraint firstAttribute="trailing" secondItem="Ki2-KB-mmN" secondAttribute="trailing" constant="49.5" id="VAj-oS-mb2"/>
-                            <constraint firstItem="Ki2-KB-mmN" firstAttribute="top" secondItem="ZO8-NI-6hU" secondAttribute="bottom" constant="8" id="aOQ-Vm-6OJ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -941,42 +927,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="316" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                <rect key="frame" x="55.5" y="78" width="56" height="23"/>
-                                <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="cancelInstallation:" target="w6A-gB-Rt5" id="Mc7-Ma-bZW"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZHj-f5-V2I">
-                                <rect key="frame" x="144.5" y="78" width="136" height="23"/>
-                                <buttonCell key="cell" type="roundTextured" title="Download Complete" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1VP-Pl-z3u">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="selectNextTabViewItem:" target="O6h-8d-Q0F" id="948-du-dHq"/>
-                                </connections>
-                            </button>
-                            <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" doubleValue="65" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="TJz-ir-jsN">
-                                <rect key="frame" x="142" y="109" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </progressIndicator>
+                            <stackView distribution="equalSpacing" orientation="vertical" alignment="centerX" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xir-MJ-wgA">
+                                <rect key="frame" x="58" y="25" width="200" height="130"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZiT-dC-Mtt">
+                                        <rect key="frame" x="-2" y="114" width="204" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="zfe-fZ-IUv"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Processing" id="baG-FE-2Rq">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <progressIndicator wantsLayer="YES" maxValue="100" doubleValue="65" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="TJz-ir-jsN">
+                                        <rect key="frame" x="84" y="66" width="32" height="32"/>
+                                    </progressIndicator>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Jgz-dM-bmH">
+                                        <rect key="frame" x="50" y="0.0" width="100" height="50"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
+                                                <rect key="frame" x="22" y="13" width="56" height="23"/>
+                                                <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="cancelInstallation:" target="w6A-gB-Rt5" id="Mc7-Ma-bZW"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ks0-c5-IkH" firstAttribute="centerX" secondItem="Jgz-dM-bmH" secondAttribute="centerX" id="EpC-Ow-Upf"/>
+                                            <constraint firstAttribute="height" constant="50" id="P7Y-i4-4AO"/>
+                                            <constraint firstItem="ks0-c5-IkH" firstAttribute="centerY" secondItem="Jgz-dM-bmH" secondAttribute="centerY" id="S7a-OS-b0Y"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ks0-c5-IkH" firstAttribute="centerY" secondItem="wwD-3l-0CH" secondAttribute="centerY" id="5bQ-wl-NLD"/>
-                            <constraint firstItem="ks0-c5-IkH" firstAttribute="leading" secondItem="wwD-3l-0CH" secondAttribute="leading" constant="56" id="Lul-gN-6cg"/>
-                            <constraint firstItem="ks0-c5-IkH" firstAttribute="baseline" secondItem="ZHj-f5-V2I" secondAttribute="baseline" id="UUe-Bz-q5j"/>
-                            <constraint firstItem="ZHj-f5-V2I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ks0-c5-IkH" secondAttribute="trailing" constant="8" symbolic="YES" id="ZwW-20-QWs"/>
-                            <constraint firstAttribute="trailing" secondItem="ZHj-f5-V2I" secondAttribute="trailing" constant="36" id="eYt-je-AoJ"/>
+                            <constraint firstItem="xir-MJ-wgA" firstAttribute="centerX" secondItem="wwD-3l-0CH" secondAttribute="centerX" id="40j-O0-7zA"/>
+                            <constraint firstItem="xir-MJ-wgA" firstAttribute="centerY" secondItem="wwD-3l-0CH" secondAttribute="centerY" id="Yyh-b8-sBv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="ks0-c5-IkH" id="QB8-KY-UZY"/>
                         <outlet property="progressIndicator" destination="TJz-ir-jsN" id="oD7-bx-hSx"/>
+                        <outlet property="progressLabel" destination="ZiT-dC-Mtt" id="yed-j2-k4V"/>
                     </connections>
                 </viewController>
                 <customObject id="O6h-8d-Q0F" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -992,7 +1001,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
-                                <rect key="frame" x="159.5" y="7" width="109" height="23"/>
+                                <rect key="frame" x="160" y="7" width="108" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
