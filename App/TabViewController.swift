@@ -12,7 +12,7 @@ class TabViewController: NSTabViewController {
                 switch state {
                 case .login:
                     self.selectedTabViewItemIndex = 0
-                case .progress:
+                case .busy:
                     self.selectedTabViewItemIndex = 1
                 case .complete:
                     self.selectedTabViewItemIndex = 2

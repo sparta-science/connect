@@ -2,10 +2,10 @@ import Foundation
 
 enum State: Equatable {
     case login
-    case progress(value: Progress)
+    case busy(value: Progress)
     case complete
     func onlyProgress() -> Progress? {
-        if case let .progress(value: progress) = self {
+        if case let .busy(value: progress) = self {
             return progress
         } else {
             return nil
@@ -16,13 +16,14 @@ enum State: Equatable {
 class Installer: NSObject {
     static let shared = Installer()
     @Published var state: State = .login
+    @Published var progress = Progress()
     @objc func downloadStep() {
-        if case let .progress(value: value) = state {
+        if case let .busy(value: value) = state {
             if value.isFinished {
                 state = .complete
             } else {
                 value.completedUnitCount += 1
-                state = .progress(value: value)
+                state = .busy(value: value)
                 perform(#selector(downloadStep), with: nil, afterDelay: 0.1)
             }
         }
@@ -32,7 +33,7 @@ class Installer: NSObject {
         progress.isCancellable = true
         progress.totalUnitCount = 20
         progress.completedUnitCount = 1
-        self.state = .progress(value: progress)
+        self.state = .busy(value: progress)
         perform(#selector(downloadStep), with: nil, afterDelay: 1)
     }
     func beginInstallation(login: Login) {
@@ -41,14 +42,14 @@ class Installer: NSObject {
         progress.kind = .file
         progress.fileOperationKind = .receiving
         progress.isCancellable = false
-        state = .progress(value: progress)
+        state = .busy(value: progress)
         perform(#selector(downloadStart), with: nil, afterDelay: 1)
     }
     func cancelInstallation() {
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         let progress = Progress()
         progress.isCancellable = false
-        state = .progress(value: progress)
+        state = .busy(value: progress)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.state = .login
         }
@@ -57,7 +58,7 @@ class Installer: NSObject {
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         let progress = Progress()
         progress.isCancellable = false
-        state = .progress(value: progress)
+        state = .busy(value: progress)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
             self.state = .login
         }
