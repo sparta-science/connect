@@ -144,12 +144,16 @@ public class Installer: NSObject {
         print("vernalFallsConfig: ", vernalFallsConfig)
     }
     
+    func downloadUrl() -> URL {
+        installationURL().appendingPathComponent("vernal_falls.tar.gz")
+    }
+    
     func createDownload(url: URL) -> AnyPublisher<URL, Error> {
         Future<URL?, AFError> { promise in
             AF.download(url) { (tempUrl: URL, response: HTTPURLResponse) in
                         print("download status: \(response.statusCode)")
                         print("download temp file: \(tempUrl.path)")
-                return (destinationURL: self.installationURL().appendingPathComponent("vernal_falls.tar.gz"),
+                return (destinationURL: self.downloadUrl(),
                                 options: [.createIntermediateDirectories, .removePreviousFile])
                     }
                     .response { response in
@@ -187,12 +191,7 @@ public class Installer: NSObject {
         }
         .map { (message: HTTPLoginMessage)->URL in
             message.downloadUrl
-        }.tryMap { (url: URL)->Data in
-            try Data(contentsOf: url)
-        }.tryMap { (data: Data)->Int in
-            try data.write(to: self.installationURL().appendingPathComponent("vernal_falls.tar.gz"))
-            return data.count
-        }
+        }.flatMap {self.createDownload(url: $0)}
         .eraseToAnyPublisher()
         
         remoteDataPublisher.sink(receiveCompletion: { complete in
