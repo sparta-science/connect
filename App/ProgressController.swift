@@ -4,8 +4,9 @@ import Combine
 public class ProgressController: NSViewController {
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var cancelButton: NSButton!
+    public var installer: Installation!
     @IBAction func cancelInstallation(_ sender: NSButton) {
-        Installer.shared.cancelInstallation()
+        installer.cancelInstallation()
     }
     @IBOutlet weak var progressLabel: NSTextField!
     var cancellables = Set<AnyCancellable>()
@@ -18,9 +19,14 @@ public class ProgressController: NSViewController {
         progressLabel.stringValue = progress.localizedDescription
     }
     
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        installer = Installer.shared
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
-        Installer.shared.$state
+        installer.statePublisher
             .receive(on: DispatchQueue.main)
             .compactMap {$0.onlyProgress()}
             .sink { self.update(progress: $0) }

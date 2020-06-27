@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 public enum State: Equatable {
     case login
@@ -14,7 +15,7 @@ public enum State: Equatable {
 }
 
 public protocol Installation {
-    var state: State {get set}
+    var statePublisher: AnyPublisher<State, Never> {get}
     func beginInstallation(login: Login)
     func cancelInstallation()
     func uninstall()
@@ -71,4 +72,8 @@ public class Installer: NSObject {
     }
 }
 
-extension Installer: Installation {}
+extension Installer: Installation {
+    public var statePublisher: AnyPublisher<State, Never> {
+        $state.eraseToAnyPublisher()
+    }
+}
