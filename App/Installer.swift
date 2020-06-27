@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 import AppKit
+import Alamofire
 
 public enum State: Equatable {
     case login
@@ -141,6 +142,23 @@ public class Installer: NSObject {
 
     func process(_ vernalFallsConfig: [String: String]) {
         print("vernalFallsConfig: ", vernalFallsConfig)
+    }
+    
+    func createDownload(url: URL) -> AnyPublisher<URL, Error> {
+        Future<URL?, AFError> { promise in
+            AF.download(url) { (tempUrl: URL, response: HTTPURLResponse) in
+                        print("download status: \(response.statusCode)")
+                        print("download temp file: \(tempUrl.path)")
+                return (destinationURL: self.installationURL().appendingPathComponent("vernal_falls.tar.gz"),
+                                options: [.createIntermediateDirectories, .removePreviousFile])
+                    }
+                    .response { response in
+                        promise(response.result)
+            }
+        }
+        .compactMap {$0}
+        .mapError {$0}
+        .eraseToAnyPublisher()
     }
 
     public func beginInstallation(login: Login) {
