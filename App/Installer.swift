@@ -110,10 +110,9 @@ public class Installer: NSObject {
     enum ApiError: Error {
         case server(message: String)
     }
-
-    public func beginInstallation(login: Login) {
+    
+    func loginRequest(_ login: Login) -> URLRequest {
         let backend = BackEnd(rawValue: login.environment)!
-        
         let loginUrl = backend.baseUrl().appendingPathComponent("api/app-setup")
         var components = URLComponents(url: loginUrl, resolvingAgainstBaseURL: true)!
         components.queryItems = [.init(name: "email", value: login.username),
@@ -121,7 +120,19 @@ public class Installer: NSObject {
                                  .init(name: "client-id", value: "delete-me-please-test")]
         var request = URLRequest(url: components.url!)
         request.httpMethod = "POST"
-        let remoteDataPublisher = URLSession.shared.dataTaskPublisher(for: request)
+        return request
+    }
+
+    public func beginInstallation(login: Login) {
+        assert(state == .login)
+        let progress = Progress()
+        progress.kind = .file
+        progress.fileOperationKind = .receiving
+        progress.isCancellable = true
+        state = .busy(value: progress)
+
+        let remoteDataPublisher = URLSession.shared
+            .dataTaskPublisher(for: loginRequest(login))
         .map { $0.data }
         .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
         .tryMap { response -> HTTPLoginMessage in
@@ -135,20 +146,24 @@ public class Installer: NSObject {
         .eraseToAnyPublisher()
         
         remoteDataPublisher.sink(receiveCompletion: { complete in
+            switch complete {
+            case .finished:
+                print("Finished")
+            case .failure(let error):
+                print(error)
+            }
             print(complete)
         }) { response in
             self.handle(response: response)
         }.store(in: &cancellables)
         
-        assert(state == .login)
-        let progress = Progress()
-        progress.kind = .file
-        progress.fileOperationKind = .receiving
-        progress.isCancellable = false
-        state = .busy(value: progress)
         perform(#selector(downloadStart), with: nil, afterDelay: 1)
     }
     public func cancelInstallation() {
+        cancellables.forEach {
+            $0.cancel()
+        }
+        cancellables.removeAll()
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         let progress = Progress()
         progress.isCancellable = false
