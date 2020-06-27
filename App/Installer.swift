@@ -148,6 +148,10 @@ public class Installer: NSObject {
         installationURL().appendingPathComponent("vernal_falls.tar.gz")
     }
     
+    func downloading(_ progress: Progress) {
+        state = .busy(value: progress)
+    }
+    
     func createDownload(url: URL) -> AnyPublisher<URL, Error> {
         Future<URL?, AFError> { promise in
             AF.download(url) { (tempUrl: URL, response: HTTPURLResponse) in
@@ -158,7 +162,7 @@ public class Installer: NSObject {
                     }
                     .response { response in
                         promise(response.result)
-            }
+            }.downloadProgress(closure: self.downloading(_:))
         }
         .compactMap {$0}
         .mapError {$0}
@@ -207,11 +211,11 @@ public class Installer: NSObject {
             }
         }) { response in
             print("final response: ", response)
+            self.state = .complete
         }.store(in: &cancellables)
-        
-        perform(#selector(downloadStart), with: nil, afterDelay: 1)
     }
     public func cancelInstallation() {
+        AF.cancelAllRequests()
         cancellables.forEach {
             $0.cancel()
         }
