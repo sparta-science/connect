@@ -104,10 +104,6 @@ public class Installer: NSObject {
     }
     var cancellables = Set<AnyCancellable>()
     
-    func handle(response: HTTPLoginMessage) {
-        print(response)
-    }
-    
     enum ApiError: LocalizedError {
         case server(message: String)
         var errorDescription: String? {
@@ -129,6 +125,23 @@ public class Installer: NSObject {
         request.httpMethod = "POST"
         return request
     }
+    
+    func process(_ org: Organization) {
+        print("org:", org)
+    }
+
+    public func installationURL() -> URL {
+        applicationSupportURL().appendingPathComponent(Bundle.main.bundleIdentifier!)
+    }
+    public func applicationSupportURL() -> URL {
+        FileManager.default
+            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
+            .last!
+    }
+
+    func process(_ vernalFallsConfig: [String: String]) {
+        print("vernalFallsConfig: ", vernalFallsConfig)
+    }
 
     public func beginInstallation(login: Login) {
         assert(state == .login)
@@ -137,7 +150,7 @@ public class Installer: NSObject {
         progress.fileOperationKind = .receiving
         progress.isCancellable = true
         state = .busy(value: progress)
-
+        
         let remoteDataPublisher = URLSession.shared
             .dataTaskPublisher(for: loginRequest(login))
         .map { $0.data }
@@ -147,8 +160,18 @@ public class Installer: NSObject {
             case .failure(value: let serverError):
                 throw ApiError.server(message: serverError.error)
             case .success(value: let success):
+                self.process(success.org)
+                self.process(success.vernalFallsConfig)
                 return success.message
             }
+        }
+        .map { (message: HTTPLoginMessage)->URL in
+            message.downloadUrl
+        }.tryMap { (url: URL)->Data in
+            try Data(contentsOf: url)
+        }.tryMap { (data: Data)->Int in
+            try data.write(to: self.installationURL())
+            return data.count
         }
         .eraseToAnyPublisher()
         
@@ -163,7 +186,7 @@ public class Installer: NSObject {
                 print("failure error: ", error)
             }
         }) { response in
-            self.handle(response: response)
+            print("final response: ", response)
         }.store(in: &cancellables)
         
         perform(#selector(downloadStart), with: nil, afterDelay: 1)
