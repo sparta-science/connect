@@ -156,6 +156,8 @@ public class Installer: NSObject {
         .map { $0.data }
         .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
         .tryMap { response -> HTTPLoginMessage in
+            try FileManager.default.createDirectory(at: self.installationURL(),
+                                                    withIntermediateDirectories: true)
             switch response {
             case .failure(value: let serverError):
                 throw ApiError.server(message: serverError.error)
@@ -170,7 +172,7 @@ public class Installer: NSObject {
         }.tryMap { (url: URL)->Data in
             try Data(contentsOf: url)
         }.tryMap { (data: Data)->Int in
-            try data.write(to: self.installationURL())
+            try data.write(to: self.installationURL().appendingPathComponent("vernal_falls.tar.gz"))
             return data.count
         }
         .eraseToAnyPublisher()
@@ -181,6 +183,7 @@ public class Installer: NSObject {
                 print("Finished")
             case .failure(let error):
                 DispatchQueue.main.async {
+                    self.cancelInstallation()
                     NSAlert(error: error).runModal()
                 }
                 print("failure error: ", error)
