@@ -125,10 +125,12 @@ public class Installer: NSObject {
         .map { $0.data }
         .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
         .tryMap { response -> HTTPLoginMessage in
-                if let error = response.error {
-                    throw ApiError.server(message: error)
-                }
-                return response.message!
+            switch response {
+            case .failure(value: let serverError):
+                throw ApiError.server(message: serverError.error)
+            case .success(value: let success):
+                return success.message
+            }
         }
         .eraseToAnyPublisher()
         
