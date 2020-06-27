@@ -42,22 +42,22 @@ public struct Organization: Codable {
     let touchIconUrl: String?
 }
 
-public struct HTTPLoginResponseSuccess: Codable {
+public struct ResponseSuccess: Codable {
     public let message: HTTPLoginMessage
     public let vernalFallsConfig: [String: String]
     public let org: Organization
 }
 
-public struct HTTPLoginResponseFailure: Codable {
+public struct ResponseFailure: Codable {
     public let error: String
 }
 
-public enum HTTPLoginServerResponse: Codable {
+public enum HTTPLoginResponse: Codable {
     public init(from decoder: Decoder) throws {
-        if let decoded = try? Self.success(value:HTTPLoginResponseSuccess(from: decoder)) {
+        if let decoded = try? Self.success(value:ResponseSuccess(from: decoder)) {
             self = decoded
         } else {
-            self = try Self.failure(value:HTTPLoginResponseFailure(from: decoder))
+            self = try Self.failure(value:ResponseFailure(from: decoder))
         }
     }
     
@@ -70,15 +70,8 @@ public enum HTTPLoginServerResponse: Codable {
         }
     }
     
-    case success(value:HTTPLoginResponseSuccess)
-    case failure(value:HTTPLoginResponseFailure)
-}
-
-struct HTTPLoginResponse: Codable {
-    let message: HTTPLoginMessage?
-    let vernalFallsConfig: [String: String]?
-    let org: Organization?
-    let error: String?
+    case success(value:ResponseSuccess)
+    case failure(value:ResponseFailure)
 }
 
 public struct HTTPLoginMessage: Codable {
