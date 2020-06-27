@@ -9,6 +9,7 @@ end
 
 
 target 'SpartaConnect' do
+  pod 'Alamofire'           # networking
   pod 'Sparkle'             # auto-update the app
   pod 'LetsMove'            # move app to Applications folder
   pod 'NSBundle+LoginItem', # launch at login option
