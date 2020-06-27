@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import AppKit
 
 public enum State: Equatable {
     case login
@@ -150,7 +151,10 @@ public class Installer: NSObject {
             case .finished:
                 print("Finished")
             case .failure(let error):
-                print(error)
+                DispatchQueue.main.async {
+                    NSAlert(error: error).runModal()
+                }
+                print("failure error: ", error)
             }
             print(complete)
         }) { response in
