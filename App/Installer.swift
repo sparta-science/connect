@@ -21,6 +21,39 @@ public protocol Installation {
     func uninstall()
 }
 
+enum BackEnd: String {
+    case localhost
+    case staging
+    case production
+    func baseUrl() -> URL {
+        let environment: [BackEnd: String] = [
+            .localhost: "http://localhost:4000",
+            .staging: "https://staging.spartascience.com",
+            .production: "https://home.spartascience.com",
+        ]
+        return URL(string: environment[self]!)!
+    }
+}
+
+struct Organization: Codable {
+    let id: Int
+    let logoUrl: String?
+    let name: String
+    let touchIconUrl: String?
+}
+
+struct HTTPLoginResponse: Codable {
+    let message: HTTPLoginMessage?
+    let vernalFallsConfig: [String: String]?
+    let org: Organization?
+    let error: String?
+}
+
+struct HTTPLoginMessage: Codable {
+    let downloadUrl: URL
+    let vernalFallsVersion: String
+}
+
 public class Installer: NSObject {
     public static let shared = Installer()
     @Published public var state: State = .login
@@ -43,7 +76,35 @@ public class Installer: NSObject {
         self.state = .busy(value: progress)
         perform(#selector(downloadStep), with: nil, afterDelay: 1)
     }
+    var cancellables = Set<AnyCancellable>()
+    
+    func handle(response: HTTPLoginResponse) {
+        
+    }
+    
+    enum ApiError: Error {
+        case server(message: String)
+    }
+
     public func beginInstallation(login: Login) {
+        let backend = BackEnd(rawValue: login.environment)!
+        let remoteDataPublisher = URLSession.shared.dataTaskPublisher(for: backend.baseUrl())
+        .map { $0.data }
+        .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
+        .tryMap { response -> HTTPLoginMessage in
+                if let error = response.error {
+                    throw ApiError.server(message: error)
+                }
+                return response.message!
+        }
+        .eraseToAnyPublisher()
+        
+//        remoteDataPublisher.sink(receiveCompletion: { complete in
+//            print(complete)
+//        }) { response in
+//            self.handle(response: response)
+//        }.store(in: &cancellables)
+        
         assert(state == .login)
         let progress = Progress()
         progress.kind = .file
