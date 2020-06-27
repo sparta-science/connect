@@ -78,8 +78,8 @@ public class Installer: NSObject {
     }
     var cancellables = Set<AnyCancellable>()
     
-    func handle(response: HTTPLoginResponse) {
-        
+    func handle(response: HTTPLoginMessage) {
+        print(response)
     }
     
     enum ApiError: Error {
@@ -88,7 +88,15 @@ public class Installer: NSObject {
 
     public func beginInstallation(login: Login) {
         let backend = BackEnd(rawValue: login.environment)!
-        let remoteDataPublisher = URLSession.shared.dataTaskPublisher(for: backend.baseUrl())
+        
+        let loginUrl = backend.baseUrl().appendingPathComponent("api/app-setup")
+        var components = URLComponents(url: loginUrl, resolvingAgainstBaseURL: true)!
+        components.queryItems = [.init(name: "email", value: login.username),
+                                 .init(name: "password", value: login.password),
+                                 .init(name: "client-id", value: "delete-me-please-test")]
+        var request = URLRequest(url: components.url!)
+        request.httpMethod = "POST"
+        let remoteDataPublisher = URLSession.shared.dataTaskPublisher(for: request)
         .map { $0.data }
         .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
         .tryMap { response -> HTTPLoginMessage in
@@ -99,11 +107,11 @@ public class Installer: NSObject {
         }
         .eraseToAnyPublisher()
         
-//        remoteDataPublisher.sink(receiveCompletion: { complete in
-//            print(complete)
-//        }) { response in
-//            self.handle(response: response)
-//        }.store(in: &cancellables)
+        remoteDataPublisher.sink(receiveCompletion: { complete in
+            print(complete)
+        }) { response in
+            self.handle(response: response)
+        }.store(in: &cancellables)
         
         assert(state == .login)
         let progress = Progress()
