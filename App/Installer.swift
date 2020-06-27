@@ -174,9 +174,9 @@ public class Installer: NSObject {
                 return success.message
             }
         }
-        .map { (message: HTTPLoginMessage)->URL in
-            message.downloadUrl
-        }.flatMap {self.createDownload(url: $0)}
+        .flatMap {
+            self.createDownload(url: $0.downloadUrl)
+        }
         .eraseToAnyPublisher()
         
         remoteDataPublisher.sink(receiveCompletion: { complete in
