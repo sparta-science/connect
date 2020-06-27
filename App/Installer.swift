@@ -35,11 +35,43 @@ enum BackEnd: String {
     }
 }
 
-struct Organization: Codable {
+public struct Organization: Codable {
     let id: Int
     let logoUrl: String?
     let name: String
     let touchIconUrl: String?
+}
+
+public struct HTTPLoginResponseSuccess: Codable {
+    public let message: HTTPLoginMessage
+    public let vernalFallsConfig: [String: String]
+    public let org: Organization
+}
+
+public struct HTTPLoginResponseFailure: Codable {
+    public let error: String
+}
+
+public enum HTTPLoginServerResponse: Codable {
+    public init(from decoder: Decoder) throws {
+        if let works = try? HTTPLoginServerResponse.success(value:HTTPLoginResponseSuccess(from: decoder)) {
+            self = works
+        } else {
+            self = try HTTPLoginServerResponse.failure(value:HTTPLoginResponseFailure(from: decoder))
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        switch self {
+        case .success(value: let success):
+            try success.encode(to: encoder)
+        case .failure(value: let failure):
+            try failure.encode(to: encoder)
+        }
+    }
+    
+    case success(value:HTTPLoginResponseSuccess)
+    case failure(value:HTTPLoginResponseFailure)
 }
 
 struct HTTPLoginResponse: Codable {
@@ -49,7 +81,7 @@ struct HTTPLoginResponse: Codable {
     let error: String?
 }
 
-struct HTTPLoginMessage: Codable {
+public struct HTTPLoginMessage: Codable {
     let downloadUrl: URL
     let vernalFallsVersion: String
 }

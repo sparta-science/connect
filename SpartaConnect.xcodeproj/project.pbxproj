@@ -43,6 +43,7 @@
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AE7630A24A71A4900CAC3BA /* ProgressControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7630924A71A4900CAC3BA /* ProgressControllerSpec.swift */; };
+		4AE7631324A7F30000CAC3BA /* HTTPLoginServerResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7631224A7F30000CAC3BA /* HTTPLoginServerResponseSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
 		4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
@@ -149,6 +150,7 @@
 		4AD40A9B24897C85002728DA /* UITests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UITests.entitlements; sourceTree = "<group>"; };
 		4AD40A9D24897F51002728DA /* self-hosted.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "self-hosted.yml"; path = ".github/workflows/self-hosted.yml"; sourceTree = "<group>"; tabWidth = 2; };
 		4AE7630924A71A4900CAC3BA /* ProgressControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressControllerSpec.swift; sourceTree = "<group>"; };
+		4AE7631224A7F30000CAC3BA /* HTTPLoginServerResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLoginServerResponseSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BC13F4F249409D000360A26 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
 		4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenuSpec.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
+				4AE7631224A7F30000CAC3BA /* HTTPLoginServerResponseSpec.swift */,
 				4AE7630924A71A4900CAC3BA /* ProgressControllerSpec.swift */,
 				4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */,
 				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
@@ -738,6 +741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A0AB97A249D36C200D74826 /* LoginControllerSpec.swift in Sources */,
+				4AE7631324A7F30000CAC3BA /* HTTPLoginServerResponseSpec.swift in Sources */,
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
 				4A9F71D3249C67990023C93F /* MoveToApplicationsSpec.swift in Sources */,
 				4AE7630A24A71A4900CAC3BA /* ProgressControllerSpec.swift in Sources */,
