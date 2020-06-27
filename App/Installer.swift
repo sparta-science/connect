@@ -54,10 +54,10 @@ public struct ResponseFailure: Codable {
 
 public enum HTTPLoginResponse: Codable {
     public init(from decoder: Decoder) throws {
-        if let decoded = try? Self.success(value:ResponseSuccess(from: decoder)) {
+        if let decoded = try? Self.success(ResponseSuccess(from: decoder)) {
             self = decoded
         } else {
-            self = try Self.failure(value:ResponseFailure(from: decoder))
+            self = try Self.failure(ResponseFailure(from: decoder))
         }
     }
     
@@ -70,8 +70,8 @@ public enum HTTPLoginResponse: Codable {
         }
     }
     
-    case success(value:ResponseSuccess)
-    case failure(value:ResponseFailure)
+    case success(_:ResponseSuccess)
+    case failure(_:ResponseFailure)
 }
 
 public struct HTTPLoginMessage: Codable {
