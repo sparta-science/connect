@@ -108,8 +108,14 @@ public class Installer: NSObject {
         print(response)
     }
     
-    enum ApiError: Error {
+    enum ApiError: LocalizedError {
         case server(message: String)
+        var errorDescription: String? {
+            switch self {
+            case let .server(message):
+                return message
+            }
+        }
     }
     
     func loginRequest(_ login: Login) -> URLRequest {
@@ -156,7 +162,6 @@ public class Installer: NSObject {
                 }
                 print("failure error: ", error)
             }
-            print(complete)
         }) { response in
             self.handle(response: response)
         }.store(in: &cancellables)
