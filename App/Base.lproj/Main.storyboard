@@ -941,7 +941,7 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <progressIndicator wantsLayer="YES" maxValue="100" doubleValue="65" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="TJz-ir-jsN">
+                                    <progressIndicator wantsLayer="YES" maxValue="1" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="TJz-ir-jsN">
                                         <rect key="frame" x="84" y="66" width="32" height="32"/>
                                     </progressIndicator>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Jgz-dM-bmH">

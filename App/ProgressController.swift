@@ -2,18 +2,18 @@ import Cocoa
 import Combine
 
 public class ProgressController: NSViewController {
-    @IBOutlet weak var progressIndicator: NSProgressIndicator!
-    @IBOutlet weak var cancelButton: NSButton!
+    @IBOutlet public var progressIndicator: NSProgressIndicator!
+    @IBOutlet public var cancelButton: NSButton!
     public var installer: Installation!
     @IBAction func cancelInstallation(_ sender: NSButton) {
         installer.cancelInstallation()
     }
-    @IBOutlet weak var progressLabel: NSTextField!
+    @IBOutlet public var progressLabel: NSTextField!
     var cancellables = Set<AnyCancellable>()
     
     func update(progress: Progress) {
         cancelButton.isHidden = !progress.isCancellable
-        progressIndicator.doubleValue = 100 * progress.fractionCompleted
+        progressIndicator.doubleValue = progress.fractionCompleted
         progressIndicator.isIndeterminate = progress.isIndeterminate
         progressIndicator.startAnimation(nil)
         progressLabel.stringValue = progress.localizedDescription
