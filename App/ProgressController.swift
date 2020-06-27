@@ -1,7 +1,7 @@
 import Cocoa
 import Combine
 
-class ProgressController: NSViewController {
+public class ProgressController: NSViewController {
     @IBOutlet weak var progressIndicator: NSProgressIndicator!
     @IBOutlet weak var cancelButton: NSButton!
     @IBAction func cancelInstallation(_ sender: NSButton) {
@@ -18,7 +18,7 @@ class ProgressController: NSViewController {
         progressLabel.stringValue = progress.localizedDescription
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         Installer.shared.$state
             .receive(on: DispatchQueue.main)

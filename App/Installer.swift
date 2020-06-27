@@ -1,6 +1,6 @@
 import Foundation
 
-enum State: Equatable {
+public enum State: Equatable {
     case login
     case busy(value: Progress)
     case complete
@@ -13,10 +13,9 @@ enum State: Equatable {
     }
 }
 
-class Installer: NSObject {
-    static let shared = Installer()
-    @Published var state: State = .login
-    @Published var progress = Progress()
+public class Installer: NSObject {
+    public static let shared = Installer()
+    @Published public var state: State = .login
     @objc func downloadStep() {
         if case let .busy(value: value) = state {
             if value.isFinished {
