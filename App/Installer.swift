@@ -13,6 +13,13 @@ public enum State: Equatable {
     }
 }
 
+public protocol Installation {
+    var state: State {get set}
+    func beginInstallation(login: Login)
+    func cancelInstallation()
+    func uninstall()
+}
+
 public class Installer: NSObject {
     public static let shared = Installer()
     @Published public var state: State = .login
@@ -35,7 +42,7 @@ public class Installer: NSObject {
         self.state = .busy(value: progress)
         perform(#selector(downloadStep), with: nil, afterDelay: 1)
     }
-    func beginInstallation(login: Login) {
+    public func beginInstallation(login: Login) {
         assert(state == .login)
         let progress = Progress()
         progress.kind = .file
@@ -44,7 +51,7 @@ public class Installer: NSObject {
         state = .busy(value: progress)
         perform(#selector(downloadStart), with: nil, afterDelay: 1)
     }
-    func cancelInstallation() {
+    public func cancelInstallation() {
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         let progress = Progress()
         progress.isCancellable = false
@@ -53,7 +60,7 @@ public class Installer: NSObject {
             self.state = .login
         }
     }
-    func uninstall() {
+    public func uninstall() {
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         let progress = Progress()
         progress.isCancellable = false
@@ -63,3 +70,5 @@ public class Installer: NSObject {
         }
     }
 }
+
+extension Installer: Installation {}

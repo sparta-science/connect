@@ -17,7 +17,7 @@ public class NetworkService: NetworkServiceProtocol {
 }
 
 @objcMembers
-class Login: NSObject {
+public class Login: NSObject {
     var environment: String = "production"
     var username: String?
     var password: String?
