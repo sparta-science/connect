@@ -33,6 +33,17 @@ public class LoginController: NSViewController {
     }
     public override func awakeFromNib() {
         super.awakeFromNib()
-        representedObject = Login()
+        let login = Login()
+        #if DEBUG
+        let env = ProcessInfo.processInfo.environment
+        if let debugBackend = env["debug-backend"], !debugBackend.isEmpty {
+            login.environment = debugBackend
+        } else {
+            login.environment = "staging"
+        }
+        login.username = env["debug-email"]
+        login.password = env["debug-password"]
+        #endif
+        representedObject = login
     }
 }
