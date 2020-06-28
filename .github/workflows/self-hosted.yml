@@ -26,7 +26,7 @@ jobs:
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
     - name: Checkout
-      uses: actions/checkout@v2.2.0
+      uses: actions/checkout@v2.3.1
     - name: Ruby version
       run: echo $(ruby -v)
     - name: bundle
