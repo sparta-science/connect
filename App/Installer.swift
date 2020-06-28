@@ -170,7 +170,7 @@ public class Installer: NSObject {
         progress.isCancellable = true
         state = .busy(value: progress)
         
-        let remoteDataPublisher = URLSession.shared
+        URLSession.shared
             .dataTaskPublisher(for: loginRequest(login))
         .map { $0.data }
         .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
@@ -188,10 +188,7 @@ public class Installer: NSObject {
         }
         .flatMap {
             self.createDownload(url: $0.downloadUrl)
-        }
-        .eraseToAnyPublisher()
-        
-        remoteDataPublisher.sink(receiveCompletion: { complete in
+        }.sink(receiveCompletion: { complete in
             switch complete {
             case .finished:
                 print("Finished")
@@ -208,27 +205,22 @@ public class Installer: NSObject {
         }.store(in: &cancellables)
     }
     public func cancelInstallation() {
+        let progress = Progress()
+        progress.isCancellable = false
+        state = .busy(value: progress)
         AF.cancelAllRequests()
         cancellables.forEach {
             $0.cancel()
         }
         cancellables.removeAll()
-        NSObject.cancelPreviousPerformRequests(withTarget: self)
-        let progress = Progress()
-        progress.isCancellable = false
-        state = .busy(value: progress)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            self.state = .login
-        }
+        state = .login
     }
     public func uninstall() {
-        NSObject.cancelPreviousPerformRequests(withTarget: self)
         let progress = Progress()
         progress.isCancellable = false
         state = .busy(value: progress)
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-            self.state = .login
-        }
+        try? FileManager.default.removeItem(at: installationURL())
+        state = .login
     }
 }
 
