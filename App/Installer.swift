@@ -7,7 +7,7 @@ public enum State: Equatable {
     case login
     case busy(value: Progress)
     case complete
-    func onlyProgress() -> Progress? {
+    func progress() -> Progress? {
         if case let .busy(value: progress) = self {
             return progress
         } else {

@@ -28,7 +28,7 @@ public class ProgressController: NSViewController {
         super.viewDidLoad()
         installer.statePublisher
             .receive(on: DispatchQueue.main)
-            .compactMap {$0.onlyProgress()}
+            .compactMap {$0.progress()}
             .sink { self.update(progress: $0) }
             .store(in: &cancellables)
     }
