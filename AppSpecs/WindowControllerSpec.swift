@@ -18,7 +18,7 @@ class WindowControllerSpec: QuickSpec {
             context("NSWindowDelegate") {
                 context("windowWillClose") {
                     beforeEach {
-                        let note = Notification(name: .init(rawValue: "test"))
+                        let note = Notification(name: NSWindow.willCloseNotification)
                         subject.windowWillClose(note)
                     }
                     it("should hide app") {
