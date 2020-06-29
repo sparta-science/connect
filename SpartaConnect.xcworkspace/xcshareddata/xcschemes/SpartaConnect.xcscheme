@@ -120,6 +120,23 @@
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "debug-backend"
+            value = "${DEBUG_BACKEND}"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "debug-email"
+            value = "${DEBUG_EMAIL}"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "debug-password"
+            value = "${DEBUG_PASSWORD}"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
