@@ -9,9 +9,9 @@ class WindowControllerSpec: QuickSpec {
             beforeEach {
                 subject = .init()
             }
-            context("showMainWindow") {
+            context("showWindow") {
                 it("should show window and activate app") {
-                    subject.showMainWindow(nil)
+                    subject.showWindow(nil)
                     expect(NSApp.activationPolicy()) == .regular
                 }
             }
