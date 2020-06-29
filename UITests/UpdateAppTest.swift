@@ -78,12 +78,22 @@ class UpdateAppTest: XCTestCase {
         app.dialogs.buttons[XCUIIdentifierCloseWindow].click()
     }
     
-    func testAutoUpgrade() throws {
+    func dismissMainWindowAsAWorkaroundUpdateWindowNotFound() {
+        app.buttons["Done"].click()
+        app.wait(until: .runningBackground)
+    }
+    
+    func preventAutomaticDownloadOfUpdates() {
         tempAppHelper.bundleHelper.persistDefaults([
             "SULastCheckTime": Date()
         ])
+    }
+    
+    func testAutoUpgrade() throws {
+        preventAutomaticDownloadOfUpdates()
         tempAppHelper.launch(arguments: arguments)
-        app.wait(until: .runningBackground)
+        app.wait(until: .runningForeground)
+        dismissMainWindowAsAWorkaroundUpdateWindowNotFound()
         checkForUpdatesAndInstall()
         installAndRelaunch()
         dismissMoveToApplicationsAlert()
@@ -133,7 +143,7 @@ class UpdateAppTest: XCTestCase {
     
     func testUpgradeOnQuit() {
         tempAppHelper.launch(arguments: arguments)
-        app.wait(until: .runningBackground)
+        app.wait(until: .runningForeground)
         waitForUpdatesDownloaded()
         checkForUpdatesAndInstallOnQuit()
         quitApp()

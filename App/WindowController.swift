@@ -1,10 +1,10 @@
 import Cocoa
 
 public class WindowController: NSWindowController {
-    @IBAction public func showMainWindow(_ sender: Any?) {
+    public override func showWindow(_ sender: Any?) {
         NSApp.setActivationPolicy(.regular)
         NSApp.activate(ignoringOtherApps: true)
-        showWindow(sender)
+        super.showWindow(sender)
     }
 }
 

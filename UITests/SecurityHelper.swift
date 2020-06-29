@@ -30,7 +30,7 @@ class SecurityHelper {
         verify(codeSign: signature!)
         let executable = signature!["main-executable"] as? URL
         XCTAssertNotNil(executable)
-        XCTAssertEqual(executable, url.appendingPathComponent("/Contents/MacOS/SpartaConnect"))
+        XCTAssertEqual(executable, url.appendingPathComponent("Contents/MacOS/SpartaConnect"))
     }
     
     func verify(codeSign: [String: Any]) {
