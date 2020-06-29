@@ -650,6 +650,30 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SpartaConnect" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Iwp-kM-eAr" customClass="MoveToApplications" customModule="SpartaConnect" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="-211" y="-441"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="R2V-B0-nI4">
+            <objects>
+                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="320" height="260"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="320" height="260"/>
+                        <value key="maxSize" type="size" width="320" height="260"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="thc-wQ-ERs" kind="relationship" relationship="window.shadowedContentViewController" id="7RO-GI-51C"/>
+                    </connections>
+                </windowController>
                 <menu id="daY-3C-00p" userLabel="Status Bar Menu" customClass="StatusBarMenu" customModule="SpartaConnect" customModuleProvider="target">
                     <items>
                         <menuItem image="menu-bar-icon" id="sPV-0T-nLh">
@@ -658,7 +682,7 @@
                         </menuItem>
                         <menuItem title="SpartaConnect Help" keyEquivalent="?" id="73L-I2-jcr">
                             <connections>
-                                <action selector="showHelp:" target="hnw-xV-0zn" id="SQo-c9-GxC"/>
+                                <action selector="showHelp:" target="Oky-zY-oP4" id="rPg-fP-50j"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Open at Login" state="on" id="5yh-Zc-JVB">
@@ -683,12 +707,12 @@
                         <menuItem title="About SpartaConnect" id="8A0-15-8iO">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="orderFrontStandardAboutPanel:" target="hnw-xV-0zn" id="bna-uv-Zym"/>
+                                <action selector="orderFrontStandardAboutPanel:" target="Oky-zY-oP4" id="CKo-Xi-423"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Quit SpartaConnect" keyEquivalent="q" id="fIG-Kc-wco">
                             <connections>
-                                <action selector="terminate:" target="hnw-xV-0zn" id="baW-Rk-3Pd"/>
+                                <action selector="terminate:" target="Oky-zY-oP4" id="NSc-Lh-03N"/>
                             </connections>
                         </menuItem>
                     </items>
@@ -700,30 +724,6 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
                 <customObject id="wDy-CS-sRL" customClass="LoginItemManager" customModule="SpartaConnect" customModuleProvider="target"/>
-                <customObject id="Iwp-kM-eAr" customClass="MoveToApplications" customModule="SpartaConnect" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="-205" y="-288"/>
-        </scene>
-        <!--Window Controller-->
-        <scene sceneID="R2V-B0-nI4">
-            <objects>
-                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="320" height="260"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="320" height="260"/>
-                        <value key="maxSize" type="size" width="320" height="260"/>
-                        <connections>
-                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="thc-wQ-ERs" kind="relationship" relationship="window.shadowedContentViewController" id="7RO-GI-51C"/>
-                    </connections>
-                </windowController>
             </objects>
             <point key="canvasLocation" x="-217" y="-21"/>
         </scene>
@@ -774,7 +774,7 @@
                                 </connections>
                             </containerView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fdS-do-IcA">
-                                <rect key="frame" x="244" y="16" width="72" height="32"/>
+                                <rect key="frame" x="239" y="17" width="78" height="32"/>
                                 <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7JR-y5-oOb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -807,7 +807,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZO8-NI-6hU">
-                                <rect key="frame" x="50" y="38" width="200" height="104"/>
+                                <rect key="frame" x="50" y="39" width="200" height="102"/>
                                 <rows>
                                     <gridRow id="U7b-GX-FRB">
                                         <connections>
@@ -824,10 +824,10 @@
                                 <gridCells>
                                     <gridCell row="U7b-GX-FRB" column="qfz-VJ-eeS" id="x7g-eT-hlE">
                                         <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-rK-tfG">
-                                            <rect key="frame" x="0.0" y="81" width="200" height="23"/>
+                                            <rect key="frame" x="0.0" y="79" width="200" height="23"/>
                                             <popUpButtonCell key="cell" type="roundTextured" title="localhost" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="LuG-pw-zzQ" id="bUo-c4-0UE">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" metaFont="menu"/>
                                                 <menu key="menu" id="wF1-fp-ckf">
                                                     <items>
                                                         <menuItem title="localhost" state="on" id="LuG-pw-zzQ"/>
@@ -843,7 +843,7 @@
                                     </gridCell>
                                     <gridCell row="Dbj-dT-LxX" column="qfz-VJ-eeS" id="1Ls-Ms-Lly">
                                         <textField key="contentView" verticalHuggingPriority="750" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="0dq-pQ-98b">
-                                            <rect key="frame" x="0.0" y="55" width="200" height="21"/>
+                                            <rect key="frame" x="0.0" y="53" width="200" height="21"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="email@example.com" drawsBackground="YES" id="Wng-Bf-IKn">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -861,7 +861,7 @@
                                     </gridCell>
                                     <gridCell row="D5I-e5-LMg" column="qfz-VJ-eeS" id="4DH-qm-PmH">
                                         <secureTextField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RJ1-X1-RDU">
-                                            <rect key="frame" x="0.0" y="28" width="200" height="21"/>
+                                            <rect key="frame" x="0.0" y="26" width="200" height="21"/>
                                             <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="password" drawsBackground="YES" usesSingleLineMode="YES" id="LmG-a4-uLJ">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -882,7 +882,7 @@
                                     </gridCell>
                                     <gridCell row="DZf-o3-6fq" column="qfz-VJ-eeS" id="CNQ-u5-oEb">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bgq-XU-cem">
-                                            <rect key="frame" x="0.0" y="-1" width="200" height="23"/>
+                                            <rect key="frame" x="-1" y="-2" width="202" height="23"/>
                                             <buttonCell key="cell" type="roundTextured" title="Login" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HPO-8B-9Ka">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -948,7 +948,7 @@
                                         <rect key="frame" x="50" y="0.0" width="100" height="50"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                                <rect key="frame" x="22" y="13" width="56" height="23"/>
+                                                <rect key="frame" x="24" y="13" width="52" height="23"/>
                                                 <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
