@@ -130,7 +130,9 @@ public class Installer: NSObject {
     }
     
     func downloading(_ progress: Progress) {
-        state = .busy(value: progress)
+        if case .busy = state {
+            state = .busy(value: progress)
+        }
     }
     
     func downloadDestination() -> (destinationURL: URL, options: DownloadRequest.Options) {
