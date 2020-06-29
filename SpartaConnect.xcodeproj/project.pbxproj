@@ -42,6 +42,8 @@
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
+		4BA6952124AA7546008344B8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6952024AA7546008344B8 /* WindowController.swift */; };
+		4BA6952324AA77B3008344B8 /* WindowControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */; };
 		4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
 		4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
@@ -146,6 +148,8 @@
 		4AD40A9B24897C85002728DA /* UITests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UITests.entitlements; sourceTree = "<group>"; };
 		4AD40A9D24897F51002728DA /* self-hosted.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "self-hosted.yml"; path = ".github/workflows/self-hosted.yml"; sourceTree = "<group>"; tabWidth = 2; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
+		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
 		4BC13F4F249409D000360A26 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
 		4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenuSpec.swift; sourceTree = "<group>"; };
 		55ACDC80CAFF61B83E74C6FC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
+				4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */,
 				4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */,
 				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
 				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
@@ -307,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
+				4BA6952024AA7546008344B8 /* WindowController.swift */,
 				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
 				4A0AB977249D369A00D74826 /* LoginController.swift */,
 				4A81510324A332530080D260 /* TabViewController.swift */,
@@ -735,6 +741,7 @@
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
 				4A9F71D3249C67990023C93F /* MoveToApplicationsSpec.swift in Sources */,
 				4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */,
+				4BA6952324AA77B3008344B8 /* WindowControllerSpec.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */,
 				4A0AB97C249D371800D74826 /* NetworkServiceSpec.swift in Sources */,
@@ -749,6 +756,7 @@
 				4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */,
 				4A81510024A32E1C0080D260 /* ProgressController.swift in Sources */,
 				4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */,
+				4BA6952124AA7546008344B8 /* WindowController.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4A81510624A337EC0080D260 /* ConnectedController.swift in Sources */,
 				4A81510424A332530080D260 /* TabViewController.swift in Sources */,
