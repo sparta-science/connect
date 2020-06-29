@@ -85,6 +85,7 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.launch(arguments: arguments)
         app.wait(until: .runningForeground)
         app.buttons["Done"].click()
+        app.wait(until: .runningBackground)
         checkForUpdatesAndInstall()
         installAndRelaunch()
         dismissMoveToApplicationsAlert()
