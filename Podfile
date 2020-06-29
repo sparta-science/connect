@@ -7,11 +7,11 @@ def bdd
   pod 'Nimble'
 end
 
-
 target 'SpartaConnect' do
-  pod 'Sparkle'             # auto-update the app
-  pod 'LetsMove'            # move app to Applications folder
-  pod 'NSBundle+LoginItem', # launch at login option
+  pod 'SwinjectAutoregistration'  # autoregister using init for dependency injection
+  pod 'Sparkle'                   # auto-update the app
+  pod 'LetsMove'                  # move app to Applications folder
+  pod 'NSBundle+LoginItem',       # launch at login option
     # fix memory issues, expose setter in header
     # https://github.com/nklizhe/NSBundle-LoginItem/pull/7
     :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
