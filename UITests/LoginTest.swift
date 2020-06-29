@@ -24,7 +24,7 @@ class LoginTest: XCTestCase {
     }
 
     func testLogin() throws {
-        let window = XCUIApplication().windows["Window"]
+        let window = app.windows["Window"]
         window.waitToAppear()
         let groups = window.groups
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
@@ -42,5 +42,12 @@ class LoginTest: XCTestCase {
 
         groups.buttons["Login"].click()
         textField.waitToDisappear()
+        verifyConnectShowsLogin()
+    }
+    
+    func verifyConnectShowsLogin() {
+        app.clickStatusItem()
+        app.statusBarMenu().menuItems["Connect..."].click()
+        app.windows["Window"].waitToAppear()
     }
 }
