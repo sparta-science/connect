@@ -83,7 +83,8 @@ class UpdateAppTest: XCTestCase {
             "SULastCheckTime": Date()
         ])
         tempAppHelper.launch(arguments: arguments)
-        app.wait(until: .runningBackground)
+        app.wait(until: .runningForeground)
+        app.buttons["Done"].click()
         checkForUpdatesAndInstall()
         installAndRelaunch()
         dismissMoveToApplicationsAlert()
@@ -133,7 +134,7 @@ class UpdateAppTest: XCTestCase {
     
     func testUpgradeOnQuit() {
         tempAppHelper.launch(arguments: arguments)
-        app.wait(until: .runningBackground)
+        app.wait(until: .runningForeground)
         waitForUpdatesDownloaded()
         checkForUpdatesAndInstallOnQuit()
         quitApp()

@@ -19,7 +19,7 @@ class MoveToApplicationsTest: XCTestCase {
     }
     
     func verifyRunningFromApplications() {
-        movedApp.wait(until: .runningBackground, "wait for app to restart from /Applications")
+        movedApp.wait(until: .runningForeground, "wait for app to restart from /Applications")
         movedApp.terminate()
     }
     

@@ -39,7 +39,7 @@
 	<key>SUFeedURL</key>
 	<string>https://github.com/sparta-science/connect/releases/latest/download/appcast.xml</string>
 	<key>LSUIElement</key>
-	<true/>
+	<false/>
 	<key>LSMultipleInstancesProhibited</key>
 	<true/>
 </dict>
