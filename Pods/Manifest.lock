@@ -4,6 +4,7 @@ PODS:
   - "NSBundle+LoginItem (1.0.4)"
   - Quick (3.0.0)
   - Sparkle (1.23.0)
+  - SwiftLint (0.39.2)
   - Swinject (2.7.1)
   - SwinjectAutoregistration (2.7.0):
     - Swinject (~> 2.7)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - "NSBundle+LoginItem (from `https://github.com/paulz/NSBundle-LoginItem.git`)"
   - Quick
   - Sparkle
+  - SwiftLint
   - SwinjectAutoregistration
 
 SPEC REPOS:
@@ -22,6 +24,7 @@ SPEC REPOS:
     - Nimble
     - Quick
     - Sparkle
+    - SwiftLint
     - Swinject
     - SwinjectAutoregistration
 
@@ -40,9 +43,10 @@ SPEC CHECKSUMS:
   "NSBundle+LoginItem": 43a2fad3858e519c7a7fa117daf12e53278ee902
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
   Sparkle: 55b1a87ba69d56913375a281546b7c82dec95bb0
+  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectAutoregistration: 330f5012642a8b5c89a8a4adb0c5e52df07382c0
 
-PODFILE CHECKSUM: e1a43a1eb243d7a404c0efa60f7f2ceb4150d7e9
+PODFILE CHECKSUM: 8a0afd5de877a9397ada57028089c69e95b58dc7
 
 COCOAPODS: 1.9.3

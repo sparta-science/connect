@@ -7,6 +7,8 @@ def bdd
   pod 'Nimble'
 end
 
+pod 'SwiftLint'                   # enforce Swift style and conventions
+
 target 'SpartaConnect' do
   pod 'SwinjectAutoregistration'  # autoregister using init for dependency injection
   pod 'Sparkle'                   # auto-update the app
