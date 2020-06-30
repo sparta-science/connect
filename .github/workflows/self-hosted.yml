@@ -35,6 +35,8 @@ jobs:
         bundle
     - name: Unit Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable clean test | xcpretty
+    - name: Code Coverage
+      run: bash <(curl -s https://codecov.io/bash) -J 'Testable'
     - name: Build
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect clean build | xcpretty
     - name: App Specs
@@ -45,7 +47,7 @@ jobs:
 #        name: self-hosted
 #
     - name: Code Coverage
-      run: bash <(curl -s https://codecov.io/bash) -J 'Testable' -J '^SpartaConnect$'
+      run: bash <(curl -s https://codecov.io/bash) -J '^SpartaConnect$'
     - name: UI Tests
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
