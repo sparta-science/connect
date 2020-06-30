@@ -33,14 +33,19 @@ class LoginTest: XCTestCase {
         popUpButton.clickView()
         popUpButton.menuItems["localhost"].click()
         
+        let loginButton = groups.buttons["Login"]
+        XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+        
         let textField = groups.children(matching: .textField).element
         textField.click()
         textField.typeText("superuser@example.com")
+        XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+        
         let passwordField = groups.children(matching: .secureTextField).element
         passwordField.click()
         passwordField.typeText("password123")
 
-        groups.buttons["Login"].click()
+        loginButton.click()
         textField.waitToDisappear()
         verifyConnectShowsLogin()
     }
