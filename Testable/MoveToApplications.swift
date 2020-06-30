@@ -8,15 +8,14 @@ public class MoveToApplications: NSObject {
     func finishedLaunching(_: Notification) {
         move()
     }
-    func waitForFinishLaunching() {
-        let note = NSApplication.didFinishLaunchingNotification
-        center.addObserver(forName: note,
+    func waitFor(_ name: Notification.Name) {
+        center.addObserver(forName: name,
                            object: nil,
                            queue: nil,
                            using: finishedLaunching)
     }
     public override func awakeFromNib() {
         super.awakeFromNib()
-        waitForFinishLaunching()
+        waitFor(NSApplication.didFinishLaunchingNotification)
     }
 }

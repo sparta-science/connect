@@ -262,7 +262,6 @@
 		4A3F3C73248C92720058C5D4 /* Testable */ = {
 			isa = PBXGroup;
 			children = (
-				4A3F3C74248C92720058C5D4 /* Testable.h */,
 				4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */,
 				4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */,
 				4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */,
@@ -274,7 +273,7 @@
 				4A9F71D0249C644E0023C93F /* MoveToApplications.swift */,
 				4AE7644F24AAEF8600CAC3BA /* Init.swift */,
 				4AE7644424AAB3D100CAC3BA /* Dependency Injection */,
-				4A3F3C75248C92720058C5D4 /* Info.plist */,
+				4AE7647824AB14A800CAC3BA /* Supporting Files */,
 			);
 			path = Testable;
 			sourceTree = "<group>";
@@ -359,12 +358,10 @@
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4A0AB977249D369A00D74826 /* LoginController.swift */,
-				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4A3F3C9C24907B8F0058C5D4 /* Bundle+openAtLogin.swift */,
-				4AA188902486FA90009CFACE /* Assets.xcassets */,
+				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
-				4AA188952486FA90009CFACE /* Info.plist */,
-				4AA188962486FA90009CFACE /* SpartaConnect.entitlements */,
+				4AE7647724AB133F00CAC3BA /* Supporting Files */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -428,6 +425,25 @@
 				4AE7645824AAF8D900CAC3BA /* Bundle+DependencyContainer.swift */,
 			);
 			name = "Dependency Injection";
+			sourceTree = "<group>";
+		};
+		4AE7647724AB133F00CAC3BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AA188902486FA90009CFACE /* Assets.xcassets */,
+				4AA188952486FA90009CFACE /* Info.plist */,
+				4AA188962486FA90009CFACE /* SpartaConnect.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AE7647824AB14A800CAC3BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A3F3C74248C92720058C5D4 /* Testable.h */,
+				4A3F3C75248C92720058C5D4 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
