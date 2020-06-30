@@ -10,4 +10,3 @@ final class MockStatusItem: NSStatusItem {
 extension MockStatusItem: CreateAndInject {
     typealias ActAs = NSStatusItem
 }
-

@@ -17,6 +17,7 @@ class WindowControllerSpec: QuickSpec {
                 }
                 it("should show window and activate app") {
                     expect(mockApp.didSetPolicy) == .regular
+                    expect(mockApp.didActivateWithFlag) == true
                 }
             }
             context(NSWindowDelegate.self) {
@@ -26,8 +27,9 @@ class WindowControllerSpec: QuickSpec {
                             .init(name: NSWindow.willCloseNotification)
                         )
                     }
-                    it("should hide app") {
+                    it("should hide app and not activate") {
                         expect(mockApp.didSetPolicy) == .accessory
+                        expect(mockApp.didActivateWithFlag).to(beNil())
                     }
                 }
             }
