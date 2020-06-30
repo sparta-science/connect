@@ -1,18 +1,20 @@
 import Quick
 import Nimble
-import SpartaConnect
+import Testable
 
 class WindowControllerSpec: QuickSpec {
     override func spec() {
         describe(WindowController.self) {
+            var mockApp: MockApplication!
             var subject: WindowController!
             beforeEach {
-                subject = .init()
+                mockApp = .init()
+                subject = Init(.init()) { $0.app = mockApp }
             }
             context(WindowController.showWindow) {
                 it("should show window and activate app") {
                     subject.showWindow(nil)
-                    expect(NSApp.activationPolicy()) == .regular
+                    expect(mockApp.didSetPolicy) == .regular
                 }
             }
             context(NSWindowDelegate.self) {
@@ -22,7 +24,7 @@ class WindowControllerSpec: QuickSpec {
                         subject.windowWillClose(note)
                     }
                     it("should hide app") {
-                        expect(NSApp.activationPolicy()) == .accessory
+                        expect(mockApp.didSetPolicy) == .accessory
                     }
                 }
             }

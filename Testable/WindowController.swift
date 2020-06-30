@@ -1,8 +1,7 @@
 import Cocoa
-import Testable
 
 public class WindowController: NSWindowController {
-    @Inject var app: ApplicationAdapter
+    @Inject public var app: ApplicationAdapter
     public override func showWindow(_ sender: Any?) {
         app.setActivationPolicy(.regular)
         app.activate(ignoringOtherApps: true)
