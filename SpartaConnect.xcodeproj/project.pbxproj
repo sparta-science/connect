@@ -186,6 +186,7 @@
 		4AE7646924AAFF3700CAC3BA /* TypeInject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeInject.swift; sourceTree = "<group>"; };
 		4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleProxy.swift; sourceTree = "<group>"; };
 		4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleProxySpec.swift; sourceTree = "<group>"; };
+		4AE7647C24AB211E00CAC3BA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -432,6 +433,7 @@
 			children = (
 				4AA188902486FA90009CFACE /* Assets.xcassets */,
 				4AA188952486FA90009CFACE /* Info.plist */,
+				4AE7647C24AB211E00CAC3BA /* .swiftlint.yml */,
 				4AA188962486FA90009CFACE /* SpartaConnect.entitlements */,
 			);
 			name = "Supporting Files";
