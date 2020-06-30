@@ -513,6 +513,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnect" */;
 			buildPhases = (
+				4AE7647B24AB1FFA00CAC3BA /* Swift Lint autocorrect */,
 				BE4C2F2C83983B15E70C5C0D /* [CP] Check Pods Manifest.lock */,
 				4AA188852486FA90009CFACE /* Sources */,
 				4AA188862486FA90009CFACE /* Frameworks */,
@@ -739,6 +740,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpartaConnect/Pods-SpartaConnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AE7647B24AB1FFA00CAC3BA /* Swift Lint autocorrect */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint autocorrect";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n";
 			showEnvVarsInLog = 0;
 		};
 		4C4175BB737A9E64A95061F2 /* [CP] Embed Pods Frameworks */ = {
