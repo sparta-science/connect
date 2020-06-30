@@ -1,11 +1,12 @@
 import Combine
 
 public class Installer: NSObject {
+    @Published public var state: State = .login
 }
 
 extension Installer: Installation {
     public var statePublisher: AnyPublisher<State, Never> {
-        fatalError()
+        $state.eraseToAnyPublisher()
     }
 
     public func beginInstallation(login: Login) {

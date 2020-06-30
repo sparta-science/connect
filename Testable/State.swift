@@ -7,8 +7,7 @@ public enum State: Equatable {
     public func progress() -> Progress? {
         if case let .busy(value: progress) = self {
             return progress
-        } else {
-            return nil
         }
+        return nil
     }
 }
