@@ -11,9 +11,3 @@ extension Bundle {
         }
     }
 }
-
-public class OpenAtLoginBundle: NSObject {
-    public override func awakeAfter(using coder: NSCoder) -> Any? {
-        Bundle.main
-    }
-}

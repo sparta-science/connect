@@ -3,19 +3,8 @@ import Quick
 import SpartaConnect
 import NSBundle_LoginItem
 
-class OpenAtLoginBundleSpec: QuickSpec {
+class Bundle_OpenAtLoginSpec: QuickSpec {
     override func spec() {
-        describe(OpenAtLoginBundle.self) {
-            var subject: OpenAtLoginBundle!
-            beforeEach {
-                subject = .init()
-            }
-            fcontext(OpenAtLoginBundle.awakeAfter(using:)) {
-                it("should be main bundle") {
-                    expect(subject.awakeAfter(using: uninitialized())) === Bundle.main
-                }
-            }
-        }
         describe(Bundle.self) {
             var subject: Bundle!
             
