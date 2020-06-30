@@ -94,6 +94,7 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.launch(arguments: arguments)
         app.wait(until: .runningForeground)
         dismissMainWindowAsAWorkaroundUpdateWindowNotFound()
+        app.activate()
         checkForUpdatesAndInstall()
         installAndRelaunch()
         dismissMoveToApplicationsAlert()
