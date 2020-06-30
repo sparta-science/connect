@@ -26,8 +26,8 @@ class DependencyInjectionSpec: QuickSpec {
     @Inject("to be assigned") var notResolved: String
     
     override func spec() {
-        describe("DependencyInjection") {
-            context("DependencyInjection.createResolver") {
+        describe(DependencyInjection.self) {
+            context(DependencyInjection.createResolver) {
                 beforeEach {
                     DependencyInjection.resolver = nil
                 }
@@ -36,7 +36,7 @@ class DependencyInjectionSpec: QuickSpec {
                 }
             }
         }
-        describe("Inject") {
+        describe(Inject<Any>.self) {
             context("without name") {
                 it("should be resolved") {
                     expect(self.injectedWithoutName) == "no name"

@@ -4,12 +4,12 @@ import Testable
 
 class UtilityFunctionsSpec: QuickSpec {
     override func spec() {
-        describe("isDebugBuild") {
+        describe(isDebugBuild) {
             it("should be true") {
                 expect(isDebugBuild()) == true
             }
         }
-        describe("isReleaseBuild") {
+        describe(isReleaseBuild) {
             it("should be false") {
                 expect(isReleaseBuild()) == false
             }

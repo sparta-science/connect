@@ -4,19 +4,19 @@ import SpartaConnect
 
 class WindowControllerSpec: QuickSpec {
     override func spec() {
-        describe("WindowController") {
+        describe(WindowController.self) {
             var subject: WindowController!
             beforeEach {
                 subject = .init()
             }
-            context("showWindow") {
+            context(WindowController.showWindow) {
                 it("should show window and activate app") {
                     subject.showWindow(nil)
                     expect(NSApp.activationPolicy()) == .regular
                 }
             }
-            context("NSWindowDelegate") {
-                context("windowWillClose") {
+            context(NSWindowDelegate.self) {
+                context(WindowController.windowWillClose) {
                     beforeEach {
                         let note = Notification(name: NSWindow.willCloseNotification)
                         subject.windowWillClose(note)

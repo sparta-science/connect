@@ -4,26 +4,26 @@ import SpartaConnect
 
 class MoveToApplicationsSpec: QuickSpec {
     override func spec() {
-        describe("MoveToApplications") {
+        describe(MoveToApplications.self) {
             var subject: MoveToApplications!
             beforeEach {
                 subject = .init()
             }
-            context("awakeFromNib") {
+            context(MoveToApplications.awakeFromNib) {
                 var center: NotificationCenter!
-                let name = NSApplication.didFinishLaunchingNotification
+                let didFinish = NSApplication.didFinishLaunchingNotification
                 beforeEach {
                     center = .init()
                     subject.center = center
                     subject.awakeFromNib()
                 }
                 it("should start waiting for app to finish lauching") {
-                    expect(center.debugDescription).to(contain(name.rawValue))
+                    expect(center.debugDescription).to(contain(didFinish.rawValue))
                 }
                 context("finished launching") {
                     var note: Notification!
                     beforeEach {
-                        note = .init(name: name)
+                        note = .init(name: didFinish)
                     }
                     it("should move") {
                         waitUntil { done in

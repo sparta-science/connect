@@ -3,7 +3,7 @@ import Nimble
 
 class MainStoryboardSpec: QuickSpec {
     override func spec() {
-        describe("NSStoryboard.main") {
+        describe(NSStoryboard.main.self) {
             var storyboard: NSStoryboard!
             beforeEach {
                 storyboard = NSStoryboard.main
@@ -15,7 +15,7 @@ class MainStoryboardSpec: QuickSpec {
                     windowController = storyboard.instantiateInitialController()
                     window = windowController.window
                 }
-                context("container controller") {
+                context(\NSWindowController.contentViewController) {
                     var container: NSViewController!
                     beforeEach {
                         container = windowController.contentViewController

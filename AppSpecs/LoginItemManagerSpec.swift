@@ -5,7 +5,7 @@ import NSBundle_LoginItem
 
 class LoginItemManagerSpec: QuickSpec {
     override func spec() {
-        describe("LoginItemManager") {
+        describe(LoginItemManager.self) {
             var subject: LoginItemManager!
             var bundle: Bundle!
             
@@ -18,7 +18,7 @@ class LoginItemManagerSpec: QuickSpec {
                 bundle.disableLoginItem()
             }
             
-            context("openAtLogin") {
+            context(\LoginItemManager.openAtLogin) {
                 it("should toggle login item") {
                     [true, false].forEach {
                         subject.openAtLogin = $0

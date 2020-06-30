@@ -4,7 +4,7 @@ import Sparkle
 
 class SparkleUpdaterSpec: QuickSpec {
     override func spec() {
-        describe("updater") {
+        describe(SUUpdater.shared) {
             var subject: SUUpdater!
             beforeEach {
                 subject = SUUpdater.shared()

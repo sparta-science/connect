@@ -4,7 +4,7 @@ import SpartaConnect
 
 class StatusBarMenuSpec: QuickSpec {
     override func spec() {
-        describe("StatusBarMenu") {
+        describe(StatusBarMenu.self) {
             var subject: StatusBarMenu!
             var image: NSImage!
             beforeEach {
@@ -17,7 +17,7 @@ class StatusBarMenuSpec: QuickSpec {
                 )
                 item.image = image
             }
-            context("awakeFromNib") {
+            context(StatusBarMenu.awakeFromNib) {
                 beforeEach {
                     subject.awakeFromNib()
                 }

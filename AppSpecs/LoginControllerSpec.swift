@@ -20,12 +20,12 @@ class MockAlertService: AlertProtocol {
 
 class LoginControllerSpec: QuickSpec {
     override func spec() {
-        describe("LoginController") {
+        describe(LoginController.self) {
             var subject: LoginController!
             beforeEach {
                 subject = .init()
             }
-            context("connectAction") {
+            context(LoginController.connectAction) {
                 class MockWindow: NSWindow {
                     var didClose = false
                     override func close() {

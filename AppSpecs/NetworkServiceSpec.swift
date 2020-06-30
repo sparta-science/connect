@@ -4,12 +4,12 @@ import SpartaConnect
 
 class NetworkServiceSpec: QuickSpec {
     override func spec() {
-        describe("NetworkService") {
+        describe(NetworkService.self) {
             var subject: NetworkService!
             beforeEach {
                 subject = .init()
             }
-            context("login") {
+            context(NetworkService.login) {
                 it("should be success") {
                     expect(subject.login(username: "anything")) == "success"
                 }
