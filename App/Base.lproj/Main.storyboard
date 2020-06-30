@@ -927,7 +927,7 @@
         <!--Downloading-->
         <scene sceneID="aXL-FD-rRa">
             <objects>
-                <viewController title="Downloading" showSeguePresentationStyle="single" id="w6A-gB-Rt5" customClass="ProgressController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Downloading" showSeguePresentationStyle="single" id="w6A-gB-Rt5" customClass="ProgressController" customModule="Testable" sceneMemberID="viewController">
                     <view key="view" id="wwD-3l-0CH">
                         <rect key="frame" x="0.0" y="0.0" width="316" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1000,7 +1000,7 @@
         <!--Connected-->
         <scene sceneID="Y5P-KF-FyG">
             <objects>
-                <viewController title="Connected" showSeguePresentationStyle="single" id="MMH-yp-aMN" customClass="ConnectedController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Connected" showSeguePresentationStyle="single" id="MMH-yp-aMN" customClass="ConnectedController" customModule="Testable" sceneMemberID="viewController">
                     <view key="view" id="7aV-aO-OVm">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>

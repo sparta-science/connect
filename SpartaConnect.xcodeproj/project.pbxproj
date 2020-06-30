@@ -25,8 +25,6 @@
 		4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */; };
 		4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */; };
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
-		4A81510024A32E1C0080D260 /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8150FF24A32E1C0080D260 /* ProgressController.swift */; };
-		4A81510624A337EC0080D260 /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81510524A337EC0080D260 /* ConnectedController.swift */; };
 		4A8A3637249638100071624E /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8A3636249638100071624E /* LaunchService.swift */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
@@ -63,6 +61,8 @@
 		4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
 		4AE7646C24AB030A00CAC3BA /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
 		4AE7646D24AB03AA00CAC3BA /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81510324A332530080D260 /* TabViewController.swift */; };
+		4AE7646E24AB04B500CAC3BA /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8150FF24A32E1C0080D260 /* ProgressController.swift */; };
+		4AE7646F24AB04C200CAC3BA /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81510524A337EC0080D260 /* ConnectedController.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
@@ -263,6 +263,8 @@
 				4BA6952024AA7546008344B8 /* WindowController.swift */,
 				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
 				4A81510324A332530080D260 /* TabViewController.swift */,
+				4A8150FF24A32E1C0080D260 /* ProgressController.swift */,
+				4A81510524A337EC0080D260 /* ConnectedController.swift */,
 				4AE7644F24AAEF8600CAC3BA /* Init.swift */,
 				4AE7644424AAB3D100CAC3BA /* Dependency Injection */,
 				4A3F3C75248C92720058C5D4 /* Info.plist */,
@@ -351,8 +353,6 @@
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4A0AB977249D369A00D74826 /* LoginController.swift */,
-				4A8150FF24A32E1C0080D260 /* ProgressController.swift */,
-				4A81510524A337EC0080D260 /* ConnectedController.swift */,
 				4A9F71D0249C644E0023C93F /* MoveToApplications.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */,
@@ -808,11 +808,13 @@
 				4AE7644A24AAB3DD00CAC3BA /* ResolveDependency.swift in Sources */,
 				4AE7646024AAFA4500CAC3BA /* ApplicationAdapter.swift in Sources */,
 				4AE7645024AAEF8600CAC3BA /* Init.swift in Sources */,
+				4AE7646E24AB04B500CAC3BA /* ProgressController.swift in Sources */,
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
 				4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */,
 				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
 				4AE7646D24AB03AA00CAC3BA /* TabViewController.swift in Sources */,
 				4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */,
+				4AE7646F24AB04C200CAC3BA /* ConnectedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,10 +838,8 @@
 			files = (
 				4A9F71D1249C644E0023C93F /* MoveToApplications.swift in Sources */,
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
-				4A81510024A32E1C0080D260 /* ProgressController.swift in Sources */,
 				4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
-				4A81510624A337EC0080D260 /* ConnectedController.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
 				4AE7645924AAF8D900CAC3BA /* Bundle+DependencyContainer.swift in Sources */,
 				4A0AB978249D369A00D74826 /* LoginController.swift in Sources */,
