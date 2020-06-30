@@ -16,13 +16,6 @@ public class NetworkService: NetworkServiceProtocol {
     }
 }
 
-@objcMembers
-class Login: NSObject {
-    var environment: String = "production"
-    var username: String?
-    var password: String?
-}
-
 public class LoginController: NSViewController {
     @objc var hideEnvironments: Bool = isReleaseBuild()
 

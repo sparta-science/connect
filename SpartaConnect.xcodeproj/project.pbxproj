@@ -70,6 +70,10 @@
 		4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */; };
 		4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
+		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
+		4BD4D35024ABBC61009D8380 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34F24ABBC61009D8380 /* State.swift */; };
+		4BD4D35224ABBC88009D8380 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35124ABBC88009D8380 /* Login.swift */; };
+		4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35324ABBCB6009D8380 /* StateSpec.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069AB125D9A11E885ED84E2B /* Pods_SpartaConnect.framework */; };
@@ -199,6 +203,10 @@
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
 		4BC13F4F249409D000360A26 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
 		4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenuSpec.swift; sourceTree = "<group>"; };
+		4BD4D34D24ABBC02009D8380 /* Installation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installation.swift; sourceTree = "<group>"; };
+		4BD4D34F24ABBC61009D8380 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		4BD4D35124ABBC88009D8380 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		4BD4D35324ABBCB6009D8380 /* StateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSpec.swift; sourceTree = "<group>"; };
 		55ACDC80CAFF61B83E74C6FC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,17 +278,10 @@
 		4A3F3C73248C92720058C5D4 /* Testable */ = {
 			isa = PBXGroup;
 			children = (
-				4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */,
-				4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */,
-				4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */,
-				4BA6952024AA7546008344B8 /* WindowController.swift */,
-				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
-				4A81510324A332530080D260 /* TabViewController.swift */,
-				4A8150FF24A32E1C0080D260 /* ProgressController.swift */,
-				4A81510524A337EC0080D260 /* ConnectedController.swift */,
-				4A9F71D0249C644E0023C93F /* MoveToApplications.swift */,
-				4AE7644F24AAEF8600CAC3BA /* Init.swift */,
-				4AE7644424AAB3D100CAC3BA /* Dependency Injection */,
+				4BD4D35524ABBE26009D8380 /* Model */,
+				4BD4D35624ABBE3B009D8380 /* Controllers */,
+				4BD4D35824ABBE64009D8380 /* Adapters */,
+				4BD4D35724ABBE55009D8380 /* Utilities */,
 				4AE7647824AB14A800CAC3BA /* Supporting Files */,
 			);
 			path = Testable;
@@ -380,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4BD4D35324ABBCB6009D8380 /* StateSpec.swift */,
 				4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */,
 				4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */,
 				4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */,
@@ -457,6 +459,48 @@
 				4A3F3C75248C92720058C5D4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BD4D35524ABBE26009D8380 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4BD4D34D24ABBC02009D8380 /* Installation.swift */,
+				4BD4D34F24ABBC61009D8380 /* State.swift */,
+				4BD4D35124ABBC88009D8380 /* Login.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4BD4D35624ABBE3B009D8380 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BA6952024AA7546008344B8 /* WindowController.swift */,
+				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
+				4A81510324A332530080D260 /* TabViewController.swift */,
+				4A8150FF24A32E1C0080D260 /* ProgressController.swift */,
+				4A81510524A337EC0080D260 /* ConnectedController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		4BD4D35724ABBE55009D8380 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4AE7644424AAB3D100CAC3BA /* Dependency Injection */,
+				4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */,
+				4AE7644F24AAEF8600CAC3BA /* Init.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		4BD4D35824ABBE64009D8380 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */,
+				4A9F71D0249C644E0023C93F /* MoveToApplications.swift */,
+				4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */,
+			);
+			name = Adapters;
 			sourceTree = "<group>";
 		};
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
@@ -879,11 +923,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE7644B24AAB3DD00CAC3BA /* Inject.swift in Sources */,
+				4BD4D35224ABBC88009D8380 /* Login.swift in Sources */,
+				4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */,
 				4AE7644C24AAB3DD00CAC3BA /* DependencyContainer.swift in Sources */,
 				4AE7644A24AAB3DD00CAC3BA /* ResolveDependency.swift in Sources */,
 				4AE7647424AB0FFB00CAC3BA /* BundleProxy.swift in Sources */,
 				4AE7646024AAFA4500CAC3BA /* ApplicationAdapter.swift in Sources */,
 				4AE7647124AB08CD00CAC3BA /* MoveToApplications.swift in Sources */,
+				4BD4D35024ABBC61009D8380 /* State.swift in Sources */,
 				4AE7645024AAEF8600CAC3BA /* Init.swift in Sources */,
 				4AE7646E24AB04B500CAC3BA /* ProgressController.swift in Sources */,
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
@@ -936,6 +983,7 @@
 				4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */,
 				4AE7647024AB08C200CAC3BA /* MoveToApplicationsSpec.swift in Sources */,
 				4AE7646C24AB030A00CAC3BA /* StatusBarMenuSpec.swift in Sources */,
+				4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */,
 				4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
