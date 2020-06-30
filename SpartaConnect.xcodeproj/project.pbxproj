@@ -61,9 +61,9 @@
 		4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */; };
 		4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */; };
 		4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7646924AAFF3700CAC3BA /* TypeInject.swift */; };
+		4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
+		4AE7646C24AB030A00CAC3BA /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
-		4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
-		4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069AB125D9A11E885ED84E2B /* Pods_SpartaConnect.framework */; };
@@ -261,6 +261,7 @@
 				4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */,
 				4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */,
 				4BA6952024AA7546008344B8 /* WindowController.swift */,
+				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
 				4AE7644F24AAEF8600CAC3BA /* Init.swift */,
 				4AE7644424AAB3D100CAC3BA /* Dependency Injection */,
 				4A3F3C75248C92720058C5D4 /* Info.plist */,
@@ -274,7 +275,6 @@
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
 				4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */,
 				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
-				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
 				4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */,
 				4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */,
@@ -349,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
-				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
 				4A0AB977249D369A00D74826 /* LoginController.swift */,
 				4A81510324A332530080D260 /* TabViewController.swift */,
 				4A8150FF24A32E1C0080D260 /* ProgressController.swift */,
@@ -370,6 +369,7 @@
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
 				4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */,
+				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
 				4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */,
 				4AE7645624AAF15600CAC3BA /* Supporting Files */,
 			);
@@ -809,6 +809,7 @@
 				4AE7646024AAFA4500CAC3BA /* ApplicationAdapter.swift in Sources */,
 				4AE7645024AAEF8600CAC3BA /* Init.swift in Sources */,
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
+				4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */,
 				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
 				4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */,
 			);
@@ -821,7 +822,6 @@
 				4A0AB97A249D36C200D74826 /* LoginControllerSpec.swift in Sources */,
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
 				4A9F71D3249C67990023C93F /* MoveToApplicationsSpec.swift in Sources */,
-				4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */,
 				4A0AB97C249D371800D74826 /* NetworkServiceSpec.swift in Sources */,
@@ -835,7 +835,6 @@
 			files = (
 				4A9F71D1249C644E0023C93F /* MoveToApplications.swift in Sources */,
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
-				4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */,
 				4A81510024A32E1C0080D260 /* ProgressController.swift in Sources */,
 				4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
@@ -856,6 +855,7 @@
 				4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */,
 				4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */,
 				4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */,
+				4AE7646C24AB030A00CAC3BA /* StatusBarMenuSpec.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,

@@ -1,5 +1,4 @@
 import AppKit
-import Testable
 
 public class StatusBarMenu: NSMenu {
     public let statusItem = NSStatusBar.system

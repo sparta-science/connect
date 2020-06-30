@@ -674,7 +674,7 @@
                         <segue destination="thc-wQ-ERs" kind="relationship" relationship="window.shadowedContentViewController" id="7RO-GI-51C"/>
                     </connections>
                 </windowController>
-                <menu id="daY-3C-00p" userLabel="Status Bar Menu" customClass="StatusBarMenu" customModule="SpartaConnect" customModuleProvider="target">
+                <menu id="daY-3C-00p" userLabel="Status Bar Menu" customClass="StatusBarMenu" customModule="Testable">
                     <items>
                         <menuItem image="menu-bar-icon" id="sPV-0T-nLh">
                             <modifierMask key="keyEquivalentModifierMask"/>

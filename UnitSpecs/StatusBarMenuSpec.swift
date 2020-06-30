@@ -1,6 +1,6 @@
 import Quick
 import Nimble
-import SpartaConnect
+import Testable
 
 class StatusBarMenuSpec: QuickSpec {
     override func spec() {
