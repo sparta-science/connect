@@ -3,7 +3,7 @@ import NSBundle_LoginItem
 import Quick
 import SpartaConnect
 
-class Bundle_OpenAtLoginSpec: QuickSpec {
+class BundleOpenAtLoginSpec: QuickSpec {
     override func spec() {
         describe(Bundle.self) {
             var subject: Bundle!

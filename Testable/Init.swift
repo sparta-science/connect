@@ -16,6 +16,7 @@ public func Init<Type>(_ value: Type, block: (_ object: inout Type) -> Void) -> 
     return mutable
 }
 
+// swiftlint:disable:next identifier_name
 public func Configure<Type>(_ value: Type, block: (_ object: inout Type) -> Void) {
     Init(value, block: block)
 }

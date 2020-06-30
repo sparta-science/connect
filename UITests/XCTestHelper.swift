@@ -9,9 +9,9 @@ func verifySuccess(_ result: Int32) {
 }
 
 func verifyNoError(_ error: Error?,
-            _ message: @autoclosure () -> String = "",
-            file: StaticString = #file,
-            line: UInt = #line) {
+                   _ message: @autoclosure () -> String = "",
+                   file: StaticString = #file,
+                   line: UInt = #line) {
     XCTAssertNil(error, message(), file: file, line: line)
 }
 
