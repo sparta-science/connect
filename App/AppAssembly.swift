@@ -21,36 +21,11 @@ public extension Container {
 }
 
 struct AppAssembly: Assembly {
-    // swiftlint:disable:next function_body_length
     func assemble(container: Container) {
-        container.autoregister { TimeZone.autoupdatingCurrent }
-        container.autoregister { { Date() } }
         container.autoregister { Bundle.main }
-        container.autoregister { Locale.current }
-        container.autoregister { UserDefaults.standard }
         container.autoregister { NSApplication.shared }
         container.register { $0 + NSApplication.self as ApplicationAdapter }
         container.autoregister { NotificationCenter.default }
-        container.autoregister { DispatchQueue.main }
-        container.autoregister { FileManager.default }
-        container.autoregister(name: "command line arguments") {
-            CommandLine.arguments
-        }
-        container.autoregister(name: "document folder path") {
-            NSSearchPathForDirectoriesInDomains(
-                .documentDirectory,
-                .userDomainMask, true
-            ).first!
-        }
-        container.autoregister(name: "cache directory url") {
-            URL(fileURLWithPath:
-                NSSearchPathForDirectoriesInDomains(
-                    .cachesDirectory,
-                    .userDomainMask,
-                    true
-                ).first!
-            )
-        }
         container.autoregister(
             name: "move to applications",
             initializer: { PFMoveToApplicationsFolderIfNecessary }
