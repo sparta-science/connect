@@ -1,6 +1,6 @@
 import Cocoa
 
 public class ConnectedController: NSViewController {
-    @IBAction func disconnect(_ sender: NSButton) {
+    @IBAction public func disconnect(_ sender: NSButton) {
     }
 }

@@ -66,6 +66,9 @@
 		4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645324AAF0A400CAC3BA /* TestHelper.swift */; };
 		4AE7647424AB0FFB00CAC3BA /* BundleProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */; };
 		4AE7647624AB105700CAC3BA /* BundleProxySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */; };
+		4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */; };
+		4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */; };
+		4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
@@ -188,6 +191,9 @@
 		4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleProxySpec.swift; sourceTree = "<group>"; };
 		4AE7647C24AB211E00CAC3BA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		4AE7647D24AB239C00CAC3BA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholdersSpec.swift; sourceTree = "<group>"; };
+		4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedControllerSpec.swift; sourceTree = "<group>"; };
+		4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControllerSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -284,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
+				4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */,
 				4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */,
 				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
@@ -373,6 +380,8 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */,
+				4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */,
 				4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */,
 				4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */,
 				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
@@ -892,6 +901,7 @@
 			files = (
 				4A0AB97A249D36C200D74826 /* LoginControllerSpec.swift in Sources */,
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
+				4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */,
 				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4A3F3C9F249090B50058C5D4 /* Bundle+openAtLoginSpec.swift in Sources */,
@@ -920,11 +930,13 @@
 				4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */,
 				4AE7646224AAFCFE00CAC3BA /* WindowControllerSpec.swift in Sources */,
 				4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */,
+				4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */,
 				4AE7647624AB105700CAC3BA /* BundleProxySpec.swift in Sources */,
 				4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */,
 				4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */,
 				4AE7647024AB08C200CAC3BA /* MoveToApplicationsSpec.swift in Sources */,
 				4AE7646C24AB030A00CAC3BA /* StatusBarMenuSpec.swift in Sources */,
+				4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
