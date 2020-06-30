@@ -15,3 +15,7 @@ public func Init<Type>(_ value: Type, block: (_ object: inout Type) -> Void) -> 
     block(&mutable)
     return mutable
 }
+
+public func Configure<Type>(_ value: Type, block: (_ object: inout Type) -> Void) {
+    Init(value, block: block)
+}

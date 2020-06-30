@@ -6,5 +6,4 @@ class ProgressController: NSViewController {
     @IBOutlet public var progressLabel: NSTextField!
     @IBAction func cancelInstallation(_ sender: NSButton) {
     }
-
 }

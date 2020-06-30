@@ -1,25 +1,31 @@
 import AppKit
+import Testable
 
 public class StatusBarMenu: NSMenu {
-    public let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    public let statusItem = NSStatusBar.system
+        .statusItem(withLength: NSStatusItem.squareLength)
 
-    func setupButton() {
-        let first = item(at: 0)!
-        removeItem(first)
-        let button = statusItem.button
-        button?.image = first.image
-        button?.title = first.title
-        button?.setAccessibilityIdentifier(first.accessibilityIdentifier())
+    private func configure(button: NSStatusBarButton) {
+        Configure(item(at: 0)!) { first in
+            removeItem(first)
+            Configure(button) {
+                $0.image = first.image
+                $0.title = first.title
+                $0.setAccessibilityIdentifier(first.accessibilityIdentifier())
+            }
+        }
     }
-    func setupStatusItem() {
-        statusItem.menu = self
-        statusItem.autosaveName = Bundle.main.bundleIdentifier
-        statusItem.behavior = [.terminationOnRemoval, .removalAllowed]
-        setupButton()
+    private func configureStatusItem() {
+        Configure(statusItem) {
+            $0.menu = self
+            $0.autosaveName = Bundle.main.bundleIdentifier
+            $0.behavior = [.terminationOnRemoval, .removalAllowed]
+            configure(button: $0.button!)
+        }
     }
     
     public override func awakeFromNib() {
         super.awakeFromNib()
-        setupStatusItem()
+        configureStatusItem()
     }
 }
