@@ -1,7 +1,7 @@
-import Testable
+import LetsMove
 import Swinject
 import SwinjectAutoregistration
-import LetsMove
+import Testable
 
 // swiftlint:disable:next static_operator
 private func + <Service>(resolver: Resolver, service: Service.Type) -> Service {

@@ -1,5 +1,5 @@
-import Testable
 import Swinject
+import Testable
 
 private func createSwinjectContainer() -> Container {
     Init(Container(defaultObjectScope: .container)) {

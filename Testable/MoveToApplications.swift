@@ -3,8 +3,8 @@ import Foundation
 
 public class MoveToApplications: NSObject {
     @Inject public var center: NotificationCenter
-    @Inject("move to applications") public var move: ()->Void
-    
+    @Inject("move to applications") public var move: () -> Void
+
     func finishedLaunching(_: Notification) {
         move()
     }
@@ -14,7 +14,7 @@ public class MoveToApplications: NSObject {
                            queue: nil,
                            using: finishedLaunching)
     }
-    public override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         waitFor(NSApplication.didFinishLaunchingNotification)
     }

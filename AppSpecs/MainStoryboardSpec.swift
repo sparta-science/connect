@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 
 class MainStoryboardSpec: QuickSpec {
     override func spec() {

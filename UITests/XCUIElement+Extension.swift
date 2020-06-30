@@ -20,7 +20,7 @@ extension XCUIElement {
             line: line
         )
     }
-    
+
     @discardableResult
     func waitToAppear(time timeout: Timeout = .test,
                       file: StaticString = #file,
@@ -30,7 +30,7 @@ extension XCUIElement {
         XCTAssertTrue(exists, "\(self) does not exists", file: file, line: line)
         return self
     }
-    
+
     func waitForExistence(timeout: Timeout = .test) -> Bool {
         waitForExistence(timeout: timeout.rawValue)
     }

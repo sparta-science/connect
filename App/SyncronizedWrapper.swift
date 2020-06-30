@@ -1,5 +1,5 @@
-import Testable
 import Swinject
+import Testable
 
 struct SyncronizedWrapper {
     let resolver: Resolver

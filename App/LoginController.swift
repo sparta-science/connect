@@ -35,7 +35,7 @@ public class LoginController: NSViewController {
             alertService.show(alert: NSAlert())
         }
     }
-    public override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         representedObject = Login()
     }

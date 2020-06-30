@@ -17,12 +17,12 @@ class MoveToApplicationsTest: XCTestCase {
         }
         try super.tearDownWithError()
     }
-    
+
     func verifyRunningFromApplications() {
         movedApp.wait(until: .runningForeground, "wait for app to restart from /Applications")
         movedApp.terminate()
     }
-    
+
     func launchAndChooseToMoveToApplications() {
         moveAppHelper.launch()
         let alert = tempApp.waitForMoveAlert()
@@ -30,7 +30,7 @@ class MoveToApplicationsTest: XCTestCase {
         alert.waitToDisappear()
         tempApp.wait(until: .notRunning, "wait for app to terminate")
     }
-    
+
     func testMoveToApplications() throws {
         launchAndChooseToMoveToApplications()
         verifyRunningFromApplications()

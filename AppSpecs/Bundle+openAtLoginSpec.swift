@@ -1,7 +1,7 @@
 import Nimble
+import NSBundle_LoginItem
 import Quick
 import SpartaConnect
-import NSBundle_LoginItem
 
 class Bundle_OpenAtLoginSpec: QuickSpec {
     override func spec() {

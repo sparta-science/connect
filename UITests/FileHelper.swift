@@ -2,7 +2,7 @@ import Foundation
 
 class FileHelper {
     let fileManager = FileManager.default
-    
+
     func remove(url: URL, file: StaticString = #file, line: UInt = #line) {
         try? fileManager.removeItem(at: url)
         verify(
@@ -17,7 +17,7 @@ class FileHelper {
         let rightRes = try? right.resourceValues(forKeys: [.volumeIdentifierKey])
         return leftRes?.volumeIdentifier?.isEqual(rightRes?.volumeIdentifier) ?? false
     }
-    
+
     func copy(_ from: URL, to destination: URL) {
         if isSameVolume(from, destination) {
             try! fileManager.linkItem(at: from, to: destination)
@@ -27,17 +27,17 @@ class FileHelper {
         flushAllOpenStreams()
         syncFileSystem(for: destination)
     }
-    
+
     func syncFileSystem(for fileUrl: URL) {
         let flushAndWait = SYNC_VOLUME_FULLSYNC & SYNC_VOLUME_WAIT
         let path = fileUrl.path.cString(using: .macOSRoman)!
         verifySuccess(sync_volume_np(path, flushAndWait))
     }
-    
+
     func flushAllOpenStreams() {
         verifySuccess(fflush(nil))
     }
-    
+
     func clearSubfolders(_ url: URL) {
         let subfolders = fileManager.enumerator(at: url,
                                                 includingPropertiesForKeys: nil)!
@@ -45,13 +45,13 @@ class FileHelper {
             try? fileManager.removeItem(at: fileURL)
         }
     }
-    
+
     func fileUrl(path: String, in directory: FileManager.SearchPathDirectory) -> URL {
         fileManager.urls(for: directory,
                          in: .userDomainMask).first!
             .appendingPathComponent(path)
     }
-    
+
     func find(file: String, at url: URL) -> NSPredicate {
         NSPredicate { _, _  in
             let list = self.fileManager.enumerator(at: url,
@@ -59,11 +59,11 @@ class FileHelper {
             return list.contains { ($0 as? URL)?.lastPathComponent == file }
         }
     }
-    
+
     func applications(home: URL) -> URL {
         home.appendingPathComponent("Applications")
     }
-    
+
     func hasFilesIn(url: URL) -> Bool {
         if let list = try? fileManager.contentsOfDirectory(
             at: url,
@@ -73,7 +73,7 @@ class FileHelper {
         }
         return false
     }
-    
+
     func preferredApplicationsUrl() -> URL {
         let home = fileManager.homeDirectoryForCurrentUser
         let userAppsUrl = applications(home: home)

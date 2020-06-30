@@ -6,7 +6,7 @@ extension XCTWaiter {
                      timeout: Timeout = .test) -> XCTWaiter.Result {
         self.init().wait(for: [expectation], timeout: timeout.rawValue)
     }
-    
+
     static func wait(until expectation: XCTestExpectation,
                      timeout: Timeout = .test,
                      _ reason: String,

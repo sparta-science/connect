@@ -51,13 +51,13 @@ class LoginControllerSpec: QuickSpec {
                         subject.connectAction(button)
                         expect(window.didClose) == true
                     }
-                    
+
                     it("should call network with username and password") {
                         subject.connectAction(.init())
                         expect(mockNetwork.didLogin) == "sparta@example.com"
                     }
                 }
-                
+
                 context("failure") {
                     var mockAlertService: MockAlertService!
                     beforeEach {

@@ -11,7 +11,7 @@ extension MockApplication: ApplicationAdapter {
         didSetPolicy = activationPolicy
         return true
     }
-    
+
     func activate(ignoringOtherApps flag: Bool) {
         didActivateWithFlag = flag
     }

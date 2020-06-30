@@ -17,8 +17,8 @@ class SecurityHelper {
                                                    &error)
         XCTAssertNil(error)
         XCTAssertEqual(err, errSecSuccess)
-        
-        var secCodeInfoCFDict:  CFDictionary?
+
+        var secCodeInfoCFDict: CFDictionary?
         let codeSigning = SecCSFlags(rawValue: kSecCSSigningInformation)
         err = SecCodeCopySigningInformation(
             staticCode!, codeSigning, &secCodeInfoCFDict
@@ -32,10 +32,10 @@ class SecurityHelper {
         XCTAssertNotNil(executable)
         XCTAssertEqual(executable, url.appendingPathComponent("Contents/MacOS/SpartaConnect"))
     }
-    
+
     func verify(codeSign: [String: Any]) {
         let date = codeSign["signing-time"] as? Date
-        XCTAssertGreaterThan(date!, DateComponents(calendar: Calendar(identifier: .gregorian), year: 2020, month: 06, day: 1).date!)
+        XCTAssertGreaterThan(date!, DateComponents(calendar: Calendar(identifier: .gregorian), year: 2_020, month: 06, day: 1).date!)
         XCTAssertEqual("com.spartascience.SpartaConnect", codeSign["identifier"] as? String)
         XCTAssertEqual("GB9B5L6A6K", codeSign["teamid"] as? String)
     }

@@ -12,7 +12,6 @@ class UpdateAppTest: XCTestCase {
     lazy var app = tempAppHelper.tempApp()
     let arguments = ["-moveToApplicationsFolderAlertSuppress", "YES"]
 
-
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
@@ -28,7 +27,7 @@ class UpdateAppTest: XCTestCase {
         }
         try super.tearDownWithError()
     }
-    
+
     func checkForUpdatesAndInstall() {
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Check for updates..."].click()
@@ -40,7 +39,7 @@ class UpdateAppTest: XCTestCase {
         updateDialog.staticTexts["Initial Release"].waitToAppear()
         updateDialog.buttons["Install Update"].click()
     }
-    
+
     func installAndRelaunch() {
         let updatingWindow = app.windows["Updating SpartaConnect"]
         updatingWindow.waitToAppear()
@@ -61,14 +60,13 @@ class UpdateAppTest: XCTestCase {
         } while !app.wait(for: .runningForeground)
         app.activate()
     }
-    
+
     func dismissMoveToApplicationsAlert() {
         let alert = app.waitForMoveAlert()
         alert.buttons["Do Not Move"].click()
         alert.waitToDisappear()
     }
-    
-    
+
     func verifyUpdated() {
         app.wait(until: .runningForeground, "wait for app to relaunch")
         app.windows["Window"].waitToAppear(time: .launch)
@@ -77,18 +75,18 @@ class UpdateAppTest: XCTestCase {
         app.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
         app.dialogs.buttons[XCUIIdentifierCloseWindow].click()
     }
-    
+
     func dismissMainWindowAsAWorkaroundUpdateWindowNotFound() {
         app.buttons["Done"].click()
         app.wait(until: .runningBackground)
     }
-    
+
     func preventAutomaticDownloadOfUpdates() {
         tempAppHelper.bundleHelper.persistDefaults([
             "SULastCheckTime": Date()
         ])
     }
-    
+
     func testAutoUpgrade() throws {
         preventAutomaticDownloadOfUpdates()
         tempAppHelper.launch(arguments: arguments)
@@ -100,18 +98,18 @@ class UpdateAppTest: XCTestCase {
         dismissMoveToApplicationsAlert()
         verifyUpdated()
     }
-    
+
     func quitApp() {
         app.activate()
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Quit SpartaConnect"].click()
         app.wait(until: .notRunning, timeout: .install)
     }
-    
+
     func checkUpdateDownloaded() -> NSPredicate {
         tempAppHelper.hasDownloaded(fileName: "SpartaConnect.app")
     }
-    
+
     func waitForUpdatesDownloaded() {
         let downloadComplete = expectation(for: checkUpdateDownloaded(),
                                            evaluatedWith: nil)
@@ -119,7 +117,7 @@ class UpdateAppTest: XCTestCase {
         wait(for: [downloadComplete], timeout: downloadTimeout)
         tempAppHelper.syncFileSystem()
     }
-    
+
     func waitForUpdatesInstalled() {
         waitForAppToStartAndTerminate(
             bundleId: "org.sparkle-project.Sparkle.Autoupdate",
@@ -127,11 +125,11 @@ class UpdateAppTest: XCTestCase {
         )
         tempAppHelper.syncFileSystem()
     }
-    
+
     func checkForUpdatesAndInstallOnQuit() {
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Check for updates..."].click()
-        let popup = app.windows.containing(.button, identifier:"Install and Relaunch").element
+        let popup = app.windows.containing(.button, identifier: "Install and Relaunch").element
         popup.waitToAppear()
 
         XCTAssertTrue(popup
@@ -141,7 +139,6 @@ class UpdateAppTest: XCTestCase {
         popup.waitToDisappear()
     }
 
-    
     func testUpgradeOnQuit() {
         tempAppHelper.launch(arguments: arguments)
         app.wait(until: .runningForeground)

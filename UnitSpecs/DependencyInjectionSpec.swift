@@ -14,7 +14,7 @@ class DependencyInjectionSpec: QuickSpec {
     @Inject var injectedWithoutName: String
     @Inject("name") var injectedWithName: String
     @Inject("to be assigned") var notResolved: String
-    
+
     override func spec() {
         describe(DependencyInjection.self) {
             context(DependencyInjection.createResolver) {

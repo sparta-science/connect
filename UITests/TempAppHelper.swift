@@ -4,12 +4,12 @@ class TempAppHelper {
     let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnectForUITest.app")
     let bundleHelper = BundleHelper(bundleId: "com.spartascience.SpartaConnect")
     let fileHelper = FileHelper()
-    var removeMonitor: (()->Void)!
+    var removeMonitor: (() -> Void)!
     let workspaceHelper = WorkspaceHelper()
     func tempApp() -> XCUIApplication {
         XCUIApplication(url: tempUrl)
     }
-    
+
     func clearCache() {
         bundleHelper.clearCache()
     }
@@ -17,7 +17,7 @@ class TempAppHelper {
     func syncFileSystem() {
         fileHelper.syncFileSystem(for: tempUrl)
     }
-    
+
     func hasDownloaded(fileName: String) -> NSPredicate {
         bundleHelper.find(file: fileName,
                           inCache: "org.sparkle-project.Sparkle/PersistentDownloads")
@@ -27,7 +27,7 @@ class TempAppHelper {
         workspaceHelper.launch(url: tempUrl,
                                arguments: arguments)
     }
-    
+
     func prepare(for test: XCTestCase) {
         let openFirstTimeMonitor = test.addUIInterruptionMonitor(
             withDescription: "open first time"
@@ -43,7 +43,7 @@ class TempAppHelper {
             }
             return false
         }
-        removeMonitor = {test.removeUIInterruptionMonitor(openFirstTimeMonitor)}
+        removeMonitor = { test.removeUIInterruptionMonitor(openFirstTimeMonitor) }
         removeTempApp()
         let original = XCUIApplication().url
         NSLog("original app: \(original)")

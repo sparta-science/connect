@@ -2,7 +2,7 @@ import Cocoa
 
 public class WindowController: NSWindowController {
     @Inject private var app: ApplicationAdapter
-    public override func showWindow(_ sender: Any?) {
+    override public func showWindow(_ sender: Any?) {
         app.setActivationPolicy(.regular)
         app.activate(ignoringOtherApps: true)
         super.showWindow(sender)

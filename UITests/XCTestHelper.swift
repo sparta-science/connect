@@ -22,7 +22,7 @@ func verify(_ condition: Bool,
     XCTAssertTrue(condition, message(), file: file, line: line)
 }
 
-func wait(_ reason:String, timeout: Timeout = .test, until block:(_ done: @escaping ()->Void)->Void) {
+func wait(_ reason: String, timeout: Timeout = .test, until block:(_ done: @escaping () -> Void) -> Void) {
     let expectation = XCTestExpectation(description: reason)
     expectation.assertForOverFulfill = true
     block {
@@ -34,7 +34,7 @@ func wait(_ reason:String, timeout: Timeout = .test, until block:(_ done: @escap
 extension XCTestCase {
     func waitForAppToStartAndTerminate(bundleId: String, timeout: Timeout) {
         var runningApp: NSRunningApplication!
-        let startUpdate = keyValueObservingExpectation(for: NSWorkspace.shared, keyPath: "runningApplications") { (value, changed) -> Bool in
+        let startUpdate = keyValueObservingExpectation(for: NSWorkspace.shared, keyPath: "runningApplications") { _, changed -> Bool in
             if let apps = changed[NSKeyValueChangeKey.newKey] as? [NSRunningApplication],
                 let found = apps.first(where: { $0.bundleIdentifier == bundleId }) {
                 runningApp = found

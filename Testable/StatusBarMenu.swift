@@ -22,8 +22,8 @@ public class StatusBarMenu: NSMenu {
             configure(button: $0.button!)
         }
     }
-    
-    public override func awakeFromNib() {
+
+    override public func awakeFromNib() {
         super.awakeFromNib()
         configureStatusItem()
     }

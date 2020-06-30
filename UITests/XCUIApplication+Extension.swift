@@ -18,7 +18,7 @@ extension XCUIApplication {
     func statusBarItem() -> XCUIElement {
         menuBars.statusItems.element(matching: .statusItem, identifier: "Sparta")
     }
-    
+
     @discardableResult
     func wait(for state: XCUIApplication.State, timeout: Timeout = .test) -> Bool {
         wait(for: state, timeout: timeout.rawValue)
@@ -29,7 +29,7 @@ extension XCUIApplication {
             statusBarItem().clickView()
         } while !statusBarMenu().waitForExistence()
     }
-    
+
     func wait(until newState: XCUIApplication.State,
               timeout: Timeout = .test,
               _ reason: String = "waiting for app state, ",
@@ -51,7 +51,7 @@ extension XCUIApplication {
             .waitToAppear(time: .install)
         return alert
     }
-    
+
     func mainWindow() -> XCUIElement {
         windows["Connect to Sparta Science"]
     }
