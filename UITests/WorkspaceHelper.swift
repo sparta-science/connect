@@ -41,7 +41,7 @@ func retry(times: Int, block: @escaping (_ onError: @escaping (Error?)->Bool)->V
     block { error in
         if error != nil {
             if times > 0 {
-                RunLoop.current.run(until: .init(timeIntervalSinceNow: 1))
+                RunLoop.run(for: 1)
                 NSLog("retrying \(times) time")
                 retry(times: times - 1, block: block)
             } else {

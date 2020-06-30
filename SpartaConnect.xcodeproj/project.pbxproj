@@ -29,7 +29,7 @@
 		4A81510424A332530080D260 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81510324A332530080D260 /* TabViewController.swift */; };
 		4A81510624A337EC0080D260 /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81510524A337EC0080D260 /* ConnectedController.swift */; };
 		4A8A3637249638100071624E /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8A3636249638100071624E /* LaunchService.swift */; };
-		4A9F71CB24989E5F0023C93F /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* TestHelper.swift */; };
+		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
 		4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CE249B52930023C93F /* SecurityHelper.swift */; };
 		4A9F71D1249C644E0023C93F /* MoveToApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71D0249C644E0023C93F /* MoveToApplications.swift */; };
@@ -46,6 +46,10 @@
 		4AE7644B24AAB3DD00CAC3BA /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644724AAB3DD00CAC3BA /* Inject.swift */; };
 		4AE7644C24AAB3DD00CAC3BA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644824AAB3DD00CAC3BA /* DependencyContainer.swift */; };
 		4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */; };
+		4AE7645024AAEF8600CAC3BA /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644F24AAEF8600CAC3BA /* Init.swift */; };
+		4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */; };
+		4AE7645424AAF0A400CAC3BA /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645324AAF0A400CAC3BA /* TestHelper.swift */; };
+		4AE7645524AAF0D500CAC3BA /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645324AAF0A400CAC3BA /* TestHelper.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BA6952124AA7546008344B8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6952024AA7546008344B8 /* WindowController.swift */; };
 		4BA6952324AA77B3008344B8 /* WindowControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */; };
@@ -129,7 +133,7 @@
 		4A9F06D22491D91400714B04 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
 		4A9F06D32491D91400714B04 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Podfile; sourceTree = "<group>"; };
 		4A9F06D52491DFFD00714B04 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4A9F71CA24989E5F0023C93F /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestHelper.swift; sourceTree = "<group>"; };
 		4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceHelper.swift; sourceTree = "<group>"; };
 		4A9F71CE249B52930023C93F /* SecurityHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityHelper.swift; sourceTree = "<group>"; };
 		4A9F71D0249C644E0023C93F /* MoveToApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplications.swift; sourceTree = "<group>"; };
@@ -157,6 +161,9 @@
 		4AE7644724AAB3DD00CAC3BA /* Inject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		4AE7644824AAB3DD00CAC3BA /* DependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjectionSpec.swift; sourceTree = "<group>"; };
+		4AE7644F24AAEF8600CAC3BA /* Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
+		4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickHelper.swift; sourceTree = "<group>"; };
+		4AE7645324AAF0A400CAC3BA /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -235,6 +242,7 @@
 			children = (
 				4A3F3C74248C92720058C5D4 /* Testable.h */,
 				4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */,
+				4AE7644F24AAEF8600CAC3BA /* Init.swift */,
 				4AE7644424AAB3D100CAC3BA /* Dependency Injection */,
 				4A3F3C75248C92720058C5D4 /* Info.plist */,
 			);
@@ -284,7 +292,7 @@
 				4A9F71CE249B52930023C93F /* SecurityHelper.swift */,
 				4A8A3636249638100071624E /* LaunchService.swift */,
 				4A3F3C96248F604B0058C5D4 /* FileHelper.swift */,
-				4A9F71CA24989E5F0023C93F /* TestHelper.swift */,
+				4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */,
 				4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */,
 				4AA188AC2486FA90009CFACE /* Info.plist */,
 				4AD40A9B24897C85002728DA /* UITests.entitlements */,
@@ -342,9 +350,9 @@
 		4AA1889E2486FA90009CFACE /* UnitSpecs */ = {
 			isa = PBXGroup;
 			children = (
-				4AA188A12486FA90009CFACE /* Info.plist */,
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
 				4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */,
+				4AE7645624AAF15600CAC3BA /* Supporting Files */,
 			);
 			path = UnitSpecs;
 			sourceTree = "<group>";
@@ -370,6 +378,16 @@
 				4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */,
 			);
 			name = "Dependency Injection";
+			sourceTree = "<group>";
+		};
+		4AE7645624AAF15600CAC3BA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AA188A12486FA90009CFACE /* Info.plist */,
+				4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */,
+				4AE7645324AAF0A400CAC3BA /* TestHelper.swift */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
@@ -755,6 +773,7 @@
 				4AE7644B24AAB3DD00CAC3BA /* Inject.swift in Sources */,
 				4AE7644C24AAB3DD00CAC3BA /* DependencyContainer.swift in Sources */,
 				4AE7644A24AAB3DD00CAC3BA /* ResolveDependency.swift in Sources */,
+				4AE7645024AAEF8600CAC3BA /* Init.swift in Sources */,
 				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
 				4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */,
 			);
@@ -796,7 +815,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */,
+				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
+				4AE7645424AAF0A400CAC3BA /* TestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,7 +831,8 @@
 				4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */,
 				4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */,
 				4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */,
-				4A9F71CB24989E5F0023C93F /* TestHelper.swift in Sources */,
+				4AE7645524AAF0D500CAC3BA /* TestHelper.swift in Sources */,
+				4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */,
 				4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */,
 				4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */,
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
