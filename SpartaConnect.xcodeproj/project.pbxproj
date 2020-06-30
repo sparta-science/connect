@@ -58,6 +58,9 @@
 		4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6952024AA7546008344B8 /* WindowController.swift */; };
 		4AE7646224AAFCFE00CAC3BA /* WindowControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */; };
 		4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7646324AAFD3000CAC3BA /* MockApplication.swift */; };
+		4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */; };
+		4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */; };
+		4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7646924AAFF3700CAC3BA /* TypeInject.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BC13F50249409D000360A26 /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F4F249409D000360A26 /* StatusBarMenu.swift */; };
 		4BC13F5224940AD400360A26 /* StatusBarMenuSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */; };
@@ -175,6 +178,9 @@
 		4AE7645D24AAF92F00CAC3BA /* AppAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAdapter.swift; sourceTree = "<group>"; };
 		4AE7646324AAFD3000CAC3BA /* MockApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApplication.swift; sourceTree = "<group>"; };
+		4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjectionConfiguration.swift; sourceTree = "<group>"; };
+		4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAndInject.swift; sourceTree = "<group>"; };
+		4AE7646924AAFF3700CAC3BA /* TypeInject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeInject.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -399,6 +405,9 @@
 				4AA188A12486FA90009CFACE /* Info.plist */,
 				4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */,
 				4AE7646324AAFD3000CAC3BA /* MockApplication.swift */,
+				4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */,
+				4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */,
+				4AE7646924AAFF3700CAC3BA /* TypeInject.swift */,
 				4AE7645324AAF0A400CAC3BA /* TestHelper.swift */,
 			);
 			name = "Supporting Files";
@@ -844,7 +853,10 @@
 			files = (
 				4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */,
 				4AE7646224AAFCFE00CAC3BA /* WindowControllerSpec.swift in Sources */,
+				4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */,
 				4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */,
+				4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */,
+				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
 				4AE7645424AAF0A400CAC3BA /* TestHelper.swift in Sources */,

@@ -12,16 +12,19 @@ class WindowControllerSpec: QuickSpec {
                 subject = Init(.init()) { $0.app = mockApp }
             }
             context(WindowController.showWindow) {
-                it("should show window and activate app") {
+                beforeEach {
                     subject.showWindow(nil)
+                }
+                it("should show window and activate app") {
                     expect(mockApp.didSetPolicy) == .regular
                 }
             }
             context(NSWindowDelegate.self) {
                 context(WindowController.windowWillClose) {
                     beforeEach {
-                        let note = Notification(name: NSWindow.willCloseNotification)
-                        subject.windowWillClose(note)
+                        subject.windowWillClose(
+                            .init(name: NSWindow.willCloseNotification)
+                        )
                     }
                     it("should hide app") {
                         expect(mockApp.didSetPolicy) == .accessory

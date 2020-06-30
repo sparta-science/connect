@@ -2,21 +2,11 @@ import Nimble
 import Quick
 @testable import Testable
 
-class TestResolver: ResolveDependency {
-    func resolve<Service>(_: Service.Type, name: String?) -> Service? {
-        if Service.self is String.Type {
-            return ((name == "name" ? "with name": "no name") as! Service)
-        } else {
-            return nil
-        }
-    }
-}
-
-let createdResolver = TestResolver()
+let fakeResolver = TestResolver()
 
 extension Bundle: DependencyContainer {
     public func getResolver() -> ResolveDependency {
-        createdResolver
+        fakeResolver
     }
 }
 
@@ -32,17 +22,23 @@ class DependencyInjectionSpec: QuickSpec {
                     DependencyInjection.resolver = nil
                 }
                 it("should use bundle to create resolver") {
-                    expect(DependencyInjection.resolver) === createdResolver
+                    expect(DependencyInjection.resolver) === fakeResolver
                 }
             }
         }
         describe(Inject<Any>.self) {
             context("without name") {
+                beforeEach {
+                    TestDependency.register(Inject("no name"))
+                }
                 it("should be resolved") {
                     expect(self.injectedWithoutName) == "no name"
                 }
             }
             context("with name") {
+                beforeEach {
+                    TestDependency.register(Inject("with name", name: "name"))
+                }
                 it("should be resolved") {
                     expect(self.injectedWithName) == "with name"
                 }
