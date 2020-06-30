@@ -22,8 +22,8 @@
 		4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */; };
 		4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C96248F604B0058C5D4 /* FileHelper.swift */; };
 		4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */; };
-		4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */; };
-		4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */; };
+		4A3F3C9D24907B8F0058C5D4 /* OpenAtLoginBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9C24907B8F0058C5D4 /* OpenAtLoginBundle.swift */; };
+		4A3F3C9F249090B50058C5D4 /* OpenAtLoginBundleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9E249090B50058C5D4 /* OpenAtLoginBundleSpec.swift */; };
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
 		4A8A3637249638100071624E /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8A3636249638100071624E /* LaunchService.swift */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
@@ -63,6 +63,7 @@
 		4AE7646F24AB04C200CAC3BA /* ConnectedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81510524A337EC0080D260 /* ConnectedController.swift */; };
 		4AE7647024AB08C200CAC3BA /* MoveToApplicationsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */; };
 		4AE7647124AB08CD00CAC3BA /* MoveToApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71D0249C644E0023C93F /* MoveToApplications.swift */; };
+		4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645324AAF0A400CAC3BA /* TestHelper.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
@@ -129,8 +130,8 @@
 		4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempAppHelper.swift; sourceTree = "<group>"; };
 		4A3F3C96248F604B0058C5D4 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
-		4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManager.swift; sourceTree = "<group>"; };
-		4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemManagerSpec.swift; sourceTree = "<group>"; };
+		4A3F3C9C24907B8F0058C5D4 /* OpenAtLoginBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAtLoginBundle.swift; sourceTree = "<group>"; };
+		4A3F3C9E249090B50058C5D4 /* OpenAtLoginBundleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAtLoginBundleSpec.swift; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 		4A74DDB424A26DED00E8A0B3 /* TeamConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TeamConfig.xcconfig; sourceTree = "<group>"; };
 		4A8150FF24A32E1C0080D260 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
@@ -280,7 +281,7 @@
 				4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */,
 				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
-				4A3F3C9E249090B50058C5D4 /* LoginItemManagerSpec.swift */,
+				4A3F3C9E249090B50058C5D4 /* OpenAtLoginBundleSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
 			);
 			path = AppSpecs;
@@ -354,7 +355,7 @@
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4A0AB977249D369A00D74826 /* LoginController.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
-				4A3F3C9C24907B8F0058C5D4 /* LoginItemManager.swift */,
+				4A3F3C9C24907B8F0058C5D4 /* OpenAtLoginBundle.swift */,
 				4AA188902486FA90009CFACE /* Assets.xcassets */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
 				4AA188952486FA90009CFACE /* Info.plist */,
@@ -825,8 +826,9 @@
 			files = (
 				4A0AB97A249D36C200D74826 /* LoginControllerSpec.swift in Sources */,
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
+				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
-				4A3F3C9F249090B50058C5D4 /* LoginItemManagerSpec.swift in Sources */,
+				4A3F3C9F249090B50058C5D4 /* OpenAtLoginBundleSpec.swift in Sources */,
 				4A0AB97C249D371800D74826 /* NetworkServiceSpec.swift in Sources */,
 				4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */,
 			);
@@ -837,7 +839,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
-				4A3F3C9D24907B8F0058C5D4 /* LoginItemManager.swift in Sources */,
+				4A3F3C9D24907B8F0058C5D4 /* OpenAtLoginBundle.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
 				4AE7645924AAF8D900CAC3BA /* Bundle+DependencyContainer.swift in Sources */,

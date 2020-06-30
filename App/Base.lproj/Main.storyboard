@@ -693,7 +693,7 @@
                         <menuItem title="Open at Login" state="on" id="5yh-Zc-JVB">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <binding destination="wDy-CS-sRL" name="value" keyPath="self.openAtLogin" id="iuU-oz-2Xr">
+                                <binding destination="pLn-GC-5BG" name="value" keyPath="self.openAtLogin" id="WO2-ue-MVM">
                                     <dictionary key="options">
                                         <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
                                         <bool key="NSConditionallySetsEnabled" value="NO"/>
@@ -728,7 +728,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="automaticallyChecksForUpdates" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </customObject>
-                <customObject id="wDy-CS-sRL" customClass="LoginItemManager" customModule="SpartaConnect" customModuleProvider="target"/>
+                <customObject id="pLn-GC-5BG" customClass="OpenAtLoginBundle" customModule="SpartaConnect" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-217" y="-21"/>
         </scene>
