@@ -483,6 +483,7 @@
 				4A3F3C6E248C92720058C5D4 /* Sources */,
 				4A3F3C6F248C92720058C5D4 /* Frameworks */,
 				4A3F3C70248C92720058C5D4 /* Resources */,
+				4AE7647E24AB241600CAC3BA /* Swift Lint Testable */,
 			);
 			buildRules = (
 			);
@@ -764,6 +765,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\" --path App\n";
 			showEnvVarsInLog = 0;
+		};
+		4AE7647E24AB241600CAC3BA /* Swift Lint Testable */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint Testable";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"Pods/SwiftLint/swiftlint\" --path Testable\n";
 		};
 		4C4175BB737A9E64A95061F2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

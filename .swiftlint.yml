@@ -1,9 +1,5 @@
 excluded:
   - Pods
-identifier_name:
-  excluded:
-    - on
-    - off
 line_length: 150
 disabled_rules:
   - force_cast
