@@ -41,6 +41,11 @@
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
+		4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */; };
+		4AE7644A24AAB3DD00CAC3BA /* ResolveDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644624AAB3DD00CAC3BA /* ResolveDependency.swift */; };
+		4AE7644B24AAB3DD00CAC3BA /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644724AAB3DD00CAC3BA /* Inject.swift */; };
+		4AE7644C24AAB3DD00CAC3BA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644824AAB3DD00CAC3BA /* DependencyContainer.swift */; };
+		4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BA6952124AA7546008344B8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6952024AA7546008344B8 /* WindowController.swift */; };
 		4BA6952324AA77B3008344B8 /* WindowControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */; };
@@ -147,6 +152,11 @@
 		4AD40A99248850E1002728DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AD40A9B24897C85002728DA /* UITests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UITests.entitlements; sourceTree = "<group>"; };
 		4AD40A9D24897F51002728DA /* self-hosted.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "self-hosted.yml"; path = ".github/workflows/self-hosted.yml"; sourceTree = "<group>"; tabWidth = 2; };
+		4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
+		4AE7644624AAB3DD00CAC3BA /* ResolveDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolveDependency.swift; sourceTree = "<group>"; };
+		4AE7644724AAB3DD00CAC3BA /* Inject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
+		4AE7644824AAB3DD00CAC3BA /* DependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjectionSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -225,6 +235,7 @@
 			children = (
 				4A3F3C74248C92720058C5D4 /* Testable.h */,
 				4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */,
+				4AE7644424AAB3D100CAC3BA /* Dependency Injection */,
 				4A3F3C75248C92720058C5D4 /* Info.plist */,
 			);
 			path = Testable;
@@ -333,6 +344,7 @@
 			children = (
 				4AA188A12486FA90009CFACE /* Info.plist */,
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */,
 			);
 			path = UnitSpecs;
 			sourceTree = "<group>";
@@ -347,6 +359,17 @@
 				4A3F3C99248F607F0058C5D4 /* Supporting Files */,
 			);
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		4AE7644424AAB3D100CAC3BA /* Dependency Injection */ = {
+			isa = PBXGroup;
+			children = (
+				4AE7644624AAB3DD00CAC3BA /* ResolveDependency.swift */,
+				4AE7644824AAB3DD00CAC3BA /* DependencyContainer.swift */,
+				4AE7644724AAB3DD00CAC3BA /* Inject.swift */,
+				4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */,
+			);
+			name = "Dependency Injection";
 			sourceTree = "<group>";
 		};
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
@@ -729,6 +752,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE7644B24AAB3DD00CAC3BA /* Inject.swift in Sources */,
+				4AE7644C24AAB3DD00CAC3BA /* DependencyContainer.swift in Sources */,
+				4AE7644A24AAB3DD00CAC3BA /* ResolveDependency.swift in Sources */,
+				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
 				4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -769,6 +796,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */,
+				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
