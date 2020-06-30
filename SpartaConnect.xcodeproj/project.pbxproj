@@ -187,6 +187,7 @@
 		4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleProxy.swift; sourceTree = "<group>"; };
 		4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleProxySpec.swift; sourceTree = "<group>"; };
 		4AE7647C24AB211E00CAC3BA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		4AE7647D24AB239C00CAC3BA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -303,6 +304,7 @@
 				4A9F06D12491D91400714B04 /* Podfile.lock */,
 				4A9F06D22491D91400714B04 /* Gemfile */,
 				4A9F06D02491D91300714B04 /* Gemfile.lock */,
+				4AE7647C24AB211E00CAC3BA /* .swiftlint.yml */,
 				4A9F06D52491DFFD00714B04 /* .gitignore */,
 			);
 			name = "Supporting Files";
@@ -433,7 +435,7 @@
 			children = (
 				4AA188902486FA90009CFACE /* Assets.xcassets */,
 				4AA188952486FA90009CFACE /* Info.plist */,
-				4AE7647C24AB211E00CAC3BA /* .swiftlint.yml */,
+				4AE7647D24AB239C00CAC3BA /* .swiftlint.yml */,
 				4AA188962486FA90009CFACE /* SpartaConnect.entitlements */,
 			);
 			name = "Supporting Files";
@@ -760,7 +762,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\" --path App\n";
 			showEnvVarsInLog = 0;
 		};
 		4C4175BB737A9E64A95061F2 /* [CP] Embed Pods Frameworks */ = {

@@ -26,6 +26,7 @@ struct AppAssembly: Assembly {
         container.autoregister { NSApplication.shared }
         container.register { $0 + NSApplication.self as ApplicationAdapter }
         container.autoregister { NotificationCenter.default }
+        // swiftlint:disable:next trailing_closure
         container.autoregister(
             name: "move to applications",
             initializer: { PFMoveToApplicationsFolderIfNecessary }
