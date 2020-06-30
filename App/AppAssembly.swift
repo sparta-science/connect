@@ -31,5 +31,9 @@ struct AppAssembly: Assembly {
             name: "move to applications",
             initializer: { PFMoveToApplicationsFolderIfNecessary }
         )
+        container.autoregister {
+            NSStatusBar.system
+                .statusItem(withLength: NSStatusItem.squareLength)
+        }
     }
 }

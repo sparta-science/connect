@@ -1,8 +1,8 @@
 import AppKit
 
 public class StatusBarMenu: NSMenu {
-    public let statusItem = NSStatusBar.system
-        .statusItem(withLength: NSStatusItem.squareLength)
+    @Inject public var statusItem: NSStatusItem
+    @Inject var bundle: Bundle
 
     private func configure(button: NSStatusBarButton) {
         Configure(item(at: 0)!) { first in
@@ -17,7 +17,7 @@ public class StatusBarMenu: NSMenu {
     private func configureStatusItem() {
         Configure(statusItem) {
             $0.menu = self
-            $0.autosaveName = Bundle.main.bundleIdentifier
+            $0.autosaveName = bundle.bundleIdentifier
             $0.behavior = [.terminationOnRemoval, .removalAllowed]
             configure(button: $0.button!)
         }

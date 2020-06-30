@@ -35,7 +35,3 @@ func createAndInject<Type>(_ value: Type) -> Type! {
         TestDependency.register(Inject<Type>($0))
     }
 }
-
-extension MockApplication: CreateAndInject {
-    typealias ActAs = ApplicationAdapter
-}

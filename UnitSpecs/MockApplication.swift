@@ -16,3 +16,7 @@ extension MockApplication: ApplicationAdapter {
         didActivateWithFlag = flag
     }
 }
+
+extension MockApplication: CreateAndInject {
+    typealias ActAs = ApplicationAdapter
+}

@@ -8,14 +8,14 @@ class StatusBarMenuSpec: QuickSpec {
             var subject: StatusBarMenu!
             var image: NSImage!
             beforeEach {
-                subject = .init()
+                TestDependency.inject(MockStatusItem())
+                TestDependency.register(Inject(testBundle))
                 image = .init(size: .zero)
-                let item = subject.addItem(
-                    withTitle: "first",
-                    action: nil,
-                    keyEquivalent: ""
-                )
-                item.image = image
+                subject = Init(.init()) {
+                    $0.addItem(Init(.init(title: "first", action: nil, keyEquivalent: "")) {
+                        $0.image = image
+                    })
+                }
             }
             context(StatusBarMenu.awakeFromNib) {
                 beforeEach {
@@ -32,12 +32,10 @@ class StatusBarMenuSpec: QuickSpec {
                         expect(statusItem.menu) === subject
                     }
                     it("should have expected properties") {
-                        expect(statusItem.isVisible) == true
                         expect(statusItem.behavior) == [
                             .terminationOnRemoval, .removalAllowed
                         ]
-                        expect(statusItem.autosaveName) == Bundle.main.bundleIdentifier
-                        expect(statusItem.length) == NSStatusItem.squareLength
+                        expect(statusItem.autosaveName) == testBundle.bundleIdentifier
                     }
                 }
             }

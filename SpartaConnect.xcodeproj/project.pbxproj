@@ -78,6 +78,7 @@
 		4BD4D35C24ABBF80009D8380 /* BackEndSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35B24ABBF80009D8380 /* BackEndSpec.swift */; };
 		4BD4D35E24ABC06F009D8380 /* Installer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35D24ABC06F009D8380 /* Installer.swift */; };
 		4BD4D36224ABC121009D8380 /* InstallerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D36124ABC121009D8380 /* InstallerSpec.swift */; };
+		4BD4D36424ABCB95009D8380 /* MockStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D36324ABCB95009D8380 /* MockStatusItem.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069AB125D9A11E885ED84E2B /* Pods_SpartaConnect.framework */; };
@@ -215,6 +216,7 @@
 		4BD4D35B24ABBF80009D8380 /* BackEndSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEndSpec.swift; sourceTree = "<group>"; };
 		4BD4D35D24ABC06F009D8380 /* Installer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installer.swift; sourceTree = "<group>"; };
 		4BD4D36124ABC121009D8380 /* InstallerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerSpec.swift; sourceTree = "<group>"; };
+		4BD4D36324ABCB95009D8380 /* MockStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStatusItem.swift; sourceTree = "<group>"; };
 		55ACDC80CAFF61B83E74C6FC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -437,6 +439,7 @@
 				4AE7646324AAFD3000CAC3BA /* MockApplication.swift */,
 				4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */,
 				4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */,
+				4BD4D36324ABCB95009D8380 /* MockStatusItem.swift */,
 				4AE7646924AAFF3700CAC3BA /* TypeInject.swift */,
 				4AE7645324AAF0A400CAC3BA /* TestHelper.swift */,
 			);
@@ -1016,6 +1019,7 @@
 				4AE7646C24AB030A00CAC3BA /* StatusBarMenuSpec.swift in Sources */,
 				4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */,
 				4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */,
+				4BD4D36424ABCB95009D8380 /* MockStatusItem.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
