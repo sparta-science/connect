@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "NO"
       codeCoverageEnabled = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4AA188882486FA90009CFACE"
+            BuildableName = "SpartaConnect.app"
+            BlueprintName = "SpartaConnect"
+            ReferencedContainer = "container:SpartaConnect.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <CodeCoverageTargets>
          <BuildableReference
             BuildableIdentifier = "primary"
@@ -47,7 +56,8 @@
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4AA1889A2486FA90009CFACE"
