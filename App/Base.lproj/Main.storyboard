@@ -735,7 +735,7 @@
         <!--Tab View Controller-->
         <scene sceneID="V56-PY-zGm">
             <objects>
-                <tabViewController showSeguePresentationStyle="single" tabStyle="unspecified" id="Gaj-C8-dnr" customClass="TabViewController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController showSeguePresentationStyle="single" tabStyle="unspecified" id="Gaj-C8-dnr" customClass="TabViewController" customModule="Testable" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem id="agr-wU-Eai"/>
                         <tabViewItem identifier="" id="JMJ-Jr-veJ"/>
