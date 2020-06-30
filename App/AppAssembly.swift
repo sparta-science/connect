@@ -27,6 +27,7 @@ struct AppAssembly: Assembly {
         container.autoregister { Bundle.main }
         container.autoregister { Locale.current }
         container.autoregister { UserDefaults.standard }
+        container.autoregister { NSApplication.shared }
         container.register { $0 + NSApplication.self as ApplicationAdapter }
         container.autoregister { NotificationCenter.default }
         container.autoregister { DispatchQueue.main }
