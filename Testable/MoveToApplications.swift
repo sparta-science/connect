@@ -1,8 +1,9 @@
-import LetsMove
+import class AppKit.NSApplication
+import Foundation
 
 public class MoveToApplications: NSObject {
-    public var center: NotificationCenter = .default
-    public var move = PFMoveToApplicationsFolderIfNecessary
+    @Inject public var center: NotificationCenter
+    @Inject("move to applications") public var move: ()->Void
     
     func finishedLaunching(_: Notification) {
         move()

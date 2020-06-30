@@ -1,6 +1,6 @@
 import Nimble
 import Quick
-import SpartaConnect
+import Testable
 
 class MoveToApplicationsSpec: QuickSpec {
     override func spec() {

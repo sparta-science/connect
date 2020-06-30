@@ -1,6 +1,7 @@
 import Testable
 import Swinject
 import SwinjectAutoregistration
+import LetsMove
 
 // swiftlint:disable:next static_operator
 private func + <Service>(resolver: Resolver, service: Service.Type) -> Service {
@@ -50,5 +51,9 @@ struct AppAssembly: Assembly {
                 ).first!
             )
         }
+        container.autoregister(
+            name: "move to applications",
+            initializer: { PFMoveToApplicationsFolderIfNecessary }
+        )
     }
 }
