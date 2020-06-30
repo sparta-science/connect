@@ -76,6 +76,8 @@
 		4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35324ABBCB6009D8380 /* StateSpec.swift */; };
 		4BD4D35A24ABBF59009D8380 /* BackEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35924ABBF59009D8380 /* BackEnd.swift */; };
 		4BD4D35C24ABBF80009D8380 /* BackEndSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35B24ABBF80009D8380 /* BackEndSpec.swift */; };
+		4BD4D35E24ABC06F009D8380 /* Installer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35D24ABC06F009D8380 /* Installer.swift */; };
+		4BD4D36224ABC121009D8380 /* InstallerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D36124ABC121009D8380 /* InstallerSpec.swift */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 069AB125D9A11E885ED84E2B /* Pods_SpartaConnect.framework */; };
@@ -211,6 +213,8 @@
 		4BD4D35324ABBCB6009D8380 /* StateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateSpec.swift; sourceTree = "<group>"; };
 		4BD4D35924ABBF59009D8380 /* BackEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEnd.swift; sourceTree = "<group>"; };
 		4BD4D35B24ABBF80009D8380 /* BackEndSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackEndSpec.swift; sourceTree = "<group>"; };
+		4BD4D35D24ABC06F009D8380 /* Installer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installer.swift; sourceTree = "<group>"; };
+		4BD4D36124ABC121009D8380 /* InstallerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallerSpec.swift; sourceTree = "<group>"; };
 		55ACDC80CAFF61B83E74C6FC /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnitSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -283,7 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				4BD4D35524ABBE26009D8380 /* Model */,
+				4BD4D36024ABC0FC009D8380 /* View */,
 				4BD4D35624ABBE3B009D8380 /* Controllers */,
+				4BD4D35F24ABC0CE009D8380 /* Service */,
 				4BD4D35824ABBE64009D8380 /* Adapters */,
 				4BD4D35724ABBE55009D8380 /* Utilities */,
 				4AE7647824AB14A800CAC3BA /* Supporting Files */,
@@ -385,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4BD4D36124ABC121009D8380 /* InstallerSpec.swift */,
 				4BD4D35B24ABBF80009D8380 /* BackEndSpec.swift */,
 				4BD4D35324ABBCB6009D8380 /* StateSpec.swift */,
 				4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */,
@@ -481,7 +488,6 @@
 			isa = PBXGroup;
 			children = (
 				4BA6952024AA7546008344B8 /* WindowController.swift */,
-				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
 				4A81510324A332530080D260 /* TabViewController.swift */,
 				4A8150FF24A32E1C0080D260 /* ProgressController.swift */,
 				4A81510524A337EC0080D260 /* ConnectedController.swift */,
@@ -507,6 +513,22 @@
 				4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */,
 			);
 			name = Adapters;
+			sourceTree = "<group>";
+		};
+		4BD4D35F24ABC0CE009D8380 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4BD4D35D24ABC06F009D8380 /* Installer.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		4BD4D36024ABC0FC009D8380 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BC13F4F249409D000360A26 /* StatusBarMenu.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
@@ -944,6 +966,7 @@
 				4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */,
 				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
 				4AE7646D24AB03AA00CAC3BA /* TabViewController.swift in Sources */,
+				4BD4D35E24ABC06F009D8380 /* Installer.swift in Sources */,
 				4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */,
 				4AE7646F24AB04C200CAC3BA /* ConnectedController.swift in Sources */,
 			);
@@ -988,6 +1011,7 @@
 				4AE7647624AB105700CAC3BA /* BundleProxySpec.swift in Sources */,
 				4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */,
 				4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */,
+				4BD4D36224ABC121009D8380 /* InstallerSpec.swift in Sources */,
 				4AE7647024AB08C200CAC3BA /* MoveToApplicationsSpec.swift in Sources */,
 				4AE7646C24AB030A00CAC3BA /* StatusBarMenuSpec.swift in Sources */,
 				4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */,
