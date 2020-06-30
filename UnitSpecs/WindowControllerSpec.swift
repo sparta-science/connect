@@ -8,8 +8,8 @@ class WindowControllerSpec: QuickSpec {
             var mockApp: MockApplication!
             var subject: WindowController!
             beforeEach {
-                mockApp = .init()
-                subject = Init(.init()) { $0.app = mockApp }
+                mockApp = .createAndInject()
+                subject = .init()
             }
             context(WindowController.showWindow) {
                 beforeEach {

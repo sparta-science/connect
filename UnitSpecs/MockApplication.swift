@@ -1,7 +1,7 @@
 import Testable
 import class AppKit.NSApplication
 
-class MockApplication: NSObject {
+final class MockApplication: NSObject {
     var didSetPolicy: NSApplication.ActivationPolicy?
     var didActivateWithFlag: Bool?
 }
