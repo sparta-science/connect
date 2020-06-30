@@ -51,4 +51,8 @@ extension XCUIApplication {
             .waitToAppear(time: .install)
         return alert
     }
+    
+    func mainWindow() -> XCUIElement {
+        windows["Connect to Sparta Science"]
+    }
 }
