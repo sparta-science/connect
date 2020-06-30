@@ -2,18 +2,12 @@ import Testable
 import Swinject
 
 private func createSwinjectContainer() -> Container {
-    let container = Container(defaultObjectScope: .container)
-    Container.loggingFunction = nil
-
-    let assembler = Assembler(container: container)
-    assembler.apply(assembly: AppAssembly())
-    container.register(Assembler.self) { _ in
-        assembler
+    Init(Container(defaultObjectScope: .container)) {
+        Container.loggingFunction = nil
+        Configure(Assembler(container: $0)) {
+            $0.apply(assembly: AppAssembly())
+        }
     }
-    #if targetEnvironment(simulator)
-        assembler.apply(assembly: SimulatorTestAssembly())
-    #endif
-    return container
 }
 
 extension Bundle: DependencyContainer {
