@@ -71,7 +71,7 @@ class UpdateAppTest: XCTestCase {
     
     func verifyUpdated() {
         app.wait(until: .runningForeground, "wait for app to relaunch")
-        app.mainWindow().waitToAppear(time: .launch)
+        app.windows["Window"].waitToAppear(time: .launch)
         app.menuBars.menuBarItems["SpartaConnect"].click()
         app.menuBars.menus.menuItems["About SpartaConnect"].click()
         app.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
