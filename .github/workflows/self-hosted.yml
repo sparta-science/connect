@@ -35,7 +35,7 @@ jobs:
         bundle
     - name: Unit Specs
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable clean test | xcpretty
-    - name: Code Coverage
+    - name: Code Coverage for Framework
       run: bash <(curl -s https://codecov.io/bash) -J 'Testable'
     - name: Build
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect clean build | xcpretty
@@ -46,7 +46,7 @@ jobs:
 #        flags: AppSpecs
 #        name: self-hosted
 #
-    - name: Code Coverage
+    - name: Code Coverage for App target
       run: bash <(curl -s https://codecov.io/bash) -J '^SpartaConnect$'
     - name: UI Tests
       run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty

@@ -7,7 +7,9 @@ class ConnectedControllerSpec: QuickSpec {
         describe(ConnectedController.self) {
             context(ConnectedController.disconnect(_:)) {
                 it("should not crash") {
-                    expect { ConnectedController().dismiss(nil) }.notTo(throwError())
+                    expect {
+                        ConnectedController().disconnect(.init())
+                    }.notTo(throwError())
                 }
             }
         }
