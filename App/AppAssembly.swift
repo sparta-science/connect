@@ -25,6 +25,7 @@ struct AppAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister { Bundle.main }
         container.autoregister { Installer() }
+        container.register { $0 + Installer.self as Installation }
         container.register(AnyPublisher<State, Never>.self) {
             ($0 ~> Installer.self).$state.eraseToAnyPublisher()
         }

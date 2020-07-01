@@ -806,7 +806,7 @@
         <!--Login-->
         <scene sceneID="UFQ-5p-aWW">
             <objects>
-                <viewController title="Login" showSeguePresentationStyle="single" id="xf9-aD-9fM" customClass="LoginController" customModule="SpartaConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" showSeguePresentationStyle="single" id="xf9-aD-9fM" customClass="LoginController" customModule="Testable" sceneMemberID="viewController">
                     <view key="view" id="YxZ-ab-r8N">
                         <rect key="frame" x="0.0" y="0.0" width="300" height="180"/>
                         <autoresizingMask key="autoresizingMask"/>

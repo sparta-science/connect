@@ -11,8 +11,13 @@ class InstallerSpec: QuickSpec {
                 subject = .init()
             }
             context(Installer.beginInstallation) {
-                it("should not fail") {
-                    expect { subject.beginInstallation(login: .init()) }.notTo(throwError())
+                it("should transition to busy") {
+                    subject.beginInstallation(login: .init())
+                    waitUntil { done in
+                        if case .busy = subject.state {
+                            done()
+                        }
+                    }
                 }
             }
         }

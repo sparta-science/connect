@@ -6,6 +6,7 @@ public class Installer: NSObject {
 
 extension Installer: Installation {
     public func beginInstallation(login: Login) {
+        state = .busy(value: .init())
     }
 
     public func cancelInstallation() {
