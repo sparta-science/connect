@@ -32,12 +32,12 @@ extension XCUIApplication {
 
     func wait(until newState: XCUIApplication.State,
               timeout: Timeout = .test,
-              _ reason: String = "waiting for app state, ",
+              _ reason: String = "waiting for app state",
               file: StaticString = #file,
               line: UInt = #line) {
         XCTAssertTrue(
             wait(for: newState, timeout: timeout.rawValue),
-            reason + " got \(state.rawValue)",
+            reason + ": \(newState) got \(state)",
             file: file,
             line: line
         )
@@ -54,5 +54,17 @@ extension XCUIApplication {
 
     func mainWindow() -> XCUIElement {
         windows["Connect to Sparta Science"]
+    }
+}
+
+extension XCUIApplication.State: CustomStringConvertible {
+    public var description: String {
+        [
+            "unknown",
+            "notRunning",
+            "undocumented",
+            "runningBackground",
+            "runningForeground"
+        ][Int(rawValue)]
     }
 }
