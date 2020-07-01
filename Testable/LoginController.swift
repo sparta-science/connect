@@ -15,8 +15,6 @@ public class LoginController: NSViewController {
         let env = processInfo.environment
         if let debugBackend = env["debug-backend"], !debugBackend.isEmpty {
             login.environment = debugBackend
-        } else {
-            login.environment = "staging"
         }
         login.username = env["debug-email"]
         login.password = env["debug-password"]
