@@ -29,7 +29,8 @@ class TabViewControllerSpec: QuickSpec {
                         publisher.send(.busy(value: .init()))
                     }
                     it("selects tab 1") {
-                        expect(subject.selectedTabViewItemIndex) == 1
+                        expect(subject.selectedTabViewItemIndex)
+                            .toEventually(equal(1))
                     }
                 }
                 context("changed to complete") {
@@ -37,8 +38,16 @@ class TabViewControllerSpec: QuickSpec {
                         publisher.send(.complete)
                     }
                     it("selects tab 2") {
-                        expect(subject.selectedTabViewItemIndex) == 2
+                        expect(subject.selectedTabViewItemIndex)
+                            .toEventually(equal(2))
                     }
+                }
+                it("should receive on main thread") {
+                    DispatchQueue.global(qos: .background).async {
+                        publisher.send(.complete)
+                    }
+                    expect(subject.selectedTabViewItemIndex)
+                        .toEventually(equal(2))
                 }
             }
         }

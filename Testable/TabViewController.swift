@@ -7,6 +7,7 @@ public class TabViewController: NSTabViewController {
 
     private func observeState() {
         statePublisher
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: updateSelected(_:))
             .store(in: &cancellables)
     }
