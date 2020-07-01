@@ -1,14 +1,10 @@
 import Foundation
 
 public struct Organization: Codable {
-    public var id: Int
-    public var logoUrl: String?
-    public var name: String
-    public var touchIconUrl: String?
-    public init(id: Int, name: String) {
-        self.id = id
-        self.name = name
-    }
+    public let id: Int
+    public let logoUrl: String?
+    public let name: String
+    public let touchIconUrl: String?
 }
 
 public struct ResponseSuccess: Codable {

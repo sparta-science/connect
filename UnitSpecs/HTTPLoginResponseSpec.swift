@@ -4,17 +4,39 @@ import Testable
 
 class HTTPLoginResponseSpec: QuickSpec {
     override func spec() {
-        context("JSON serialize") {
-            describe(Organization.self) {
-                it("should serialize") {
-                    let org = Init(Organization(id: 1234, name: "Falcons")) {
-                        $0.logoUrl = "http://example.com/logo.png"
-                        $0.touchIconUrl = "http://Falcons.com/icon.png"
+        describe("HTTPLoginServerResponse") {
+            context("decode") {
+                
+                func decode(string: String) -> HTTPLoginResponse {
+                    try! JSONDecoder().decode(HTTPLoginResponse.self,
+                                              from: string.data(using: .ascii)!)
+                }
+                
+                context("success") {
+                    let string = #"{"message":{"downloadUrl":"https://localhost/vernal_falls.tar","vernalFallsVersion":"1.4896"},"org":{"id":38,"name":"Training Ground"},"user":{"email":"sparta@example.com","id":4728,"name":"Test Sparta User"},"vernalFallsConfig":{"key":"value"}}"#
+                    it("should de decoded") {
+                        if case .success(let success) = decode(string: string) {
+                            expect(success.message).notTo(beNil())
+                        } else {
+                            fail("should be success")
+                        }
                     }
-                    
-                    let data = try! JSONEncoder().encode(org)
-                    let string = String(data: data, encoding: .ascii)
-                    expect(string) == #"{"logoUrl":"http:\/\/example.com\/logo.png","id":1234,"name":"Falcons","touchIconUrl":"http:\/\/Falcons.com\/icon.png"}"#
+                    it("should re-encode without error") {
+                        expect{ try! JSONEncoder().encode(decode(string: string)) }.notTo(throwError())
+                    }
+                }
+                context("failure") {
+                    let string = #"{"error":"server error"}"#
+                    it("should de decoded") {
+                        if case .failure(let failure) = decode(string: string) {
+                            expect(failure.error) == "server error"
+                        } else {
+                            fail("should be success")
+                        }
+                    }
+                    it("should re-encode without error") {
+                        expect{ try! JSONEncoder().encode(decode(string: string)) }.notTo(throwError())
+                    }
                 }
             }
         }
