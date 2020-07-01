@@ -6,10 +6,13 @@ class ConnectedControllerSpec: QuickSpec {
     override func spec() {
         describe(ConnectedController.self) {
             context(ConnectedController.disconnect(_:)) {
-                it("should not crash") {
-                    expect {
-                        ConnectedController().disconnect(.init())
-                    }.notTo(throwError())
+                var mockInstaller: MockInstaller!
+                beforeEach {
+                    mockInstaller = .createAndInject()
+                }
+                it("should uninstall") {
+                    ConnectedController().disconnect(.init())
+                    expect(mockInstaller.didCall) == "uninstall()"
                 }
             }
         }
