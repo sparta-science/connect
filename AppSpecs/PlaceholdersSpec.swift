@@ -1,5 +1,6 @@
 import Nimble
 import Quick
+import SpartaConnect
 import Swinject
 
 class PlaceholdersSpec: QuickSpec {

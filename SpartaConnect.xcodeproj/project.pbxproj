@@ -19,8 +19,6 @@
 		4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */; };
 		4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C96248F604B0058C5D4 /* FileHelper.swift */; };
 		4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */; };
-		4A3F3C9D24907B8F0058C5D4 /* Bundle+openAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9C24907B8F0058C5D4 /* Bundle+openAtLogin.swift */; };
-		4A3F3C9F249090B50058C5D4 /* Bundle+openAtLoginSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9E249090B50058C5D4 /* Bundle+openAtLoginSpec.swift */; };
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
 		4A8A3637249638100071624E /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8A3636249638100071624E /* LaunchService.swift */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
@@ -144,8 +142,6 @@
 		4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempAppHelper.swift; sourceTree = "<group>"; };
 		4A3F3C96248F604B0058C5D4 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
-		4A3F3C9C24907B8F0058C5D4 /* Bundle+openAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+openAtLogin.swift"; sourceTree = "<group>"; };
-		4A3F3C9E249090B50058C5D4 /* Bundle+openAtLoginSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+openAtLoginSpec.swift"; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 		4A74DDB424A26DED00E8A0B3 /* TeamConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TeamConfig.xcconfig; sourceTree = "<group>"; };
 		4A8150FF24A32E1C0080D260 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
@@ -307,7 +303,6 @@
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
 				4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
-				4A3F3C9E249090B50058C5D4 /* Bundle+openAtLoginSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
 			);
 			path = AppSpecs;
@@ -380,7 +375,6 @@
 			isa = PBXGroup;
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
-				4A3F3C9C24907B8F0058C5D4 /* Bundle+openAtLogin.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
 				4AE7647724AB133F00CAC3BA /* Supporting Files */,
@@ -987,7 +981,6 @@
 				4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */,
 				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
-				4A3F3C9F249090B50058C5D4 /* Bundle+openAtLoginSpec.swift in Sources */,
 				4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -997,7 +990,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
-				4A3F3C9D24907B8F0058C5D4 /* Bundle+openAtLogin.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
 				4AE7645924AAF8D900CAC3BA /* Bundle+DependencyContainer.swift in Sources */,
