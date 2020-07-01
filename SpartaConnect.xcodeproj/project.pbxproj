@@ -143,7 +143,6 @@
 		4A3F3C96248F604B0058C5D4 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
-		4A74DDB424A26DED00E8A0B3 /* TeamConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = TeamConfig.xcconfig; sourceTree = "<group>"; };
 		4A8150FF24A32E1C0080D260 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		4A81510324A332530080D260 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		4A81510524A337EC0080D260 /* ConnectedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
@@ -200,6 +199,8 @@
 		4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedControllerSpec.swift; sourceTree = "<group>"; };
 		4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControllerSpec.swift; sourceTree = "<group>"; };
 		4AE7648924AC536600CAC3BA /* MockInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInstaller.swift; sourceTree = "<group>"; };
+		4AE7648B24AC694500CAC3BA /* local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = local.xcconfig; sourceTree = "<group>"; };
+		4AE7648C24AC694500CAC3BA /* team.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = team.xcconfig; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -312,7 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A99248850E1002728DA /* README.md */,
-				4A74DDB424A26DED00E8A0B3 /* TeamConfig.xcconfig */,
+				4AE7648B24AC694500CAC3BA /* local.xcconfig */,
+				4AE7648C24AC694500CAC3BA /* team.xcconfig */,
 				4AD40A9224870C00002728DA /* ci.yml */,
 				4AD40A9D24897F51002728DA /* self-hosted.yml */,
 				4A9F06D32491D91400714B04 /* Podfile */,
@@ -1175,7 +1177,7 @@
 		};
 		4AA188AD2486FA90009CFACE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A74DDB424A26DED00E8A0B3 /* TeamConfig.xcconfig */;
+			baseConfigurationReference = 4AE7648C24AC694500CAC3BA /* team.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1239,7 +1241,7 @@
 		};
 		4AA188AE2486FA90009CFACE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A74DDB424A26DED00E8A0B3 /* TeamConfig.xcconfig */;
+			baseConfigurationReference = 4AE7648C24AC694500CAC3BA /* team.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -97,4 +97,4 @@ iOSInjectionProject/
 .idea/
 
 # Code signing identity and development team
-/TeamConfig.xcconfig
+/local.xcconfig

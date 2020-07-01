@@ -1,0 +1,16 @@
+//
+//  team.xcconfig  - team settings for CI overridable by local.xcconfig
+//
+//  local.xcconfig - set team and private build settings, git ignored
+//                   set your Developer ID and Team here
+//                   if you are not part of Sparta Team
+//
+//
+
+CODE_SIGN_IDENTITY = Developer ID Application: Sparta Software Corporation (GB9B5L6A6K)
+DEVELOPMENT_TEAM = GB9B5L6A6K
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include? "local.xcconfig"
