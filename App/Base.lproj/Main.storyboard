@@ -842,7 +842,7 @@
                                                 </menu>
                                             </popUpButtonCell>
                                             <connections>
-                                                <binding destination="xf9-aD-9fM" name="selectedValue" keyPath="self.representedObject.environment" id="mTn-Gc-R06"/>
+                                                <binding destination="xf9-aD-9fM" name="selectedValue" keyPath="self.login.environment" id="mTn-Gc-R06"/>
                                             </connections>
                                         </popUpButton>
                                     </gridCell>
@@ -855,7 +855,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="xf9-aD-9fM" name="value" keyPath="self.representedObject.username" id="1gG-UX-2e6">
+                                                <binding destination="xf9-aD-9fM" name="value" keyPath="self.login.username" id="1gG-UX-2e6">
                                                     <dictionary key="options">
                                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                         <string key="NSNullPlaceholder">email@example.com</string>
@@ -876,7 +876,7 @@
                                                 </allowedInputSourceLocales>
                                             </secureTextFieldCell>
                                             <connections>
-                                                <binding destination="xf9-aD-9fM" name="value" keyPath="self.representedObject.password" id="urY-sT-yIN">
+                                                <binding destination="xf9-aD-9fM" name="value" keyPath="self.login.password" id="urY-sT-yIN">
                                                     <dictionary key="options">
                                                         <bool key="NSContinuouslyUpdatesValue" value="YES"/>
                                                         <string key="NSNullPlaceholder">password</string>
@@ -894,12 +894,12 @@
                                             </buttonCell>
                                             <connections>
                                                 <action selector="connectAction:" target="xf9-aD-9fM" id="ezU-90-jPy"/>
-                                                <binding destination="xf9-aD-9fM" name="enabled" keyPath="self.representedObject.password" id="BfR-Fy-hvn">
+                                                <binding destination="xf9-aD-9fM" name="enabled" keyPath="self.login.password" id="BfR-Fy-hvn">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">NSIsNotNil</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="xf9-aD-9fM" name="enabled2" keyPath="self.representedObject.username" previousBinding="BfR-Fy-hvn" id="WqN-0S-Gff">
+                                                <binding destination="xf9-aD-9fM" name="enabled2" keyPath="self.login.username" previousBinding="BfR-Fy-hvn" id="WqN-0S-Gff">
                                                     <dictionary key="options">
                                                         <integer key="NSMultipleValuesPlaceholder" value="-1"/>
                                                         <integer key="NSNoSelectionPlaceholder" value="-1"/>
