@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		302D1458B2EB23D6A2F0ED09 /* Pods_AppSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */; };
 		4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */; };
-		4A0AB978249D369A00D74826 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB977249D369A00D74826 /* LoginController.swift */; };
-		4A0AB97A249D36C200D74826 /* LoginControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */; };
-		4A0AB97C249D371800D74826 /* NetworkServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */; };
 		4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* LoginTest.swift */; };
 		4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */; };
 		4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */; };
@@ -69,6 +66,9 @@
 		4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */; };
 		4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */; };
 		4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */; };
+		4AE7648724AC52DF00CAC3BA /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB977249D369A00D74826 /* LoginController.swift */; };
+		4AE7648824AC52EB00CAC3BA /* LoginControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */; };
+		4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648924AC536600CAC3BA /* MockInstaller.swift */; };
 		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
@@ -131,7 +131,6 @@
 		4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboardSpec.swift; sourceTree = "<group>"; };
 		4A0AB977249D369A00D74826 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerSpec.swift; sourceTree = "<group>"; };
-		4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpec.swift; sourceTree = "<group>"; };
 		4A0AB97D249D373E00D74826 /* LoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
 		4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTWaiter+Extension.swift"; sourceTree = "<group>"; };
 		4A1DC8D06D85415B5E5370B8 /* Pods-UnitSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitSpecs.release.xcconfig"; path = "Target Support Files/Pods-UnitSpecs/Pods-UnitSpecs.release.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +203,7 @@
 		4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholdersSpec.swift; sourceTree = "<group>"; };
 		4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedControllerSpec.swift; sourceTree = "<group>"; };
 		4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControllerSpec.swift; sourceTree = "<group>"; };
+		4AE7648924AC536600CAC3BA /* MockInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInstaller.swift; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -306,8 +306,6 @@
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
 				4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */,
-				4A0AB97B249D371800D74826 /* NetworkServiceSpec.swift */,
-				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
 				4A3F3C9E249090B50058C5D4 /* Bundle+openAtLoginSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
@@ -382,7 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
-				4A0AB977249D369A00D74826 /* LoginController.swift */,
 				4A3F3C9C24907B8F0058C5D4 /* Bundle+openAtLogin.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
@@ -405,6 +402,7 @@
 				4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */,
 				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
 				4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */,
+				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
 				4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */,
 				4AE7645624AAF15600CAC3BA /* Supporting Files */,
 			);
@@ -439,6 +437,7 @@
 			children = (
 				4AA188A12486FA90009CFACE /* Info.plist */,
 				4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */,
+				4AE7648924AC536600CAC3BA /* MockInstaller.swift */,
 				4AE7646324AAFD3000CAC3BA /* MockApplication.swift */,
 				4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */,
 				4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */,
@@ -494,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				4BA6952024AA7546008344B8 /* WindowController.swift */,
+				4A0AB977249D369A00D74826 /* LoginController.swift */,
 				4A81510324A332530080D260 /* TabViewController.swift */,
 				4A8150FF24A32E1C0080D260 /* ProgressController.swift */,
 				4A81510524A337EC0080D260 /* ConnectedController.swift */,
@@ -965,6 +965,7 @@
 				4AE7647424AB0FFB00CAC3BA /* BundleProxy.swift in Sources */,
 				4AE7646024AAFA4500CAC3BA /* ApplicationAdapter.swift in Sources */,
 				4AE7647124AB08CD00CAC3BA /* MoveToApplications.swift in Sources */,
+				4AE7648724AC52DF00CAC3BA /* LoginController.swift in Sources */,
 				4BD4D35024ABBC61009D8380 /* State.swift in Sources */,
 				4AE7645024AAEF8600CAC3BA /* Init.swift in Sources */,
 				4AE7646E24AB04B500CAC3BA /* ProgressController.swift in Sources */,
@@ -982,13 +983,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A0AB97A249D36C200D74826 /* LoginControllerSpec.swift in Sources */,
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
 				4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */,
 				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4A3F3C9F249090B50058C5D4 /* Bundle+openAtLoginSpec.swift in Sources */,
-				4A0AB97C249D371800D74826 /* NetworkServiceSpec.swift in Sources */,
 				4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,7 +1001,6 @@
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
 				4AE7645924AAF8D900CAC3BA /* Bundle+DependencyContainer.swift in Sources */,
-				4A0AB978249D369A00D74826 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,6 +1012,7 @@
 				4AE7646224AAFCFE00CAC3BA /* WindowControllerSpec.swift in Sources */,
 				4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */,
 				4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */,
+				4AE7648824AC52EB00CAC3BA /* LoginControllerSpec.swift in Sources */,
 				4AE7647624AB105700CAC3BA /* BundleProxySpec.swift in Sources */,
 				4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */,
 				4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */,
@@ -1023,6 +1022,7 @@
 				4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */,
 				4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */,
 				4BD4D36424ABCB95009D8380 /* MockStatusItem.swift in Sources */,
+				4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
