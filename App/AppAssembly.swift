@@ -39,5 +39,6 @@ struct AppAssembly: Assembly {
             NSStatusBar.system
                 .statusItem(withLength: NSStatusItem.squareLength)
         }
+        container.autoregister { ErrorReporter() as ErrorReporting }
     }
 }

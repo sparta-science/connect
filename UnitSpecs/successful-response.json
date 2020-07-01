@@ -1,0 +1,24 @@
+{
+   "message":{
+      "downloadUrl":"https://sparta-science.s3.amazonaws.com/vernal_falls/1.4896.0/unix_darwin/vernal_falls.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQGGHDJFDUDGMKU7I%2F20200701%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200701T204829Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f5d3f527984afc1c2750e59b1896572bzfd9eebb21e6c85edecee22469e3458ce",
+      "vernalFallsVersion":"1.4896.0"
+   },
+   "org":{
+      "id":38,
+      "logoUrl":"https://cdn.filestackcontent.com/7UIZTVUJfSx6sfQQ53taw",
+      "name":"Training Ground",
+      "touchIconUrl":null
+   },
+   "user":{
+      "email":"sparta@example.com",
+      "id":4728,
+      "name":"Test Sparta User"
+   },
+   "vernalFallsConfig":{
+      "channel_shared_secret":"5d3315364-8962-43a6-997f-1b723c0c761a",
+      "channel_token_salt":"0ZdZSVtzHoYZS1xwJFF-IoQ7f_MtOscgJpIbV_nqq3L3398nAEV_4GZKOPdb1Ck2T",
+      "half_dome_host":"wss://staging.spartascience.com",
+      "secret_key_base":"8a3314325060197a13a9886ab6c922ff0c5c82ffd5cf1247d42096721433a02",
+      "vernal_falls_id":"654d1172-4f9-46ad-9948-6cfedefac4f9"
+   }
+}

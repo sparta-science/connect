@@ -71,6 +71,12 @@
 		4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648924AC536600CAC3BA /* MockInstaller.swift */; };
 		4AE7649124AC7C5A00CAC3BA /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */; };
 		4AE7649324AC7C6C00CAC3BA /* LoginRequestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */; };
+		4AE7649524AD37FC00CAC3BA /* successful-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AE7649424AD37FC00CAC3BA /* successful-response.json */; };
+		4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AE7649624AD390600CAC3BA /* server-error-response.json */; };
+		4AE7649924AD3AD200CAC3BA /* MockErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */; };
+		4AE7649B24AD3C8500CAC3BA /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */; };
+		4AE7649D24AD3CBA00CAC3BA /* ErrorReporterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649C24AD3CBA00CAC3BA /* ErrorReporterSpec.swift */; };
+		4AE7649F24AD475A00CAC3BA /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649E24AD475A00CAC3BA /* MockError.swift */; };
 		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
@@ -210,6 +216,12 @@
 		4AE7648C24AC694500CAC3BA /* team.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = team.xcconfig; sourceTree = "<group>"; };
 		4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestSpec.swift; sourceTree = "<group>"; };
+		4AE7649424AD37FC00CAC3BA /* successful-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "successful-response.json"; sourceTree = "<group>"; };
+		4AE7649624AD390600CAC3BA /* server-error-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "server-error-response.json"; sourceTree = "<group>"; };
+		4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockErrorReporter.swift; sourceTree = "<group>"; };
+		4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReporter.swift; sourceTree = "<group>"; };
+		4AE7649C24AD3CBA00CAC3BA /* ErrorReporterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReporterSpec.swift; sourceTree = "<group>"; };
+		4AE7649E24AD475A00CAC3BA /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -397,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4AE7649C24AD3CBA00CAC3BA /* ErrorReporterSpec.swift */,
 				4A2BB2C624AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift */,
 				4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */,
 				4BD4D36124ABC121009D8380 /* InstallerSpec.swift */,
@@ -444,7 +457,11 @@
 			children = (
 				4AA188A12486FA90009CFACE /* Info.plist */,
 				4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */,
+				4AE7649E24AD475A00CAC3BA /* MockError.swift */,
+				4AE7649424AD37FC00CAC3BA /* successful-response.json */,
+				4AE7649624AD390600CAC3BA /* server-error-response.json */,
 				4AE7648924AC536600CAC3BA /* MockInstaller.swift */,
+				4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */,
 				4AE7646324AAFD3000CAC3BA /* MockApplication.swift */,
 				4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */,
 				4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */,
@@ -534,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				4BD4D35D24ABC06F009D8380 /* Installer.swift */,
+				4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */,
 				4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */,
 			);
 			name = Service;
@@ -753,6 +771,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
+				4AE7649524AD37FC00CAC3BA /* successful-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,6 +1004,7 @@
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
 				4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */,
 				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
+				4AE7649B24AD3C8500CAC3BA /* ErrorReporter.swift in Sources */,
 				4AE7646D24AB03AA00CAC3BA /* TabViewController.swift in Sources */,
 				4BD4D35E24ABC06F009D8380 /* Installer.swift in Sources */,
 				4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */,
@@ -1019,6 +1040,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */,
+				4AE7649924AD3AD200CAC3BA /* MockErrorReporter.swift in Sources */,
 				4AE7646224AAFCFE00CAC3BA /* WindowControllerSpec.swift in Sources */,
 				4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */,
 				4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */,
@@ -1032,8 +1054,10 @@
 				4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */,
 				4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */,
 				4BD4D36424ABCB95009D8380 /* MockStatusItem.swift in Sources */,
+				4AE7649D24AD3CBA00CAC3BA /* ErrorReporterSpec.swift in Sources */,
 				4A2BB2C724AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift in Sources */,
 				4AE7649324AC7C6C00CAC3BA /* LoginRequestSpec.swift in Sources */,
+				4AE7649F24AD475A00CAC3BA /* MockError.swift in Sources */,
 				4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
