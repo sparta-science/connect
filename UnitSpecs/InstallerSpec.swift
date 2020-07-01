@@ -10,6 +10,33 @@ class InstallerSpec: QuickSpec {
             beforeEach {
                 subject = .init()
             }
+            context(Installer.makeRequest(_:)) {
+                context("success") {
+                    var request: URLRequest!
+                    beforeEach {
+                        request = .init(url: testBundleUrl("successful-response.json"))
+                    }
+                    it("should transition to complete") {
+                        subject.makeRequest(request)
+                        expect(subject.state).toEventually(equal(.complete))
+                    }
+                }
+                context("server error") {
+                    var request: URLRequest!
+                    var errorReporter: MockErrorReporter!
+                    beforeEach {
+                        errorReporter = .createAndInject()
+                        request = .init(url: testBundleUrl("server-error-response.json"))
+                    }
+                    it("should start progress, transition back to login and report error") {
+                        subject.makeRequest(request)
+                        expect(subject.state.progress()).toNot(beNil())
+                        expect(subject.state).toEventually(equal(.login))
+                        expect(errorReporter.didReport!.localizedDescription)
+                            == "Email and password are not valid"
+                    }
+                }
+            }
             context(Installer.beginInstallation) {
                 it("should transition to busy") {
                     subject.beginInstallation(login: .init())
