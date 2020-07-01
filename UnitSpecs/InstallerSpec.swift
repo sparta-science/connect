@@ -20,6 +20,24 @@ class InstallerSpec: QuickSpec {
                     }
                 }
             }
+            context(Installer.cancelInstallation) {
+                beforeEach {
+                    subject.state = .busy(value: .init())
+                }
+                it("should transition to login") {
+                    subject.cancelInstallation()
+                    expect(subject.state) == .login
+                }
+            }
+            context(Installer.uninstall) {
+                beforeEach {
+                    subject.state = .complete
+                }
+                it("should transition to login") {
+                    subject.uninstall()
+                    expect(subject.state) == .login
+                }
+            }
         }
     }
 }

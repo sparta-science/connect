@@ -10,8 +10,10 @@ extension Installer: Installation {
     }
 
     public func cancelInstallation() {
+        state = .login
     }
 
     public func uninstall() {
+        state = .login
     }
 }
