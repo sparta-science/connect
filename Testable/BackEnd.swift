@@ -1,6 +1,7 @@
 import Foundation
 
 public enum BackEnd: String {
+    // swiftlint:disable explicit_enum_raw_value
     case localhost
     case staging
     case production
