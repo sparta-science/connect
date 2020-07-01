@@ -13,4 +13,8 @@ DEVELOPMENT_TEAM = GB9B5L6A6K
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
+DEBUG_BACKEND=staging
+DEBUG_EMAIL=
+DEBUG_PASSWORD=
+
 #include? "local.xcconfig"

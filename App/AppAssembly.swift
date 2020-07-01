@@ -23,6 +23,7 @@ public extension Container {
 
 struct AppAssembly: Assembly {
     func assemble(container: Container) {
+        container.autoregister { ProcessInfo.processInfo }
         container.autoregister { Bundle.main }
         container.autoregister { Installer() }
         container.register { $0 + Installer.self as Installation }
