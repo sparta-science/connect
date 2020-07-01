@@ -34,7 +34,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   "NSBundle+LoginItem":
-    :commit: 6161618d4ea240b27d4182a8dd6826d38e788505
+    :commit: 6febdfb1d03fb8cc368c6d8061e6472aa0bc13a4
     :git: https://github.com/paulz/NSBundle-LoginItem.git
 
 SPEC CHECKSUMS:

@@ -21,4 +21,7 @@
 
 - (BOOL)isHiddenAtLogin;
 
+- (BOOL)openAtLogin;
+- (void)setOpenAtLogin:(BOOL)openAtLogin;
+
 @end

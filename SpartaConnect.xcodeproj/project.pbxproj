@@ -605,8 +605,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AA188AF2486FA90009CFACE /* Build configuration list for PBXNativeTarget "SpartaConnect" */;
 			buildPhases = (
-				4AE7647B24AB1FFA00CAC3BA /* Swift Lint autocorrect */,
 				BE4C2F2C83983B15E70C5C0D /* [CP] Check Pods Manifest.lock */,
+				4AE7647B24AB1FFA00CAC3BA /* Swift Lint autocorrect */,
 				4AA188852486FA90009CFACE /* Sources */,
 				4AA188862486FA90009CFACE /* Frameworks */,
 				4AA188872486FA90009CFACE /* Resources */,
