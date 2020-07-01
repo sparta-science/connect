@@ -69,6 +69,7 @@
 		4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */; };
 		4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */; };
 		4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */; };
+		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
 		4BD4D35024ABBC61009D8380 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34F24ABBC61009D8380 /* State.swift */; };
@@ -203,6 +204,7 @@
 		4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholdersSpec.swift; sourceTree = "<group>"; };
 		4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedControllerSpec.swift; sourceTree = "<group>"; };
 		4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressControllerSpec.swift; sourceTree = "<group>"; };
+		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				4BD4D35B24ABBF80009D8380 /* BackEndSpec.swift */,
 				4BD4D35324ABBCB6009D8380 /* StateSpec.swift */,
 				4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */,
+				4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */,
 				4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */,
 				4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */,
 				4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */,
@@ -1025,6 +1028,7 @@
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
 				4AE7645424AAF0A400CAC3BA /* TestHelper.swift in Sources */,
 				4BD4D35C24ABBF80009D8380 /* BackEndSpec.swift in Sources */,
+				4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

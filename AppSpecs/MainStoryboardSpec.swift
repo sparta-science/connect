@@ -29,6 +29,7 @@ class MainStoryboardSpec: QuickSpec {
                                 .first { $0.isKind(of: NSButton.self) } as? NSButton
                         }
                         it("should close window") {
+                            expect(doneButton.title) == "Done"
                             doneButton.performClick(nil)
                             expect(window.isVisible) == false
                         }

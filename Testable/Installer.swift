@@ -5,10 +5,6 @@ public class Installer: NSObject {
 }
 
 extension Installer: Installation {
-    public var statePublisher: AnyPublisher<State, Never> {
-        $state.eraseToAnyPublisher()
-    }
-
     public func beginInstallation(login: Login) {
     }
 

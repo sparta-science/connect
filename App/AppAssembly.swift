@@ -1,3 +1,4 @@
+import Combine
 import LetsMove
 import Swinject
 import SwinjectAutoregistration
@@ -23,14 +24,15 @@ public extension Container {
 struct AppAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister { Bundle.main }
+        container.autoregister { Installer() }
+        container.register(AnyPublisher<State, Never>.self) {
+            ($0 ~> Installer.self).$state.eraseToAnyPublisher()
+        }
         container.autoregister { NSApplication.shared }
         container.register { $0 + NSApplication.self as ApplicationAdapter }
         container.autoregister { NotificationCenter.default }
-        // swiftlint:disable:next trailing_closure
-        container.autoregister(
-            name: "move to applications",
-            initializer: { PFMoveToApplicationsFolderIfNecessary }
-        )
+        container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary }
+
         container.autoregister {
             NSStatusBar.system
                 .statusItem(withLength: NSStatusItem.squareLength)
