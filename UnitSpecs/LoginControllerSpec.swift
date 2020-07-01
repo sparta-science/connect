@@ -22,7 +22,7 @@ class LoginControllerSpec: QuickSpec {
             context(LoginController.awakeFromNib) {
                 beforeEach {
                     class MockProcessInfo: ProcessInfo {
-                        override var environment: [String : String] {
+                        override var environment: [String: String] {
                             [
                                 "debug-email": "diminution@evocative.com",
                                 "debug-password": "Loquacious",
