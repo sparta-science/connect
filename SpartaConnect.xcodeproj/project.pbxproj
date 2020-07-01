@@ -67,6 +67,8 @@
 		4AE7648724AC52DF00CAC3BA /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB977249D369A00D74826 /* LoginController.swift */; };
 		4AE7648824AC52EB00CAC3BA /* LoginControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */; };
 		4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648924AC536600CAC3BA /* MockInstaller.swift */; };
+		4AE7649124AC7C5A00CAC3BA /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */; };
+		4AE7649324AC7C6C00CAC3BA /* LoginRequestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */; };
 		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
@@ -201,6 +203,8 @@
 		4AE7648924AC536600CAC3BA /* MockInstaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockInstaller.swift; sourceTree = "<group>"; };
 		4AE7648B24AC694500CAC3BA /* local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = local.xcconfig; sourceTree = "<group>"; };
 		4AE7648C24AC694500CAC3BA /* team.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = team.xcconfig; sourceTree = "<group>"; };
+		4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestSpec.swift; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -388,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */,
 				4BD4D36124ABC121009D8380 /* InstallerSpec.swift */,
 				4BD4D35B24ABBF80009D8380 /* BackEndSpec.swift */,
 				4BD4D35324ABBCB6009D8380 /* StateSpec.swift */,
@@ -521,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				4BD4D35D24ABC06F009D8380 /* Installer.swift */,
+				4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -964,6 +970,7 @@
 				4AE7648724AC52DF00CAC3BA /* LoginController.swift in Sources */,
 				4BD4D35024ABBC61009D8380 /* State.swift in Sources */,
 				4AE7645024AAEF8600CAC3BA /* Init.swift in Sources */,
+				4AE7649124AC7C5A00CAC3BA /* LoginRequest.swift in Sources */,
 				4AE7646E24AB04B500CAC3BA /* ProgressController.swift in Sources */,
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
 				4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */,
@@ -1016,6 +1023,7 @@
 				4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */,
 				4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */,
 				4BD4D36424ABCB95009D8380 /* MockStatusItem.swift in Sources */,
+				4AE7649324AC7C6C00CAC3BA /* LoginRequestSpec.swift in Sources */,
 				4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
