@@ -53,13 +53,6 @@ class InstallerSpec: QuickSpec {
                 }
             }
             context(Installer.beginInstallation) {
-                beforeEach {
-                    let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
-                    TestDependency.register(Inject(FileManager.default))
-                    TestDependency.register(Inject(installationUrl, name: "installation url"))
-                    TestDependency.inject(MockErrorReporter())
-                }
-                // TODO: pz - cancel before error
                 it("should transition to busy") {
                     subject.beginInstallation(login: .init())
                     waitUntil { done in
@@ -67,7 +60,9 @@ class InstallerSpec: QuickSpec {
                             done()
                         }
                     }
-                    expect(subject.state).toEventually(equal(.login))
+                }
+                afterEach {
+                    subject.cancelInstallation()
                 }
             }
             context(Installer.cancelInstallation) {

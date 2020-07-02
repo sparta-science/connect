@@ -85,6 +85,7 @@ extension Installer: Installation {
     }
 
     public func cancelInstallation() {
+        cancellables.forEach { $0.cancel() }
         state = .login
     }
 
