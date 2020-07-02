@@ -48,7 +48,8 @@ struct AppAssembly: Assembly {
         container.register { $0 + ErrorReporter.self as ErrorReporting }
 
         container.register(name: "app support url") {
-            try? ($0 ~> FileManager.self).url(for: .applicationSupportDirectory,
+            // swiftlint:disable:next force_try
+            try! ($0 ~> FileManager.self).url(for: .applicationSupportDirectory,
                                               in: .userDomainMask,
                                               appropriateFor: nil,
                                               create: false)

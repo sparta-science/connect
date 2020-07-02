@@ -22,7 +22,7 @@ class LoginTest: XCTestCase {
         window.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0)).click()
     }
 
-    func testLogin() throws {
+    func testInvalidLogin() throws {
         let window = app.mainWindow()
         window.waitToAppear()
         let groups = window.groups
@@ -30,22 +30,26 @@ class LoginTest: XCTestCase {
         activateWindow(window: window)
         let popUpButton = window.popUpButtons.element
         popUpButton.clickView()
-        popUpButton.menuItems["localhost"].click()
+        popUpButton.menuItems["staging"].click()
 
         let loginButton = groups.buttons["Login"]
         XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
 
         let textField = groups.children(matching: .textField).element
         textField.click()
-        textField.typeText("superuser@example.com")
+        textField.typeText("user@example.com")
         XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
 
         let passwordField = groups.children(matching: .secureTextField).element
         passwordField.click()
-        passwordField.typeText("password123")
+        passwordField.typeText("password")
 
         loginButton.click()
         textField.waitToDisappear()
+        app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
+        app.dialogs.buttons["OK"].click()
+        window.buttons["Done"].click()
+
         verifyConnectShowsLogin()
     }
 
