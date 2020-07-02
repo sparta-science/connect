@@ -37,7 +37,7 @@ struct AppAssembly: Assembly {
 
         // MARK: Third party
         container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary }
-        
+
         // MARK: Application
         container.autoregister { Installer() }
         container.register { $0 + Installer.self as Installation }
@@ -45,6 +45,17 @@ struct AppAssembly: Assembly {
             ($0 ~> Installer.self).$state.eraseToAnyPublisher()
         }
         container.autoregister { ErrorReporter() }
-        container.autoregister { $0 + ErrorReporter.self as ErrorReporting }        
+        container.register { $0 + ErrorReporter.self as ErrorReporting }
+
+        container.register(name: "app support url") {
+            try? ($0 ~> FileManager.self).url(for: .applicationSupportDirectory,
+                                              in: .userDomainMask,
+                                              appropriateFor: nil,
+                                              create: false)
+        }
+        container.register(name: "installation url") {
+            ($0 ~> (service: URL.self, name: "app support url"))
+                .appendingPathComponent(($0 ~> Bundle.self).bundleIdentifier!)
+        }
     }
 }

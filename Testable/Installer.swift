@@ -5,21 +5,14 @@ public class Installer: NSObject {
     @Published public var state: State = .login
     var cancellables = Set<AnyCancellable>()
     @Inject var errorReporter: ErrorReporting
-    @Inject var bundle: Bundle
+    @Inject("installation url")
+    var installationURL: URL
+    @Inject var fileManager: FileManager
 }
 
 extension Installer: Installation {
-    public func installationURL() -> URL {
-        applicationSupportURL().appendingPathComponent(bundle.bundleIdentifier!)
-    }
-    public func applicationSupportURL() -> URL {
-        FileManager.default
-            .urls(for: .applicationSupportDirectory, in: .userDomainMask)
-            .last!
-    }
-
     public func vernalConfigURL() -> URL {
-        installationURL().appendingPathComponent("vernal_falls_config.yml")
+        installationURL.appendingPathComponent("vernal_falls_config.yml")
     }
 
     private func writeVernalFallsConfig(dictionary: [String: String]) throws {
@@ -41,6 +34,11 @@ extension Installer: Installation {
         }
     }
 
+    private func prepareLocation() throws {
+        try fileManager.createDirectory(at: installationURL,
+                                        withIntermediateDirectories: true)
+    }
+
     public func makeRequest(_ request: URLRequest) {
         let progress = Progress()
         progress.kind = .file
@@ -53,8 +51,7 @@ extension Installer: Installation {
             .map { $0.data }
             .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
             .tryMap { response -> HTTPLoginMessage in
-                try FileManager.default.createDirectory(at: self.installationURL(),
-                                                        withIntermediateDirectories: true)
+                try self.prepareLocation()
                 switch response {
                 case .failure(value: let serverError):
                     throw ApiError.server(message: serverError.error)

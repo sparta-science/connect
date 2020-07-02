@@ -11,20 +11,18 @@ class InstallerSpec: QuickSpec {
                 subject = .init()
             }
             context(Installer.makeRequest(_:)) {
+                let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
                 beforeEach {
-                    TestDependency.register(Inject(testBundle))
+                    TestDependency.register(Inject(FileManager.default))
+                    TestDependency.register(Inject(installationUrl, name: "installation url"))
                 }
                 context("success") {
                     var configUrl: URL!
                     var request: URLRequest!
                     let fileManager = FileManager.default
                     beforeEach {
-                        configUrl = try! FileManager.default
-                            .url(for: .applicationSupportDirectory,
-                                 in: .userDomainMask,
-                                 appropriateFor: nil,
-                                 create: true)
-                            .appendingPathComponent("com.spartascience.SpartaConnectTests/vernal_falls_config.yml")
+                        configUrl = installationUrl
+                            .appendingPathComponent("vernal_falls_config.yml")
                         try? fileManager.removeItem(at: configUrl)
                         expect(fileManager.fileExists(atPath: configUrl.path)) == false
                         request = .init(url: testBundleUrl("successful-response.json"))
@@ -55,6 +53,13 @@ class InstallerSpec: QuickSpec {
                 }
             }
             context(Installer.beginInstallation) {
+                beforeEach {
+                    let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
+                    TestDependency.register(Inject(FileManager.default))
+                    TestDependency.register(Inject(installationUrl, name: "installation url"))
+                    TestDependency.inject(MockErrorReporter())
+                }
+                // TODO: pz - cancel before error
                 it("should transition to busy") {
                     subject.beginInstallation(login: .init())
                     waitUntil { done in
@@ -62,6 +67,7 @@ class InstallerSpec: QuickSpec {
                             done()
                         }
                     }
+                    expect(subject.state).toEventually(equal(.login))
                 }
             }
             context(Installer.cancelInstallation) {
