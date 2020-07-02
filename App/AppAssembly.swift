@@ -23,22 +23,28 @@ public extension Container {
 
 struct AppAssembly: Assembly {
     func assemble(container: Container) {
+        // MARK: System
         container.autoregister { ProcessInfo.processInfo }
         container.autoregister { Bundle.main }
+        container.autoregister { FileManager.default }
+        container.autoregister { NSApplication.shared }
+        container.autoregister { NotificationCenter.default }
+        container.autoregister {
+            NSStatusBar.system
+                .statusItem(withLength: NSStatusItem.squareLength)
+        }
+        container.register { $0 + NSApplication.self as ApplicationAdapter }
+
+        // MARK: Third party
+        container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary }
+        
+        // MARK: Application
         container.autoregister { Installer() }
         container.register { $0 + Installer.self as Installation }
         container.register(AnyPublisher<State, Never>.self) {
             ($0 ~> Installer.self).$state.eraseToAnyPublisher()
         }
-        container.autoregister { NSApplication.shared }
-        container.register { $0 + NSApplication.self as ApplicationAdapter }
-        container.autoregister { NotificationCenter.default }
-        container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary }
-
-        container.autoregister {
-            NSStatusBar.system
-                .statusItem(withLength: NSStatusItem.squareLength)
-        }
-        container.autoregister { ErrorReporter() as ErrorReporting }
+        container.autoregister { ErrorReporter() }
+        container.autoregister { $0 + ErrorReporter.self as ErrorReporting }        
     }
 }
