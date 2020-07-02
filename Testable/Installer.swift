@@ -5,16 +5,30 @@ public class Installer: NSObject {
     @Published public var state: State = .login
     var cancellables = Set<AnyCancellable>()
     @Inject var errorReporter: ErrorReporting
+    @Inject var bundle: Bundle
 }
 
 extension Installer: Installation {
     public func installationURL() -> URL {
-        applicationSupportURL().appendingPathComponent(Bundle.main.bundleIdentifier!)
+        applicationSupportURL().appendingPathComponent(bundle.bundleIdentifier!)
     }
     public func applicationSupportURL() -> URL {
         FileManager.default
             .urls(for: .applicationSupportDirectory, in: .userDomainMask)
             .last!
+    }
+
+    public func vernalConfigURL() -> URL {
+        installationURL().appendingPathComponent("vernal_falls_config.yml")
+    }
+
+    private func writeVernalFallsConfig(dictionary: [String: String]) throws {
+        var contents = ""
+        dictionary.sorted(by: <).forEach { (key: String, value: String) in
+            contents.append(key + ": \"\(value)\"\n")
+        }
+        let destination = vernalConfigURL()
+        try contents.write(to: destination, atomically: true, encoding: .ascii)
     }
 
     public enum ApiError: LocalizedError {
@@ -46,8 +60,7 @@ extension Installer: Installation {
                     throw ApiError.server(message: serverError.error)
                 case .success(value: let success):
                     //                self.process(success.org)
-                    //                self.process(success.vernalFallsConfig)
-                    print(success.vernalFallsConfig)
+                    try self.writeVernalFallsConfig(dictionary: success.vernalFallsConfig)
                     return success.message
                 }
             }

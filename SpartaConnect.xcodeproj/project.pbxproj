@@ -77,6 +77,7 @@
 		4AE7649B24AD3C8500CAC3BA /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */; };
 		4AE7649D24AD3CBA00CAC3BA /* ErrorReporterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649C24AD3CBA00CAC3BA /* ErrorReporterSpec.swift */; };
 		4AE7649F24AD475A00CAC3BA /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649E24AD475A00CAC3BA /* MockError.swift */; };
+		4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4AE764A024AD6F0400CAC3BA /* expected-config.yml */; };
 		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
@@ -222,6 +223,7 @@
 		4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReporter.swift; sourceTree = "<group>"; };
 		4AE7649C24AD3CBA00CAC3BA /* ErrorReporterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReporterSpec.swift; sourceTree = "<group>"; };
 		4AE7649E24AD475A00CAC3BA /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
+		4AE764A024AD6F0400CAC3BA /* expected-config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "expected-config.yml"; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				4AA188A12486FA90009CFACE /* Info.plist */,
 				4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */,
 				4AE7649E24AD475A00CAC3BA /* MockError.swift */,
+				4AE764A024AD6F0400CAC3BA /* expected-config.yml */,
 				4AE7649424AD37FC00CAC3BA /* successful-response.json */,
 				4AE7649624AD390600CAC3BA /* server-error-response.json */,
 				4AE7648924AC536600CAC3BA /* MockInstaller.swift */,
@@ -773,6 +776,7 @@
 			files = (
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
 				4AE7649524AD37FC00CAC3BA /* successful-response.json in Resources */,
+				4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

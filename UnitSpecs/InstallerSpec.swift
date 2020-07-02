@@ -11,14 +11,31 @@ class InstallerSpec: QuickSpec {
                 subject = .init()
             }
             context(Installer.makeRequest(_:)) {
+                beforeEach {
+                    TestDependency.register(Inject(testBundle))
+                }
                 context("success") {
+                    var configUrl: URL!
                     var request: URLRequest!
+                    let fileManager = FileManager.default
                     beforeEach {
+                        configUrl = try! FileManager.default
+                            .url(for: .applicationSupportDirectory,
+                                 in: .userDomainMask,
+                                 appropriateFor: nil,
+                                 create: true)
+                            .appendingPathComponent("com.spartascience.SpartaConnectTests/vernal_falls_config.yml")
+                        try? fileManager.removeItem(at: configUrl)
+                        expect(fileManager.fileExists(atPath: configUrl.path)) == false
                         request = .init(url: testBundleUrl("successful-response.json"))
                     }
                     it("should transition to complete") {
                         subject.makeRequest(request)
                         expect(subject.state).toEventually(equal(.complete))
+                        let expectedPath = testBundleUrl("expected-config.yml").path
+                        let equalContent = fileManager.contentsEqual(atPath: configUrl.path,
+                                                                     andPath: expectedPath)
+                        expect(equalContent) == true
                     }
                 }
                 context("server error") {
