@@ -48,7 +48,9 @@ class LoginTest: XCTestCase {
         textField.waitToDisappear()
         app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
         app.dialogs.buttons["OK"].click()
+        window.click()
         window.buttons["Done"].click()
+        window.waitToDisappear()
 
         verifyConnectShowsLogin()
     }
