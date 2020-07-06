@@ -47,24 +47,21 @@ class InstallerSpec: QuickSpec {
                     beforeEach {
                         errorReporter = .createAndInject()
                     }
-                    // TODO: refactor duplication
-                    it("should report errors while connecting") {
+                    func beginLogin(urlString: String) {
                         let loginRequest = Init(LoginRequest()) {
-                            $0.baseUrlString = "file://invalid-url"
+                            $0.baseUrlString = urlString
                         }
-
                         subject.beginInstallation(login: loginRequest)
+                    }
+                    it("should report errors while connecting") {
+                        beginLogin(urlString: "file://invalid-url")
                         expect(subject.state.progress()).toNot(beNil())
                         expect(subject.state).toEventually(equal(.login))
                         expect(errorReporter.didReport!.localizedDescription)
                             == "The requested URL was not found on this server."
                     }
                     it("should start progress, transition back to login and report error from server") {
-                        let loginRequest = Init(LoginRequest()) {
-                            $0.baseUrlString = testBundleUrl("server-error-response.json").absoluteString
-                        }
-
-                        subject.beginInstallation(login: loginRequest)
+                        beginLogin(urlString: testBundleUrl("server-error-response.json").absoluteString)
                         expect(subject.state.progress()).toNot(beNil())
                         expect(subject.state).toEventually(equal(.login))
                         expect(errorReporter.didReport!.localizedDescription)
