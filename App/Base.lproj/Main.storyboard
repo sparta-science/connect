@@ -830,19 +830,14 @@
                                     <gridCell row="U7b-GX-FRB" column="qfz-VJ-eeS" id="x7g-eT-hlE">
                                         <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-rK-tfG">
                                             <rect key="frame" x="0.0" y="81" width="200" height="23"/>
-                                            <popUpButtonCell key="cell" type="roundTextured" title="localhost" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="LuG-pw-zzQ" id="bUo-c4-0UE">
+                                            <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="bUo-c4-0UE">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
-                                                <menu key="menu" id="wF1-fp-ckf">
-                                                    <items>
-                                                        <menuItem title="localhost" state="on" id="LuG-pw-zzQ"/>
-                                                        <menuItem title="staging" id="mFZ-aT-sIJ"/>
-                                                        <menuItem title="production" id="pd1-Ur-3OL"/>
-                                                    </items>
-                                                </menu>
+                                                <menu key="menu" id="wF1-fp-ckf"/>
                                             </popUpButtonCell>
                                             <connections>
-                                                <binding destination="xf9-aD-9fM" name="selectedValue" keyPath="self.login.environment" id="mTn-Gc-R06"/>
+                                                <binding destination="xf9-aD-9fM" name="content" keyPath="self.backEnds" id="QzK-9l-k2A"/>
+                                                <binding destination="xf9-aD-9fM" name="selectedValue" keyPath="self.login.environment" previousBinding="QzK-9l-k2A" id="Hc0-Cf-0Bt"/>
                                             </connections>
                                         </popUpButton>
                                     </gridCell>

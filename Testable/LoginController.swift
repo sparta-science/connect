@@ -5,6 +5,7 @@ public class LoginController: NSViewController {
     @objc public let login = Login()
     @Inject var installer: Installation
     @Inject var processInfo: ProcessInfo
+    @objc let backEnds = BackEnd.allCases.map { $0.rawValue }
 
     @IBAction public func connectAction(_ sender: NSButton) {
         installer.beginInstallation(login: login)
