@@ -5,10 +5,10 @@ public class LoginController: NSViewController {
     @objc public let login = Login()
     @Inject var installer: Installation
     @Inject var processInfo: ProcessInfo
-    @objc let backEnds = BackEnd.allCases.map { $0.rawValue }
+    @Inject @objc var locator: ServerLocatorProtocol
 
     @IBAction public func connectAction(_ sender: NSButton) {
-        installer.beginInstallation(login: login)
+        installer.beginInstallation(login: locator.loginRequest(login))
     }
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +21,10 @@ public class LoginController: NSViewController {
         login.password = env["debug-password"]
         #endif
     }
+}
+
+public class LoginRequest: NSObject {
+    var username: String = ""
+    var password: String = ""
+    var baseUrlString: String = ""
 }

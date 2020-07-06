@@ -79,7 +79,7 @@ extension Installer: Installation {
         .store(in: &cancellables)
     }
 
-    public func beginInstallation(login: Login) {
+    public func beginInstallation(login: LoginRequest) {
         assert(state == .login)
         makeRequest(loginRequest(login))
     }
