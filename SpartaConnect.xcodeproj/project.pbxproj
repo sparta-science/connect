@@ -79,6 +79,7 @@
 		4AE7649F24AD475A00CAC3BA /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649E24AD475A00CAC3BA /* MockError.swift */; };
 		4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4AE764A024AD6F0400CAC3BA /* expected-config.yml */; };
 		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
+		4AEFCBA824B3A2FD0065EA46 /* successful-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA724B3A2FD0065EA46 /* successful-response.json */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
 		4BD4D35024ABBC61009D8380 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34F24ABBC61009D8380 /* State.swift */; };
@@ -225,6 +226,7 @@
 		4AE7649E24AD475A00CAC3BA /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		4AE764A024AD6F0400CAC3BA /* expected-config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "expected-config.yml"; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
+		4AEFCBA724B3A2FD0065EA46 /* successful-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "successful-response.json"; path = "UnitSpecs/successful-response.json"; sourceTree = SOURCE_ROOT; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 			children = (
 				4AA188902486FA90009CFACE /* Assets.xcassets */,
 				4AA188952486FA90009CFACE /* Info.plist */,
+				4AEFCBA624B3A2A80065EA46 /* FakeServer */,
 				4AE7647D24AB239C00CAC3BA /* .swiftlint.yml */,
 				4AA188962486FA90009CFACE /* SpartaConnect.entitlements */,
 			);
@@ -504,6 +507,14 @@
 				4A3F3C75248C92720058C5D4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AEFCBA624B3A2A80065EA46 /* FakeServer */ = {
+			isa = PBXGroup;
+			children = (
+				4AEFCBA724B3A2FD0065EA46 /* successful-response.json */,
+			);
+			path = FakeServer;
 			sourceTree = "<group>";
 		};
 		4BD4D35524ABBE26009D8380 /* Model */ = {
@@ -767,6 +778,7 @@
 			files = (
 				4AA188912486FA90009CFACE /* Assets.xcassets in Resources */,
 				4AA188942486FA90009CFACE /* Main.storyboard in Resources */,
+				4AEFCBA824B3A2FD0065EA46 /* successful-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
