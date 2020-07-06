@@ -55,6 +55,10 @@ class LoginTest: XCTestCase {
             loginButton.click()
             window.buttons["Disconnect"].waitToAppear()
         }
+        XCTContext.runActivity(named: "disconnect") { _ in
+            window.buttons["Disconnect"].click()
+            textField.waitToAppear()
+        }
 
         window.click()
         window.buttons["Done"].click()
