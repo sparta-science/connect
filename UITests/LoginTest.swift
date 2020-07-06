@@ -22,7 +22,7 @@ class LoginTest: XCTestCase {
         window.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0)).click()
     }
 
-    func testInvalidLogin() throws {
+    func testValidAndInvalidLogin() throws {
         let window = app.mainWindow()
         window.waitToAppear()
         let groups = window.groups
@@ -48,6 +48,14 @@ class LoginTest: XCTestCase {
         textField.waitToDisappear()
         app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
         app.dialogs.buttons["OK"].click()
+
+        XCTContext.runActivity(named: "successful login") { _ in
+            popUpButton.clickView()
+            popUpButton.menuItems["fake server"].click()
+            loginButton.click()
+            window.buttons["Disconnect"].waitToAppear()
+        }
+
         window.click()
         window.buttons["Done"].click()
         window.waitToDisappear()
