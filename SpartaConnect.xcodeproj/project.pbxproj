@@ -32,6 +32,7 @@
 		4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */; };
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
 		4AC171C824B3DA410096BF33 /* MockLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C724B3DA410096BF33 /* MockLocator.swift */; };
+		4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */; };
@@ -193,6 +194,7 @@
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsTest.swift; sourceTree = "<group>"; };
 		4AC171C724B3DA410096BF33 /* MockLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocator.swift; sourceTree = "<group>"; };
+		4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerLocatorSpec.swift; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */,
 				4AE7649C24AD3CBA00CAC3BA /* ErrorReporterSpec.swift */,
 				4A2BB2C624AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift */,
 				4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */,
@@ -1086,6 +1089,7 @@
 				4AE7649324AC7C6C00CAC3BA /* LoginRequestSpec.swift in Sources */,
 				4AE7649F24AD475A00CAC3BA /* MockError.swift in Sources */,
 				4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */,
+				4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
