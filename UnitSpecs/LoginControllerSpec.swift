@@ -9,7 +9,7 @@ class LoginControllerSpec: QuickSpec {
             beforeEach {
                 subject = .init()
             }
-            context(LoginController.connectAction) {
+            xcontext(LoginController.connectAction) {
                 var mockInstaller: MockInstaller!
                 beforeEach {
                     mockInstaller = .createAndInject()

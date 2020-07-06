@@ -10,25 +10,31 @@ class InstallerSpec: QuickSpec {
             beforeEach {
                 subject = .init()
             }
-            context(Installer.makeRequest(_:)) {
+            context(Installer.beginInstallation(login:)) {
                 let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
-                beforeEach {
-                    TestDependency.register(Inject(FileManager.default))
-                    TestDependency.register(Inject(installationUrl, name: "installation url"))
-                }
                 context("success") {
+                    beforeEach {
+                        TestDependency.register(Inject(FileManager.default))
+                        TestDependency.register(Inject(installationUrl, name: "installation url"))
+                    }
                     var configUrl: URL!
-                    var request: URLRequest!
+                    var request: LoginRequest!
                     let fileManager = FileManager.default
                     beforeEach {
                         configUrl = installationUrl
                             .appendingPathComponent("vernal_falls_config.yml")
                         try? fileManager.removeItem(at: configUrl)
                         expect(fileManager.fileExists(atPath: configUrl.path)) == false
-                        request = .init(url: testBundleUrl("successful-response.json"))
+                        request = Init(.init()) {
+                            $0?.baseUrlString = testBundleUrl("successful-response.json").absoluteString
+                        }
                     }
-                    it("should transition to complete") {
-                        subject.makeRequest(request)
+                    it("should transition to busy then to complete") {
+                        subject.beginInstallation(login: request)
+                        guard case .busy = subject.state else {
+                            fail("should be busy")
+                            return
+                        }
                         expect(subject.state).toEventually(equal(.complete))
                         let expectedPath = testBundleUrl("expected-config.yml").path
                         let equalContent = fileManager.contentsEqual(atPath: configUrl.path,
@@ -37,32 +43,33 @@ class InstallerSpec: QuickSpec {
                     }
                 }
                 context("server error") {
-                    var request: URLRequest!
                     var errorReporter: MockErrorReporter!
                     beforeEach {
                         errorReporter = .createAndInject()
-                        request = .init(url: testBundleUrl("server-error-response.json"))
                     }
-                    it("should start progress, transition back to login and report error") {
-                        subject.makeRequest(request)
+                    // TODO: refactor duplication
+                    it("should report errors while connecting") {
+                        let loginRequest = Init(LoginRequest()) {
+                            $0.baseUrlString = "file://invalid-url"
+                        }
+
+                        subject.beginInstallation(login: loginRequest)
+                        expect(subject.state.progress()).toNot(beNil())
+                        expect(subject.state).toEventually(equal(.login))
+                        expect(errorReporter.didReport!.localizedDescription)
+                            == "The requested URL was not found on this server."
+                    }
+                    it("should start progress, transition back to login and report error from server") {
+                        let loginRequest = Init(LoginRequest()) {
+                            $0.baseUrlString = testBundleUrl("server-error-response.json").absoluteString
+                        }
+
+                        subject.beginInstallation(login: loginRequest)
                         expect(subject.state.progress()).toNot(beNil())
                         expect(subject.state).toEventually(equal(.login))
                         expect(errorReporter.didReport!.localizedDescription)
                             == "Email and password are not valid"
                     }
-                }
-            }
-            context(Installer.beginInstallation) {
-                it("should transition to busy") {
-                    subject.beginInstallation(login: .init())
-                    waitUntil { done in
-                        if case .busy = subject.state {
-                            done()
-                        }
-                    }
-                }
-                afterEach {
-                    subject.cancelInstallation()
                 }
             }
             context(Installer.cancelInstallation) {

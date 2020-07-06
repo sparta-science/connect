@@ -39,7 +39,7 @@ extension Installer: Installation {
                                         withIntermediateDirectories: true)
     }
 
-    public func makeRequest(_ request: URLRequest) {
+    public func beginInstallation(login: LoginRequest) {
         let progress = Progress()
         progress.kind = .file
         progress.fileOperationKind = .receiving
@@ -47,16 +47,16 @@ extension Installer: Installation {
         state = .busy(value: progress)
 
         URLSession.shared
-            .dataTaskPublisher(for: request)
+            .dataTaskPublisher(for: loginRequest(login))
             .map { $0.data }
             .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
             .tryMap { response -> HTTPLoginMessage in
-                try self.prepareLocation()
                 switch response {
                 case .failure(value: let serverError):
                     throw ApiError.server(message: serverError.error)
                 case .success(value: let success):
                     //                self.process(success.org)
+                    try self.prepareLocation()
                     try self.writeVernalFallsConfig(dictionary: success.vernalFallsConfig)
                     return success.message
                 }
@@ -77,11 +77,6 @@ extension Installer: Installation {
             self.state = .complete
         })
         .store(in: &cancellables)
-    }
-
-    public func beginInstallation(login: LoginRequest) {
-        assert(state == .login)
-        makeRequest(loginRequest(login))
     }
 
     public func cancelInstallation() {
