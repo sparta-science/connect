@@ -9,14 +9,16 @@ class LoginControllerSpec: QuickSpec {
             beforeEach {
                 subject = .init()
             }
-            xcontext(LoginController.connectAction) {
+            context(LoginController.connectAction) {
                 var mockInstaller: MockInstaller!
+                var mockLocator: MockLocator!
                 beforeEach {
                     mockInstaller = .createAndInject()
+                    mockLocator = .createAndInject()
                 }
                 it("should begin installation") {
                     subject.connectAction(.init())
-                    expect(mockInstaller.didBegin) === subject.login
+                    expect(mockInstaller.didBegin) === mockLocator.fakeLoginRequest
                 }
             }
             context(LoginController.awakeFromNib) {
