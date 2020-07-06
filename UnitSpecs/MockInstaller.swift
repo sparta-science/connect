@@ -1,8 +1,8 @@
 import Testable
 
 final class MockInstaller: Installation {
-    var didBegin: Login?
-    func beginInstallation(login: Login) {
+    var didBegin: LoginRequest?
+    func beginInstallation(login: LoginRequest) {
         didBegin = login
     }
 

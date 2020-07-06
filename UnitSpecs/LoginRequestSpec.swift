@@ -5,13 +5,13 @@ import Testable
 class LoginRequestSpec: QuickSpec {
     override func spec() {
         describe(loginRequest(_:)) {
-            var login: Login!
+            var login: LoginRequest!
             var subject: URLRequest!
             beforeEach {
                 login = Init(.init()) {
                     $0!.username = "Malfeasance"
                     $0!.password = "Confluence"
-                    $0!.environment = "localhost"
+                    $0!.baseUrlString = "http://localhost:4000"
                 }
                 subject = loginRequest(login)
             }

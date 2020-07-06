@@ -24,7 +24,7 @@ public class LoginController: NSViewController {
 }
 
 public class LoginRequest: NSObject {
-    var username: String = ""
-    var password: String = ""
-    var baseUrlString: String = ""
+    public var username: String = ""
+    public var password: String = ""
+    public var baseUrlString: String = ""
 }
