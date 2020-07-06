@@ -3,14 +3,11 @@ import Foundation
 public enum BackEnd: String, CaseIterable {
     // swiftlint:disable explicit_enum_raw_value
     case localhost
-    case fakeServer
+    case fakeServer = "fake server"
     case staging
     case production
-    public func choices() -> [String] {
-        AllCases().map { $0.rawValue }
-    }
-    public func baseUrl() -> URL {
-        let fileUrlString = Bundle.main.url(forResource: "successful-response", withExtension: "json")!.absoluteString
+    public func appSetupUrl(bundle: Bundle) -> URL {
+        let fileUrlString = bundle.url(forResource: "successful-response", withExtension: "json")!.absoluteString
         let environment: [BackEnd: String] = [
             .localhost: "http://localhost:4000/api/app-setup",
             .fakeServer: fileUrlString,
@@ -29,6 +26,8 @@ public protocol ServerLocatorProtocol {
 }
 
 public class ServerLocator: NSObject {
+    @Inject var bundle: Bundle
+
     override public init() {
         super.init()
     }
@@ -48,6 +47,6 @@ extension ServerLocator: ServerLocatorProtocol {
     }
 
     public func baseUrlString(_ server: String) -> String {
-        BackEnd(rawValue: server)!.baseUrl().absoluteString
+        BackEnd(rawValue: server)!.appSetupUrl(bundle: bundle).absoluteString
     }
 }

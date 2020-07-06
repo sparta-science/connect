@@ -4,12 +4,12 @@ import Testable
 
 class BackEndSpec: QuickSpec {
     override func spec() {
-        xdescribe(BackEnd.self) {
-            context(BackEnd.baseUrl) {
+        describe(BackEnd.self) {
+            context(BackEnd.appSetupUrl) {
                 context(BackEnd.production) {
                     it("should be home") {
-                        expect(BackEnd.production.baseUrl().absoluteString)
-                            == "https://home.spartascience.com"
+                        expect(BackEnd.production.appSetupUrl(bundle: testBundle).absoluteString)
+                            == "https://home.spartascience.com/api/app-setup"
                     }
                 }
             }
