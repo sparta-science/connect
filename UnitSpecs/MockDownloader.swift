@@ -7,8 +7,10 @@ final class MockDownloader: Downloading {
             try! "some contents\n".write(to: downloadedUrl!, atomically: true, encoding: .ascii)
         }
     }
+    var didProvideReporting: ((Progress) -> Void)?
     func createDownload(url: URL, reporting: @escaping (Progress) -> Void) -> AnyPublisher<URL, Error> {
-        CurrentValueSubject<URL, Error>(downloadedUrl!).eraseToAnyPublisher()
+        didProvideReporting = reporting
+        return CurrentValueSubject<URL, Error>(downloadedUrl!).eraseToAnyPublisher()
     }
 }
 

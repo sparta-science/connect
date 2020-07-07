@@ -51,8 +51,23 @@ class InstallerSpec: QuickSpec {
                     it("should download vernal falls archive") {
                         subject.beginInstallation(login: request)
                         expect(subject.state).toEventually(equal(.complete))
+                        expect(downloader.didProvideReporting).notTo(beNil())
                         verify(file: "expected_vernal_falls.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
+                    }
+                    it("should report downloding progress") {
+                        subject.beginInstallation(login: request)
+                        expect(subject.state).toEventually(equal(.complete))
+                        subject.state = .busy(value: .init())
+                        let progress = Progress()
+                        downloader.didProvideReporting!(progress)
+                        expect(subject.state) == .busy(value: progress)
+                    }
+                    it("should not become busy by pending callback of progressing downloads") {
+                        subject.beginInstallation(login: request)
+                        expect(subject.state).toEventually(equal(.complete))
+                        downloader.didProvideReporting!(.init())
+                        expect(subject.state) == .complete
                     }
                 }
                 context("server error") {
