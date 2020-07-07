@@ -39,5 +39,4 @@ class SpartaConnectApp: XCUIApplication {
             statusBarItem().clickView()
         } while !statusBarMenu().waitForExistence()
     }
-
 }

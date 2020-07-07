@@ -39,6 +39,7 @@ class TempAppHelper {
                         + "Are you sure you want to open this application?"
                 ].exists)
                 alert.buttons["Open"].click()
+                testLog("interrupted by first time open alert")
                 return true
             }
             return false
@@ -46,7 +47,6 @@ class TempAppHelper {
         removeMonitor = { test.removeUIInterruptionMonitor(openFirstTimeMonitor) }
         removeTempApp()
         let original = XCUIApplication().url
-        NSLog("original app: \(original)")
         fileHelper.copy(original, to: tempUrl)
     }
     private func removeTempApp() {
