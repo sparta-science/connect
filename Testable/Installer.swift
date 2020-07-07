@@ -2,7 +2,7 @@ import AppKit
 import Combine
 
 public protocol Downloading {
-    func createDownload(url: URL, to: URL, reporting: @escaping (Progress) -> Void) -> AnyPublisher<URL, Error>
+    func createDownload(url: URL, reporting: @escaping (Progress) -> Void) -> AnyPublisher<URL, Error>
 }
 
 public class Installer: NSObject {
@@ -44,8 +44,8 @@ extension Installer: Installation {
                                         withIntermediateDirectories: true)
     }
 
-    func download(url: URL) -> AnyPublisher<String, Error> {
-        fatalError()
+    func download(url: URL) -> AnyPublisher<URL, Error> {
+        downloader.createDownload(url: url, reporting: downloading(_:))
     }
 
     func downloadUrl() -> URL {
@@ -80,8 +80,10 @@ extension Installer: Installation {
                     return success.message
                 }
             }
+        .flatMap { self.download(url: $0.downloadUrl) }
         .tryMap {
-            self.download(url: $0.downloadUrl)
+            try? self.fileManager.removeItem(at: self.downloadUrl())
+            try self.fileManager.moveItem(at: $0, to: self.downloadUrl())
         }
         .sink(receiveCompletion: { complete in
             switch complete {

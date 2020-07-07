@@ -13,7 +13,9 @@ class InstallerSpec: QuickSpec {
             context(Installer.beginInstallation(login:)) {
                 let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
                 context("success") {
+                    var downloader: MockDownloader!
                     beforeEach {
+                        downloader = .createAndInject()
                         TestDependency.register(Inject(FileManager.default))
                         TestDependency.register(Inject(installationUrl, name: "installation url"))
                     }
@@ -28,13 +30,14 @@ class InstallerSpec: QuickSpec {
                         request = Init(.init()) {
                             $0?.baseUrlString = testBundleUrl("successful-response.json").absoluteString
                         }
+                        downloader.downloadedUrl = URL(fileURLWithPath: "/tmp/dowloaded.txt")
                     }
                     func verify(file: String, at url: URL) {
                         let expectedPath = testBundleUrl(file).path
                         let equalContent = fileManager.contentsEqual(atPath: url.path,
                                                                      andPath: expectedPath)
 
-                        expect(equalContent) == true
+                        expect(equalContent).to(beTrue(), description: "found: \(String(describing: try? String(contentsOf: url)))")
                     }
                     it("should transition to busy then to complete") {
                         subject.beginInstallation(login: request)

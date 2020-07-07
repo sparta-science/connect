@@ -36,6 +36,8 @@
 		4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */; };
 		4AC171CE24B3F6F80096BF33 /* SpartaConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */; };
 		4AC171D024B403F80096BF33 /* testLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CF24B403F80096BF33 /* testLog.swift */; };
+		4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D124B51DC40096BF33 /* MockDownloader.swift */; };
+		4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */; };
@@ -202,6 +204,8 @@
 		4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssemblySpec.swift; sourceTree = "<group>"; };
 		4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectApp.swift; sourceTree = "<group>"; };
 		4AC171CF24B403F80096BF33 /* testLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testLog.swift; sourceTree = "<group>"; };
+		4AC171D124B51DC40096BF33 /* MockDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDownloader.swift; sourceTree = "<group>"; };
+		4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = expected_vernal_falls.tar.gz; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
@@ -485,7 +489,9 @@
 			children = (
 				4AA188A12486FA90009CFACE /* Info.plist */,
 				4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */,
+				4AC171D124B51DC40096BF33 /* MockDownloader.swift */,
 				4AE7649E24AD475A00CAC3BA /* MockError.swift */,
+				4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */,
 				4AE764A024AD6F0400CAC3BA /* expected-config.yml */,
 				4AE7649424AD37FC00CAC3BA /* successful-response.json */,
 				4AE7649624AD390600CAC3BA /* server-error-response.json */,
@@ -814,6 +820,7 @@
 			files = (
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
 				4AE7649524AD37FC00CAC3BA /* successful-response.json in Resources */,
+				4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */,
 				4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1105,6 +1112,7 @@
 				4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */,
 				4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
+				4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
 				4AC171C824B3DA410096BF33 /* MockLocator.swift in Sources */,
