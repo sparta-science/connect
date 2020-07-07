@@ -1,6 +1,10 @@
 import AppKit
 import Combine
 
+public protocol Downloading {
+    func createDownload(url: URL, to: URL, reporting: @escaping (Progress) -> Void) -> AnyPublisher<URL, Error>
+}
+
 public class Installer: NSObject {
     @Published public var state: State = .login
     var cancellables = Set<AnyCancellable>()
@@ -8,6 +12,7 @@ public class Installer: NSObject {
     @Inject("installation url")
     var installationURL: URL
     @Inject var fileManager: FileManager
+    @Inject var downloader: Downloading
 }
 
 extension Installer: Installation {
@@ -39,6 +44,20 @@ extension Installer: Installation {
                                         withIntermediateDirectories: true)
     }
 
+    func download(url: URL) -> AnyPublisher<String, Error> {
+        fatalError()
+    }
+
+    func downloadUrl() -> URL {
+        installationURL.appendingPathComponent("vernal_falls.tar.gz")
+    }
+
+    func downloading(_ progress: Progress) {
+        if case .busy = state {
+            state = .busy(value: progress)
+        }
+    }
+
     public func beginInstallation(login: LoginRequest) {
         let progress = Progress()
         progress.kind = .file
@@ -61,6 +80,9 @@ extension Installer: Installation {
                     return success.message
                 }
             }
+        .tryMap {
+            self.download(url: $0.downloadUrl)
+        }
         .sink(receiveCompletion: { complete in
             switch complete {
             case .finished:
