@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.2.1)
   - LetsMove (1.24)
   - Nimble (8.1.1)
   - "NSBundle+LoginItem (1.0.4)"
@@ -10,6 +11,7 @@ PODS:
     - Swinject (~> 2.7)
 
 DEPENDENCIES:
+  - Alamofire
   - LetsMove
   - Nimble
   - "NSBundle+LoginItem (from `https://github.com/paulz/NSBundle-LoginItem.git`)"
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - LetsMove
     - Nimble
     - Quick
@@ -38,6 +41,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/paulz/NSBundle-LoginItem.git
 
 SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
   LetsMove: fefe56bc7bc7fb7d37049e28a14f297961229fc5
   Nimble: 5f8a2fb6fa343a7242dfdd9d42f7267419d464b2
   "NSBundle+LoginItem": 43a2fad3858e519c7a7fa117daf12e53278ee902
@@ -47,6 +51,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectAutoregistration: 330f5012642a8b5c89a8a4adb0c5e52df07382c0
 
-PODFILE CHECKSUM: 8a0afd5de877a9397ada57028089c69e95b58dc7
+PODFILE CHECKSUM: 8298a1eca62e28b70872e482f4b4e6221c2c8e6d
 
 COCOAPODS: 1.9.3
