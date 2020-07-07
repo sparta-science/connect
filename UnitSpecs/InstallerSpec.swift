@@ -29,6 +29,13 @@ class InstallerSpec: QuickSpec {
                             $0?.baseUrlString = testBundleUrl("successful-response.json").absoluteString
                         }
                     }
+                    func verify(file: String, at url: URL) {
+                        let expectedPath = testBundleUrl(file).path
+                        let equalContent = fileManager.contentsEqual(atPath: url.path,
+                                                                     andPath: expectedPath)
+
+                        expect(equalContent) == true
+                    }
                     it("should transition to busy then to complete") {
                         subject.beginInstallation(login: request)
                         guard case .busy = subject.state else {
@@ -36,10 +43,13 @@ class InstallerSpec: QuickSpec {
                             return
                         }
                         expect(subject.state).toEventually(equal(.complete))
-                        let expectedPath = testBundleUrl("expected-config.yml").path
-                        let equalContent = fileManager.contentsEqual(atPath: configUrl.path,
-                                                                     andPath: expectedPath)
-                        expect(equalContent) == true
+                        verify(file: "expected-config.yml", at: configUrl)
+                    }
+                    it("should download vernal falls archive") {
+                        subject.beginInstallation(login: request)
+                        expect(subject.state).toEventually(equal(.complete))
+                        verify(file: "expected_vernal_falls.tar.gz",
+                               at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
                 }
                 context("server error") {
