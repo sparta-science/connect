@@ -21,8 +21,8 @@ public extension Container {
     }
 }
 
-struct AppAssembly: Assembly {
-    func assemble(container: Container) {
+public struct AppAssembly: Assembly {
+    public func assemble(container: Container) {
         // MARK: System
         container.autoregister { ProcessInfo.processInfo }
         container.autoregister { Bundle.main }

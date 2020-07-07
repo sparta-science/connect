@@ -33,6 +33,7 @@
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
 		4AC171C824B3DA410096BF33 /* MockLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C724B3DA410096BF33 /* MockLocator.swift */; };
 		4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */; };
+		4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */; };
@@ -195,6 +196,7 @@
 		4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsTest.swift; sourceTree = "<group>"; };
 		4AC171C724B3DA410096BF33 /* MockLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocator.swift; sourceTree = "<group>"; };
 		4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerLocatorSpec.swift; sourceTree = "<group>"; };
+		4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssemblySpec.swift; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
 				4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */,
+				4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
 			);
@@ -1050,6 +1053,7 @@
 				4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */,
 				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
+				4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */,
 				4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
