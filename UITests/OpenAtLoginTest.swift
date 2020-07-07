@@ -2,16 +2,13 @@ import NSBundle_LoginItem
 import XCTest
 
 class OpenAtLoginTest: XCTestCase {
-    let app = XCUIApplication()
+    let app = SpartaConnectApp()
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         removeLoginItem()
-        app.launchArguments = [
-            "-moveToApplicationsFolderAlertSuppress", "YES"
-        ]
-        app.launch()
+        app.start()
     }
 
     override func tearDownWithError() throws {

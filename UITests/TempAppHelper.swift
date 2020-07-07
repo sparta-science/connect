@@ -6,8 +6,8 @@ class TempAppHelper {
     let fileHelper = FileHelper()
     var removeMonitor: (() -> Void)!
     let workspaceHelper = WorkspaceHelper()
-    func tempApp() -> XCUIApplication {
-        XCUIApplication(url: tempUrl)
+    func tempApp() -> SpartaConnectApp {
+        SpartaConnectApp(url: tempUrl)
     }
 
     func clearCache() {

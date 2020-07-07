@@ -1,14 +1,11 @@
 import XCTest
 
 class LoginTest: XCTestCase {
-    let app = XCUIApplication()
+    let app = SpartaConnectApp()
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
-        app.launchArguments = [
-            "-moveToApplicationsFolderAlertSuppress", "YES"
-        ]
-        app.launch()
+        app.start()
         app.activate()
         app.wait(until: .runningForeground)
     }
