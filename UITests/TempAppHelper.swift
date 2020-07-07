@@ -2,7 +2,7 @@ import XCTest
 
 class TempAppHelper {
     let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnectForUITest.app")
-    let bundleHelper = BundleHelper(bundleId: "com.spartascience.SpartaConnect")
+    let bundleHelper = BundleHelper()
     let fileHelper = FileHelper()
     var removeMonitor: (() -> Void)!
     let workspaceHelper = WorkspaceHelper()

@@ -2,6 +2,8 @@ import XCTest
 
 class LoginTest: XCTestCase {
     let app = SpartaConnectApp()
+    let bundleHelper = BundleHelper()
+
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
@@ -26,31 +28,40 @@ class LoginTest: XCTestCase {
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
         activateWindow(window: window)
         let popUpButton = window.popUpButtons.element
-        popUpButton.clickView()
-        popUpButton.menuItems["staging"].click()
-
         let loginButton = groups.buttons["Login"]
-        XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
-
         let textField = groups.children(matching: .textField).element
-        textField.click()
-        textField.typeText("user@example.com")
-        XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
-
         let passwordField = groups.children(matching: .secureTextField).element
-        passwordField.click()
-        passwordField.typeText("password")
 
-        loginButton.click()
-        textField.waitToDisappear()
-        app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
-        app.dialogs.buttons["OK"].click()
+        XCTContext.runActivity(named: "invalid login") { _ in
+            popUpButton.clickView()
+            popUpButton.menuItems["staging"].click()
+
+            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+
+            textField.click()
+            textField.typeText("user@example.com")
+            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+
+            let passwordField = groups.children(matching: .secureTextField).element
+            passwordField.click()
+            passwordField.typeText("password")
+
+            loginButton.click()
+            textField.waitToDisappear()
+            app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
+            app.dialogs.buttons["OK"].click()
+        }
 
         XCTContext.runActivity(named: "successful login") { _ in
             popUpButton.clickView()
             popUpButton.menuItems["fake server"].click()
+            textField.typeText("a")
+            passwordField.click()
+            passwordField.typeText("b")
             loginButton.click()
             window.buttons["Disconnect"].waitToAppear()
+
+            verifyVernalConfigPresent()
         }
         XCTContext.runActivity(named: "disconnect") { _ in
             window.buttons["Disconnect"].click()
@@ -62,6 +73,13 @@ class LoginTest: XCTestCase {
         window.waitToDisappear()
 
         verifyConnectShowsLogin()
+    }
+
+    func verifyVernalConfigPresent() {
+        let checkForConfig = bundleHelper.findVernalConfig()
+        let configFound = expectation(for: checkForConfig,
+                                           evaluatedWith: nil)
+        wait(for: [configFound], timeout: Timeout.test.rawValue)
     }
 
     func verifyConnectShowsLogin() {
