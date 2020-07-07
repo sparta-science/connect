@@ -10,8 +10,8 @@ class BundleHelper {
         fileHelper.find(file: fileName, at: cacheUrl().appendingPathComponent(subpath))
     }
 
-    func findVernalConfig() -> NSPredicate {
-        fileHelper.find(file: "vernal_falls_config.yml", at: appSupportURL())
+    func findInstalled(file: String) -> NSPredicate {
+        fileHelper.find(file: file, at: appSupportURL())
     }
 
     private func cacheUrl() -> URL {

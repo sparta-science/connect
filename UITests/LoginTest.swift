@@ -53,15 +53,18 @@ class LoginTest: XCTestCase {
         }
 
         XCTContext.runActivity(named: "successful login") { _ in
+            activateWindow(window: window)
             popUpButton.clickView()
             popUpButton.menuItems["fake server"].click()
+            textField.click()
             textField.typeText("a")
             passwordField.click()
             passwordField.typeText("b")
             loginButton.click()
             window.buttons["Disconnect"].waitToAppear()
 
-            verifyVernalConfigPresent()
+            verifyInstalled(file: "vernal_falls_config.yml")
+            verifyInstalled(file: "vernal_falls.tar.gz")
         }
         XCTContext.runActivity(named: "disconnect") { _ in
             window.buttons["Disconnect"].click()
@@ -75,11 +78,12 @@ class LoginTest: XCTestCase {
         verifyConnectShowsLogin()
     }
 
-    func verifyVernalConfigPresent() {
-        let checkForConfig = bundleHelper.findVernalConfig()
-        let configFound = expectation(for: checkForConfig,
+    func verifyInstalled(file: String) {
+        let checkForFile = bundleHelper.findInstalled(file: file)
+        let fileFound = expectation(for: checkForFile,
                                            evaluatedWith: nil)
-        wait(for: [configFound], timeout: Timeout.test.rawValue)
+        fileFound.expectationDescription = "finding file: " + file
+        wait(for: [fileFound], timeout: Timeout.test.rawValue)
     }
 
     func verifyConnectShowsLogin() {
