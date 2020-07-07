@@ -29,8 +29,7 @@ class LoginTest: XCTestCase {
         activateWindow(window: window)
         let popUpButton = window.popUpButtons.element
         let loginButton = groups.buttons["Login"]
-        let textField = groups.children(matching: .textField).element
-        let passwordField = groups.children(matching: .secureTextField).element
+        let disconnectButton = window.buttons["Disconnect"]
 
         XCTContext.runActivity(named: "invalid login") { _ in
             popUpButton.clickView()
@@ -38,14 +37,10 @@ class LoginTest: XCTestCase {
 
             XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
 
-            textField.clickAndType("user@example.com")
+            app.enter(username: "user@example.com")
             XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
-
-            let passwordField = groups.children(matching: .secureTextField).element
-            passwordField.clickAndType("password")
-
+            app.enter(password: "password")
             loginButton.click()
-            textField.waitToDisappear()
             app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
             app.dialogs.buttons["OK"].click()
         }
@@ -54,17 +49,17 @@ class LoginTest: XCTestCase {
             activateWindow(window: window)
             popUpButton.clickView()
             popUpButton.menuItems["fake server"].click()
-            textField.clickAndType("a")
-            passwordField.clickAndType("b")
+            app.enter(username: "a")
+            app.enter(password: "b")
             loginButton.click()
-            window.buttons["Disconnect"].waitToAppear()
+            disconnectButton.waitToAppear()
 
             verifyInstalled(file: "vernal_falls_config.yml")
             verifyInstalled(file: "vernal_falls.tar.gz")
         }
         XCTContext.runActivity(named: "disconnect") { _ in
-            window.buttons["Disconnect"].click()
-            textField.waitToAppear()
+            disconnectButton.click()
+            disconnectButton.waitToDisappear()
         }
 
         window.click()
