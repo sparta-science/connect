@@ -38,13 +38,11 @@ class LoginTest: XCTestCase {
 
             XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
 
-            textField.click()
-            textField.typeText("user@example.com")
+            textField.clickAndType("user@example.com")
             XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
 
             let passwordField = groups.children(matching: .secureTextField).element
-            passwordField.click()
-            passwordField.typeText("password")
+            passwordField.clickAndType("password")
 
             loginButton.click()
             textField.waitToDisappear()
@@ -56,10 +54,8 @@ class LoginTest: XCTestCase {
             activateWindow(window: window)
             popUpButton.clickView()
             popUpButton.menuItems["fake server"].click()
-            textField.click()
-            textField.typeText("a")
-            passwordField.click()
-            passwordField.typeText("b")
+            textField.clickAndType("a")
+            passwordField.clickAndType("b")
             loginButton.click()
             window.buttons["Disconnect"].waitToAppear()
 
