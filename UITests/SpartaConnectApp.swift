@@ -22,4 +22,22 @@ class SpartaConnectApp: XCUIApplication {
     func mainWindow() -> XCUIElement {
         windows["Connect to Sparta Science"]
     }
+    enum Identifier: String {
+        case statusBarItem = "Sparta"
+    }
+
+    func statusBarMenu() -> XCUIElement {
+        statusBarItem().menus.element
+    }
+
+    func statusBarItem() -> XCUIElement {
+        statusBarItem(Identifier.statusBarItem.rawValue)
+    }
+
+    func clickStatusItem() {
+        repeat {
+            statusBarItem().clickView()
+        } while !statusBarMenu().waitForExistence()
+    }
+
 }

@@ -11,12 +11,12 @@ extension XCUIApplication {
         URL(fileURLWithPath: path)
     }
 
-    func statusBarMenu() -> XCUIElement {
-        statusBarItem().menus.element
+    func statusBarMenu(_ identifier: String) -> XCUIElement {
+        statusBarItem(identifier).menus.element
     }
 
-    func statusBarItem() -> XCUIElement {
-        menuBars.statusItems.element(matching: .statusItem, identifier: "Sparta")
+    func statusBarItem(_ identifier: String) -> XCUIElement {
+        menuBars.statusItems.element(matching: .statusItem, identifier: identifier)
     }
 
     @discardableResult
@@ -24,10 +24,10 @@ extension XCUIApplication {
         wait(for: state, timeout: timeout.rawValue)
     }
 
-    func clickStatusItem() {
+    func clickStatusItem(_ identifier: String) {
         repeat {
-            statusBarItem().clickView()
-        } while !statusBarMenu().waitForExistence()
+            statusBarItem(identifier).clickView()
+        } while !statusBarMenu(identifier).waitForExistence()
     }
 
     func wait(until newState: XCUIApplication.State,
