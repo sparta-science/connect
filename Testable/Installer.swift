@@ -40,10 +40,6 @@ extension Installer: Installation {
                                         withIntermediateDirectories: true)
     }
 
-    func download(url: URL) -> AnyPublisher<URL, Error> {
-        downloader.createDownload(url: url, reporting: downloading(_:))
-    }
-
     var downloadUrl: URL {
         installationURL.appendingPathComponent("vernal_falls.tar.gz")
     }
@@ -66,11 +62,16 @@ extension Installer: Installation {
             .map { $0.data }
             .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
             .tryMap(transform(response:))
-            .flatMap { self.download(url: $0.downloadUrl) }
+            .flatMap(startDownload(message:))
             .tryMap(process(downloaded:))
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: when(complete:)) { _ in }
             .store(in: &cancellables)
+    }
+
+    private func startDownload(message: HTTPLoginMessage) -> DownloadPublisher {
+        downloader.createDownload(url: message.downloadUrl,
+                                  reporting: downloading(_:))
     }
 
     private func process(downloaded: URL) throws {
