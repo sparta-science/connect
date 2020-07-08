@@ -44,7 +44,7 @@ extension Installer: Installation {
         downloader.createDownload(url: url, reporting: downloading(_:))
     }
 
-    func downloadUrl() -> URL {
+    var downloadUrl: URL {
         installationURL.appendingPathComponent("vernal_falls.tar.gz")
     }
 
@@ -65,25 +65,29 @@ extension Installer: Installation {
             .dataTaskPublisher(for: loginRequest(login))
             .map { $0.data }
             .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
-            .tryMap { response -> HTTPLoginMessage in
-                switch response {
-                case .failure(value: let serverError):
-                    throw ApiError.server(message: serverError.error)
-                case .success(value: let success):
-                    //                self.process(success.org)
-                    try self.prepareLocation()
-                    try self.writeVernalFallsConfig(dictionary: success.vernalFallsConfig)
-                    return success.message
-                }
-            }
-        .flatMap { self.download(url: $0.downloadUrl) }
-        .tryMap {
-            try? self.fileManager.removeItem(at: self.downloadUrl())
-            try self.fileManager.moveItem(at: $0, to: self.downloadUrl())
+            .tryMap(transform(response:))
+            .flatMap { self.download(url: $0.downloadUrl) }
+            .tryMap(process(downloaded:))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: when(complete:)) { _ in }
+            .store(in: &cancellables)
+    }
+
+    private func process(downloaded: URL) throws {
+        try? fileManager.removeItem(at: downloadUrl)
+        try fileManager.moveItem(at: downloaded, to: downloadUrl)
+    }
+
+    private func transform(response: HTTPLoginResponse) throws -> HTTPLoginMessage {
+        switch response {
+        case .failure(value: let serverError):
+            throw ApiError.server(message: serverError.error)
+        case .success(value: let success):
+            //                self.process(success.org)
+            try prepareLocation()
+            try writeVernalFallsConfig(dictionary: success.vernalFallsConfig)
+            return success.message
         }
-        .receive(on: DispatchQueue.main)
-        .sink(receiveCompletion: when(complete:)) { _ in }
-        .store(in: &cancellables)
     }
 
     private func when(complete: Subscribers.Completion<Error>) {
