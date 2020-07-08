@@ -38,6 +38,8 @@
 		4AC171D024B403F80096BF33 /* testLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CF24B403F80096BF33 /* testLog.swift */; };
 		4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D124B51DC40096BF33 /* MockDownloader.swift */; };
 		4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */; };
+		4AC171D624B538F10096BF33 /* DownloaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D524B538F10096BF33 /* DownloaderSpec.swift */; };
+		4AC171D724B539C70096BF33 /* expected_vernal_falls.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */; };
@@ -206,6 +208,7 @@
 		4AC171CF24B403F80096BF33 /* testLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testLog.swift; sourceTree = "<group>"; };
 		4AC171D124B51DC40096BF33 /* MockDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDownloader.swift; sourceTree = "<group>"; };
 		4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = expected_vernal_falls.tar.gz; sourceTree = "<group>"; };
+		4AC171D524B538F10096BF33 /* DownloaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderSpec.swift; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
@@ -350,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
+				4AC171D524B538F10096BF33 /* DownloaderSpec.swift */,
 				4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */,
 				4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
@@ -801,6 +805,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC171D724B539C70096BF33 /* expected_vernal_falls.tar.gz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,6 +1076,7 @@
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */,
 				4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */,
+				4AC171D624B538F10096BF33 /* DownloaderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
