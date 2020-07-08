@@ -39,4 +39,10 @@ class SpartaConnectApp: XCUIApplication {
             statusBarItem().clickView()
         } while !statusBarMenu().waitForExistence()
     }
+    func enter(username: String) {
+        descendants(matching: .textField).element.clickAndType(username)
+    }
+    func enter(password: String) {
+        descendants(matching: .secureTextField).element.clickAndType(password)
+    }
 }

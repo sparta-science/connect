@@ -43,6 +43,8 @@ public struct AppAssembly: Assembly {
         container.register { $0 + ServerLocator.self as ServerLocatorProtocol }
         container.autoregister { Installer() }
         container.register { $0 + Installer.self as Installation }
+        container.autoregister { Downloader() }
+        container.register { $0 + Downloader.self as Downloading }
         container.register(AnyPublisher<State, Never>.self) {
             ($0 ~> Installer.self).$state.eraseToAnyPublisher()
         }

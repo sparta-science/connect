@@ -8,6 +8,7 @@ public class Installer: NSObject {
     @Inject("installation url")
     var installationURL: URL
     @Inject var fileManager: FileManager
+    @Inject var downloader: Downloading
 }
 
 extension Installer: Installation {
@@ -39,6 +40,16 @@ extension Installer: Installation {
                                         withIntermediateDirectories: true)
     }
 
+    var downloadUrl: URL {
+        installationURL.appendingPathComponent("vernal_falls.tar.gz")
+    }
+
+    func downloading(_ progress: Progress) {
+        if case .busy = state {
+            state = .busy(value: progress)
+        }
+    }
+
     public func beginInstallation(login: LoginRequest) {
         let progress = Progress()
         progress.kind = .file
@@ -50,33 +61,44 @@ extension Installer: Installation {
             .dataTaskPublisher(for: loginRequest(login))
             .map { $0.data }
             .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
-            .tryMap { response -> HTTPLoginMessage in
-                switch response {
-                case .failure(value: let serverError):
-                    throw ApiError.server(message: serverError.error)
-                case .success(value: let success):
-                    //                self.process(success.org)
-                    try self.prepareLocation()
-                    try self.writeVernalFallsConfig(dictionary: success.vernalFallsConfig)
-                    return success.message
-                }
-            }
-        .sink(receiveCompletion: { complete in
-            switch complete {
-            case .finished:
-                print("Finished")
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.cancelInstallation()
-                    self.errorReporter.report(error: error)
-                }
-                print("failure error: ", error)
-            }
-        }, receiveValue: { response in
-            print("final response: ", response)
-            self.state = .complete
-        })
-        .store(in: &cancellables)
+            .tryMap(transform(response:))
+            .flatMap(startDownload(message:))
+            .tryMap(process(downloaded:))
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: when(complete:)) { _ in }
+            .store(in: &cancellables)
+    }
+
+    private func startDownload(message: HTTPLoginMessage) -> DownloadPublisher {
+        downloader.createDownload(url: message.downloadUrl,
+                                  reporting: downloading(_:))
+    }
+
+    private func process(downloaded: URL) throws {
+        try? fileManager.removeItem(at: downloadUrl)
+        try fileManager.moveItem(at: downloaded, to: downloadUrl)
+    }
+
+    private func transform(response: HTTPLoginResponse) throws -> HTTPLoginMessage {
+        switch response {
+        case .failure(value: let serverError):
+            throw ApiError.server(message: serverError.error)
+        case .success(value: let success):
+            //                self.process(success.org)
+            try prepareLocation()
+            try writeVernalFallsConfig(dictionary: success.vernalFallsConfig)
+            return success.message
+        }
+    }
+
+    private func when(complete: Subscribers.Completion<Error>) {
+        switch complete {
+        case .finished:
+            state = .complete
+        case .failure(let error):
+            cancelInstallation()
+            errorReporter.report(error: error)
+        }
     }
 
     public func cancelInstallation() {

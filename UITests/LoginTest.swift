@@ -2,10 +2,13 @@ import XCTest
 
 class LoginTest: XCTestCase {
     let app = SpartaConnectApp()
+    let bundleHelper = BundleHelper()
+
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
         app.start()
+        bundleHelper.eraseInstallation()
         app.activate()
         app.wait(until: .runningForeground)
     }
@@ -26,42 +29,55 @@ class LoginTest: XCTestCase {
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
         activateWindow(window: window)
         let popUpButton = window.popUpButtons.element
-        popUpButton.clickView()
-        popUpButton.menuItems["staging"].click()
-
         let loginButton = groups.buttons["Login"]
-        XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+//        let disconnectButton = window.buttons["Disconnect"]
 
-        let textField = groups.children(matching: .textField).element
-        textField.click()
-        textField.typeText("user@example.com")
-        XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+        XCTContext.runActivity(named: "invalid login") { _ in
+            popUpButton.clickView()
+            popUpButton.menuItems["staging"].click()
 
-        let passwordField = groups.children(matching: .secureTextField).element
-        passwordField.click()
-        passwordField.typeText("password")
+            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
 
-        loginButton.click()
-        textField.waitToDisappear()
-        app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
-        app.dialogs.buttons["OK"].click()
+            app.enter(username: "user@example.com")
+            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+            app.enter(password: "password")
+            loginButton.click()
+            app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
+            app.dialogs.buttons["OK"].click()
+        }
 
-        XCTContext.runActivity(named: "successful login") { _ in
+        XCTContext.runActivity(named: "successful login failing download") { _ in
+            activateWindow(window: window)
             popUpButton.clickView()
             popUpButton.menuItems["fake server"].click()
+            app.enter(username: "a")
+            app.enter(password: "b")
             loginButton.click()
-            window.buttons["Disconnect"].waitToAppear()
+            app.dialogs.staticTexts["Response status code was unacceptable: 403."].waitToAppear()
+            app.dialogs.buttons["OK"].click()
+
+            verifyInstalled(file: "vernal_falls_config.yml")
+            // TODO: pz - create fake file to download in tests
+//            verifyInstalled(file: "vernal_falls.tar.gz")
         }
-        XCTContext.runActivity(named: "disconnect") { _ in
-            window.buttons["Disconnect"].click()
-            textField.waitToAppear()
-        }
+//        XCTContext.runActivity(named: "disconnect") { _ in
+//            disconnectButton.click()
+//            disconnectButton.waitToDisappear()
+//        }
 
         window.click()
         window.buttons["Done"].click()
         window.waitToDisappear()
 
         verifyConnectShowsLogin()
+    }
+
+    func verifyInstalled(file: String) {
+        let checkForFile = bundleHelper.findInstalled(file: file)
+        let fileFound = expectation(for: checkForFile,
+                                           evaluatedWith: nil)
+        fileFound.expectationDescription = "finding file: " + file
+        wait(for: [fileFound], timeout: Timeout.test.rawValue)
     }
 
     func verifyConnectShowsLogin() {

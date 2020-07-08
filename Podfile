@@ -10,6 +10,7 @@ end
 pod 'SwiftLint'                   # enforce Swift style and conventions
 
 target 'SpartaConnect' do
+  pod 'Alamofire'                 # networking
   pod 'SwinjectAutoregistration'  # autoregister using init for dependency injection
   pod 'Sparkle'                   # auto-update the app
   pod 'LetsMove'                  # move app to Applications folder

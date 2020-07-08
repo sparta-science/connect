@@ -36,6 +36,11 @@
 		4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */; };
 		4AC171CE24B3F6F80096BF33 /* SpartaConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */; };
 		4AC171D024B403F80096BF33 /* testLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CF24B403F80096BF33 /* testLog.swift */; };
+		4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D124B51DC40096BF33 /* MockDownloader.swift */; };
+		4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */; };
+		4AC171D624B538F10096BF33 /* DownloaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D524B538F10096BF33 /* DownloaderSpec.swift */; };
+		4AC171D724B539C70096BF33 /* expected_vernal_falls.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */; };
+		4AC171DA24B58A100096BF33 /* Downloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D924B58A100096BF33 /* Downloading.swift */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */; };
@@ -85,6 +90,7 @@
 		4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4AE764A024AD6F0400CAC3BA /* expected-config.yml */; };
 		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
 		4AEFCBA824B3A2FD0065EA46 /* successful-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA724B3A2FD0065EA46 /* successful-response.json */; };
+		4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA924B504090065EA46 /* Downloader.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
 		4BD4D35024ABBC61009D8380 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34F24ABBC61009D8380 /* State.swift */; };
@@ -201,6 +207,10 @@
 		4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssemblySpec.swift; sourceTree = "<group>"; };
 		4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectApp.swift; sourceTree = "<group>"; };
 		4AC171CF24B403F80096BF33 /* testLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testLog.swift; sourceTree = "<group>"; };
+		4AC171D124B51DC40096BF33 /* MockDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDownloader.swift; sourceTree = "<group>"; };
+		4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = expected_vernal_falls.tar.gz; sourceTree = "<group>"; };
+		4AC171D524B538F10096BF33 /* DownloaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderSpec.swift; sourceTree = "<group>"; };
+		4AC171D924B58A100096BF33 /* Downloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloading.swift; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
@@ -244,6 +254,7 @@
 		4AE764A024AD6F0400CAC3BA /* expected-config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "expected-config.yml"; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
 		4AEFCBA724B3A2FD0065EA46 /* successful-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "successful-response.json"; path = "UnitSpecs/successful-response.json"; sourceTree = SOURCE_ROOT; };
+		4AEFCBA924B504090065EA46 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
@@ -344,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
+				4AC171D524B538F10096BF33 /* DownloaderSpec.swift */,
 				4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */,
 				4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
@@ -422,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
+				4AEFCBA924B504090065EA46 /* Downloader.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
 				4AE7647724AB133F00CAC3BA /* Supporting Files */,
@@ -482,7 +495,9 @@
 			children = (
 				4AA188A12486FA90009CFACE /* Info.plist */,
 				4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */,
+				4AC171D124B51DC40096BF33 /* MockDownloader.swift */,
 				4AE7649E24AD475A00CAC3BA /* MockError.swift */,
+				4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */,
 				4AE764A024AD6F0400CAC3BA /* expected-config.yml */,
 				4AE7649424AD37FC00CAC3BA /* successful-response.json */,
 				4AE7649624AD390600CAC3BA /* server-error-response.json */,
@@ -587,6 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				4BD4D35D24ABC06F009D8380 /* Installer.swift */,
+				4AC171D924B58A100096BF33 /* Downloading.swift */,
 				4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */,
 				4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */,
 			);
@@ -792,6 +808,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC171D724B539C70096BF33 /* expected_vernal_falls.tar.gz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +828,7 @@
 			files = (
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
 				4AE7649524AD37FC00CAC3BA /* successful-response.json in Resources */,
+				4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */,
 				4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1043,6 +1061,7 @@
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
 				4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */,
 				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
+				4AC171DA24B58A100096BF33 /* Downloading.swift in Sources */,
 				4AE7649B24AD3C8500CAC3BA /* ErrorReporter.swift in Sources */,
 				4AE7646D24AB03AA00CAC3BA /* TabViewController.swift in Sources */,
 				4BD4D35E24ABC06F009D8380 /* Installer.swift in Sources */,
@@ -1061,6 +1080,7 @@
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */,
 				4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */,
+				4AC171D624B538F10096BF33 /* DownloaderSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,6 +1088,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */,
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
@@ -1101,6 +1122,7 @@
 				4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */,
 				4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
+				4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
 				4AC171C824B3DA410096BF33 /* MockLocator.swift in Sources */,
@@ -1193,7 +1215,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
