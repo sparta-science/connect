@@ -12,6 +12,8 @@ jobs:
     runs-on: macos-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
+    - name: install direnv
+      run: brew outdated direnv || brew install direnv
     - name: Change Local name to avoid name clash causing alert
       run: |
         sudo scutil --set LocalHostName "SpartaConnectGitHubCI"
