@@ -470,8 +470,8 @@
 		4AA188A92486FA90009CFACE /* UITests */ = {
 			isa = PBXGroup;
 			children = (
-				4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */,
 				4A0AB97D249D373E00D74826 /* LoginTest.swift */,
+				4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */,
 				4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */,
 				4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */,
 				4A3F3C99248F607F0058C5D4 /* Supporting Files */,

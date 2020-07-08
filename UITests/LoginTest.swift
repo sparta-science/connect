@@ -58,6 +58,6 @@ class LoginTest: XCTestCase {
         let fileFound = expectation(for: checkForFile,
                                            evaluatedWith: nil)
         fileFound.expectationDescription = "finding file: " + file
-        wait(for: [fileFound], timeout: Timeout.test.rawValue)
+        XCTWaiter.wait(until: fileFound, file + " should be installed")
     }
 }
