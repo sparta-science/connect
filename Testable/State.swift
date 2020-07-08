@@ -10,4 +10,11 @@ public enum State: Equatable {
         }
         return nil
     }
+    public static func startReceiving() -> Self {
+        .busy(value: Init(Progress()) {
+            $0.kind = .file
+            $0.fileOperationKind = .receiving
+            $0.isCancellable = true
+        })
+    }
 }

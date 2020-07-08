@@ -51,11 +51,7 @@ extension Installer: Installation {
     }
 
     public func beginInstallation(login: LoginRequest) {
-        let progress = Progress()
-        progress.kind = .file
-        progress.fileOperationKind = .receiving
-        progress.isCancellable = true
-        state = .busy(value: progress)
+        state = .startReceiving()
 
         URLSession.shared
             .dataTaskPublisher(for: loginRequest(login))
