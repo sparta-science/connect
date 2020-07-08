@@ -55,9 +55,7 @@ class LoginTest: XCTestCase {
 
     func verifyInstalled(file: String) {
         let checkForFile = bundleHelper.findInstalled(file: file)
-        let fileFound = expectation(for: checkForFile,
-                                           evaluatedWith: nil)
-        fileFound.expectationDescription = "finding file: " + file
-        XCTWaiter.wait(until: fileFound, file + " should be installed")
+        let isFileInstalled = XCTNSPredicateExpectation(predicate: checkForFile, object: nil)
+        XCTWaiter.wait(until: isFileInstalled, file + " should be installed")
     }
 }
