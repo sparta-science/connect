@@ -3,6 +3,8 @@ import Combine
 import Testable
 
 public class Downloader: Downloading {
+    @Inject var session: Session
+
     public func createDownload(url: URL,
                                reporting: @escaping (Progress) -> Void)
         -> AnyPublisher<URL, Error> {
@@ -15,8 +17,8 @@ public class Downloader: Downloading {
     private func futureDownload(url: URL,
                                 reporting: @escaping (Progress) -> Void)
         -> Future<URL?, AFError> {
-            .init() { promise in
-                AF.download(url)
+            .init() { [weak self] promise in
+                self?.session.download(url)
                     .response { promise($0.result) }
                     .downloadProgress(closure: reporting)
             }
