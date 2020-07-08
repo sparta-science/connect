@@ -45,6 +45,14 @@ class SpartaConnectApp: XCUIApplication {
     func enter(password: String) {
         descendants(matching: .secureTextField).element.clickAndType(password)
     }
+    func select(server environment: String) {
+        let window = connectWindow()
+        window.activateWindow()
+        let popUpButton = window.popUpButtons.element
+        popUpButton.clickView()
+        popUpButton.menuItems[environment].click()
+    }
+
     func closeConnectWindow() {
         let window = connectWindow()
         window.waitToAppear()

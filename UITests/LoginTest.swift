@@ -32,15 +32,10 @@ class LoginTest: XCTestCase {
     func testHappyValidLogin() throws {
         let window = app.connectWindow()
         let groups = window.groups
-        XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
-        activateWindow(window: window)
-        let popUpButton = window.popUpButtons.element
         let loginButton = groups.buttons["Login"]
         let disconnectButton = window.buttons["Disconnect"]
         XCTContext.runActivity(named: "successful login with successful download") { _ in
-            activateWindow(window: window)
-            popUpButton.clickView()
-            popUpButton.menuItems["fake server"].click()
+            app.select(server: "fake server")
             app.enter(username: "a")
             app.enter(password: "b")
             loginButton.click()
@@ -59,13 +54,10 @@ class LoginTest: XCTestCase {
         let groups = window.groups
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
         activateWindow(window: window)
-        let popUpButton = window.popUpButtons.element
         let loginButton = groups.buttons["Login"]
 
         XCTContext.runActivity(named: "invalid login") { _ in
-            popUpButton.clickView()
-            popUpButton.menuItems["staging"].click()
-
+            app.select(server: "staging")
             XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
 
             app.enter(username: "user@example.com")

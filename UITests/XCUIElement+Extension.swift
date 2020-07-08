@@ -58,4 +58,7 @@ extension XCUIElement {
         click()
         typeText(text)
     }
+    func activateWindow() {
+        coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0)).click()
+    }
 }
