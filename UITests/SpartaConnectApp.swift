@@ -19,7 +19,7 @@ class SpartaConnectApp: XCUIApplication {
             return alert
         }
     }
-    func mainWindow() -> XCUIElement {
+    func connectWindow() -> XCUIElement {
         windows["Connect to Sparta Science"]
     }
     enum Identifier: String {
@@ -44,5 +44,16 @@ class SpartaConnectApp: XCUIApplication {
     }
     func enter(password: String) {
         descendants(matching: .secureTextField).element.clickAndType(password)
+    }
+    func closeConnectWindow() {
+        let window = connectWindow()
+        window.waitToAppear()
+        window.click()
+        window.buttons["Done"].click()
+    }
+    func showConnectWindow() {
+        clickStatusItem()
+        statusBarMenu().menuItems["Connect..."].click()
+        connectWindow().waitToAppear()
     }
 }

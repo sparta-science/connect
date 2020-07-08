@@ -22,8 +22,15 @@ class LoginTest: XCTestCase {
         window.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0)).click()
     }
 
-    func testValidLogin() throws {
-        let window = app.mainWindow()
+    func testClickConnectShowsLogin() {
+        app.closeConnectWindow()
+        app.clickStatusItem()
+        app.statusBarMenu().menuItems["Connect..."].click()
+        app.connectWindow().waitToAppear()
+    }
+
+    func testHappyValidLogin() throws {
+        let window = app.connectWindow()
         window.waitToAppear()
         let groups = window.groups
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
@@ -53,7 +60,7 @@ class LoginTest: XCTestCase {
     }
 
     func testInvalidLogin() throws {
-        let window = app.mainWindow()
+        let window = app.connectWindow()
         window.waitToAppear()
         let groups = window.groups
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
@@ -86,16 +93,5 @@ class LoginTest: XCTestCase {
                                            evaluatedWith: nil)
         fileFound.expectationDescription = "finding file: " + file
         wait(for: [fileFound], timeout: Timeout.test.rawValue)
-    }
-
-    func testClickConnectShowsLogin() {
-        let window = app.mainWindow()
-        window.waitToAppear()
-        window.click()
-        window.buttons["Done"].click()
-
-        app.clickStatusItem()
-        app.statusBarMenu().menuItems["Connect..."].click()
-        app.mainWindow().waitToAppear()
     }
 }
