@@ -10,6 +10,10 @@ class BundleHelper {
         fileHelper.find(file: fileName, at: cacheUrl().appendingPathComponent(subpath))
     }
 
+    func eraseInstallation() {
+        fileHelper.remove(url: appSupportURL())
+    }
+
     func findInstalled(file: String) -> NSPredicate {
         fileHelper.find(file: file, at: appSupportURL())
     }
