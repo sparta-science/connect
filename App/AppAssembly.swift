@@ -1,4 +1,3 @@
-import Alamofire
 import Combine
 import LetsMove
 import Swinject
@@ -38,7 +37,6 @@ public struct AppAssembly: Assembly {
 
         // MARK: Third party
         container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary }
-        container.autoregister { Session.default }
 
         // MARK: Application
         container.autoregister { ServerLocator() }

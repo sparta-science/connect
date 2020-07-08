@@ -2,27 +2,33 @@ import Alamofire
 import Combine
 import Testable
 
-public class Downloader: Downloading {
-    @Inject var session: Session
+public typealias DownloadPublisher = AnyPublisher<URL, Error>
+public typealias Progressing = (Progress) -> Void
 
-    public func createDownload(url: URL,
-                               reporting: @escaping (Progress) -> Void)
-        -> AnyPublisher<URL, Error> {
-            futureDownload(url: url, reporting: reporting)
-                .compactMap { $0 }
-                .mapError { $0 }
-                .eraseToAnyPublisher()
+private struct CurrentDownload {
+    let url: URL
+    let reporting: Progressing
+
+    var publisher: DownloadPublisher {
+        Future<URL?, AFError>(fullfill(promise:))
+            .compactMap { $0 }
+            .mapError { $0 }
+            .eraseToAnyPublisher()
     }
+    var request: DownloadRequest {
+        AF.download(url)
+            .validate()
+            .downloadProgress(closure: reporting)
+    }
+    func fullfill(promise: @escaping Future<URL?, AFError>.Promise) {
+        request.response { promise($0.result) }
+    }
+}
 
-    private func futureDownload(url: URL,
-                                reporting: @escaping (Progress) -> Void)
-        -> Future<URL?, AFError> {
-            .init() { [weak self] promise in
-                self?.session.download(url)
-                    .response { promise($0.result) }
-                    .validate()
-                    .downloadProgress(closure: reporting)
-                    .response { promise($0.result) }
-            }
+public class Downloader: Downloading {
+    public func createDownload(url: URL,
+                               reporting: @escaping Progressing)
+        -> DownloadPublisher {
+            CurrentDownload(url: url, reporting: reporting).publisher
     }
 }
