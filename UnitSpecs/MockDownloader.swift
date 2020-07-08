@@ -10,7 +10,8 @@ final class MockDownloader: Downloading {
     var didProvideReporting: ((Progress) -> Void)?
     func createDownload(url: URL, reporting: @escaping (Progress) -> Void) -> AnyPublisher<URL, Error> {
         didProvideReporting = reporting
-        return CurrentValueSubject<URL, Error>(downloadedUrl!).eraseToAnyPublisher()
+        let result = Result<URL, Error>(catching: { downloadedUrl! })
+        return result.publisher.eraseToAnyPublisher()
     }
 }
 

@@ -88,18 +88,14 @@ extension Installer: Installation {
         .sink(receiveCompletion: { complete in
             switch complete {
             case .finished:
-                print("Finished")
+                self.state = .complete
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.cancelInstallation()
                     self.errorReporter.report(error: error)
                 }
-                print("failure error: ", error)
             }
-        }, receiveValue: { response in
-            print("final response: ", response)
-            self.state = .complete
-        })
+        }, receiveValue: { _ in })
         .store(in: &cancellables)
     }
 
