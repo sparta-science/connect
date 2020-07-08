@@ -54,17 +54,21 @@ class SpartaConnectApp: XCUIApplication {
     }
 
     func closeConnectWindow() {
-        let window = connectWindow()
-        window.waitToAppear()
-        window.click()
-        window.buttons["Done"].click()
+        XCTContext.runActivity(named: "close connect window") { _ in
+            let window = connectWindow()
+            window.waitToAppear()
+            window.click()
+            window.buttons["Done"].click()
+        }
     }
     @discardableResult
     func showConnectWindow() -> XCUIElement {
-        clickStatusItem()
-        statusBarMenu().menuItems["Connect..."].click()
-        connectWindow().waitToAppear()
-        return connectWindow()
+        XCTContext.runActivity(named: "show connect window") { _ in
+            clickStatusItem()
+            statusBarMenu().menuItems["Connect..."].click()
+            connectWindow().waitToAppear()
+            return connectWindow()
+        }
     }
     var loginButton: XCUIElement {
         connectWindow().groups.buttons["Login"]
