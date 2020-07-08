@@ -20,7 +20,9 @@ public class Downloader: Downloading {
             .init() { [weak self] promise in
                 self?.session.download(url)
                     .response { promise($0.result) }
+                    .validate()
                     .downloadProgress(closure: reporting)
+                    .response { promise($0.result) }
             }
     }
 }

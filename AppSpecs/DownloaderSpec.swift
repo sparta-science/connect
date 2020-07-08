@@ -1,22 +1,23 @@
+import enum Alamofire.AFError
 import Combine
 import Nimble
 import Quick
-import SpartaConnect
+import class SpartaConnect.Downloader
 import Testable
 
 class DownloaderSpec: QuickSpec {
     override func spec() {
         describe(Downloader.self) {
             var subject: Downloader!
+            var cancellables: Set<AnyCancellable>!
             beforeEach {
                 Configure(Inject<Downloader>()) {
                     subject = $0.wrappedValue
                 }
+                cancellables = .init()
             }
             context(Downloader.createDownload(url:reporting:)) {
                 it("should download a text file reporting size") {
-                    var cancellables = Set<AnyCancellable>()
-
                     let url = URL(string: "https://raw.githubusercontent.com/sparta-science/connect/master/LICENSE")!
                     waitUntil(timeout: 30.0) { done in
                         subject.createDownload(url: url) { progress in
@@ -32,21 +33,23 @@ class DownloaderSpec: QuickSpec {
                         }.store(in: &cancellables)
                     }
                 }
-                // TODO: pz - should report error instead of downloading error page
-                it("should report errors") {
-                    var cancellables = Set<AnyCancellable>()
+                it("should report http errors") {
                     let url = URL(string: "https://raw.githubusercontent.com/foo")!
                     waitUntil(timeout: 30.0) { done in
                         subject.createDownload(url: url) { progress in
                             expect(progress.totalUnitCount) == 20
                             expect(progress.completedUnitCount) == 20
                         }.sink(receiveCompletion: { completion in
-                            if case .finished = completion {
+                            if case let .failure(err) = completion {
+                                expect(err).to(matchError(
+                                    AFError.responseValidationFailed(
+                                        reason: .unacceptableStatusCode(code: 400)
+                                    )
+                                ))
                                 done()
                             }
-                        }) { downloadedUrl in
-                            let contents = try! String(contentsOf: downloadedUrl)
-                            expect(contents) == "400: Invalid request"
+                        }) {
+                            fail($0.debugDescription)
                         }.store(in: &cancellables)
                     }
                 }
