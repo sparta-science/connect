@@ -2,9 +2,6 @@ import Alamofire
 import Combine
 import Testable
 
-public typealias DownloadPublisher = AnyPublisher<URL, Error>
-public typealias Progressing = (Progress) -> Void
-
 private struct CurrentDownload {
     let url: URL
     let reporting: Progressing

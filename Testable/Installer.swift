@@ -1,10 +1,6 @@
 import AppKit
 import Combine
 
-public protocol Downloading {
-    func createDownload(url: URL, reporting: @escaping (Progress) -> Void) -> AnyPublisher<URL, Error>
-}
-
 public class Installer: NSObject {
     @Published public var state: State = .login
     var cancellables = Set<AnyCancellable>()
@@ -85,18 +81,19 @@ extension Installer: Installation {
             try? self.fileManager.removeItem(at: self.downloadUrl())
             try self.fileManager.moveItem(at: $0, to: self.downloadUrl())
         }
-        .sink(receiveCompletion: { complete in
-            switch complete {
-            case .finished:
-                self.state = .complete
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.cancelInstallation()
-                    self.errorReporter.report(error: error)
-                }
-            }
-        }, receiveValue: { _ in })
+        .receive(on: DispatchQueue.main)
+        .sink(receiveCompletion: when(complete:)) { _ in }
         .store(in: &cancellables)
+    }
+
+    private func when(complete: Subscribers.Completion<Error>) {
+        switch complete {
+        case .finished:
+            state = .complete
+        case .failure(let error):
+            cancelInstallation()
+            errorReporter.report(error: error)
+        }
     }
 
     public func cancelInstallation() {
