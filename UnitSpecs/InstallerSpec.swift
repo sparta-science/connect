@@ -30,7 +30,7 @@ class InstallerSpec: QuickSpec {
                         request = Init(.init()) {
                             $0?.baseUrlString = testBundleUrl("successful-response.json").absoluteString
                         }
-                        downloader.downloadedUrl = URL(fileURLWithPath: "/tmp/dowloaded.txt")
+                        downloader.downloadedUrl = URL(fileURLWithPath: "/tmp/downloaded.txt")
                     }
                     func verify(file: String, at url: URL) {
                         let expectedPath = testBundleUrl(file).path

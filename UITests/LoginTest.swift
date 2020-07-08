@@ -22,7 +22,7 @@ class LoginTest: XCTestCase {
         window.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0)).click()
     }
 
-    func testValidAndInvalidLogin() throws {
+    func testValidLogin() throws {
         let window = app.mainWindow()
         window.waitToAppear()
         let groups = window.groups
@@ -31,22 +31,7 @@ class LoginTest: XCTestCase {
         let popUpButton = window.popUpButtons.element
         let loginButton = groups.buttons["Login"]
         let disconnectButton = window.buttons["Disconnect"]
-
-        XCTContext.runActivity(named: "invalid login") { _ in
-            popUpButton.clickView()
-            popUpButton.menuItems["staging"].click()
-
-            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
-
-            app.enter(username: "user@example.com")
-            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
-            app.enter(password: "password")
-            loginButton.click()
-            app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
-            app.dialogs.buttons["OK"].click()
-        }
-
-        XCTContext.runActivity(named: "successful login failing download") { _ in
+        XCTContext.runActivity(named: "successful login with successful download") { _ in
             activateWindow(window: window)
             popUpButton.clickView()
             popUpButton.menuItems["fake server"].click()
@@ -65,8 +50,34 @@ class LoginTest: XCTestCase {
         window.click()
         window.buttons["Done"].click()
         window.waitToDisappear()
+    }
 
-        verifyConnectShowsLogin()
+    func testInvalidLogin() throws {
+        let window = app.mainWindow()
+        window.waitToAppear()
+        let groups = window.groups
+        XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
+        activateWindow(window: window)
+        let popUpButton = window.popUpButtons.element
+        let loginButton = groups.buttons["Login"]
+
+        XCTContext.runActivity(named: "invalid login") { _ in
+            popUpButton.clickView()
+            popUpButton.menuItems["staging"].click()
+
+            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+
+            app.enter(username: "user@example.com")
+            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+            app.enter(password: "password")
+            loginButton.click()
+            app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
+            app.dialogs.buttons["OK"].click()
+        }
+
+        window.click()
+        window.buttons["Done"].click()
+        window.waitToDisappear()
     }
 
     func verifyInstalled(file: String) {
@@ -77,7 +88,12 @@ class LoginTest: XCTestCase {
         wait(for: [fileFound], timeout: Timeout.test.rawValue)
     }
 
-    func verifyConnectShowsLogin() {
+    func testClickConnectShowsLogin() {
+        let window = app.mainWindow()
+        window.waitToAppear()
+        window.click()
+        window.buttons["Done"].click()
+
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Connect..."].click()
         app.mainWindow().waitToAppear()
