@@ -22,7 +22,7 @@ class LoginTest: XCTestCase {
         window.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0)).click()
     }
 
-    func testClickConnectShowsLogin() {
+    func testClickConnectShowsConnectWindow() {
         app.closeConnectWindow()
         app.clickStatusItem()
         app.statusBarMenu().menuItems["Connect..."].click()
@@ -31,7 +31,6 @@ class LoginTest: XCTestCase {
 
     func testHappyValidLogin() throws {
         let window = app.connectWindow()
-        window.waitToAppear()
         let groups = window.groups
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
         activateWindow(window: window)
@@ -53,15 +52,10 @@ class LoginTest: XCTestCase {
             disconnectButton.click()
             disconnectButton.waitToDisappear()
         }
-
-        window.click()
-        window.buttons["Done"].click()
-        window.waitToDisappear()
     }
 
     func testInvalidLogin() throws {
         let window = app.connectWindow()
-        window.waitToAppear()
         let groups = window.groups
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
         activateWindow(window: window)
@@ -81,10 +75,6 @@ class LoginTest: XCTestCase {
             app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
             app.dialogs.buttons["OK"].click()
         }
-
-        window.click()
-        window.buttons["Done"].click()
-        window.waitToDisappear()
     }
 
     func verifyInstalled(file: String) {

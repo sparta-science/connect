@@ -51,9 +51,11 @@ class SpartaConnectApp: XCUIApplication {
         window.click()
         window.buttons["Done"].click()
     }
-    func showConnectWindow() {
+    @discardableResult
+    func showConnectWindow() -> XCUIElement {
         clickStatusItem()
         statusBarMenu().menuItems["Connect..."].click()
         connectWindow().waitToAppear()
+        return connectWindow()
     }
 }
