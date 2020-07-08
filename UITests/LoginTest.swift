@@ -29,7 +29,7 @@ class LoginTest: XCTestCase {
         activateWindow(window: window)
         let popUpButton = window.popUpButtons.element
         let loginButton = groups.buttons["Login"]
-        let disconnectButton = window.buttons["Disconnect"]
+//        let disconnectButton = window.buttons["Disconnect"]
 
         XCTContext.runActivity(named: "invalid login") { _ in
             popUpButton.clickView()
@@ -45,22 +45,23 @@ class LoginTest: XCTestCase {
             app.dialogs.buttons["OK"].click()
         }
 
-        XCTContext.runActivity(named: "successful login") { _ in
+        XCTContext.runActivity(named: "successful login failing download") { _ in
             activateWindow(window: window)
             popUpButton.clickView()
             popUpButton.menuItems["fake server"].click()
             app.enter(username: "a")
             app.enter(password: "b")
             loginButton.click()
-            disconnectButton.waitToAppear()
+            app.dialogs.staticTexts["Response status code was unacceptable: 403."].waitToAppear()
+            app.dialogs.buttons["OK"].click()
 
             verifyInstalled(file: "vernal_falls_config.yml")
             verifyInstalled(file: "vernal_falls.tar.gz")
         }
-        XCTContext.runActivity(named: "disconnect") { _ in
-            disconnectButton.click()
-            disconnectButton.waitToDisappear()
-        }
+//        XCTContext.runActivity(named: "disconnect") { _ in
+//            disconnectButton.click()
+//            disconnectButton.waitToDisappear()
+//        }
 
         window.click()
         window.buttons["Done"].click()
