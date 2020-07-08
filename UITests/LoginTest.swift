@@ -18,20 +18,12 @@ class LoginTest: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func activateWindow(window: XCUIElement) {
-        window.coordinate(withNormalizedOffset: CGVector(dx: 1, dy: 0)).click()
-    }
-
     func testClickConnectShowsConnectWindow() {
         app.closeConnectWindow()
-        app.clickStatusItem()
-        app.statusBarMenu().menuItems["Connect..."].click()
-        app.connectWindow().waitToAppear()
+        app.showConnectWindow()
     }
 
     func testHappyValidLogin() throws {
-        let window = app.connectWindow()
-        let disconnectButton = window.buttons["Disconnect"]
         XCTContext.runActivity(named: "successful login with successful download") { _ in
             app.select(server: "fake server")
             app.enter(username: "a")
@@ -41,16 +33,12 @@ class LoginTest: XCTestCase {
             verifyInstalled(file: "vernal_falls_config.yml")
             verifyInstalled(file: "vernal_falls.tar.gz")
         }
-        XCTContext.runActivity(named: "disconnect") { _ in
-            disconnectButton.click()
-            disconnectButton.waitToDisappear()
-        }
+        app.disconnect()
     }
 
     func testInvalidLogin() throws {
-        let window = app.connectWindow()
-        XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
-        activateWindow(window: window)
+        XCTAssertEqual(app.connectWindow().popUpButtons.count, 1,
+                       "should be only 1 button")
         XCTContext.runActivity(named: "invalid login") { _ in
             app.select(server: "staging")
             XCTAssertFalse(app.loginButton.isEnabled,
@@ -61,8 +49,7 @@ class LoginTest: XCTestCase {
                            "should be disabled until form is filled out")
             app.enter(password: "password")
             app.loginButton.click()
-            app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
-            app.dialogs.buttons["OK"].click()
+            app.dismiss(alert: "Email and password are not valid", byClicking: "OK")
         }
     }
 

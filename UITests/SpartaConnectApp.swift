@@ -69,4 +69,15 @@ class SpartaConnectApp: XCUIApplication {
     var loginButton: XCUIElement {
         connectWindow().groups.buttons["Login"]
     }
+    func disconnect() {
+        XCTContext.runActivity(named: "disconnect") { _ in
+            let disconnectButton = connectWindow().buttons["Disconnect"]
+            disconnectButton.click()
+            disconnectButton.waitToDisappear()
+        }
+    }
+    func dismiss(alert: String, byClicking button: String) {
+        dialogs.staticTexts[alert].waitToAppear()
+        dialogs.buttons[button].click()
+    }
 }
