@@ -66,4 +66,7 @@ class SpartaConnectApp: XCUIApplication {
         connectWindow().waitToAppear()
         return connectWindow()
     }
+    var loginButton: XCUIElement {
+        connectWindow().groups.buttons["Login"]
+    }
 }

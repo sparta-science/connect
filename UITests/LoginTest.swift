@@ -31,14 +31,12 @@ class LoginTest: XCTestCase {
 
     func testHappyValidLogin() throws {
         let window = app.connectWindow()
-        let groups = window.groups
-        let loginButton = groups.buttons["Login"]
         let disconnectButton = window.buttons["Disconnect"]
         XCTContext.runActivity(named: "successful login with successful download") { _ in
             app.select(server: "fake server")
             app.enter(username: "a")
             app.enter(password: "b")
-            loginButton.click()
+            app.loginButton.click()
 
             verifyInstalled(file: "vernal_falls_config.yml")
             verifyInstalled(file: "vernal_falls.tar.gz")
@@ -51,19 +49,18 @@ class LoginTest: XCTestCase {
 
     func testInvalidLogin() throws {
         let window = app.connectWindow()
-        let groups = window.groups
         XCTAssertEqual(window.popUpButtons.count, 1, "should be only 1 button")
         activateWindow(window: window)
-        let loginButton = groups.buttons["Login"]
-
         XCTContext.runActivity(named: "invalid login") { _ in
             app.select(server: "staging")
-            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+            XCTAssertFalse(app.loginButton.isEnabled,
+                           "should be disabled until form is filled out")
 
             app.enter(username: "user@example.com")
-            XCTAssertFalse(loginButton.isEnabled, "should be disabled until form is filled out")
+            XCTAssertFalse(app.loginButton.isEnabled,
+                           "should be disabled until form is filled out")
             app.enter(password: "password")
-            loginButton.click()
+            app.loginButton.click()
             app.dialogs.staticTexts["Email and password are not valid"].waitToAppear()
             app.dialogs.buttons["OK"].click()
         }
