@@ -11,9 +11,7 @@ class DownloaderSpec: QuickSpec {
             var subject: Downloader!
             var cancellables: Set<AnyCancellable>!
             beforeEach {
-                Configure(Inject<Downloader>()) {
-                    subject = $0.wrappedValue
-                }
+                subject = Injected.instance
                 cancellables = .init()
             }
             context(Downloader.createDownload(url:reporting:)) {

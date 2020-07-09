@@ -31,6 +31,7 @@
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
 		4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */; };
 		4AB9C9D424B70D9900B181B7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9C9D324B70D9900B181B7 /* Injected.swift */; };
+		4AB9C9D524B71BD600B181B7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9C9D324B70D9900B181B7 /* Injected.swift */; };
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
 		4AC171C824B3DA410096BF33 /* MockLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C724B3DA410096BF33 /* MockLocator.swift */; };
 		4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */; };
@@ -1084,6 +1085,7 @@
 				4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */,
 				4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */,
 				4AC171D624B538F10096BF33 /* DownloaderSpec.swift in Sources */,
+				4AB9C9D524B71BD600B181B7 /* Injected.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
