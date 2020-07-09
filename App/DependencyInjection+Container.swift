@@ -10,7 +10,7 @@ private func createSwinjectContainer() -> Container {
     }
 }
 
-extension Bundle: DependencyContainer {
+extension DependencyInjection: DependencyContainer {
     public static func createResolver() -> ResolveDependency {
         SyncronizedWrapper(container: createSwinjectContainer())
     }

@@ -53,7 +53,7 @@
 		4AE7645424AAF0A400CAC3BA /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645324AAF0A400CAC3BA /* TestHelper.swift */; };
 		4AE7645524AAF0D500CAC3BA /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645324AAF0A400CAC3BA /* TestHelper.swift */; };
 		4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */; };
-		4AE7645924AAF8D900CAC3BA /* Bundle+DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645824AAF8D900CAC3BA /* Bundle+DependencyContainer.swift */; };
+		4AE7645924AAF8D900CAC3BA /* DependencyInjection+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645824AAF8D900CAC3BA /* DependencyInjection+Container.swift */; };
 		4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645B24AAF91300CAC3BA /* SyncronizedWrapper.swift */; };
 		4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645D24AAF92F00CAC3BA /* AppAssembly.swift */; };
 		4AE7646024AAFA4500CAC3BA /* ApplicationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */; };
@@ -225,7 +225,7 @@
 		4AE7644F24AAEF8600CAC3BA /* Init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Init.swift; sourceTree = "<group>"; };
 		4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickHelper.swift; sourceTree = "<group>"; };
 		4AE7645324AAF0A400CAC3BA /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
-		4AE7645824AAF8D900CAC3BA /* Bundle+DependencyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+DependencyContainer.swift"; sourceTree = "<group>"; };
+		4AE7645824AAF8D900CAC3BA /* DependencyInjection+Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DependencyInjection+Container.swift"; sourceTree = "<group>"; };
 		4AE7645B24AAF91300CAC3BA /* SyncronizedWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncronizedWrapper.swift; sourceTree = "<group>"; };
 		4AE7645D24AAF92F00CAC3BA /* AppAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAdapter.swift; sourceTree = "<group>"; };
@@ -519,7 +519,7 @@
 			children = (
 				4AE7645D24AAF92F00CAC3BA /* AppAssembly.swift */,
 				4AE7645B24AAF91300CAC3BA /* SyncronizedWrapper.swift */,
-				4AE7645824AAF8D900CAC3BA /* Bundle+DependencyContainer.swift */,
+				4AE7645824AAF8D900CAC3BA /* DependencyInjection+Container.swift */,
 			);
 			name = "Dependency Injection";
 			sourceTree = "<group>";
@@ -1092,7 +1092,7 @@
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
-				4AE7645924AAF8D900CAC3BA /* Bundle+DependencyContainer.swift in Sources */,
+				4AE7645924AAF8D900CAC3BA /* DependencyInjection+Container.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

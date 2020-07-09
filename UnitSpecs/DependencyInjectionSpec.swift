@@ -4,7 +4,7 @@ import Quick
 
 let fakeResolver = TestResolver()
 
-extension Bundle: DependencyContainer {
+extension DependencyInjection: DependencyContainer {
     public static func createResolver() -> ResolveDependency {
         fakeResolver
     }
@@ -17,11 +17,11 @@ class DependencyInjectionSpec: QuickSpec {
 
     override func spec() {
         describe(DependencyInjection.self) {
-            context(DependencyInjection.createResolver) {
+            context(DependencyInjection.resolver) {
                 beforeEach {
                     DependencyInjection.resolver = nil
                 }
-                it("should use bundle to create resolver") {
+                fit("should use extension to create resolver") {
                     expect(DependencyInjection.resolver) === fakeResolver
                 }
             }
