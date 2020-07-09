@@ -5,7 +5,7 @@ import Quick
 let fakeResolver = TestResolver()
 
 extension Bundle: DependencyContainer {
-    public func createResolver() -> ResolveDependency {
+    public static func createResolver() -> ResolveDependency {
         fakeResolver
     }
 }

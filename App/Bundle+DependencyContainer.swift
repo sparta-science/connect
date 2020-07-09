@@ -11,7 +11,7 @@ private func createSwinjectContainer() -> Container {
 }
 
 extension Bundle: DependencyContainer {
-    public func createResolver() -> ResolveDependency {
+    public static func createResolver() -> ResolveDependency {
         SyncronizedWrapper(container: createSwinjectContainer())
     }
 }

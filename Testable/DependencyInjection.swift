@@ -1,6 +1,6 @@
 public enum DependencyInjection {
     static func createResolver() -> ResolveDependency? {
-        (Bundle.main as? DependencyContainer)?.createResolver()
+        (Bundle.self as? DependencyContainer.Type)?.createResolver()
     }
     private static var privateResolver: ResolveDependency?
     internal static var resolver: ResolveDependency? {
