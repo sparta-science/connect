@@ -45,5 +45,5 @@ EOF
 rm -rf vernal_falls
 mkdir vernal_falls
 cd vernal_falls
-tar xvf ../vernal_falls.tar.gz
+tar xf ../vernal_falls.tar.gz
 ln -s . CURRENT
