@@ -1,5 +1,5 @@
 import Nimble
-import Quick
+@testable import Quick
 @testable import Testable
 
 extension Inject: Hashable {
@@ -39,15 +39,21 @@ class TestResolver: ResolveDependency {
     }
     func resolve<Service>(_ serviceType: Service.Type, name: String?) -> Service? {
         let lookup = Inject<Service>(type: serviceType, name: name)
-        let key: Int = lookup.hashValue
+        let key = lookup.hashValue
         used.insert(key)
         var injected = dependencies[key] as? Inject<Service>
-        expect(injected).notTo(beNil(), description: """
+        let site = World.sharedWorld.currentExampleMetadata!.example.callsite
+        if injected == nil {
+            QuickSpec.current.recordFailure(withDescription:
+            """
 
+
+            \(URL(fileURLWithPath: site.file).lastPathComponent):\(site.line)
 
             no test dependency: \(name ?? "") \(serviceType)
 
-            """)
+            """, inFile: site.file, atLine: Int(site.line), expected: false)
+        }
         return injected!.wrappedValue
     }
 }

@@ -21,7 +21,7 @@ class DependencyInjectionSpec: QuickSpec {
                 beforeEach {
                     DependencyInjection.resolver = nil
                 }
-                fit("should use extension to create resolver") {
+                it("should use extension to create resolver") {
                     expect(DependencyInjection.resolver) === fakeResolver
                 }
             }

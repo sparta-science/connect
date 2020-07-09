@@ -30,6 +30,7 @@
 		4AA188912486FA90009CFACE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188902486FA90009CFACE /* Assets.xcassets */; };
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
 		4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */; };
+		4AB9C9D424B70D9900B181B7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9C9D324B70D9900B181B7 /* Injected.swift */; };
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
 		4AC171C824B3DA410096BF33 /* MockLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C724B3DA410096BF33 /* MockLocator.swift */; };
 		4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */; };
@@ -201,6 +202,7 @@
 		4AA188A62486FA90009CFACE /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAppTest.swift; sourceTree = "<group>"; };
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AB9C9D324B70D9900B181B7 /* Injected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsTest.swift; sourceTree = "<group>"; };
 		4AC171C724B3DA410096BF33 /* MockLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocator.swift; sourceTree = "<group>"; };
 		4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerLocatorSpec.swift; sourceTree = "<group>"; };
@@ -505,6 +507,7 @@
 				4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */,
 				4AC171C724B3DA410096BF33 /* MockLocator.swift */,
 				4AE7646324AAFD3000CAC3BA /* MockApplication.swift */,
+				4AB9C9D324B70D9900B181B7 /* Injected.swift */,
 				4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */,
 				4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */,
 				4BD4D36324ABCB95009D8380 /* MockStatusItem.swift */,
@@ -1105,6 +1108,7 @@
 				4AE7646224AAFCFE00CAC3BA /* WindowControllerSpec.swift in Sources */,
 				4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */,
 				4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */,
+				4AB9C9D424B70D9900B181B7 /* Injected.swift in Sources */,
 				4AE7648824AC52EB00CAC3BA /* LoginControllerSpec.swift in Sources */,
 				4AE7647624AB105700CAC3BA /* BundleProxySpec.swift in Sources */,
 				4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */,
