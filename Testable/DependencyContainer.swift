@@ -1,3 +1,3 @@
 public protocol DependencyContainer {
-    func getResolver() -> ResolveDependency
+    func createResolver() -> ResolveDependency
 }
