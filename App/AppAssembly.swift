@@ -62,5 +62,8 @@ public struct AppAssembly: Assembly {
             ($0 ~> (service: URL.self, name: "app support url"))
                 .appendingPathComponent(($0 ~> Bundle.self).bundleIdentifier!)
         }
+        container.register(name: "installation script url") {
+            ($0 ~> Bundle.self).url(forResource: "install_vernal_falls", withExtension: "sh")!
+        }
     }
 }

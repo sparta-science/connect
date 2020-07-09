@@ -7,6 +7,8 @@ public class Installer: NSObject {
     @Inject var errorReporter: ErrorReporting
     @Inject("installation url")
     var installationURL: URL
+    @Inject("installation script url")
+    var scriptURL: URL
     @Inject var fileManager: FileManager
     @Inject var downloader: Downloading
 }
@@ -65,6 +67,16 @@ extension Installer: Installation {
             .store(in: &cancellables)
     }
 
+    private func installVernalFalls() throws {
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/bin/bash")
+        process.arguments = [scriptURL.path]
+        process.currentDirectoryURL = installationURL
+
+        try process.run()
+        process.waitUntilExit()
+    }
+
     private func startDownload(message: HTTPLoginMessage) -> DownloadPublisher {
         downloader.createDownload(url: message.downloadUrl,
                                   reporting: downloading(_:))
@@ -73,6 +85,7 @@ extension Installer: Installation {
     private func process(downloaded: URL) throws {
         try? fileManager.removeItem(at: downloadUrl)
         try fileManager.moveItem(at: downloaded, to: downloadUrl)
+        try installVernalFalls()
     }
 
     private func transform(response: HTTPLoginResponse) throws -> HTTPLoginMessage {

@@ -14,15 +14,16 @@ class InstallerSpec: QuickSpec {
                 let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
                 context("success") {
                     var downloader: MockDownloader!
-                    beforeEach {
-                        downloader = .createAndInject()
-                        TestDependency.register(Inject(FileManager.default))
-                        TestDependency.register(Inject(installationUrl, name: "installation url"))
-                    }
                     var configUrl: URL!
                     var request: LoginRequest!
                     let fileManager = FileManager.default
                     beforeEach {
+                        downloader = .createAndInject()
+                        TestDependency.register(Inject(FileManager.default))
+                        TestDependency.register(Inject(installationUrl, name: "installation url"))
+                        let scriptUrl = testBundle.url(forResource: "install_vernal_falls", withExtension: "sh")!
+                        TestDependency.register(Inject(scriptUrl, name: "installation script url"))
+
                         configUrl = installationUrl
                             .appendingPathComponent("vernal_falls_config.yml")
                         try? fileManager.removeItem(at: configUrl)
@@ -55,7 +56,7 @@ class InstallerSpec: QuickSpec {
                         verify(file: "expected_vernal_falls.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
-                    fit("should install vernal falls") {
+                    it("should install vernal falls") {
                         subject.beginInstallation(login: request)
                         expect(subject.state).toEventually(equal(.complete))
                         var isDirectory: ObjCBool = false

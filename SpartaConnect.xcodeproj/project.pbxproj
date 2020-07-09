@@ -31,6 +31,7 @@
 		4AA188942486FA90009CFACE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AA188922486FA90009CFACE /* Main.storyboard */; };
 		4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */; };
 		4AA9AAC924B79BEA00A9D144 /* install_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */; };
+		4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */; };
 		4AB9C9D424B70D9900B181B7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9C9D324B70D9900B181B7 /* Injected.swift */; };
 		4AB9C9D524B71BD600B181B7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9C9D324B70D9900B181B7 /* Injected.swift */; };
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
@@ -834,6 +835,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */,
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
 				4AE7649524AD37FC00CAC3BA /* successful-response.json in Resources */,
 				4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */,

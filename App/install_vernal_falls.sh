@@ -6,7 +6,6 @@
 #  Created by Sparta Science on 5/29/20.
 #  Copyright © 2020 Sparta Science. All rights reserved.
 
-pushd ~/Library/Application\ Support/com.spartascience.SpartaConnect/
 pwd=$(pwd)
 cat > sparta_science.vernal_falls.plist <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
