@@ -55,6 +55,14 @@ class InstallerSpec: QuickSpec {
                         verify(file: "expected_vernal_falls.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
+                    fit("should install vernal falls") {
+                        subject.beginInstallation(login: request)
+                        expect(subject.state).toEventually(equal(.complete))
+                        var isDirectory: ObjCBool = false
+                        let path = installationUrl.appendingPathComponent("vernal_falls").path
+                        expect(fileManager.fileExists(atPath: path, isDirectory: &isDirectory)) == true
+                        expect(isDirectory.boolValue) == true
+                    }
                     it("should report downloding progress") {
                         subject.beginInstallation(login: request)
                         expect(subject.state).toEventually(equal(.complete))
