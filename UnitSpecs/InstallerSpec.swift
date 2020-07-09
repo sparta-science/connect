@@ -31,7 +31,7 @@ class InstallerSpec: QuickSpec {
                         request = Init(.init()) {
                             $0?.baseUrlString = testBundleUrl("successful-response.json").absoluteString
                         }
-                        downloader.downloadedUrl = URL(fileURLWithPath: "/tmp/downloaded.txt")
+                        downloader.downloadedContentsUrl = testBundleUrl("expected_vernal_falls.tar.gz")
                     }
                     func verify(file: String, at url: URL) {
                         let expectedPath = testBundleUrl(file).path
@@ -78,6 +78,23 @@ class InstallerSpec: QuickSpec {
                         downloader.didProvideReporting!(.init())
                         expect(subject.state) == .complete
                     }
+                    context("installation failure") {
+                        var errorReporter: MockErrorReporter!
+                        beforeEach {
+                            errorReporter = .createAndInject()
+                            let invalidArchive = testBundleUrl("expected-config.yml")
+                            downloader.downloadedContentsUrl = invalidArchive
+                        }
+                        it("should report error and status code") {
+                            subject.beginInstallation(login: request)
+                            expect(subject.state).toEventually(equal(.login))
+                            let reportedError = errorReporter.didReport as? LocalizedError
+                            expect(reportedError?.localizedDescription)
+                                == "Failed to install with exit code: 1"
+                            expect(reportedError?.recoverySuggestion)
+                                == "tar: Error opening archive: Unrecognized archive format\n"
+                        }
+                    }
                 }
                 context("server error") {
                     var errorReporter: MockErrorReporter!
@@ -101,7 +118,10 @@ class InstallerSpec: QuickSpec {
                         beginLogin(urlString: testBundleUrl("server-error-response.json").absoluteString)
                         expect(subject.state.progress()).toNot(beNil())
                         expect(subject.state).toEventually(equal(.login))
-                        expect(errorReporter.didReport!.localizedDescription)
+                        let reportedError = errorReporter.didReport as? LocalizedError
+                        expect(reportedError?.localizedDescription)
+                            == "Server Error"
+                        expect(reportedError?.recoverySuggestion)
                             == "Email and password are not valid"
                     }
                 }

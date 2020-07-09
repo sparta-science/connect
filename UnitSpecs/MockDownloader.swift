@@ -2,15 +2,18 @@ import Combine
 import Testable
 
 final class MockDownloader: Downloading {
-    var downloadedUrl: URL? {
+    let fileManager = FileManager.default
+    lazy var tempUrl = fileManager.temporaryDirectory.appendingPathComponent("prentend-downloaded.tar.gz")
+    var downloadedContentsUrl: URL? {
         didSet {
-            try! "some contents\n".write(to: downloadedUrl!, atomically: true, encoding: .ascii)
+            try? fileManager.removeItem(at: tempUrl)
+            try! fileManager.copyItem(at: downloadedContentsUrl!, to: tempUrl)
         }
     }
     var didProvideReporting: ((Progress) -> Void)?
     func createDownload(url: URL, reporting: @escaping (Progress) -> Void) -> AnyPublisher<URL, Error> {
         didProvideReporting = reporting
-        let result = Result<URL, Error>(catching: { downloadedUrl! })
+        let result = Result<URL, Error>(catching: { tempUrl })
         return result.publisher.eraseToAnyPublisher()
     }
 }

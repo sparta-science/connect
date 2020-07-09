@@ -28,10 +28,21 @@ extension Installer: Installation {
     }
 
     public enum ApiError: LocalizedError {
+        case installation(status: Int32, message: String?)
         case server(message: String)
         public var errorDescription: String? {
             switch self {
+            case .server:
+                return "Server Error"
+            case let .installation(status, _):
+                return "Failed to install with exit code: \(status)"
+            }
+        }
+        public var recoverySuggestion: String? {
+            switch self {
             case let .server(message):
+                return message
+            case let .installation(_, message):
                 return message
             }
         }
@@ -70,11 +81,20 @@ extension Installer: Installation {
     private func installVernalFalls() throws {
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/bin/bash")
-        process.arguments = [scriptURL.path]
+        process.arguments = ["-o", "errexit", scriptURL.path]
         process.currentDirectoryURL = installationURL
+        let errorPipe = Pipe()
+        process.standardError = errorPipe
 
         try process.run()
         process.waitUntilExit()
+        if process.terminationStatus != kOSReturnSuccess {
+            var message: String?
+            if let data = try errorPipe.fileHandleForReading.readToEnd() {
+                message = String(data: data, encoding: .utf8)
+            }
+            throw ApiError.installation(status: process.terminationStatus, message: message)
+        }
     }
 
     private func startDownload(message: HTTPLoginMessage) -> DownloadPublisher {

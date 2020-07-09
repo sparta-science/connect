@@ -42,6 +42,7 @@ cat > sparta_science.vernal_falls.plist <<EOF
 </plist>
 EOF
 
+rm -rf vernal_falls
 mkdir vernal_falls
 cd vernal_falls
 tar xvf ../vernal_falls.tar.gz
