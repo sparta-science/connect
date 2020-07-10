@@ -27,14 +27,14 @@ extension ServerLocator: ServerLocatorProtocol {
     }
 
     public var availableServers: [String] {
-        BackEnd.allCases.map { $0.rawValue } + Array(mockServers.keys)
+        ApiServer.allCases.map { $0.rawValue } + Array(mockServers.keys)
     }
 
     private func baseUrlString(_ server: String) -> String {
         if let mock = mockServers[server] {
             return json(mock, bundle)
         } else {
-            return BackEnd(rawValue: server)!.serverUrlString()
+            return ApiServer(rawValue: server)!.serverUrlString()
         }
     }
     private func json(_ resource: String, _ bundle: Bundle) -> String {
