@@ -3,7 +3,7 @@ import Foundation
 public enum BackEnd: String, CaseIterable {
     // swiftlint:disable explicit_enum_raw_value
     case localhost
-    case fakeServer = "fake server"
+    case fakeServer = "simulate install failure"
     case staging
     case production
     public func appSetupUrl(bundle: Bundle) -> URL {

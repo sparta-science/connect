@@ -25,7 +25,7 @@ class LoginTest: XCTestCase {
 
     func testHappyValidLogin() throws {
         XCTContext.runActivity(named: "successful login with successful download") { _ in
-            app.select(server: "fake server")
+            app.select(server: "simulate install failure")
             app.enter(username: "a")
             app.enter(password: "b")
             app.loginButton.click()
