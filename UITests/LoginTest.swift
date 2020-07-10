@@ -23,8 +23,8 @@ class LoginTest: XCTestCase {
         app.showConnectWindow()
     }
 
-    func testHappyValidLogin() throws {
-        XCTContext.runActivity(named: "successful login with successful download") { _ in
+    func testFailedInstallation() throws {
+        XCTContext.runActivity(named: "successful download but failed installation") { _ in
             app.select(server: "simulate install failure")
             app.enter(username: "a")
             app.enter(password: "b")
@@ -32,8 +32,9 @@ class LoginTest: XCTestCase {
 
             verifyInstalled(file: "vernal_falls_config.yml")
             verifyInstalled(file: "vernal_falls.tar.gz")
+            app.dismiss(alert: "Failed to install with exit code: 1", byClicking: "OK")
+            app.loginButton.waitToAppear()
         }
-        app.disconnect()
     }
 
     func testInvalidLogin() throws {
