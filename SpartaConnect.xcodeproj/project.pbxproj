@@ -85,7 +85,7 @@
 		4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648924AC536600CAC3BA /* MockInstaller.swift */; };
 		4AE7649124AC7C5A00CAC3BA /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */; };
 		4AE7649324AC7C6C00CAC3BA /* LoginRequestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */; };
-		4AE7649524AD37FC00CAC3BA /* successful-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AE7649424AD37FC00CAC3BA /* successful-response.json */; };
+		4AE7649524AD37FC00CAC3BA /* successful-response-invalid-tar.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */; };
 		4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AE7649624AD390600CAC3BA /* server-error-response.json */; };
 		4AE7649924AD3AD200CAC3BA /* MockErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */; };
 		4AE7649B24AD3C8500CAC3BA /* ErrorReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */; };
@@ -251,7 +251,7 @@
 		4AE7648C24AC694500CAC3BA /* team.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = team.xcconfig; sourceTree = "<group>"; };
 		4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
 		4AE7649224AC7C6C00CAC3BA /* LoginRequestSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestSpec.swift; sourceTree = "<group>"; };
-		4AE7649424AD37FC00CAC3BA /* successful-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "successful-response.json"; sourceTree = "<group>"; };
+		4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "successful-response-invalid-tar.json"; sourceTree = "<group>"; };
 		4AE7649624AD390600CAC3BA /* server-error-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "server-error-response.json"; sourceTree = "<group>"; };
 		4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockErrorReporter.swift; sourceTree = "<group>"; };
 		4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReporter.swift; sourceTree = "<group>"; };
@@ -505,7 +505,7 @@
 				4AE7649E24AD475A00CAC3BA /* MockError.swift */,
 				4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */,
 				4AE764A024AD6F0400CAC3BA /* expected-config.yml */,
-				4AE7649424AD37FC00CAC3BA /* successful-response.json */,
+				4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */,
 				4AE7649624AD390600CAC3BA /* server-error-response.json */,
 				4AE7648924AC536600CAC3BA /* MockInstaller.swift */,
 				4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */,
@@ -837,7 +837,7 @@
 			files = (
 				4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */,
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
-				4AE7649524AD37FC00CAC3BA /* successful-response.json in Resources */,
+				4AE7649524AD37FC00CAC3BA /* successful-response-invalid-tar.json in Resources */,
 				4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */,
 				4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */,
 			);

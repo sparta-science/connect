@@ -29,7 +29,7 @@ class InstallerSpec: QuickSpec {
                         try? fileManager.removeItem(at: configUrl)
                         expect(fileManager.fileExists(atPath: configUrl.path)) == false
                         request = Init(.init()) {
-                            $0?.baseUrlString = testBundleUrl("successful-response.json").absoluteString
+                            $0?.baseUrlString = testBundleUrl("successful-response-invalid-tar.json").absoluteString
                         }
                         downloader.downloadedContentsUrl = testBundleUrl("expected_vernal_falls.tar.gz")
                     }

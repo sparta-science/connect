@@ -7,7 +7,7 @@ public enum BackEnd: String, CaseIterable {
     case staging
     case production
     public func appSetupUrl(bundle: Bundle) -> URL {
-        let fileUrlString = bundle.url(forResource: "successful-response", withExtension: "json")!.absoluteString
+        let fileUrlString = bundle.url(forResource: "successful-response-invalid-tar", withExtension: "json")!.absoluteString
         let environment: [BackEnd: String] = [
             .localhost: "http://localhost:4000/api/app-setup",
             .fakeServer: fileUrlString,
