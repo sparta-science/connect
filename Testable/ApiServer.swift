@@ -6,14 +6,12 @@ public enum ApiServer: String, CaseIterable {
     case staging
     case production
 
-    var servers: [ApiServer: String] {
-        [
-            .localhost: "http://localhost:4000",
-            .staging: "https://staging.spartascience.com",
-            .production: "https://home.spartascience.com"
-        ]
-    }
+    static let servers: [Self: String] = [
+        .localhost: "http://localhost:4000",
+        .staging: "https://staging.spartascience.com",
+        .production: "https://home.spartascience.com"
+    ]
     public func serverUrlString() -> String {
-        servers[self].map { $0 + "/api/app-setup" }!
+        Self.servers[self].map { $0 + "/api/app-setup" }!
     }
 }

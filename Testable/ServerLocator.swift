@@ -7,11 +7,6 @@ public protocol ServerLocatorProtocol {
 public class ServerLocator: NSObject {
     @Inject var bundle: Bundle
 
-    var mockServers: [String: String] {[
-        "simulate install failure": "successful-response-invalid-tar",
-        "simulate install success": "successful-response-valid-archive"
-    ]}
-
     override public init() {
         super.init()
     }
@@ -27,14 +22,16 @@ extension ServerLocator: ServerLocatorProtocol {
     }
 
     public var availableServers: [String] {
-        ApiServer.allCases.map { $0.rawValue } + Array(mockServers.keys.sorted())
+        ApiServer.allCases.map { $0.rawValue }
+            + DebugFileServer.allCases.map { $0.rawValue }
     }
 
     private func baseUrlString(_ server: String) -> String {
-        if let mock = mockServers[server] {
-            return json(mock, bundle)
+        if let apiServer = ApiServer(rawValue: server) {
+            return apiServer.serverUrlString()
         } else {
-            return ApiServer(rawValue: server)!.serverUrlString()
+            let file = DebugFileServer(rawValue: server)!.fileName()
+            return json(file, bundle)
         }
     }
     private func json(_ resource: String, _ bundle: Bundle) -> String {
