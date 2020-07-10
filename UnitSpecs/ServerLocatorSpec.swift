@@ -31,14 +31,6 @@ class ServerLocatorSpec: QuickSpec {
                     ]
                 }
             }
-            context(ServerLocator.baseUrlString(_:)) {
-                beforeEach {
-                    TestDependency.register(Inject(testBundle))
-                }
-                it("should return home.spartascience.com") {
-                    expect(subject.baseUrlString("production")) == "https://home.spartascience.com/api/app-setup"
-                }
-            }
             context(ServerLocator.loginRequest(_:)) {
                 var login: Login!
                 beforeEach {

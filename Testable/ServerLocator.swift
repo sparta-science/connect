@@ -1,7 +1,6 @@
 @objc
 public protocol ServerLocatorProtocol {
     var availableServers: [String] { get }
-    func baseUrlString(_ server: String) -> String
     func loginRequest(_ login: Login) -> LoginRequest
 }
 
@@ -26,7 +25,7 @@ extension ServerLocator: ServerLocatorProtocol {
         BackEnd.allCases.map { $0.rawValue }
     }
 
-    public func baseUrlString(_ server: String) -> String {
+    private func baseUrlString(_ server: String) -> String {
         BackEnd(rawValue: server)!.appSetupUrlString(bundle: bundle)
     }
 }
