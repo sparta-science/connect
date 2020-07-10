@@ -3,21 +3,29 @@ import Foundation
 public enum BackEnd: String, CaseIterable {
     // swiftlint:disable explicit_enum_raw_value
     case localhost
-    case fakeServer = "simulate install failure"
-    case validFakeServer = "simulate install success"
+    case simulateFailure = "simulate install failure"
+    case simulateSuccess = "simulate install success"
     case staging
     case production
-    public func appSetupUrl(bundle: Bundle) -> URL {
-        let invalidFileUrlString = bundle.url(forResource: "successful-response-invalid-tar", withExtension: "json")!.absoluteString
-        let validFileUrlString = bundle.url(forResource: "successful-response-valid-archive", withExtension: "json")!.absoluteString
-        let environment: [BackEnd: String] = [
-            .localhost: "http://localhost:4000/api/app-setup",
-            .fakeServer: invalidFileUrlString,
-            .validFakeServer: validFileUrlString,
-            .staging: "https://staging.spartascience.com/api/app-setup",
-            .production: "https://home.spartascience.com/api/app-setup"
-        ]
-        return URL(string: environment[self]!)!
+
+    private func json(_ resource: String, _ bundle: Bundle) -> String {
+        bundle.path(forResource: resource, ofType: "json")!
+    }
+    var jsonResouces: [BackEnd: String] {[
+        .simulateFailure: "successful-response-invalid-tar",
+        .simulateSuccess: "successful-response-valid-archive"
+    ]}
+    var servers: [BackEnd: String] {[
+        .localhost: "http://localhost:4000",
+        .staging: "https://staging.spartascience.com",
+        .production: "https://home.spartascience.com"
+    ].mapValues { $0 + "/api/app-setup" }
+    }
+
+    public func appSetupUrlString(bundle: Bundle) -> String {
+        let simulated = jsonResouces.mapValues { json($0, bundle) }
+        let combined = simulated.merging(servers) { $1 }
+        return combined[self]!
     }
 }
 
@@ -50,6 +58,6 @@ extension ServerLocator: ServerLocatorProtocol {
     }
 
     public func baseUrlString(_ server: String) -> String {
-        BackEnd(rawValue: server)!.appSetupUrl(bundle: bundle).absoluteString
+        BackEnd(rawValue: server)!.appSetupUrlString(bundle: bundle)
     }
 }
