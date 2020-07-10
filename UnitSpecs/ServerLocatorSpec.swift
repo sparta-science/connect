@@ -22,7 +22,13 @@ class ServerLocatorSpec: QuickSpec {
             }
             context(\ServerLocator.availableServers) {
                 it("should list all backends") {
-                    expect(subject.availableServers) == ["localhost", "simulate install failure", "staging", "production"]
+                    expect(subject.availableServers) == [
+                        "localhost",
+                        "simulate install failure",
+                        "simulate install success",
+                        "staging",
+                        "production"
+                    ]
                 }
             }
             context(ServerLocator.baseUrlString(_:)) {
