@@ -26,8 +26,8 @@ class ServerLocatorSpec: QuickSpec {
                         "localhost",
                         "staging",
                         "production",
-                        "simulate install success",
-                        "simulate install failure"
+                        "simulate install failure",
+                        "simulate install success"
                     ]
                 }
             }
@@ -53,7 +53,7 @@ class ServerLocatorSpec: QuickSpec {
                     }
                     it("should be json path") {
                         expect(subject.loginRequest(login).baseUrlString)
-                            == testBundleUrl("successful-response-valid-archive.json").path
+                            == testBundleUrl("successful-response-valid-archive.json").absoluteString
                     }
                 }
             }

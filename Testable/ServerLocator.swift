@@ -27,7 +27,7 @@ extension ServerLocator: ServerLocatorProtocol {
     }
 
     public var availableServers: [String] {
-        ApiServer.allCases.map { $0.rawValue } + Array(mockServers.keys)
+        ApiServer.allCases.map { $0.rawValue } + Array(mockServers.keys.sorted())
     }
 
     private func baseUrlString(_ server: String) -> String {
@@ -38,6 +38,6 @@ extension ServerLocator: ServerLocatorProtocol {
         }
     }
     private func json(_ resource: String, _ bundle: Bundle) -> String {
-        bundle.path(forResource: resource, ofType: "json")!
+        bundle.url(forResource: resource, withExtension: "json")!.absoluteString
     }
 }
