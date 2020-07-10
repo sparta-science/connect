@@ -6,11 +6,34 @@ import Testable
 class AppAssemblySpec: QuickSpec {
     override func spec() {
         describe(AppAssembly.self) {
-            let appSupportUrlName = "installation url"
-            context(appSupportUrlName) {
-                it("should have path that ends with library app support bundle id") {
-                    var url = Inject<URL>(appSupportUrlName)
-                    expect(url.wrappedValue.path).to(endWith("/Library/Application Support/com.spartascience.SpartaConnect"))
+            context(Inject<URL>.self) {
+                var injectedUrl: Inject<URL>!
+                context("installation url") {
+                    beforeEach {
+                        injectedUrl = Inject<URL>("installation url")
+                    }
+                    it("should have path that ends with library app support bundle id") {
+                        expect(injectedUrl.wrappedValue.path).to(
+                            endWith("/Library/Application Support/com.spartascience.SpartaConnect")
+                        )
+                    }
+                }
+                context("installation script url") {
+                    beforeEach {
+                        injectedUrl = Inject<URL>("installation script url")
+                    }
+                    it("should contain commands to untar and lauchctl plist with keep alive") {
+                        expect(try? String(contentsOf: injectedUrl.wrappedValue)).to(contain(
+                            """
+                            tar xf ../vernal_falls.tar.gz
+                            ln -s . CURRENT
+                            """,
+                            """
+                                <key>KeepAlive</key>
+                                <true/>
+                            """
+                        ))
+                    }
                 }
             }
         }
