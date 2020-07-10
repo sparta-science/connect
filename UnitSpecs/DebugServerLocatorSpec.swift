@@ -2,34 +2,25 @@ import Nimble
 import Quick
 import Testable
 
-extension LoginRequest {
-    override public func isEqual(_ object: Any?) -> Bool {
-        guard let otherRequest = object as? LoginRequest else {
-            return false
-        }
-        return otherRequest.username == username
-            && otherRequest.password == password
-        && otherRequest.baseUrlString == baseUrlString
-    }
-}
-
-class ServerLocatorSpec: QuickSpec {
+class DebugServerLocatorSpec: QuickSpec {
     override func spec() {
-        describe(ServerLocator.self) {
-            var subject: ServerLocator!
+        describe(DebugServerLocator.self) {
+            var subject: DebugServerLocator!
             beforeEach {
                 subject = .init()
             }
-            context(\ServerLocator.availableServers) {
+            context(\DebugServerLocator.availableServers) {
                 it("should list all backends") {
                     expect(subject.availableServers) == [
                         "localhost",
                         "staging",
-                        "production"
+                        "production",
+                        "simulate install failure",
+                        "simulate install success"
                     ]
                 }
             }
-            context(ServerLocator.loginRequest(_:)) {
+            context(DebugServerLocator.loginRequest(_:)) {
                 var login: Login!
                 beforeEach {
                     login = Init(.init()) {
@@ -42,6 +33,16 @@ class ServerLocatorSpec: QuickSpec {
                         $0.username = "mike"
                         $0.password = "secret"
                         $0.baseUrlString = "https://home.spartascience.com/api/app-setup"
+                    }
+                }
+                context("simulated") {
+                    beforeEach {
+                        login.environment = "simulate install success"
+                        TestDependency.register(Inject(testBundle))
+                    }
+                    it("should be json path") {
+                        expect(subject.loginRequest(login).baseUrlString)
+                            == testBundleUrl("successful-response-valid-archive.json").absoluteString
                     }
                 }
             }

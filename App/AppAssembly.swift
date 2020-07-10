@@ -39,7 +39,11 @@ public struct AppAssembly: Assembly {
         container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary }
 
         // MARK: Application
+        #if DEBUG
+        container.autoregister { DebugServerLocator() as ServerLocator }
+        #else
         container.autoregister { ServerLocator() }
+        #endif
         container.register { $0 + ServerLocator.self as ServerLocatorProtocol }
         container.autoregister { Installer() }
         container.register { $0 + Installer.self as Installation }
