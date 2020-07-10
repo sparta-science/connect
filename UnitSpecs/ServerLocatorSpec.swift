@@ -34,7 +34,6 @@ class ServerLocatorSpec: QuickSpec {
             context(ServerLocator.loginRequest(_:)) {
                 var login: Login!
                 beforeEach {
-                    TestDependency.register(Inject(testBundle))
                     login = Init(.init()) {
                         $0!.username = "mike"
                         $0!.password = "secret"
@@ -45,6 +44,16 @@ class ServerLocatorSpec: QuickSpec {
                         $0.username = "mike"
                         $0.password = "secret"
                         $0.baseUrlString = "https://home.spartascience.com/api/app-setup"
+                    }
+                }
+                context("simulated") {
+                    beforeEach {
+                        login.environment = "simulate install success"
+                        TestDependency.register(Inject(testBundle))
+                    }
+                    it("should be json path") {
+                        expect(subject.loginRequest(login).baseUrlString)
+                            == testBundleUrl("successful-response-valid-archive.json").path
                     }
                 }
             }

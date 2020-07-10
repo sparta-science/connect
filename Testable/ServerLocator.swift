@@ -7,6 +7,11 @@ public protocol ServerLocatorProtocol {
 public class ServerLocator: NSObject {
     @Inject var bundle: Bundle
 
+    var jsonResouces: [BackEnd: String] {[
+        .simulateFailure: "successful-response-invalid-tar",
+        .simulateSuccess: "successful-response-valid-archive"
+    ]}
+
     override public init() {
         super.init()
     }
@@ -26,6 +31,14 @@ extension ServerLocator: ServerLocatorProtocol {
     }
 
     private func baseUrlString(_ server: String) -> String {
-        BackEnd(rawValue: server)!.appSetupUrlString(bundle: bundle)
+        let backEnd = BackEnd(rawValue: server)!
+        if let serverUrl = backEnd.serverUrlString() {
+            return serverUrl
+        } else {
+            return json(jsonResouces[backEnd]!, bundle)
+        }
+    }
+    private func json(_ resource: String, _ bundle: Bundle) -> String {
+        bundle.path(forResource: resource, ofType: "json")!
     }
 }
