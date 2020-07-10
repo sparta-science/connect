@@ -1,0 +1,24 @@
+{
+   "message":{
+      "downloadUrl":"https://raw.githubusercontent.com/sparta-science/connect/master/UnitSpecs/expected_vernal_falls.tar.gz",
+      "vernalFallsVersion":"1.4901.0"
+   },
+   "org":{
+      "id":38,
+      "logoUrl":"https://cdn.filestackcontent.com/7UIZTVUJfSx6sfQQ53taw",
+      "name":"Training Ground",
+      "touchIconUrl":null
+   },
+   "user":{
+      "email":"sparta@example.com",
+      "id":4728,
+      "name":"Test Sparta User"
+   },
+   "vernalFallsConfig":{
+      "channel_shared_secret":"5d3315364-8962-43a6-997f-1b723c0c761a",
+      "channel_token_salt":"0ZdZSVtzHoYZS1xwJFF-IoQ7f_MtOscgJpIbV_nqq3L3398nAEV_4GZKOPdb1Ck2T",
+      "half_dome_host":"wss://staging.spartascience.com",
+      "secret_key_base":"8a3314325060197a13a9886ab6c922ff0c5c82ffd5cf1247d42096721433a02",
+      "vernal_falls_id":"654d1172-4f9-46ad-9948-6cfedefac4f9"
+   }
+}

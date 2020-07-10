@@ -12,6 +12,9 @@
 		4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* LoginTest.swift */; };
 		4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */; };
 		4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */; };
+		4A203BB624B7EB4200ECD5EC /* successful-response-valid-archive.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */; };
+		4A203BB724B7EC8D00ECD5EC /* successful-response-invalid-tar.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */; };
+		4A203BB824B7EC9000ECD5EC /* successful-response-valid-archive.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */; };
 		4A2BB2C524AD153A005D1CE6 /* HTTPLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BB2C424AD153A005D1CE6 /* HTTPLoginResponse.swift */; };
 		4A2BB2C724AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BB2C624AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift */; };
 		4A3F3C76248C92720058C5D4 /* Testable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3F3C74248C92720058C5D4 /* Testable.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,7 +96,6 @@
 		4AE7649F24AD475A00CAC3BA /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649E24AD475A00CAC3BA /* MockError.swift */; };
 		4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4AE764A024AD6F0400CAC3BA /* expected-config.yml */; };
 		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
-		4AEFCBA824B3A2FD0065EA46 /* successful-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA724B3A2FD0065EA46 /* successful-response.json */; };
 		4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA924B504090065EA46 /* Downloader.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
@@ -167,6 +169,7 @@
 		4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTWaiter+Extension.swift"; sourceTree = "<group>"; };
 		4A1DC8D06D85415B5E5370B8 /* Pods-UnitSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitSpecs.release.xcconfig"; path = "Target Support Files/Pods-UnitSpecs/Pods-UnitSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAtLoginTest.swift; sourceTree = "<group>"; };
+		4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "successful-response-valid-archive.json"; sourceTree = "<group>"; };
 		4A2BB2C424AD153A005D1CE6 /* HTTPLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLoginResponse.swift; sourceTree = "<group>"; };
 		4A2BB2C624AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLoginResponseSpec.swift; sourceTree = "<group>"; };
 		4A2BB2C824AD1B11005D1CE6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -506,6 +509,7 @@
 				4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */,
 				4AE764A024AD6F0400CAC3BA /* expected-config.yml */,
 				4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */,
+				4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */,
 				4AE7649624AD390600CAC3BA /* server-error-response.json */,
 				4AE7648924AC536600CAC3BA /* MockInstaller.swift */,
 				4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */,
@@ -824,9 +828,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A203BB824B7EC9000ECD5EC /* successful-response-valid-archive.json in Resources */,
 				4AA188912486FA90009CFACE /* Assets.xcassets in Resources */,
 				4AA188942486FA90009CFACE /* Main.storyboard in Resources */,
-				4AEFCBA824B3A2FD0065EA46 /* successful-response.json in Resources */,
+				4A203BB724B7EC8D00ECD5EC /* successful-response-invalid-tar.json in Resources */,
 				4AA9AAC924B79BEA00A9D144 /* install_vernal_falls.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -835,6 +840,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A203BB624B7EB4200ECD5EC /* successful-response-valid-archive.json in Resources */,
 				4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */,
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
 				4AE7649524AD37FC00CAC3BA /* successful-response-invalid-tar.json in Resources */,

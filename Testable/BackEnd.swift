@@ -4,13 +4,16 @@ public enum BackEnd: String, CaseIterable {
     // swiftlint:disable explicit_enum_raw_value
     case localhost
     case fakeServer = "simulate install failure"
+    case validFakeServer = "simulate install success"
     case staging
     case production
     public func appSetupUrl(bundle: Bundle) -> URL {
-        let fileUrlString = bundle.url(forResource: "successful-response-invalid-tar", withExtension: "json")!.absoluteString
+        let invalidFileUrlString = bundle.url(forResource: "successful-response-invalid-tar", withExtension: "json")!.absoluteString
+        let validFileUrlString = bundle.url(forResource: "successful-response-valid-archive", withExtension: "json")!.absoluteString
         let environment: [BackEnd: String] = [
             .localhost: "http://localhost:4000/api/app-setup",
-            .fakeServer: fileUrlString,
+            .fakeServer: invalidFileUrlString,
+            .validFakeServer: validFileUrlString,
             .staging: "https://staging.spartascience.com/api/app-setup",
             .production: "https://home.spartascience.com/api/app-setup"
         ]
