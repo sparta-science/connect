@@ -22,17 +22,21 @@ extension ServerLocator: ServerLocatorProtocol {
     }
 
     public var availableServers: [String] {
-        ApiServer.allCases.map { $0.rawValue }
-            + DebugFileServer.allCases.map { $0.rawValue }
+        let servers = ApiServer.allCases.map { $0.rawValue }
+        #if DEBUG
+            return servers + DebugFileServer.allCases.map { $0.rawValue }
+        #else
+            return servers
+        #endif
     }
 
     private func baseUrlString(_ server: String) -> String {
-        if let apiServer = ApiServer(rawValue: server) {
-            return apiServer.serverUrlString()
-        } else {
-            let file = DebugFileServer(rawValue: server)!.fileName()
-            return json(file, bundle)
+        #if DEBUG
+        if let file = DebugFileServer(rawValue: server) {
+            return json(file.fileName(), bundle)
         }
+        #endif
+        return ApiServer(rawValue: server)!.serverUrlString()
     }
     private func json(_ resource: String, _ bundle: Bundle) -> String {
         bundle.url(forResource: resource, withExtension: "json")!.absoluteString
