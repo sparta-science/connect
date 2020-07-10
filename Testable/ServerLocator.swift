@@ -7,9 +7,9 @@ public protocol ServerLocatorProtocol {
 public class ServerLocator: NSObject {
     @Inject var bundle: Bundle
 
-    var jsonResouces: [BackEnd: String] {[
-        .simulateFailure: "successful-response-invalid-tar",
-        .simulateSuccess: "successful-response-valid-archive"
+    var mockServers: [String: String] {[
+        "simulate install failure": "successful-response-invalid-tar",
+        "simulate install success": "successful-response-valid-archive"
     ]}
 
     override public init() {
@@ -27,15 +27,14 @@ extension ServerLocator: ServerLocatorProtocol {
     }
 
     public var availableServers: [String] {
-        BackEnd.allCases.map { $0.rawValue }
+        BackEnd.allCases.map { $0.rawValue } + Array(mockServers.keys)
     }
 
     private func baseUrlString(_ server: String) -> String {
-        let backEnd = BackEnd(rawValue: server)!
-        if let serverUrl = backEnd.serverUrlString() {
-            return serverUrl
+        if let mock = mockServers[server] {
+            return json(mock, bundle)
         } else {
-            return json(jsonResouces[backEnd]!, bundle)
+            return BackEnd(rawValue: server)!.serverUrlString()
         }
     }
     private func json(_ resource: String, _ bundle: Bundle) -> String {

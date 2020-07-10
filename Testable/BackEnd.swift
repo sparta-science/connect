@@ -3,8 +3,6 @@ import Foundation
 public enum BackEnd: String, CaseIterable {
     // swiftlint:disable explicit_enum_raw_value
     case localhost
-    case simulateFailure = "simulate install failure"
-    case simulateSuccess = "simulate install success"
     case staging
     case production
 
@@ -15,7 +13,7 @@ public enum BackEnd: String, CaseIterable {
             .production: "https://home.spartascience.com"
         ]
     }
-    public func serverUrlString() -> String? {
-        servers[self].map { $0 + "/api/app-setup" }
+    public func serverUrlString() -> String {
+        servers[self].map { $0 + "/api/app-setup" }!
     }
 }

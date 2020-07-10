@@ -24,10 +24,10 @@ class ServerLocatorSpec: QuickSpec {
                 it("should list all backends") {
                     expect(subject.availableServers) == [
                         "localhost",
-                        "simulate install failure",
-                        "simulate install success",
                         "staging",
-                        "production"
+                        "production",
+                        "simulate install success",
+                        "simulate install failure"
                     ]
                 }
             }
