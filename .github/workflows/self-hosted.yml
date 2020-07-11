@@ -34,7 +34,7 @@ jobs:
         gem install bundler
         bundle
     - name: Unit Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable clean test | xcpretty
+      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable clean test | xcpretty -f `xcpretty-actions-formatter`
     - name: Code Coverage for Framework
       run: bash <(curl -s https://codecov.io/bash) -J '^Testable$' -F unit-specs
     - name: Build
