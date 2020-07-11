@@ -728,7 +728,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="automaticallyChecksForUpdates" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </customObject>
-                <customObject id="pLn-GC-5BG" customClass="BundleProxy" customModule="Testable"/>
+                <customObject id="pLn-GC-5BG" customClass="InjectedBundle" customModule="Testable"/>
             </objects>
             <point key="canvasLocation" x="-217" y="-21"/>
         </scene>

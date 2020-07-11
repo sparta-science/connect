@@ -21,6 +21,7 @@
 		4A203BC024B83E2900ECD5EC /* DebugServerLocatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BBF24B83E2900ECD5EC /* DebugServerLocatorSpec.swift */; };
 		4A203BC924B926AE00ECD5EC /* ProcessLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */; };
 		4A203BCB24B926CE00ECD5EC /* ProcessLauncherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BCA24B926CE00ECD5EC /* ProcessLauncherSpec.swift */; };
+		4A203BCF24B9813900ECD5EC /* InjectedBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BCE24B9813900ECD5EC /* InjectedBundle.swift */; };
 		4A2BB2C524AD153A005D1CE6 /* HTTPLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BB2C424AD153A005D1CE6 /* HTTPLoginResponse.swift */; };
 		4A2BB2C724AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2BB2C624AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift */; };
 		4A3F3C76248C92720058C5D4 /* Testable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A3F3C74248C92720058C5D4 /* Testable.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -84,8 +85,8 @@
 		4AE7647024AB08C200CAC3BA /* MoveToApplicationsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */; };
 		4AE7647124AB08CD00CAC3BA /* MoveToApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71D0249C644E0023C93F /* MoveToApplications.swift */; };
 		4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645324AAF0A400CAC3BA /* TestHelper.swift */; };
-		4AE7647424AB0FFB00CAC3BA /* BundleProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */; };
-		4AE7647624AB105700CAC3BA /* BundleProxySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */; };
+		4AE7647424AB0FFB00CAC3BA /* StoryboardInject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647324AB0FFB00CAC3BA /* StoryboardInject.swift */; };
+		4AE7647624AB105700CAC3BA /* InjectedBundleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647524AB105700CAC3BA /* InjectedBundleSpec.swift */; };
 		4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */; };
 		4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */; };
 		4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */; };
@@ -182,6 +183,7 @@
 		4A203BBF24B83E2900ECD5EC /* DebugServerLocatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugServerLocatorSpec.swift; sourceTree = "<group>"; };
 		4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessLauncher.swift; sourceTree = "<group>"; };
 		4A203BCA24B926CE00ECD5EC /* ProcessLauncherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessLauncherSpec.swift; sourceTree = "<group>"; };
+		4A203BCE24B9813900ECD5EC /* InjectedBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedBundle.swift; sourceTree = "<group>"; };
 		4A2BB2C424AD153A005D1CE6 /* HTTPLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLoginResponse.swift; sourceTree = "<group>"; };
 		4A2BB2C624AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPLoginResponseSpec.swift; sourceTree = "<group>"; };
 		4A2BB2C824AD1B11005D1CE6 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -254,8 +256,8 @@
 		4AE7646524AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjectionConfiguration.swift; sourceTree = "<group>"; };
 		4AE7646724AAFEF900CAC3BA /* CreateAndInject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAndInject.swift; sourceTree = "<group>"; };
 		4AE7646924AAFF3700CAC3BA /* TypeInject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeInject.swift; sourceTree = "<group>"; };
-		4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleProxy.swift; sourceTree = "<group>"; };
-		4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleProxySpec.swift; sourceTree = "<group>"; };
+		4AE7647324AB0FFB00CAC3BA /* StoryboardInject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInject.swift; sourceTree = "<group>"; };
+		4AE7647524AB105700CAC3BA /* InjectedBundleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedBundleSpec.swift; sourceTree = "<group>"; };
 		4AE7647C24AB211E00CAC3BA /* .swiftlint.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; tabWidth = 2; };
 		4AE7647D24AB239C00CAC3BA /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholdersSpec.swift; sourceTree = "<group>"; };
@@ -479,7 +481,7 @@
 				4AE7648124AB305300CAC3BA /* ConnectedControllerSpec.swift */,
 				4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */,
 				4AE7648324AB30C500CAC3BA /* ProgressControllerSpec.swift */,
-				4AE7647524AB105700CAC3BA /* BundleProxySpec.swift */,
+				4AE7647524AB105700CAC3BA /* InjectedBundleSpec.swift */,
 				4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */,
 				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
 				4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */,
@@ -509,6 +511,7 @@
 				4AE7644824AAB3DD00CAC3BA /* DependencyContainer.swift */,
 				4AE7644724AAB3DD00CAC3BA /* Inject.swift */,
 				4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */,
+				4AE7647324AB0FFB00CAC3BA /* StoryboardInject.swift */,
 			);
 			name = "Dependency Injection";
 			sourceTree = "<group>";
@@ -618,7 +621,7 @@
 		4BD4D35824ABBE64009D8380 /* Adapters */ = {
 			isa = PBXGroup;
 			children = (
-				4AE7647324AB0FFB00CAC3BA /* BundleProxy.swift */,
+				4A203BCE24B9813900ECD5EC /* InjectedBundle.swift */,
 				4A9F71D0249C644E0023C93F /* MoveToApplications.swift */,
 				4AE7645F24AAFA4500CAC3BA /* ApplicationAdapter.swift */,
 			);
@@ -1077,13 +1080,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A203BCF24B9813900ECD5EC /* InjectedBundle.swift in Sources */,
 				4BD4D35A24ABBF59009D8380 /* ApiServer.swift in Sources */,
 				4AE7644B24AAB3DD00CAC3BA /* Inject.swift in Sources */,
 				4BD4D35224ABBC88009D8380 /* Login.swift in Sources */,
 				4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */,
 				4AE7644C24AAB3DD00CAC3BA /* DependencyContainer.swift in Sources */,
 				4AE7644A24AAB3DD00CAC3BA /* ResolveDependency.swift in Sources */,
-				4AE7647424AB0FFB00CAC3BA /* BundleProxy.swift in Sources */,
+				4AE7647424AB0FFB00CAC3BA /* StoryboardInject.swift in Sources */,
 				4A2BB2C524AD153A005D1CE6 /* HTTPLoginResponse.swift in Sources */,
 				4AE7646024AAFA4500CAC3BA /* ApplicationAdapter.swift in Sources */,
 				4AE7647124AB08CD00CAC3BA /* MoveToApplications.swift in Sources */,
@@ -1146,7 +1150,7 @@
 				4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */,
 				4AB9C9D424B70D9900B181B7 /* Injected.swift in Sources */,
 				4AE7648824AC52EB00CAC3BA /* LoginControllerSpec.swift in Sources */,
-				4AE7647624AB105700CAC3BA /* BundleProxySpec.swift in Sources */,
+				4AE7647624AB105700CAC3BA /* InjectedBundleSpec.swift in Sources */,
 				4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */,
 				4A203BCB24B926CE00ECD5EC /* ProcessLauncherSpec.swift in Sources */,
 				4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */,

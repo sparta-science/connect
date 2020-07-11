@@ -2,15 +2,15 @@ import Nimble
 import Quick
 import Testable
 
-class BundleProxySpec: QuickSpec {
+class InjectedBundleSpec: QuickSpec {
     override func spec() {
-        describe(BundleProxy.self) {
-            var subject: BundleProxy!
+        describe(InjectedBundle.self) {
+            var subject: InjectedBundle!
             beforeEach {
                 TestDependency.register(Inject(testBundle))
                 subject = .init()
             }
-            context(BundleProxy.awakeAfter(using:)) {
+            context(InjectedBundle.awakeAfter(using:)) {
                 it("should be main bundle") {
                     expect(subject.awakeAfter(using: uninitialized())) === testBundle
                 }
