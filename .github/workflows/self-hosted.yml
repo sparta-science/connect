@@ -34,7 +34,7 @@ jobs:
       run: ./bin/xc-scheme.sh UITests test -resultBundlePath ui-tests
     - name: Quick Metric
       env:
-        QUICK_METRIC_API_KEY: {{ secrets.QUICK_METRIC_API_KEY }}
+        QUICK_METRIC_API_KEY: ${{ secrets.QUICK_METRIC_API_KEY }}
       run: ./bin/post-metrics.sh
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
@@ -50,4 +50,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: rare-test-events.plist
-        path: rare-test-events.plist
+        path: /tmp/rare-test-events.plist

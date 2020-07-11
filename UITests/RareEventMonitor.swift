@@ -34,16 +34,10 @@ class RareEventMonitor: NSObject {
     }
     func writeMetrics() {
         try! JSONEncoder().encode(metrics())
-            .write(to: projectFolder.appendingPathComponent("metrics.json"))
-    }
-    var projectFolder: URL {
-        URL(fileURLWithPath: #file)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
+            .write(to: URL(fileURLWithPath: "/tmp/ui-test-metrics.json"))
     }
     func writeCounts() {
-        let fileUrl = projectFolder
-            .appendingPathComponent("rare-test-events.plist")
+        let fileUrl = URL(fileURLWithPath: "/tmp/rare-test-events.plist")
         NSDictionary(dictionary: counts())
             .write(to: fileUrl, atomically: true)
     }
