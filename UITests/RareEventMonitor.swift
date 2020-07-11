@@ -29,6 +29,13 @@ class RareEventMonitor: NSObject {
         return Dictionary(combined,
                    uniquingKeysWith: +)
     }
+    func awsMetrics() -> [AwsMetric] {
+        counts().map { AwsMetric(MetricName: $0, Value: $1) }
+    }
+    func writeAwsMetrics() {
+        try! JSONEncoder().encode(awsMetrics())
+            .write(to: URL(fileURLWithPath: "/tmp/aws-ui-test-metrics.json"))
+    }
     func metrics() -> [Metric] {
         counts().map { Metric(name: $0, value: $1) }
     }
@@ -41,6 +48,11 @@ class RareEventMonitor: NSObject {
         NSDictionary(dictionary: counts())
             .write(to: fileUrl, atomically: true)
     }
+}
+
+struct AwsMetric: Codable {
+    let MetricName: String
+    let Value: Int
 }
 
 struct Metric: Codable {
@@ -56,6 +68,7 @@ extension RareEventMonitor: XCTestObservation {
         events.append(.appIsNotReadyToBeLaunched)
         events.append(.uiagentWarning)
         writeMetrics()
+        writeAwsMetrics()
         writeCounts()
     }
     func testSuiteDidFinish(_ testSuite: XCTestSuite) {
