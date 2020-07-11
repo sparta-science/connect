@@ -32,6 +32,17 @@ jobs:
         bundle
     - name: UI Tests
       run: ./bin/xc-scheme.sh UITests test -resultBundlePath ui-tests
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
+      if: always()  # Setup credentials even if the workflow failed
+    - name: Log Build
+      # replace TAG by the latest tag in the repository
+      uses: ros-tooling/action-cloudwatch-metrics@0.0.4
+      if: always()  # Need to run to log the workflow failure
     - name: Quick Metric
       env:
         QUICK_METRIC_API_KEY: ${{ secrets.QUICK_METRIC_API_KEY }}
