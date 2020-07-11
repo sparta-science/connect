@@ -32,21 +32,6 @@ jobs:
         ruby -v
         gem install bundler:2.1.4 --conservative
         bundle
-    - name: Unit Specs
-      run: ./bin/xc-scheme.sh Testable clean test
-    - name: Code Coverage for Framework
-      run: bash <(curl -s https://codecov.io/bash) -J '^Testable$' -F unit-specs
-    - name: Build
-      run: ./bin/xc-scheme.sh SpartaConnect clean build
-    - name: App Specs
-      run: ./bin/xc-scheme.sh AppSpecs test
-#    - name: codecov/codecov-action@v1.0.7
-#      with:
-#        flags: AppSpecs
-#        name: self-hosted
-#
-    - name: Code Coverage for App target
-      run: bash <(curl -s https://codecov.io/bash) -J '^SpartaConnect$' -F app-specs
     - name: UI Tests
       run: ./bin/xc-scheme.sh UITests test -resultBundlePath ui-tests
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
