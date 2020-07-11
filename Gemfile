@@ -6,6 +6,7 @@ source "https://rubygems.org"
 gem 'cocoapods'     # dependency management
 gem 'xcpretty'      # xcode pretty output, like rspec output
 gem 'slather'       # test coverage report
+gem 'xcpretty-actions-formatter' # pretty output on GitHub Actions
 
 #
 # "If you think they will hit the wall, help them hit the wall faster." --Splinter
