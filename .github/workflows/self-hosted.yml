@@ -16,6 +16,8 @@ jobs:
       NSUnbufferedIO: YES
 
     steps:
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
     - run: rm ~/Library/Keychains/certs.keychain-db || true
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
