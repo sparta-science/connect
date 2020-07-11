@@ -12,7 +12,7 @@ class InjectedBundleSpec: QuickSpec {
             }
             context(InjectedBundle.awakeAfter(using:)) {
                 it("should be main bundle") {
-                    expect(subject.awakeAfter(using: uninitialized())) !== testBundle
+                    expect(subject.awakeAfter(using: uninitialized())) === testBundle
                 }
             }
         }

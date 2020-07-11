@@ -30,7 +30,7 @@ jobs:
     - name: bundle
       run: |
         ruby -v
-        gem install bundler -v 2.1.4 --conservative
+        gem install bundler:2.1.4 --conservative
         bundle
     - name: Unit Specs
       run: ./bin/xc-scheme.sh Testable clean test
