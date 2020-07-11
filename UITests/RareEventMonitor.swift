@@ -33,7 +33,7 @@ class RareEventMonitor: NSObject {
         let fileUrl = URL(fileURLWithPath: #file)
             .deletingLastPathComponent()
             .deletingLastPathComponent()
-            .appendingPathComponent("test-rare-events.plist")
+            .appendingPathComponent("rare-test-events.plist")
         NSDictionary(dictionary: counts())
             .write(to: fileUrl, atomically: true)
     }
