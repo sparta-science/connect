@@ -34,7 +34,7 @@ jobs:
         gem install bundler
         bundle
     - name: Unit Specs
-      run: bin/dev/xc-scheme Testable clean test
+      run: ./bin/xc-scheme Testable clean test
     - name: Code Coverage for Framework
       run: bash <(curl -s https://codecov.io/bash) -J '^Testable$' -F unit-specs
     - name: Build
