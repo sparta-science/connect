@@ -29,14 +29,29 @@ class RareEventMonitor: NSObject {
         return Dictionary(combined,
                    uniquingKeysWith: +)
     }
+    func metrics() -> [Metric] {
+        counts().map { Metric(name: $0, value: $1) }
+    }
+    func writeMetrics() {
+        try! JSONEncoder().encode(metrics())
+            .write(to: projectFolder.appendingPathComponent("metrics.json"))
+    }
+    var projectFolder: URL {
+        URL(fileURLWithPath: #file)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+    }
     func writeCounts() {
-        let fileUrl = URL(fileURLWithPath: #file)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
+        let fileUrl = projectFolder
             .appendingPathComponent("rare-test-events.plist")
         NSDictionary(dictionary: counts())
             .write(to: fileUrl, atomically: true)
     }
+}
+
+struct Metric: Codable {
+    let name: String
+    let value: Int
 }
 
 extension RareEventMonitor: XCTestObservation {
@@ -46,6 +61,7 @@ extension RareEventMonitor: XCTestObservation {
         events.append(.appIsNotReadyToBeLaunched)
         events.append(.appIsNotReadyToBeLaunched)
         events.append(.uiagentWarning)
+        writeMetrics()
         writeCounts()
     }
     func testSuiteDidFinish(_ testSuite: XCTestSuite) {

@@ -45,4 +45,5 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v2
       with:
+        name: rare-test-events.plist
         path: rare-test-events.plist
