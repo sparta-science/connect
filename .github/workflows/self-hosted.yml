@@ -49,7 +49,9 @@ jobs:
       run: ./bin/post-metrics.sh
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
-      run: zip -r results.zip ui-tests.xcresult
+      run: |
+        cp /tmp/rare-test-events.plist .
+        zip -r results.zip ui-tests.xcresult
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
@@ -61,4 +63,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: rare-test-events.plist
-        path: /tmp/rare-test-events.plist
+        path: rare-test-events.plist
