@@ -1,5 +1,6 @@
 import Foundation
 import os
+import XCTest
 
 let testOSLog = OSLog(subsystem: "com.spartascience.SpartaConnect", category: "test")
 

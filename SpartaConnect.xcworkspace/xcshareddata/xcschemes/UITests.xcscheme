@@ -21,6 +21,17 @@
                BlueprintName = "UITests"
                ReferencedContainer = "container:SpartaConnect.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MoveToApplicationsTest">
+               </Test>
+               <Test
+                  Identifier = "OpenAtLoginTest">
+               </Test>
+               <Test
+                  Identifier = "UpdateAppTest">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>
