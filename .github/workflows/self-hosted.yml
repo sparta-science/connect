@@ -2,8 +2,6 @@ name: self-hosted-test
 
 on:
   push:
-  schedule: # Every 10 min between 8 pm and 7 am PST
-    - cron:  '*/10 3-14 * * *' # https://crontab.guru/#*/10_3-14_*_*_*
 
 defaults:
   run:
@@ -44,4 +42,4 @@ jobs:
         name: ui-tests.xcresult
         path: |
           results.zip
-          /tmp/test-rare-events.plist
+          test-rare-events.plist

@@ -30,12 +30,12 @@ class RareEventMonitor: NSObject {
                    uniquingKeysWith: +)
     }
     func writeCounts() {
-        if !events.isEmpty {
-            NSLog("warning: there are some events")
-            print("warning: could this trigger warning?")
-        }
+        let fileUrl = URL(fileURLWithPath: #file)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("test-rare-events.plist")
         NSDictionary(dictionary: counts())
-            .write(toFile: "/tmp/test-rare-events.plist", atomically: true)
+            .write(to: fileUrl, atomically: true)
     }
 }
 
@@ -47,11 +47,13 @@ extension RareEventMonitor: XCTestObservation {
         events.append(.appIsNotReadyToBeLaunched)
         events.append(.uiagentWarning)
         writeCounts()
-        print(counts())
     }
     func testSuiteDidFinish(_ testSuite: XCTestSuite) {
         if testSuite.testRun?.hasSucceeded == true {
             writeCounts()
+            if !events.isEmpty {
+                print("warning: there are some events")
+            }
         }
     }
 }
