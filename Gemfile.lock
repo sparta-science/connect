@@ -92,6 +92,8 @@ GEM
       nanaimo (~> 0.2.6)
     xcpretty (0.3.0)
       rouge (~> 2.0.7)
+    xcpretty-actions-formatter (0.1.2)
+      xcpretty (~> 0.2)
 
 PLATFORMS
   ruby
@@ -100,6 +102,7 @@ DEPENDENCIES
   cocoapods
   slather
   xcpretty
+  xcpretty-actions-formatter
 
 BUNDLED WITH
    2.1.4

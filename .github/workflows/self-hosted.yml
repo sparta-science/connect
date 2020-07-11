@@ -27,20 +27,19 @@ jobs:
         keychain: certs
     - name: Checkout
       uses: actions/checkout@v2.3.1
-    - name: Ruby version
-      run: echo $(ruby -v)
     - name: bundle
       run: |
-        gem install bundler
+        ruby -v
+        gem install bundler:2.1.4 --conservative
         bundle
     - name: Unit Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme Testable clean test | xcpretty
+      run: ./bin/xc-scheme.sh Testable clean test
     - name: Code Coverage for Framework
       run: bash <(curl -s https://codecov.io/bash) -J '^Testable$' -F unit-specs
     - name: Build
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect clean build | xcpretty
+      run: ./bin/xc-scheme.sh SpartaConnect clean build
     - name: App Specs
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme AppSpecs test | xcpretty
+      run: ./bin/xc-scheme.sh AppSpecs test
 #    - name: codecov/codecov-action@v1.0.7
 #      with:
 #        flags: AppSpecs
@@ -49,7 +48,7 @@ jobs:
     - name: Code Coverage for App target
       run: bash <(curl -s https://codecov.io/bash) -J '^SpartaConnect$' -F app-specs
     - name: UI Tests
-      run: set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath ui-tests | xcpretty
+      run: ./bin/xc-scheme.sh UITests test -resultBundlePath ui-tests
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: zip -r results.zip ui-tests.xcresult
