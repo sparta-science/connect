@@ -40,6 +40,10 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ui-tests.xcresult
-        path: |
-          results.zip
-          test-rare-events.plist
+        path: results.zip
+    - name: Upload events
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui-tests.xcresult
+        path: test-rare-events.plist
