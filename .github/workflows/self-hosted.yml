@@ -44,7 +44,9 @@ jobs:
       uses: ros-tooling/action-cloudwatch-metrics@0.0.4
       if: always()  # Need to run to log the workflow failure
     - name: AWS Event Metrics
-      run: ./bin/post-aws-metrics.sh
+      run: |
+        brew outdated awscli || brew install awscli
+        ./bin/post-aws-metrics.sh
     - name: Quick Metric
       env:
         QUICK_METRIC_API_KEY: ${{ secrets.QUICK_METRIC_API_KEY }}
