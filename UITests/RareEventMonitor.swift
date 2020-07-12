@@ -33,7 +33,8 @@ class RareEventMonitor: NSObject {
         let values = counts().map { [$0.key, $0.value.description] }.sorted { $0[0] < $1[0] }
         let properties = [
             ["time", Date().timeIntervalSinceReferenceDate.description],
-            ["host", Host.current().localizedName!]
+            ["host", Host.current().localizedName!],
+            ["commit", (try? String(contentsOfFile: "/tmp/git-commit-sha.txt", encoding: .ascii)) ?? "unknown"]
         ]
         return SpartaMetrics(values: properties + values)
     }
