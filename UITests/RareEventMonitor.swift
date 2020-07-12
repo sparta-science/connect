@@ -8,6 +8,7 @@ enum RareEvent: String, CaseIterable {
 }
 
 class RareEventMonitor: NSObject {
+    var successful = true
     static let shared = RareEventMonitor()
 
     static func log(_ event: RareEvent) {
@@ -76,12 +77,19 @@ struct AwsMetric: Codable {
 }
 
 extension RareEventMonitor: XCTestObservation {
-    func testSuiteDidFinish(_ testSuite: XCTestSuite) {
-        if testSuite.testRun?.hasSucceeded == true {
+    func testBundleDidFinish(_ testBundle: Bundle) {
+        if successful {
             reportMetrics()
             if !events.isEmpty {
                 print("warning: there are some events")
             }
+        } else {
+            print("error: skipping metrics due to failures")
+        }
+    }
+    func testSuiteDidFinish(_ testSuite: XCTestSuite) {
+        if testSuite.testRun?.hasSucceeded != true {
+            successful = false
         }
     }
 }
