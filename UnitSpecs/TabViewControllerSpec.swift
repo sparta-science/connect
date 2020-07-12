@@ -3,40 +3,39 @@ import Nimble
 import Quick
 import Testable
 
+extension TabViewController {
+    func add(numberOfTabs: Int) {
+        (1...numberOfTabs).forEach { _ in
+            addChild(Init(.init()) { $0.view = .init() })
+        }
+    }
+}
+
 class TabViewControllerSpec: QuickSpec {
     override func spec() {
         describe(TabViewController.self) {
             var subject: TabViewController!
             beforeEach {
-                subject = Init(.init()) { controller in
-                    (0...2).forEach { _ in
-                        controller.addChild(Init(.init()) { $0.view = .init() })
-                    }
+                subject = Init(.init()) {
+                    $0?.add(numberOfTabs: 4)
                 }
             }
-            context("login state") {
+            context("state changes") {
                 var mockNotifier: MockStateNotifier!
                 beforeEach {
                     mockNotifier = .createAndInject()
                     expect(subject.view).notTo(beNil())
+                    subject.selectedTabViewItemIndex = 3
                 }
-                it("should select tab 0") {
-                    expect(subject.selectedTabViewItemIndex) == 0
-                }
-                context("changed to busy") {
-                    beforeEach {
-                        mockNotifier.send(state: .busy(value: .init()))
-                    }
-                    it("selects tab 1") {
-                        expect(subject.selectedTabViewItemIndex) == 1
-                    }
-                }
-                context("changed to complete") {
-                    beforeEach {
-                        mockNotifier.receiver!(.complete)
-                    }
-                    it("selects tab 2") {
-                        expect(subject.selectedTabViewItemIndex) == 2
+                it("should update to corresponding tab") {
+                    let tabForState: [Int: State] = [
+                        0: .login,
+                        1: .busy(value: .init()),
+                        2: .complete
+                    ]
+                    tabForState.forEach { (tab: Int, state: State) in
+                        mockNotifier.send(state: state)
+                        expect(subject.selectedTabViewItemIndex) == tab
                     }
                 }
             }
