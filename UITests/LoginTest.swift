@@ -21,7 +21,6 @@ class LoginTest: XCTestCase {
     func testClickConnectShowsConnectWindow() {
         app.closeConnectWindow()
         app.showConnectWindow()
-        RareEventMonitor.log(.appIsNotReadyToBeLaunched)
     }
 
     func testSuccessfullInstallation() throws {

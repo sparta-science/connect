@@ -60,6 +60,12 @@ class RareEventMonitor: NSObject {
         NSDictionary(dictionary: counts())
             .write(to: fileUrl, atomically: true)
     }
+    func reportMetrics() {
+        writeSpartaMetrics()
+        writeMetrics()
+        writeAwsMetrics()
+        writeCounts()
+    }
 }
 
 struct SpartaMetrics: Codable {
@@ -78,20 +84,9 @@ struct Metric: Codable {
 }
 
 extension RareEventMonitor: XCTestObservation {
-    func testSuiteWillStart(_ testSuite: XCTestSuite) {
-        events.append(.appIsNotReadyToBeLaunched)
-        events.append(.appIsNotReadyToBeLaunched)
-        events.append(.appIsNotReadyToBeLaunched)
-        events.append(.appIsNotReadyToBeLaunched)
-        events.append(.uiagentWarning)
-        writeSpartaMetrics()
-        writeMetrics()
-        writeAwsMetrics()
-        writeCounts()
-    }
     func testSuiteDidFinish(_ testSuite: XCTestSuite) {
         if testSuite.testRun?.hasSucceeded == true {
-            writeCounts()
+            reportMetrics()
             if !events.isEmpty {
                 print("warning: there are some events")
             }

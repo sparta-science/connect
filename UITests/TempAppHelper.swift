@@ -39,7 +39,7 @@ class TempAppHelper {
                         + "Are you sure you want to open this application?"
                 ].exists)
                 alert.buttons["Open"].click()
-                testLog("interrupted by first time open alert")
+                RareEventMonitor.log(.firstTimeOpenAlert)
                 return true
             }
             return false

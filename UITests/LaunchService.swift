@@ -9,7 +9,7 @@ enum LaunchService {
                 NSLog("url:\(url), appUrl: \(appUrl)")
                 return url == appUrl
             }
-            testLog("not ready to open app, %{public}@", object.debugDescription)
+            RareEventMonitor.log(.appIsNotReadyToBeLaunched)
             NSLog("no app for url:\(object!)")
             return false
         }
