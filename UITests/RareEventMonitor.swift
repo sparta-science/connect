@@ -31,10 +31,14 @@ class RareEventMonitor: NSObject {
     }
     func spartaMetrics() -> SpartaMetrics {
         let values = counts().map { [$0.key, $0.value.description] }.sorted { $0[0] < $1[0] }
+        var commit = "unknown"
+        if let sha = try? String(contentsOfFile: "/tmp/git-commit-sha.txt", encoding: .ascii) {
+            commit = sha.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
         let properties = [
             ["time", Date().timeIntervalSinceReferenceDate.description],
             ["host", Host.current().localizedName!],
-            ["commit", (try? String(contentsOfFile: "/tmp/git-commit-sha.txt", encoding: .ascii)) ?? "unknown"]
+            ["commit", commit]
         ]
         return SpartaMetrics(values: properties + values)
     }
