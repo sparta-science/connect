@@ -19,8 +19,10 @@
 		4A203BBC24B8386300ECD5EC /* DebugFileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BBB24B8386300ECD5EC /* DebugFileServer.swift */; };
 		4A203BBE24B83CDC00ECD5EC /* DebugServerLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BBD24B83CDC00ECD5EC /* DebugServerLocator.swift */; };
 		4A203BC024B83E2900ECD5EC /* DebugServerLocatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BBF24B83E2900ECD5EC /* DebugServerLocatorSpec.swift */; };
+		4A203BC724B8E22400ECD5EC /* RareEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC624B8E22400ECD5EC /* RareEventMonitor.swift */; };
 		4A203BC924B926AE00ECD5EC /* ProcessLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */; };
 		4A203BCB24B926CE00ECD5EC /* ProcessLauncherSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BCA24B926CE00ECD5EC /* ProcessLauncherSpec.swift */; };
+		4A203BCD24B96F6F00ECD5EC /* Principal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BCC24B96F6F00ECD5EC /* Principal.swift */; };
 		4A203BCF24B9813900ECD5EC /* InjectedBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BCE24B9813900ECD5EC /* InjectedBundle.swift */; };
 		4A203BD224BA954600ECD5EC /* StateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BD124BA954600ECD5EC /* StateNotifier.swift */; };
 		4A203BD424BA957E00ECD5EC /* MockStateNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BD324BA957E00ECD5EC /* MockStateNotifier.swift */; };
@@ -52,7 +54,6 @@
 		4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */; };
 		4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */; };
 		4AC171CE24B3F6F80096BF33 /* SpartaConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */; };
-		4AC171D024B403F80096BF33 /* testLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CF24B403F80096BF33 /* testLog.swift */; };
 		4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D124B51DC40096BF33 /* MockDownloader.swift */; };
 		4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */; };
 		4AC171D624B538F10096BF33 /* DownloaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D524B538F10096BF33 /* DownloaderSpec.swift */; };
@@ -184,8 +185,10 @@
 		4A203BBB24B8386300ECD5EC /* DebugFileServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFileServer.swift; sourceTree = "<group>"; };
 		4A203BBD24B83CDC00ECD5EC /* DebugServerLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugServerLocator.swift; sourceTree = "<group>"; };
 		4A203BBF24B83E2900ECD5EC /* DebugServerLocatorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugServerLocatorSpec.swift; sourceTree = "<group>"; };
+		4A203BC624B8E22400ECD5EC /* RareEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RareEventMonitor.swift; sourceTree = "<group>"; };
 		4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessLauncher.swift; sourceTree = "<group>"; };
 		4A203BCA24B926CE00ECD5EC /* ProcessLauncherSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessLauncherSpec.swift; sourceTree = "<group>"; };
+		4A203BCC24B96F6F00ECD5EC /* Principal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Principal.swift; sourceTree = "<group>"; };
 		4A203BCE24B9813900ECD5EC /* InjectedBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedBundle.swift; sourceTree = "<group>"; };
 		4A203BD024B9843300ECD5EC /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bin; sourceTree = "<group>"; };
 		4A203BD124BA954600ECD5EC /* StateNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateNotifier.swift; sourceTree = "<group>"; };
@@ -236,7 +239,6 @@
 		4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerLocatorSpec.swift; sourceTree = "<group>"; };
 		4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssemblySpec.swift; sourceTree = "<group>"; };
 		4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectApp.swift; sourceTree = "<group>"; };
-		4AC171CF24B403F80096BF33 /* testLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testLog.swift; sourceTree = "<group>"; };
 		4AC171D124B51DC40096BF33 /* MockDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDownloader.swift; sourceTree = "<group>"; };
 		4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = expected_vernal_falls.tar.gz; sourceTree = "<group>"; };
 		4AC171D524B538F10096BF33 /* DownloaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderSpec.swift; sourceTree = "<group>"; };
@@ -421,13 +423,14 @@
 				4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */,
 				4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */,
 				4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */,
-				4AC171CF24B403F80096BF33 /* testLog.swift */,
 				4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */,
 				4A9F71CE249B52930023C93F /* SecurityHelper.swift */,
 				4A8A3636249638100071624E /* LaunchService.swift */,
 				4A3F3C96248F604B0058C5D4 /* FileHelper.swift */,
 				4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */,
 				4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */,
+				4A203BC624B8E22400ECD5EC /* RareEventMonitor.swift */,
+				4A203BCC24B96F6F00ECD5EC /* Principal.swift */,
 				4AA188AC2486FA90009CFACE /* Info.plist */,
 				4AD40A9B24897C85002728DA /* UITests.entitlements */,
 			);
@@ -1196,11 +1199,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC171D024B403F80096BF33 /* testLog.swift in Sources */,
 				4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */,
 				4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */,
 				4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */,
 				4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */,
+				4A203BCD24B96F6F00ECD5EC /* Principal.swift in Sources */,
 				4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */,
 				4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */,
 				4AE7645524AAF0D500CAC3BA /* TestHelper.swift in Sources */,
@@ -1211,6 +1214,7 @@
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
 				4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */,
 				4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */,
+				4A203BC724B8E22400ECD5EC /* RareEventMonitor.swift in Sources */,
 				4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */,
 				4A8A3637249638100071624E /* LaunchService.swift in Sources */,
 			);

@@ -55,7 +55,7 @@ class UpdateAppTest: XCTestCase {
             let button = agent.buttons.matching(predicate).element
             if app.state != .notRunning, button.exists {
                 NSLog("agent: " + agent.debugDescription)
-                testLog("uiagent shows open first time warning")
+                RareEventMonitor.log(.uiagentWarning)
                 button.click()
             }
         } while !app.wait(for: .runningForeground)

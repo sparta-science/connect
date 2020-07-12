@@ -31,7 +31,8 @@ class WorkspaceHelper {
                 self.workspace.open(url, configuration: config) { _, err in
                     if !onError(err) {
                         done()
-                        testLog("finished retrying app launch")
+                    } else {
+                        RareEventMonitor.log(.hadToRetryLaunching)
                     }
                 }
             }
@@ -45,7 +46,6 @@ func retry(times: Int, block: @escaping (_ onError: @escaping (Error?) -> Bool) 
             if times > 0 {
                 RunLoop.run(for: 1)
                 NSLog("retrying \(times) time")
-                testLog("retrying %{public}d time", times)
                 retry(times: times - 1, block: block)
             } else {
                 verifyNoError(error, "failed to retry")

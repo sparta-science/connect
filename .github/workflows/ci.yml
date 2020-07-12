@@ -67,12 +67,35 @@ jobs:
         workspace: SpartaConnect.xcworkspace
         scheme: UITests
         build-settings: -resultBundlePath ui-tests
+    - name: Sparta Metrics
+      env:
+        PIZZLY_AUTH_ID: ${{ secrets.PIZZLY_AUTH_ID }}
+        PIZZLY_PKEY: ${{ secrets.PIZZLY_PKEY }}
+      run: ./bin/post-sparta-metrics.sh
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
-      run: zip -r results.zip ui-tests.xcresult
+      run: |
+        cp /tmp/rare-test-events.plist .
+        zip -r results.zip ui-tests.xcresult
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
       with:
         name: ui-tests.xcresult
         path: results.zip
+    - name: Upload events
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: rare-test-events.plist
+        path: rare-test-events.plist
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-1
+      if: always()  # Setup credentials even if the workflow failed
+    - name: Log Build
+      uses: ros-tooling/action-cloudwatch-metrics@0.0.4
+      if: always()  # Need to run to log the workflow failure
