@@ -30,7 +30,12 @@ class RareEventMonitor: NSObject {
                    uniquingKeysWith: +)
     }
     func spartaMetrics() -> SpartaMetrics {
-        SpartaMetrics(values: counts().map { [$0.key, $0.value.description] }.sorted { $0[0] < $1[0] })
+        let values = counts().map { [$0.key, $0.value.description] }.sorted { $0[0] < $1[0] }
+        let properties = [
+            ["time", Date().timeIntervalSinceReferenceDate.description],
+            ["host", Host.current().localizedName!]
+        ]
+        return SpartaMetrics(values: properties + values)
     }
     func writeSpartaMetrics() {
         try! JSONEncoder().encode(spartaMetrics())
