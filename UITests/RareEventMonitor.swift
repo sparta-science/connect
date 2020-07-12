@@ -29,6 +29,15 @@ class RareEventMonitor: NSObject {
         return Dictionary(combined,
                    uniquingKeysWith: +)
     }
+    func spartaMetrics() -> SpartaMetrics {
+        let names = counts().map { $0.key }
+        let values = counts().map { $0.value.description }
+        return SpartaMetrics(values: [names, values])
+    }
+    func writeSpartaMetrics() {
+        try! JSONEncoder().encode(spartaMetrics())
+            .write(to: URL(fileURLWithPath: "/tmp/sparta-ui-test-metrics.json"))
+    }
     func awsMetrics() -> [AwsMetric] {
         counts().map { AwsMetric(MetricName: $0, Value: $1) }
     }
@@ -50,6 +59,10 @@ class RareEventMonitor: NSObject {
     }
 }
 
+struct SpartaMetrics: Codable {
+    let values: [[String]]
+}
+
 struct AwsMetric: Codable {
     let MetricName: String
     let Value: Int
@@ -67,6 +80,7 @@ extension RareEventMonitor: XCTestObservation {
         events.append(.appIsNotReadyToBeLaunched)
         events.append(.appIsNotReadyToBeLaunched)
         events.append(.uiagentWarning)
+        writeSpartaMetrics()
         writeMetrics()
         writeAwsMetrics()
         writeCounts()
