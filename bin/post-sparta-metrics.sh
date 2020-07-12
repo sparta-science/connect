@@ -1,6 +1,6 @@
 #!/usr/bin/env bash -o errexit
 
-curl --location --request POST "https://dev-sparta-connect.herokuapp.com/proxy/google-sheets/1wxfcYqpjhxpCDaNa61t8dTzJij7OYRVX47JAXKYyEL0/values/A1:append?valueInputOption=RAW&pizzly_pkey=$PIZZLY_PKEY" \
+curl --location --request POST "https://dev-sparta-connect.herokuapp.com/proxy/google-sheets/1wxfcYqpjhxpCDaNa61t8dTzJij7OYRVX47JAXKYyEL0/values/A1:append?valueInputOption=USER_ENTERED&pizzly_pkey=$PIZZLY_PKEY" \
 --header "Pizzly-Auth-Id: $PIZZLY_AUTH_ID" \
 --header 'Content-Type: application/json' \
 -d @/tmp/sparta-ui-test-metrics.json

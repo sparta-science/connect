@@ -30,9 +30,7 @@ class RareEventMonitor: NSObject {
                    uniquingKeysWith: +)
     }
     func spartaMetrics() -> SpartaMetrics {
-        let names = counts().map { $0.key }
-        let values = counts().map { $0.value.description }
-        return SpartaMetrics(values: [names, values])
+        SpartaMetrics(values: counts().map { [$0.key, $0.value.description] }.sorted { $0[0] < $1[0] })
     }
     func writeSpartaMetrics() {
         try! JSONEncoder().encode(spartaMetrics())
@@ -60,6 +58,7 @@ class RareEventMonitor: NSObject {
 }
 
 struct SpartaMetrics: Codable {
+    let majorDimension = "COLUMNS"
     let values: [[String]]
 }
 
