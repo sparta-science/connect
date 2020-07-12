@@ -15,10 +15,9 @@ class TabViewControllerSpec: QuickSpec {
                 }
             }
             context("login state") {
-                var publisher: CurrentValueSubject<State, Never>!
+                var mockNotifier: MockStateNotifier!
                 beforeEach {
-                    publisher = .init(.login)
-                    TestDependency.register(Inject(publisher.eraseToAnyPublisher()))
+                    mockNotifier = .createAndInject()
                     expect(subject.view).notTo(beNil())
                 }
                 it("should select tab 0") {
@@ -26,28 +25,19 @@ class TabViewControllerSpec: QuickSpec {
                 }
                 context("changed to busy") {
                     beforeEach {
-                        publisher.send(.busy(value: .init()))
+                        mockNotifier.send(state: .busy(value: .init()))
                     }
                     it("selects tab 1") {
-                        expect(subject.selectedTabViewItemIndex)
-                            .toEventually(equal(1))
+                        expect(subject.selectedTabViewItemIndex) == 1
                     }
                 }
                 context("changed to complete") {
                     beforeEach {
-                        publisher.send(.complete)
+                        mockNotifier.receiver!(.complete)
                     }
                     it("selects tab 2") {
-                        expect(subject.selectedTabViewItemIndex)
-                            .toEventually(equal(2))
+                        expect(subject.selectedTabViewItemIndex) == 2
                     }
-                }
-                it("should receive on main thread") {
-                    DispatchQueue.global(qos: .background).async {
-                        publisher.send(.complete)
-                    }
-                    expect(subject.selectedTabViewItemIndex)
-                        .toEventually(equal(2))
                 }
             }
         }

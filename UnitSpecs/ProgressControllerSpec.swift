@@ -1,4 +1,3 @@
-import Combine
 import Nimble
 import Quick
 import Testable
@@ -28,16 +27,15 @@ class ProgressControllerSpec: QuickSpec {
                 }
             }
             context("state changes") {
-                var publisher: CurrentValueSubject<State, Never>!
+                var mockNotifier: MockStateNotifier!
                 beforeEach {
-                    publisher = .init(.login)
-                    TestDependency.register(Inject(publisher.eraseToAnyPublisher()))
+                    mockNotifier = .createAndInject()
                     subject.viewDidLoad()
                 }
                 context("not progress") {
                     it("should be ignored") {
-                        publisher.send(.complete)
-                        publisher.send(.login)
+                        mockNotifier.send(state: .complete)
+                        mockNotifier.send(state: .login)
                     }
                 }
                 context("progress") {
@@ -57,18 +55,18 @@ class ProgressControllerSpec: QuickSpec {
                     context("not cancellable") {
                         beforeEach {
                             progress.isCancellable = false
-                            publisher.send(.busy(value: progress))
+                            mockNotifier.send(state: .busy(value: progress))
                         }
                         it("should hide cancel button") {
-                            expect(cancelButton.isHidden).toEventually(beTrue())
+                            expect(cancelButton.isHidden) == true
                         }
                     }
                     context("inderterminate") {
                         beforeEach {
-                            publisher.send(.busy(value: progress))
+                            mockNotifier.send(state: .busy(value: progress))
                         }
                         it("should animate") {
-                            expect(progressIndicator.isAnimating).toEventually(beTrue())
+                            expect(progressIndicator.isAnimating) == true
                             expect(progressIndicator.isIndeterminate) == true
                         }
                     }
@@ -76,10 +74,10 @@ class ProgressControllerSpec: QuickSpec {
                         beforeEach {
                             progress.totalUnitCount = 3
                             progress.completedUnitCount = 1
-                            publisher.send(.busy(value: progress))
+                            mockNotifier.send(state: .busy(value: progress))
                         }
                         it("should set fraction completed") {
-                            expect(progressIndicator.doubleValue).toEventually(beCloseTo(0.333_3))
+                            expect(progressIndicator.doubleValue).to(beCloseTo(0.333_3))
                             expect(progressLabel.stringValue) == "33% completed"
                         }
                     }

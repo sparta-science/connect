@@ -69,5 +69,6 @@ public struct AppAssembly: Assembly {
         container.register(name: "installation script url") {
             ($0 ~> Bundle.self).url(forResource: "install_vernal_falls", withExtension: "sh")!
         }
+        container.autoregister { StateNotifier() }.inObjectScope(.transient)
     }
 }

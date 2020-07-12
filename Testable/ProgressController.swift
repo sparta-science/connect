@@ -1,10 +1,8 @@
-import Cocoa
-import Combine
+import AppKit
 
 public class ProgressController: NSViewController {
     @Inject var installer: Installation
-    @Inject var statePublisher: AnyPublisher<State, Never>
-    var cancellables = Set<AnyCancellable>()
+    @Inject var notifier: StateNotifier
 
     @IBOutlet public var progressIndicator: NSProgressIndicator!
     @IBOutlet public var cancelButton: NSButton!
@@ -23,10 +21,8 @@ public class ProgressController: NSViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        statePublisher
-            .receive(on: DispatchQueue.main)
-            .compactMap { $0.progress() }
-            .sink { self.update(progress: $0) }
-            .store(in: &cancellables)
+        notifier.start {
+            $0.progress().flatMap { self.update(progress: $0) }
+        }
     }
 }

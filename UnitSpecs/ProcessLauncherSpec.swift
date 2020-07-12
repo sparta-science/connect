@@ -10,7 +10,8 @@ class ProcessLauncherSpec: QuickSpec {
                 subject = .init()
             }
             describe(ProcessLauncher.runShellScript(script:)) {
-                xit("should report error when failing to launch") {
+                // TODO:
+                it("should report error when failing to launch") {
                     try! subject.runShellScript(script: testBundleUrl("expected-config.yml"))
                 }
             }

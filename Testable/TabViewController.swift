@@ -1,16 +1,7 @@
-import Cocoa
-import Combine
+import AppKit
 
 public class TabViewController: NSTabViewController {
-    @Inject var statePublisher: AnyPublisher<State, Never>
-    var cancellables = Set<AnyCancellable>()
-
-    private func observeState() {
-        statePublisher
-            .receive(on: DispatchQueue.main)
-            .sink(receiveValue: updateSelected(_:))
-            .store(in: &cancellables)
-    }
+    @Inject var notifier: StateNotifier
 
     private func updateSelected(_ state: State) {
         selectedTabViewItemIndex = tabIndex(state)
@@ -28,6 +19,6 @@ public class TabViewController: NSTabViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        observeState()
+        notifier.start(receiver: updateSelected(_:))
     }
 }
