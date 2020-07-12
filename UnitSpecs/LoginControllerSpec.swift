@@ -17,7 +17,7 @@ class LoginControllerSpec: QuickSpec {
                     mockLocator = .createAndInject()
                 }
                 it("should begin installation") {
-                    subject.connectAction(.init())
+                    subject.connectAction(NSButton())
                     expect(mockInstaller.didBegin) === mockLocator.fakeLoginRequest
                 }
             }

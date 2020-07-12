@@ -62,8 +62,7 @@ class LoginTest: XCTestCase {
             app.enter(username: "user@example.com")
             XCTAssertFalse(app.loginButton.isEnabled,
                            "should be disabled until form is filled out")
-            app.enter(password: "password")
-            app.loginButton.click()
+            app.enter(password: "password\n")
             app.dismiss(alert: "Email and password are not valid", byClicking: "OK")
         }
     }

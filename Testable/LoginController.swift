@@ -7,7 +7,7 @@ public class LoginController: NSViewController {
     @Inject var processInfo: ProcessInfo
     @Inject @objc var locator: ServerLocatorProtocol
 
-    @IBAction public func connectAction(_ sender: NSButton) {
+    @IBAction public func connectAction(_ sender: Any) {
         installer.beginInstallation(login: locator.loginRequest(login))
     }
     override public func awakeFromNib() {
