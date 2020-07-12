@@ -81,7 +81,8 @@ extension RareEventMonitor: XCTestObservation {
         if successful {
             reportMetrics()
             if !events.isEmpty {
-                print("warning: there are some events")
+                print("warning: there are some events: \(events.map { $0.rawValue })")
+                try! "stopping due to events: \(events)".write(toFile: "/tmp/stop-ui-tests.txt", atomically: true, encoding: .ascii)
             }
         } else {
             print("error: skipping metrics due to failures")
