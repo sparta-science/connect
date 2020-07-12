@@ -67,6 +67,11 @@ jobs:
         workspace: SpartaConnect.xcworkspace
         scheme: UITests
         build-settings: -resultBundlePath ui-tests
+    - name: Sparta Metrics
+      env:
+        PIZZLY_AUTH_ID: ${{ secrets.PIZZLY_AUTH_ID }}
+        PIZZLY_PKEY: ${{ secrets.PIZZLY_PKEY }}
+      run: ./bin/post-sparta-metrics.sh
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: zip -r results.zip ui-tests.xcresult
