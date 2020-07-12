@@ -11,19 +11,22 @@ class StateNotifierSpec: QuickSpec {
                 subject = .init()
             }
             describe(StateNotifier.start(receiver:)) {
-                var publisher: CurrentValueSubject<State, Never>!
+                var publisher: PassthroughSubject<State, Never>!
                 beforeEach {
-                    publisher = .init(.login)
+                    publisher = .init()
                     TestDependency.register(Inject(publisher.eraseToAnyPublisher()))
                 }
 
                 it("should receive state on main thread") {
-                    DispatchQueue.global(qos: .background).async {
-                        publisher.send(.complete)
-                    }
-                    subject.start { state in
-                        expect(Thread.isMainThread) == true
-                        expect(state) == .complete
+                    waitUntil { done in
+                        subject.start { state in
+                            expect(Thread.isMainThread) == true
+                            expect(state) == .complete
+                            done()
+                        }
+                        DispatchQueue.global(qos: .background).async {
+                            publisher.send(.complete)
+                        }
                     }
                 }
             }
