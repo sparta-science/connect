@@ -2,6 +2,8 @@ name: self-hosted-test
 
 on:
   push:
+  schedule: # Every 10 min between 8 pm and 7 am PST
+    - cron:  '*/10 3-14 * * *' # https://crontab.guru/#*/10_3-14_*_*_*
 
 defaults:
   run:
@@ -16,8 +18,6 @@ jobs:
       NSUnbufferedIO: YES
 
     steps:
-#    - name: Setup tmate session
-#      uses: mxschmitt/action-tmate@v2
     - run: rm ~/Library/Keychains/certs.keychain-db || true
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
@@ -32,6 +32,21 @@ jobs:
         ruby -v
         gem install bundler:2.1.4 --conservative
         bundle
+    - name: Unit Specs
+      run: ./bin/xc-scheme.sh Testable clean test
+    - name: Code Coverage for Framework
+      run: bash <(curl -s https://codecov.io/bash) -J '^Testable$' -F unit-specs
+    - name: Build
+      run: ./bin/xc-scheme.sh SpartaConnect clean build
+    - name: App Specs
+      run: ./bin/xc-scheme.sh AppSpecs test
+#    - name: codecov/codecov-action@v1.0.7
+#      with:
+#        flags: AppSpecs
+#        name: self-hosted
+#
+    - name: Code Coverage for App target
+      run: bash <(curl -s https://codecov.io/bash) -J '^SpartaConnect$' -F app-specs
     - name: UI Tests
       run: ./bin/xc-scheme.sh UITests test -resultBundlePath ui-tests
     - name: Configure AWS Credentials
@@ -42,7 +57,6 @@ jobs:
         aws-region: us-west-1
       if: always()  # Setup credentials even if the workflow failed
     - name: Log Build
-      # replace TAG by the latest tag in the repository
       uses: ros-tooling/action-cloudwatch-metrics@0.0.4
       if: always()  # Need to run to log the workflow failure
     - name: Sparta Metrics
