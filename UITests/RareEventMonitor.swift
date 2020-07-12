@@ -49,13 +49,6 @@ class RareEventMonitor: NSObject {
         try! JSONEncoder().encode(awsMetrics())
             .write(to: URL(fileURLWithPath: "/tmp/aws-ui-test-metrics.json"))
     }
-    func metrics() -> [Metric] {
-        counts().map { Metric(name: $0, value: $1) }
-    }
-    func writeMetrics() {
-        try! JSONEncoder().encode(metrics())
-            .write(to: URL(fileURLWithPath: "/tmp/ui-test-metrics.json"))
-    }
     func writeCounts() {
         let fileUrl = URL(fileURLWithPath: "/tmp/rare-test-events.plist")
         NSDictionary(dictionary: counts())
@@ -63,7 +56,6 @@ class RareEventMonitor: NSObject {
     }
     func reportMetrics() {
         writeSpartaMetrics()
-        writeMetrics()
         writeAwsMetrics()
         writeCounts()
     }
@@ -77,11 +69,6 @@ struct SpartaMetrics: Codable {
 struct AwsMetric: Codable {
     let MetricName: String
     let Value: Int
-}
-
-struct Metric: Codable {
-    let name: String
-    let value: Int
 }
 
 extension RareEventMonitor: XCTestObservation {
