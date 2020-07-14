@@ -125,6 +125,9 @@ class UpdateAppTest: XCTestCase {
             timeout: .install
         )
         tempAppHelper.syncFileSystem()
+        XCTAssertEqual(noErr,
+                       tempAppHelper.updateAppRegistrationWithLaunchServicesDatabase(),
+                       "updating launch services registration")
     }
 
     func checkForUpdatesAndInstallOnQuit() {

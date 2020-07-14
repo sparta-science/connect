@@ -17,6 +17,10 @@ class TempAppHelper {
     func syncFileSystem() {
         fileHelper.syncFileSystem(for: tempUrl)
     }
+    
+    func updateAppRegistrationWithLaunchServicesDatabase() -> OSStatus {
+        LSRegisterURL(tempUrl as CFURL, true)
+    }
 
     func hasDownloaded(fileName: String) -> NSPredicate {
         bundleHelper.find(file: fileName,
