@@ -207,6 +207,8 @@
 		4A3F3C96248F604B0058C5D4 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
+		4A77486B24BD3DFC00A4277E /* .envrc */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc; sourceTree = "<group>"; };
+		4A77486C24BD3DFD00A4277E /* .envrc.sample */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc.sample; sourceTree = "<group>"; };
 		4A8150FF24A32E1C0080D260 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		4A81510324A332530080D260 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		4A81510524A337EC0080D260 /* ConnectedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
@@ -411,6 +413,8 @@
 				4A9F06D02491D91300714B04 /* Gemfile.lock */,
 				4AE7647C24AB211E00CAC3BA /* .swiftlint.yml */,
 				4A9F06D52491DFFD00714B04 /* .gitignore */,
+				4A77486B24BD3DFC00A4277E /* .envrc */,
+				4A77486C24BD3DFD00A4277E /* .envrc.sample */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

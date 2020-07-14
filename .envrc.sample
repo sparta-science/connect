@@ -1,0 +1,6 @@
+# Populate with real values and save as .envrc
+# use direnv
+# Install: brew install direnv
+# See more: https://direnv.net
+PIZZLY_PKEY=publishing-key
+PIZZLY_AUTH_ID=authorization

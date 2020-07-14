@@ -98,3 +98,6 @@ iOSInjectionProject/
 
 # Code signing identity and development team
 /local.xcconfig
+
+# Direnv configuration
+.envrc
