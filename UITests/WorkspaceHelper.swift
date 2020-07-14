@@ -5,7 +5,7 @@ class WorkspaceHelper {
     let workspace = NSWorkspace.shared
     let securityHelper = SecurityHelper()
 
-    private func checkIfApp(url: URL) {
+    private func verifyValidAppBundle(url: URL) {
         verify(try! workspace.type(ofFile: url.path) == kUTTypeApplicationBundle as String)
         securityHelper.verify(url: url)
     }
@@ -22,7 +22,7 @@ class WorkspaceHelper {
     }
 
     func launch(url: URL, arguments: [String] = []) {
-        checkIfApp(url: url)
+        verifyValidAppBundle(url: url)
         verify(workspace.urlForApplication(toOpen: url) == url)
         let config = launchConfiguration(arguments: arguments)
         LaunchService.waitForAppToBeReadyForLaunch(at: url)
