@@ -25,5 +25,14 @@ enum LaunchService {
                        "app is not ready for launch at: \(url)")
         let values = try! url.resourceValues(forKeys: [.quarantinePropertiesKey])
         XCTAssertNil(values.quarantineProperties, "should have no quarantine properties")
+        let appBundle = Bundle(url: url)!
+        XCTAssertFalse(appBundle.isLoaded, "should not be loaded")
+        var app: NSString?
+        var type: NSString?
+        workspace.getInfoForFile(url.path, application: &app, type: &type)
+        XCTAssertEqual(app, url.path as NSString)
+        XCTAssertEqual(type, "app")
+        XCTAssertEqual(noErr, LSRegisterURL(appBundle.bundleURL as CFURL, true),
+                       "bundle should be registered")
     }
 }
