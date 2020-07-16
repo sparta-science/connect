@@ -30,22 +30,38 @@ class RareEventMonitor: NSObject {
         return Dictionary(combined,
                    uniquingKeysWith: +)
     }
-    func spartaMetrics() -> SpartaMetrics {
-        let values = counts().map { [$0.key, $0.value.description] }.sorted { $0[0] < $1[0] }
+    func spartaMetrics() -> [String: String] {
+        var values = counts().mapValues { $0.description }
         var commit = "unknown"
         if let sha = try? String(contentsOfFile: "/tmp/git-commit-sha.txt", encoding: .ascii) {
             commit = sha.trimmingCharacters(in: .whitespacesAndNewlines)
         }
-        let properties = [
-            ["time", Date().timeIntervalSinceReferenceDate.description],
-            ["host", Host.current().localizedName!],
-            ["commit", commit]
-        ]
-        return SpartaMetrics(values: properties + values)
+        values["time"] = Date().timeIntervalSinceReferenceDate.description
+        values["host"] = Host.current().localizedName!
+        values["commit"] = commit
+        return values
+    }
+    func formKey(dataKey: String) -> String {
+        [
+            "host": "entry.1585459658",
+            "time": "entry.60160137",
+            "commit": "entry.634580662",
+            "uiagentWarning": "entry.2044854151",
+            "firstTimeOpenAlert": "entry.682716004",
+            "hadToRetryLaunching": "entry.1903891707",
+            "appIsNotReadyToBeLaunched": "entry.2015326007"
+        ][dataKey]!
+    }
+    func createForm(data: [String: String]) -> String {
+        var components = URLComponents()
+        components.queryItems = data.map { URLQueryItem(name: formKey(dataKey: $0), value: $1) }
+        return components.percentEncodedQuery!
     }
     func writeSpartaMetrics() {
-        try! JSONEncoder().encode(spartaMetrics())
-            .write(to: URL(fileURLWithPath: "/tmp/sparta-ui-test-metrics.json"))
+        let formUrl = URL(fileURLWithPath: "/tmp/sparta-ui-test-metrics-url-encoded-form.txt")
+        try! createForm(data: spartaMetrics()).write(to: formUrl,
+                                                     atomically: true,
+                                                     encoding: .ascii)
     }
     func awsMetrics() -> [AwsMetric] {
         counts().map { AwsMetric(MetricName: $0, Value: $1) }

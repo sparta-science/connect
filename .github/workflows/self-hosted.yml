@@ -64,8 +64,7 @@ jobs:
       if: always()  # Need to run to log the workflow failure
     - name: Sparta Metrics
       env:
-        PIZZLY_AUTH_ID: ${{ secrets.PIZZLY_AUTH_ID }}
-        PIZZLY_PKEY: ${{ secrets.PIZZLY_PKEY }}
+        SUBMIT_METRICS_URL: ${{ secrets.SUBMIT_METRICS_URL }}
       run: ./bin/post-sparta-metrics.sh
     - name: AWS Event Metrics
       run: |
