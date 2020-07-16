@@ -82,11 +82,6 @@ class RareEventMonitor: NSObject {
     }
 }
 
-struct SpartaMetrics: Codable {
-    let majorDimension = "COLUMNS"
-    let values: [[String]]
-}
-
 struct AwsMetric: Codable {
     let MetricName: String
     let Value: Int
