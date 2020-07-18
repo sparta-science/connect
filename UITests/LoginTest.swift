@@ -45,7 +45,7 @@ class LoginTest: XCTestCase {
             app.loginButton.click()
 
             verifyInstalled(file: "vernal_falls_config.yml")
-            verifyInstalled(file: "vernal_falls.tar.gz")
+            verifyInstalled(file: "vernal_falls.tar.gz", timeout: .network)
             app.dismiss(alert: "Failed to install with exit code: 1", byClicking: "OK")
             app.loginButton.waitToAppear()
         }
@@ -67,9 +67,15 @@ class LoginTest: XCTestCase {
         }
     }
 
-    func verifyInstalled(file: String) {
+    func verifyInstalled(file: String, timeout: Timeout = .test,
+                         _ source: StaticString = #file,
+                         _ line: UInt = #line) {
         let checkForFile = bundleHelper.findInstalled(file: file)
         let isFileInstalled = XCTNSPredicateExpectation(predicate: checkForFile, object: nil)
-        XCTWaiter.wait(until: isFileInstalled, file + " should be installed")
+        XCTWaiter.wait(until: isFileInstalled,
+                       timeout: timeout,
+                       file + " should be installed",
+                       file: source,
+                       line: line)
     }
 }
