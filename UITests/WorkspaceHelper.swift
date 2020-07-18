@@ -21,11 +21,16 @@ class WorkspaceHelper {
         return config
     }
 
+    func verifyAppRegistedToLaunch(url: URL) {
+        verifyStatusSuccess(LSRegisterURL(url as CFURL, true),
+                            "bundle should be registered")
+    }
+
     func launch(url: URL, arguments: [String] = []) {
         verifyValidAppBundle(url: url)
         verify(workspace.urlForApplication(toOpen: url) == url)
+        verifyAppRegistedToLaunch(url: url)
         let config = launchConfiguration(arguments: arguments)
-        LaunchService.waitForAppToBeReadyForLaunch(at: url)
         retry("launching app", upToTimes: 5, timeout: .install) { checkError in
             self.workspace.open(url, configuration: config) { _, err in
                 checkError(err)

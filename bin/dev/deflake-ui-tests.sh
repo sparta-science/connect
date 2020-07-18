@@ -18,3 +18,4 @@ time while { set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace 
     source $(dirname $0)/../post-sparta-metrics.sh
     test "$1" = "events" && test -f /tmp/events-detected-during-ui-tests.txt && die "stopping because of events"
 done
+die "completed deflaking"

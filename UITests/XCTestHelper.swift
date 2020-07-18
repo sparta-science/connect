@@ -8,6 +8,10 @@ func verifySuccess(_ result: Int32) {
     XCTAssertEqual(noErr, result, lastErrorDescription())
 }
 
+func verifyStatusSuccess(_ result: OSStatus, _ message: String) {
+    XCTAssertEqual(noErr, result, message)
+}
+
 func verifyNoError(_ error: Error?,
                    _ message: @autoclosure () -> String = "",
                    file: StaticString = #file,

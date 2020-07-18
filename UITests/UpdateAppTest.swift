@@ -47,7 +47,7 @@ class UpdateAppTest: XCTestCase {
             .waitToAppear(time: .install)
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         app.wait(until: .notRunning, "wait for app to terminate")
-        LaunchService.waitForAppToBeReadyForLaunch(at: tempAppHelper.tempUrl)
+        tempAppHelper.verifyAppRegistedToLaunch()
         let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
         repeat {
             agent.activate()
@@ -125,9 +125,7 @@ class UpdateAppTest: XCTestCase {
             timeout: .install
         )
         tempAppHelper.syncFileSystem()
-        XCTAssertEqual(noErr,
-                       tempAppHelper.updateAppRegistrationWithLaunchServicesDatabase(),
-                       "updating launch services registration")
+        tempAppHelper.verifyAppRegistedToLaunch()
     }
 
     func checkForUpdatesAndInstallOnQuit() {
