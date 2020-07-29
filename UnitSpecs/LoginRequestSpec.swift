@@ -9,7 +9,7 @@ class LoginRequestSpec: QuickSpec {
                 expect(percentEncode("+!. ,@")) == "%2B%21%2E%20%2C%40"
             }
         }
-        
+
         describe(loginRequest(_:)) {
             var login: LoginRequest!
             var subject: URLRequest!

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash -o errexit -o pipefail
 
 git pull --rebase
-xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect clean build | xcpretty
+xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect clean test | xcpretty
 git push
