@@ -10,12 +10,17 @@ class ProcessLauncherSpec: QuickSpec {
                 subject = .init()
             }
             describe(ProcessLauncher.runShellScript(script:in:)) {
-                it("should report error when failing to launch") {
-                    let notDirectory = NSError(domain: NSPOSIXErrorDomain, code: Int(ENOTDIR), userInfo: nil)
-                    expect{
-                        try subject.runShellScript(script: testBundleUrl("expected-config.yml"),
-                                                    in: testBundleUrl("expected-config.yml"))
-                    }.to(throwError(notDirectory))
+                context("invalid url") {
+                    var fileUrl: URL!
+                    beforeEach {
+                        fileUrl = testBundleUrl("expected-config.yml")
+                    }
+                    it("should throw not directory url") {
+                        let notDirectory = NSError(domain: NSPOSIXErrorDomain, code: Int(ENOTDIR), userInfo: nil)
+                        expect {
+                            try subject.runShellScript(script: fileUrl, in: fileUrl)
+                        }.to(throwError(notDirectory))
+                    }
                 }
             }
         }
