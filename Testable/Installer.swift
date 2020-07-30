@@ -27,27 +27,6 @@ extension Installer: Installation {
         try contents.write(to: destination, atomically: true, encoding: .ascii)
     }
 
-    public enum ApiError: LocalizedError {
-        case installation(status: Int32, message: String?)
-        case server(message: String)
-        public var errorDescription: String? {
-            switch self {
-            case .server:
-                return "Server Error"
-            case let .installation(status, _):
-                return "Failed to install with exit code: \(status)"
-            }
-        }
-        public var recoverySuggestion: String? {
-            switch self {
-            case let .server(message):
-                return message
-            case let .installation(_, message):
-                return message
-            }
-        }
-    }
-
     private func prepareLocation() throws {
         try fileManager.createDirectory(at: installationURL,
                                         withIntermediateDirectories: true)
@@ -93,7 +72,7 @@ extension Installer: Installation {
             if let data = try errorPipe.fileHandleForReading.readToEnd() {
                 message = String(data: data, encoding: .utf8)
             }
-            throw ApiError.installation(status: process.terminationStatus, message: message)
+            throw PresentableError.installation(status: process.terminationStatus, message: message)
         }
     }
 
@@ -111,7 +90,7 @@ extension Installer: Installation {
     private func transform(response: HTTPLoginResponse) throws -> HTTPLoginMessage {
         switch response {
         case .failure(value: let serverError):
-            throw ApiError.server(message: serverError.error)
+            throw PresentableError.server(message: serverError.error)
         case .success(value: let success):
             //                self.process(success.org)
             try prepareLocation()
