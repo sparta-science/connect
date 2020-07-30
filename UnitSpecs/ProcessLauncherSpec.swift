@@ -9,10 +9,13 @@ class ProcessLauncherSpec: QuickSpec {
             beforeEach {
                 subject = .init()
             }
-            describe(ProcessLauncher.runShellScript(script:)) {
-                // TODO:
+            describe(ProcessLauncher.runShellScript(script:in:)) {
                 it("should report error when failing to launch") {
-                    try! subject.runShellScript(script: testBundleUrl("expected-config.yml"))
+                    let notDirectory = NSError(domain: NSPOSIXErrorDomain, code: Int(ENOTDIR), userInfo: nil)
+                    expect{
+                        try subject.runShellScript(script: testBundleUrl("expected-config.yml"),
+                                                    in: testBundleUrl("expected-config.yml"))
+                    }.to(throwError(notDirectory))
                 }
             }
         }
