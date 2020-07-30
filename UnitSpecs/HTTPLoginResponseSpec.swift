@@ -21,7 +21,7 @@ class HTTPLoginResponseSpec: QuickSpec {
                         }
                     }
                     it("should re-encode without error") {
-                        expect { try! JSONEncoder().encode(decode(string: string)) }.notTo(throwError())
+                        expect { try JSONEncoder().encode(decode(string: string)) }.notTo(throwError())
                     }
                 }
                 context("failure") {
@@ -34,7 +34,7 @@ class HTTPLoginResponseSpec: QuickSpec {
                         }
                     }
                     it("should re-encode without error") {
-                        expect { try! JSONEncoder().encode(decode(string: string)) }.notTo(throwError())
+                        expect { try JSONEncoder().encode(decode(string: string)) }.notTo(throwError())
                     }
                 }
             }
