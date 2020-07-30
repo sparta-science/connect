@@ -25,9 +25,9 @@ class LoginRequestSpec: QuickSpec {
                 expect(subject.httpMethod) == "POST"
                 expect(subject.url?.absoluteString) ==
                     "http://localhost:4000/api/app-setup"
-                    + "?email=meanwhile%2Beffortless%40example%2Ecom"
+                    + "?client-id=TestOnlyDeleteMePlease"
+                    + "&email=meanwhile%2Beffortless%40example%2Ecom"
                     + "&password=jumping%20hoops"
-                    + "&client-id=delete-me-please-test"
             }
         }
     }

@@ -9,9 +9,11 @@ public func loginRequest(_ login: LoginRequest) -> URLRequest {
         if $0.path.isEmpty {
             $0.path = "/api/app-setup"
         }
-        $0.percentEncodedQueryItems = [URLQueryItem(name: "email", value: percentEncode(login.username)),
-                                       URLQueryItem(name: "password", value: percentEncode(login.password)),
-                                       URLQueryItem(name: "client-id", value: "delete-me-please-test")]
+        $0.percentEncodedQueryItems = [ "email": login.username,
+                                        "password": login.password,
+                                        "client-id": "TestOnlyDeleteMePlease"]
+            .sorted(by: <)
+            .map { .init(name: $0.key, value: percentEncode($0.value)) }
     }
     return Init(URLRequest(url: components.url!)) {
         $0.httpMethod = "POST"
