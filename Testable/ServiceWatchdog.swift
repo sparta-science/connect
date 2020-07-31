@@ -1,18 +1,26 @@
 import Foundation
 
-public class ServiceWatchdog {
+public class ServiceWatchdog: NSObject {
     @Inject var notifier: StateNotifier
     @Inject var launcherFactory: () -> ProcessLauncher
     @Inject("installation url")
     var installationURL: URL
     @Inject("user id")
-    var userId: Int
+    var userId: uid_t
 
-    public init() {
+    override public init() {
+        super.init()
         notifier.start(receiver: onChange(state:))
     }
 
     func onChange(state: State) {
-        try? launcherFactory().run(command: "/bin/launchctl", args: ["bootstrap", "gui/\(userId)"], in: installationURL)
+        switch state {
+        case .complete:
+            try? launcherFactory().run(command: "/bin/launchctl", args: ["bootstrap", "gui/\(userId)"], in: installationURL)
+        case .login:
+            try? launcherFactory().run(command: "/bin/launchctl", args: ["bootout", "gui/\(userId)"], in: installationURL)
+        default:
+            break
+        }
     }
 }

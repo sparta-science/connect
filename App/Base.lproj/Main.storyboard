@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -650,6 +650,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SpartaConnect" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="SN6-AC-GBZ" customClass="ServiceWatchdog" customModule="Testable"/>
                 <customObject id="Iwp-kM-eAr" customClass="MoveToApplications" customModule="Testable"/>
             </objects>
             <point key="canvasLocation" x="-211" y="-441"/>
@@ -779,7 +780,7 @@
                                 </connections>
                             </containerView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fdS-do-IcA">
-                                <rect key="frame" x="239" y="17" width="78" height="32"/>
+                                <rect key="frame" x="244" y="16" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7JR-y5-oOb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -812,7 +813,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZO8-NI-6hU">
-                                <rect key="frame" x="50" y="39" width="200" height="102"/>
+                                <rect key="frame" x="50" y="38" width="200" height="104"/>
                                 <rows>
                                     <gridRow id="U7b-GX-FRB">
                                         <connections>
@@ -829,10 +830,10 @@
                                 <gridCells>
                                     <gridCell row="U7b-GX-FRB" column="qfz-VJ-eeS" id="x7g-eT-hlE">
                                         <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-rK-tfG">
-                                            <rect key="frame" x="0.0" y="79" width="200" height="23"/>
+                                            <rect key="frame" x="0.0" y="81" width="200" height="23"/>
                                             <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="bUo-c4-0UE">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="system"/>
                                                 <menu key="menu" id="wF1-fp-ckf"/>
                                             </popUpButtonCell>
                                             <connections>
@@ -843,7 +844,7 @@
                                     </gridCell>
                                     <gridCell row="Dbj-dT-LxX" column="qfz-VJ-eeS" id="1Ls-Ms-Lly">
                                         <textField key="contentView" verticalHuggingPriority="750" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="0dq-pQ-98b">
-                                            <rect key="frame" x="0.0" y="53" width="200" height="21"/>
+                                            <rect key="frame" x="0.0" y="55" width="200" height="21"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="email@example.com" drawsBackground="YES" id="Wng-Bf-IKn">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -862,7 +863,7 @@
                                     </gridCell>
                                     <gridCell row="D5I-e5-LMg" column="qfz-VJ-eeS" id="4DH-qm-PmH">
                                         <secureTextField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RJ1-X1-RDU">
-                                            <rect key="frame" x="0.0" y="26" width="200" height="21"/>
+                                            <rect key="frame" x="0.0" y="28" width="200" height="21"/>
                                             <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="password" drawsBackground="YES" usesSingleLineMode="YES" id="LmG-a4-uLJ">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -884,7 +885,7 @@
                                     </gridCell>
                                     <gridCell row="DZf-o3-6fq" column="qfz-VJ-eeS" id="CNQ-u5-oEb">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bgq-XU-cem">
-                                            <rect key="frame" x="-1" y="-2" width="202" height="23"/>
+                                            <rect key="frame" x="-0.5" y="-1" width="201" height="23"/>
                                             <buttonCell key="cell" type="roundTextured" title="Login" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HPO-8B-9Ka">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -950,7 +951,7 @@
                                         <rect key="frame" x="50" y="0.0" width="100" height="50"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                                <rect key="frame" x="24" y="13" width="52" height="23"/>
+                                                <rect key="frame" x="22.5" y="13" width="56" height="23"/>
                                                 <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1003,7 +1004,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
-                                <rect key="frame" x="161" y="7" width="108" height="23"/>
+                                <rect key="frame" x="161.5" y="7" width="108" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
