@@ -13,7 +13,13 @@ cat > sparta_science.vernal_falls.plist <<EOF
 <plist version="1.0">
 <dict>
     <key>KeepAlive</key>
-    <true/>
+    <dict>
+    <key>PathState</key>
+        <dict>
+        <key>$pwd/vernal_falls_config.yml</key>
+        <true/>
+        </dict>
+    </dict>
     <key>Label</key>
     <string>sparta_science.vernal_falls</string>
     <key>ProgramArguments</key>
