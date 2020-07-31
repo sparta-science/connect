@@ -23,6 +23,16 @@ class ProcessLauncherSpec: QuickSpec {
                     }
                 }
             }
+
+            describe(ProcessLauncher.run(command:args:in:)) {
+                context("echo") {
+                    it("should be successful") {
+                        expect {
+                            try subject.run(command: "echo", args: ["hello"], in: testBundleUrl("expected-config.yml"))
+                        }.notTo(throwError())
+                    }
+                }
+            }
         }
     }
 }
