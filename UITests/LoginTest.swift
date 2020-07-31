@@ -36,6 +36,7 @@ class LoginTest: XCTestCase {
             verifyLaunched(serviceName: "sparta_science.vernal_falls")
         }
         app.disconnect()
+        verifyStopped(serviceName: "sparta_science.vernal_falls")
     }
 
     func testFailedInstallation() throws {
@@ -78,6 +79,24 @@ class LoginTest: XCTestCase {
             isLaunched.fulfill()
             }
         XCTWaiter.wait(until: isLaunched,
+                       timeout: .launch,
+                       serviceName + " should be launched",
+                       file: source,
+                       line: line)
+    }
+
+    func verifyStopped(serviceName: String,
+                        _ source: StaticString = #file,
+                        _ line: UInt = #line) {
+        let noSuchService = Int(ENOENT)
+        let hasBeenStopped = XCTestExpectation(description: serviceName + " has been stopped")
+        try! NSUserUnixTask(url: URL(fileURLWithPath: "/bin/launchctl"))
+            .execute(withArguments: ["blame", "gui/\(getuid())/\(serviceName)"]) { error in
+                let nsError = error! as NSError
+                XCTAssertEqual(noSuchService, nsError.code, "should be stopped")
+                hasBeenStopped.fulfill()
+            }
+        XCTWaiter.wait(until: hasBeenStopped,
                        timeout: .launch,
                        serviceName + " should be launched",
                        file: source,

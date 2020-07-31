@@ -21,7 +21,7 @@ public class ServiceWatchdog: NSObject {
                                        in: installationURL)
         case .login:
             try? launcherFactory().run(command: "/bin/launchctl",
-                                       args: ["bootout", "gui/\(userId)", "sparta_science.vernal_falls"],
+                                       args: ["bootout", "gui/\(userId)/sparta_science.vernal_falls"],
                                        in: installationURL)
         default:
             break

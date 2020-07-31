@@ -7,18 +7,19 @@ class ServiceWatchdogSpec: QuickSpec {
         describe(ServiceWatchdog.self) {
             var subject: ServiceWatchdog!
             var mockNotifier: MockStateNotifier!
+            var processLauncher: MockProcessLauncher!
+            let folderUrl = URL(fileURLWithPath: "/tmp/some folder")
 
             beforeEach {
                 mockNotifier = .createAndInject()
                 subject = .init()
                 expect(subject).notTo(beNil())
+                processLauncher = .createAndInjectFactory()
+                TestDependency.register(Inject(folderUrl, name: "installation url"))
+                TestDependency.register(Inject(uid_t(57), name: "user id"))
             }
             context("state changes to completed") {
-                var processLauncher: MockProcessLauncher!
                 beforeEach {
-                    processLauncher = .createAndInjectFactory()
-                    TestDependency.register(Inject(testBundle.bundleURL, name: "installation url"))
-                    TestDependency.register(Inject(uid_t(57), name: "user id"))
                     mockNotifier.send(state: .complete)
                 }
                 it("should launch service") {
@@ -27,24 +28,19 @@ class ServiceWatchdogSpec: QuickSpec {
                         "bootstrap",
                         "gui/57",
                         "sparta_science.vernal_falls.plist",
-                        testBundle.bundleURL.absoluteString]
+                        folderUrl.absoluteString]
                 }
             }
             context("state changes to login") {
-                var processLauncher: MockProcessLauncher!
                 beforeEach {
-                    processLauncher = .createAndInjectFactory()
-                    TestDependency.register(Inject(testBundle.bundleURL, name: "installation url"))
-                    TestDependency.register(Inject(uid_t(57), name: "user id"))
                     mockNotifier.send(state: .login)
                 }
                 it("should stop service") {
                     expect(processLauncher.didRun) == [
                         "/bin/launchctl",
                         "bootout",
-                        "gui/57",
-                        "sparta_science.vernal_falls",
-                        testBundle.bundleURL.absoluteString]
+                        "gui/57/sparta_science.vernal_falls",
+                        folderUrl.absoluteString]
                 }
             }
         }
