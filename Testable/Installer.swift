@@ -71,6 +71,9 @@ extension Installer: Installation {
         try? fileManager.removeItem(at: downloadUrl)
         try fileManager.moveItem(at: downloaded, to: downloadUrl)
         try installVernalFalls()
+        let launcher = ProcessLauncher()
+        let userId = getuid()
+        try launcher.run(command: "/bin/launchctl", args: ["bootstrap", "gui/\(userId)", "sparta_science.vernal_falls.plist"], in: installationURL)
     }
 
     private func transform(response: HTTPLoginResponse) throws -> HTTPLoginMessage {
