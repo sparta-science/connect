@@ -30,7 +30,6 @@ class AppAssemblySpec: QuickSpec {
                             """,
                             """
                                 <key>KeepAlive</key>
-                                <true/>
                             """
                         ))
                     }
