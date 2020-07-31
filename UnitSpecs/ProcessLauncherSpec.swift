@@ -25,10 +25,10 @@ class ProcessLauncherSpec: QuickSpec {
             }
 
             describe(ProcessLauncher.run(command:args:in:)) {
-                context("echo") {
+                context("whoami") {
                     it("should be successful") {
                         expect {
-                            try subject.run(command: "echo", args: ["hello"], in: testBundleUrl("expected-config.yml"))
+                            try subject.run(command: "/usr/bin/whoami", args: [], in: testBundle.bundleURL)
                         }.notTo(throwError())
                     }
                 }
