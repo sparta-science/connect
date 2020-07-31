@@ -23,8 +23,8 @@ class LoginTest: XCTestCase {
         app.showConnectWindow()
     }
 
-    func testSuccessfullInstallation() throws {
-        XCTContext.runActivity(named: "successful download but failed installation") { _ in
+    func testSuccessfullInstallationAndLaunch() throws {
+        XCTContext.runActivity(named: "successful download, installation and launch") { _ in
             app.select(server: "simulate install success")
             app.enter(username: "anything")
             app.enter(password: "goes")
@@ -33,6 +33,7 @@ class LoginTest: XCTestCase {
             verifyInstalled(file: "vernal_falls_config.yml")
             verifyInstalled(file: "vernal_falls.tar.gz")
             verifyInstalled(file: "vernal_falls")
+            verifyLaunched(serviceName: "sparta_science.vernal_falls")
         }
         app.disconnect()
     }
@@ -65,6 +66,22 @@ class LoginTest: XCTestCase {
             app.enter(password: "password\n")
             app.dismiss(alert: "Email and password are not valid", byClicking: "OK")
         }
+    }
+
+    func verifyLaunched(serviceName: String,
+                        _ source: StaticString = #file,
+                        _ line: UInt = #line) {
+        let isLaunched = XCTestExpectation(description: serviceName + " has been launched")
+        try! NSUserUnixTask(url: URL(fileURLWithPath: "/bin/launchctl"))
+            .execute(withArguments: ["blame", "gui/\(getuid())/\(serviceName)"]) { error in
+            XCTAssertNil(error, "should be launched successfully")
+            isLaunched.fulfill()
+            }
+        XCTWaiter.wait(until: isLaunched,
+                       timeout: .launch,
+                       serviceName + " should be launched",
+                       file: source,
+                       line: line)
     }
 
     func verifyInstalled(file: String, timeout: Timeout = .test,
