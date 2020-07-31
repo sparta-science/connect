@@ -18,10 +18,11 @@ class ServiceWatchdogSpec: QuickSpec {
                 beforeEach {
                     processLauncher = .createAndInjectFactory()
                     TestDependency.register(Inject(testBundle.bundleURL, name: "installation url"))
+                    TestDependency.register(Inject(57, name: "user id"))
                     mockNotifier.send(state: .complete)
                 }
                 it("should launch service") {
-                    expect(processLauncher.didRun) == ["/bin/launchctl", "bootstrap", testBundle.bundleURL.absoluteString]
+                    expect(processLauncher.didRun) == ["/bin/launchctl", "bootstrap", "gui/57", testBundle.bundleURL.absoluteString]
                 }
             }
             context("state changes to login") {
