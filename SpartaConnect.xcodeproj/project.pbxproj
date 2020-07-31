@@ -105,6 +105,9 @@
 		4AE7649D24AD3CBA00CAC3BA /* ErrorReporterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649C24AD3CBA00CAC3BA /* ErrorReporterSpec.swift */; };
 		4AE7649F24AD475A00CAC3BA /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7649E24AD475A00CAC3BA /* MockError.swift */; };
 		4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4AE764A024AD6F0400CAC3BA /* expected-config.yml */; };
+		4AEE63A224D4C608001EBCFD /* ServiceWatchdog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE63A124D4C608001EBCFD /* ServiceWatchdog.swift */; };
+		4AEE63A424D4C626001EBCFD /* ServiceWatchdogSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE63A324D4C626001EBCFD /* ServiceWatchdogSpec.swift */; };
+		4AEE63A624D4C98E001EBCFD /* MockProcessLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE63A524D4C98E001EBCFD /* MockProcessLauncher.swift */; };
 		4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */; };
 		4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA924B504090065EA46 /* Downloader.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
@@ -285,6 +288,9 @@
 		4AE7649C24AD3CBA00CAC3BA /* ErrorReporterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorReporterSpec.swift; sourceTree = "<group>"; };
 		4AE7649E24AD475A00CAC3BA /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		4AE764A024AD6F0400CAC3BA /* expected-config.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "expected-config.yml"; sourceTree = "<group>"; };
+		4AEE63A124D4C608001EBCFD /* ServiceWatchdog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceWatchdog.swift; sourceTree = "<group>"; };
+		4AEE63A324D4C626001EBCFD /* ServiceWatchdogSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceWatchdogSpec.swift; sourceTree = "<group>"; };
+		4AEE63A524D4C98E001EBCFD /* MockProcessLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProcessLauncher.swift; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
 		4AEFCBA724B3A2FD0065EA46 /* successful-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "successful-response.json"; path = "UnitSpecs/successful-response.json"; sourceTree = SOURCE_ROOT; };
 		4AEFCBA924B504090065EA46 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
@@ -483,6 +489,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4AEE63A324D4C626001EBCFD /* ServiceWatchdogSpec.swift */,
 				4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */,
 				4A203BCA24B926CE00ECD5EC /* ProcessLauncherSpec.swift */,
 				4A203BBF24B83E2900ECD5EC /* DebugServerLocatorSpec.swift */,
@@ -554,6 +561,7 @@
 				4BD4D36324ABCB95009D8380 /* MockStatusItem.swift */,
 				4AE7646924AAFF3700CAC3BA /* TypeInject.swift */,
 				4AE7645324AAF0A400CAC3BA /* TestHelper.swift */,
+				4AEE63A524D4C98E001EBCFD /* MockProcessLauncher.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -648,6 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				4BD4D35D24ABC06F009D8380 /* Installer.swift */,
+				4AEE63A124D4C608001EBCFD /* ServiceWatchdog.swift */,
 				4B70D63824D3405A003C1EBB /* PresentableError.swift */,
 				4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */,
 				4A203BB924B8292900ECD5EC /* ServerLocator.swift */,
@@ -1116,6 +1125,7 @@
 				4AE7649124AC7C5A00CAC3BA /* LoginRequest.swift in Sources */,
 				4A203BC924B926AE00ECD5EC /* ProcessLauncher.swift in Sources */,
 				4A203BBC24B8386300ECD5EC /* DebugFileServer.swift in Sources */,
+				4AEE63A224D4C608001EBCFD /* ServiceWatchdog.swift in Sources */,
 				4AE7646E24AB04B500CAC3BA /* ProgressController.swift in Sources */,
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
 				4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */,
@@ -1173,6 +1183,8 @@
 				4AE7647624AB105700CAC3BA /* InjectedBundleSpec.swift in Sources */,
 				4AE7646424AAFD3000CAC3BA /* MockApplication.swift in Sources */,
 				4A203BCB24B926CE00ECD5EC /* ProcessLauncherSpec.swift in Sources */,
+				4AEE63A424D4C626001EBCFD /* ServiceWatchdogSpec.swift in Sources */,
+				4AEE63A624D4C98E001EBCFD /* MockProcessLauncher.swift in Sources */,
 				4AE7646824AAFEF900CAC3BA /* CreateAndInject.swift in Sources */,
 				4BD4D36224ABC121009D8380 /* InstallerSpec.swift in Sources */,
 				4AE7647024AB08C200CAC3BA /* MoveToApplicationsSpec.swift in Sources */,

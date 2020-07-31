@@ -1,8 +1,8 @@
 import Foundation
 
-public class ProcessLauncher {
+open class ProcessLauncher {
     public init() {}
-    public func runShellScript(script: URL, in folder: URL) throws {
+    open func runShellScript(script: URL, in folder: URL) throws {
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/bin/bash")
         process.arguments = ["-o", "errexit", script.path]
@@ -21,7 +21,7 @@ public class ProcessLauncher {
         }
     }
 
-    public func run(command: String, args: [String], in folder: URL) throws {
+    open func run(command: String, args: [String], in folder: URL) throws {
         let process = Process()
         process.executableURL = URL(fileURLWithPath: command)
         process.arguments = args
