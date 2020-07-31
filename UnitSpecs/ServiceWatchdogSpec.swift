@@ -22,7 +22,12 @@ class ServiceWatchdogSpec: QuickSpec {
                     mockNotifier.send(state: .complete)
                 }
                 it("should launch service") {
-                    expect(processLauncher.didRun) == ["/bin/launchctl", "bootstrap", "gui/57", testBundle.bundleURL.absoluteString]
+                    expect(processLauncher.didRun) == [
+                        "/bin/launchctl",
+                        "bootstrap",
+                        "gui/57",
+                        "sparta_science.vernal_falls.plist",
+                        testBundle.bundleURL.absoluteString]
                 }
             }
             context("state changes to login") {
@@ -33,8 +38,13 @@ class ServiceWatchdogSpec: QuickSpec {
                     TestDependency.register(Inject(uid_t(57), name: "user id"))
                     mockNotifier.send(state: .login)
                 }
-                fit("should stop service") {
-                    expect(processLauncher.didRun) == ["/bin/launchctl", "bootout", "gui/57", testBundle.bundleURL.absoluteString]
+                it("should stop service") {
+                    expect(processLauncher.didRun) == [
+                        "/bin/launchctl",
+                        "bootout",
+                        "gui/57",
+                        "sparta_science.vernal_falls",
+                        testBundle.bundleURL.absoluteString]
                 }
             }
         }

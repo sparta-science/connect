@@ -16,9 +16,13 @@ public class ServiceWatchdog: NSObject {
     func onChange(state: State) {
         switch state {
         case .complete:
-            try? launcherFactory().run(command: "/bin/launchctl", args: ["bootstrap", "gui/\(userId)"], in: installationURL)
+            try? launcherFactory().run(command: "/bin/launchctl",
+                                       args: ["bootstrap", "gui/\(userId)", "sparta_science.vernal_falls.plist"],
+                                       in: installationURL)
         case .login:
-            try? launcherFactory().run(command: "/bin/launchctl", args: ["bootout", "gui/\(userId)"], in: installationURL)
+            try? launcherFactory().run(command: "/bin/launchctl",
+                                       args: ["bootout", "gui/\(userId)", "sparta_science.vernal_falls"],
+                                       in: installationURL)
         default:
             break
         }
