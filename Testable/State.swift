@@ -1,6 +1,6 @@
 import Foundation
 
-public enum State: Equatable {
+public enum State: Hashable {
     case login
     case busy(value: Progress)
     case complete
