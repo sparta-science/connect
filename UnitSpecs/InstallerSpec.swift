@@ -86,7 +86,7 @@ class InstallerSpec: QuickSpec {
                             expect(subject.state).toEventually(equal(.login))
                             let reportedError = errorReporter.didReport as? LocalizedError
                             expect(reportedError?.localizedDescription)
-                                == "Failed to install with exit code: 1"
+                                == "Failed with exit code: 1"
                             expect(reportedError?.recoverySuggestion)
                                 == "tar: Error opening archive: Unrecognized archive format\n"
                         }
