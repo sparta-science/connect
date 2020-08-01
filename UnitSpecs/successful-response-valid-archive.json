@@ -1,7 +1,7 @@
 {
    "message":{
-      "original url that hosts this file":"https://github.com/sparta-science/connect/issues/42"
-      "downloadUrl":"https://github.com/sparta-science/connect/files/5009852/expected_vernal_falls.tar.gz",
+      "ORIGINAL URL THAT HOSTS THIS FILE":"https://github.com/sparta-science/connect/issues/42",
+      "downloadUrl":"https://github.com/sparta-science/connect/files/5009954/tiny-archive-with-symbolic-link.tar.gz",
       "vernalFallsVersion":"1.4901.0"
    },
    "org":{
