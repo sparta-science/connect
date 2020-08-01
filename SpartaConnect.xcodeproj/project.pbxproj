@@ -37,6 +37,7 @@
 		4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C96248F604B0058C5D4 /* FileHelper.swift */; };
 		4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */; };
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
+		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
 		4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CE249B52930023C93F /* SecurityHelper.swift */; };
@@ -54,9 +55,7 @@
 		4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */; };
 		4AC171CE24B3F6F80096BF33 /* SpartaConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */; };
 		4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D124B51DC40096BF33 /* MockDownloader.swift */; };
-		4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */; };
 		4AC171D624B538F10096BF33 /* DownloaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D524B538F10096BF33 /* DownloaderSpec.swift */; };
-		4AC171D724B539C70096BF33 /* expected_vernal_falls.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */; };
 		4AC171DA24B58A100096BF33 /* Downloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D924B58A100096BF33 /* Downloading.swift */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
@@ -210,6 +209,7 @@
 		4A3F3C96248F604B0058C5D4 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
+		4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "tiny-valid.tar.gz"; sourceTree = "<group>"; };
 		4A77486B24BD3DFC00A4277E /* .envrc */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc; sourceTree = "<group>"; };
 		4A77486C24BD3DFD00A4277E /* .envrc.sample */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc.sample; sourceTree = "<group>"; };
 		4A8150FF24A32E1C0080D260 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
@@ -244,7 +244,6 @@
 		4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssemblySpec.swift; sourceTree = "<group>"; };
 		4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpartaConnectApp.swift; sourceTree = "<group>"; };
 		4AC171D124B51DC40096BF33 /* MockDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDownloader.swift; sourceTree = "<group>"; };
-		4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = expected_vernal_falls.tar.gz; sourceTree = "<group>"; };
 		4AC171D524B538F10096BF33 /* DownloaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderSpec.swift; sourceTree = "<group>"; };
 		4AC171D924B58A100096BF33 /* Downloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloading.swift; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
@@ -546,7 +545,7 @@
 				4A203BD324BA957E00ECD5EC /* MockStateNotifier.swift */,
 				4AC171D124B51DC40096BF33 /* MockDownloader.swift */,
 				4AE7649E24AD475A00CAC3BA /* MockError.swift */,
-				4AC171D324B522FB0096BF33 /* expected_vernal_falls.tar.gz */,
+				4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */,
 				4AE764A024AD6F0400CAC3BA /* expected-config.yml */,
 				4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */,
 				4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */,
@@ -868,7 +867,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC171D724B539C70096BF33 /* expected_vernal_falls.tar.gz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,7 +890,7 @@
 				4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */,
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
 				4AE7649524AD37FC00CAC3BA /* successful-response-invalid-tar.json in Resources */,
-				4AC171D424B522FB0096BF33 /* expected_vernal_falls.tar.gz in Resources */,
+				4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */,
 				4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

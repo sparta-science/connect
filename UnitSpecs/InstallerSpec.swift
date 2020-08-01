@@ -14,7 +14,6 @@ class InstallerSpec: QuickSpec {
                 let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
                 context("success") {
                     var downloader: MockDownloader!
-                    var configUrl: URL!
                     var request: LoginRequest!
                     let fileManager = FileManager.default
                     beforeEach {
@@ -24,14 +23,12 @@ class InstallerSpec: QuickSpec {
                         let scriptUrl = testBundle.url(forResource: "install_vernal_falls", withExtension: "sh")!
                         TestDependency.register(Inject(scriptUrl, name: "installation script url"))
 
-                        configUrl = installationUrl
-                            .appendingPathComponent("vernal_falls_config.yml")
-                        try? fileManager.removeItem(at: configUrl)
-                        expect(fileManager.fileExists(atPath: configUrl.path)) == false
+                        try? fileManager.removeItem(at: installationUrl)
+                        expect(fileManager.fileExists(atPath: installationUrl.path)) == false
                         request = Init(.init()) {
                             $0?.baseUrlString = testBundleUrl("successful-response-invalid-tar.json").absoluteString
                         }
-                        downloader.downloadedContentsUrl = testBundleUrl("expected_vernal_falls.tar.gz")
+                        downloader.downloadedContentsUrl = testBundleUrl("tiny-valid.tar.gz")
                     }
                     func verify(file: String, at url: URL) {
                         let expectedPath = testBundleUrl(file).path
@@ -47,22 +44,21 @@ class InstallerSpec: QuickSpec {
                             return
                         }
                         expect(subject.state).toEventually(equal(.complete))
-                        verify(file: "expected-config.yml", at: configUrl)
+                        let config = installationUrl.appendingPathComponent("vernal_falls_config.yml")
+                        verify(file: "expected-config.yml", at: config)
                     }
                     it("should download vernal falls archive") {
                         subject.beginInstallation(login: request)
                         expect(subject.state).toEventually(equal(.complete))
                         expect(downloader.didProvideReporting).notTo(beNil())
-                        verify(file: "expected_vernal_falls.tar.gz",
+                        verify(file: "tiny-valid.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
                     it("should install vernal falls") {
                         subject.beginInstallation(login: request)
                         expect(subject.state).toEventually(equal(.complete))
-                        var isDirectory: ObjCBool = false
-                        let path = installationUrl.appendingPathComponent("vernal_falls").path
-                        expect(fileManager.fileExists(atPath: path, isDirectory: &isDirectory)) == true
-                        expect(isDirectory.boolValue) == true
+                        let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
+                        expect(unTaredContents) == ""
                     }
                     it("should report downloding progress") {
                         subject.beginInstallation(login: request)
