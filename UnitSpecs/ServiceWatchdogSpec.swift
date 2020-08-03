@@ -28,7 +28,7 @@ class ServiceWatchdogSpec: QuickSpec {
                         "bootstrap",
                         "gui/57",
                         "sparta_science.vernal_falls.plist",
-                        folderUrl.absoluteString]
+                        folderUrl.absoluteString, "37"]
                 }
             }
             context("state changes to login") {

@@ -15,7 +15,7 @@ public class ServiceWatchdog: NSObject {
         func ignoreErrors() -> [Int32] {
             switch self {
             case .start:
-                return []
+                return [EALREADY]
             case .stop:
                 return [ESRCH, EINPROGRESS]
             }
@@ -39,7 +39,7 @@ public class ServiceWatchdog: NSObject {
     ]
 
     func launch(command: Command) {
-        // swiftlint:disable:next force_try
+        // swiftlint:disable:next force_try TODO: replace with error handler
         try! launcherFactory().run(command: "/bin/launchctl",
                                    args: [command.rawValue] + command.arguments(user: userId),
                                    in: command == .start ? installationURL : URL(fileURLWithPath: "/tmp"),
