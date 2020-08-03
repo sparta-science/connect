@@ -15,9 +15,13 @@ extension MockProcessLauncher: CreateAndInject {
     typealias ActAs = ProcessLauncher
 }
 
-class MockErrorProcessLauncher: ProcessLauncher {
+final class MockErrorProcessLauncher: ProcessLauncher {
     var error: Error?
     override func run(command: String, args: [String], in folder: URL, ignoreErrors: [Int32]) throws {
         throw error!
     }
+}
+
+extension MockErrorProcessLauncher: CreateAndInject {
+    typealias ActAs = ProcessLauncher
 }

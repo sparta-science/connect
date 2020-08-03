@@ -23,7 +23,7 @@ class LoginTest: XCTestCase {
         app.showConnectWindow()
     }
 
-    func testSuccessfullInstallationAndLaunch() throws {
+    func testSuccessfulInstallationAndLaunch() throws {
         XCTContext.runActivity(named: "successful download, installation and launch") { _ in
             app.select(server: "simulate install success")
             app.enter(username: "anything")

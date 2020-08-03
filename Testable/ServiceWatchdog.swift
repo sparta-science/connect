@@ -27,6 +27,7 @@ public class ServiceWatchdog: NSObject {
     var installationURL: URL
     @Inject("user id")
     var userId: uid_t
+    @Inject var errorReporter: ErrorReporting
 
     override public init() {
         super.init()
@@ -39,11 +40,14 @@ public class ServiceWatchdog: NSObject {
     ]
 
     func launch(command: Command) {
-        // swiftlint:disable:next force_try TODO: replace with error handler
-        try! launcherFactory().run(command: "/bin/launchctl",
-                                   args: [command.rawValue] + command.arguments(user: userId),
-                                   in: command == .start ? installationURL : URL(fileURLWithPath: "/tmp"),
-                                   ignoreErrors: command.ignoreErrors())
+        do {
+            try launcherFactory().run(command: "/bin/launchctl",
+                                      args: [command.rawValue] + command.arguments(user: userId),
+                                      in: command == .start ? installationURL : URL(fileURLWithPath: "/tmp"),
+                                      ignoreErrors: command.ignoreErrors())
+        } catch {
+            errorReporter.report(error: error)
+        }
     }
 
     func onChange(state: State) {

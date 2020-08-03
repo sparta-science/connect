@@ -20,15 +20,32 @@ class ServiceWatchdogSpec: QuickSpec {
             context("state changes to completed") {
                 beforeEach {
                     TestDependency.register(Inject(folderUrl, name: "installation url"))
-                    mockNotifier.send(state: .complete)
                 }
-                it("should launch service") {
-                    expect(processLauncher.didRun) == [
-                        "/bin/launchctl",
-                        "bootstrap",
-                        "gui/57",
-                        "sparta_science.vernal_falls.plist",
-                        folderUrl.absoluteString, "37"]
+                context("successfully") {
+                    beforeEach {
+                        mockNotifier.send(state: .complete)
+                    }
+                    it("should launch service") {
+                        expect(processLauncher.didRun) == [
+                            "/bin/launchctl",
+                            "bootstrap",
+                            "gui/57",
+                            "sparta_science.vernal_falls.plist",
+                            folderUrl.absoluteString, "37"]
+                    }
+                }
+                context("unsuccessfully") {
+                    var mockErrorReporter: MockErrorReporter!
+                    var failingLauncher: MockErrorProcessLauncher!
+                    beforeEach {
+                        mockErrorReporter = .createAndInject()
+                        failingLauncher = .createAndInjectFactory()
+                        failingLauncher.error = NSError(domain: "test", code: 26, userInfo: [NSLocalizedDescriptionKey: "failed to start"])
+                        mockNotifier.send(state: .complete)
+                    }
+                    it("should report the error nicely") {
+                        expect(mockErrorReporter.didReport?.localizedDescription) ==  "failed to start"
+                    }
                 }
             }
             context("state changes to login") {
