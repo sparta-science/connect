@@ -24,12 +24,19 @@ class ProcessLauncherSpec: QuickSpec {
                 }
             }
 
-            describe(ProcessLauncher.run(command:args:in:)) {
+            describe(ProcessLauncher.run(command:args:in:ignoreErrors:)) {
                 context("whoami") {
                     it("should be successful") {
                         expect {
                             try subject.run(command: "/usr/bin/whoami", args: [], in: testBundle.bundleURL)
                         }.notTo(throwError())
+                    }
+                    context("ignore errors") {
+                        it("should not throw when an error code matches") {
+                            expect {
+                                try subject.run(command: "/usr/bin/whoami", args: ["foo"], in: testBundle.bundleURL, ignoreErrors: [1])
+                            }.notTo(throwError())
+                        }
                     }
                 }
             }

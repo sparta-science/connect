@@ -9,7 +9,7 @@ open class ProcessLauncher {
                 in: folder)
     }
 
-    open func run(command: String, args: [String], in folder: URL) throws {
+    open func run(command: String, args: [String], in folder: URL, ignoreErrors: [Int32] = []) throws {
         let errorPipe = Pipe()
         let process = Init(Process()) {
             $0.executableURL = URL(fileURLWithPath: command)
@@ -20,7 +20,8 @@ open class ProcessLauncher {
 
         try process.run()
         process.waitUntilExit()
-        if process.terminationStatus != kOSReturnSuccess {
+        let successful = [kOSReturnSuccess] + ignoreErrors
+        if !successful.contains(process.terminationStatus) {
             var message: String?
             if let data = try errorPipe.fileHandleForReading.readToEnd() {
                 message = String(data: data, encoding: .utf8)

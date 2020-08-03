@@ -31,7 +31,8 @@ public class ServiceWatchdog: NSObject {
     ]
 
     func launch(command: Command) {
-        try? launcherFactory().run(command: "/bin/launchctl",
+        // swiftlint:disable:next force_try
+        try! launcherFactory().run(command: "/bin/launchctl",
                                    args: [command.rawValue] + command.arguments(user: userId),
                                    in: installationURL)
     }
