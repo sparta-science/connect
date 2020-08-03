@@ -15,11 +15,11 @@ class ServiceWatchdogSpec: QuickSpec {
                 subject = .init()
                 expect(subject).notTo(beNil())
                 processLauncher = .createAndInjectFactory()
-                TestDependency.register(Inject(folderUrl, name: "installation url"))
                 TestDependency.register(Inject(uid_t(57), name: "user id"))
             }
             context("state changes to completed") {
                 beforeEach {
+                    TestDependency.register(Inject(folderUrl, name: "installation url"))
                     mockNotifier.send(state: .complete)
                 }
                 it("should launch service") {
@@ -41,7 +41,7 @@ class ServiceWatchdogSpec: QuickSpec {
                         "/bin/launchctl",
                         "bootout",
                         "gui/57/sparta_science.vernal_falls",
-                        folderUrl.absoluteString, "3", "36"]
+                        "file:///tmp/", "3", "36"]
                 }
             }
         }

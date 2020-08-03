@@ -42,7 +42,7 @@ public class ServiceWatchdog: NSObject {
         // swiftlint:disable:next force_try
         try! launcherFactory().run(command: "/bin/launchctl",
                                    args: [command.rawValue] + command.arguments(user: userId),
-                                   in: installationURL,
+                                   in: command == .start ? installationURL : URL(fileURLWithPath: "/tmp"),
                                    ignoreErrors: command.ignoreErrors())
     }
 
