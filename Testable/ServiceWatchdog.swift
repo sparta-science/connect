@@ -17,7 +17,7 @@ public class ServiceWatchdog: NSObject {
             case .start:
                 return []
             case .stop:
-                return [ESRCH]
+                return [ESRCH, EINPROGRESS]
             }
         }
     }

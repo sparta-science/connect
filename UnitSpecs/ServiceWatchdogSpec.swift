@@ -35,12 +35,13 @@ class ServiceWatchdogSpec: QuickSpec {
                 beforeEach {
                     mockNotifier.send(state: .login)
                 }
-                it("should stop service ignoring error 3 - no such process") {
+                it("should stop service ignoring benign errors") {
+                    // see: https://github.com/sparta-science/connect/wiki/Launch-Control#common-errors
                     expect(processLauncher.didRun) == [
                         "/bin/launchctl",
                         "bootout",
                         "gui/57/sparta_science.vernal_falls",
-                        folderUrl.absoluteString, "3"]
+                        folderUrl.absoluteString, "3", "36"]
                 }
             }
         }
