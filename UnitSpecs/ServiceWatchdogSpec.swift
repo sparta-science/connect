@@ -35,12 +35,12 @@ class ServiceWatchdogSpec: QuickSpec {
                 beforeEach {
                     mockNotifier.send(state: .login)
                 }
-                it("should stop service") {
+                it("should stop service ignoring error 3 - no such process") {
                     expect(processLauncher.didRun) == [
                         "/bin/launchctl",
                         "bootout",
                         "gui/57/sparta_science.vernal_falls",
-                        folderUrl.absoluteString]
+                        folderUrl.absoluteString, "3"]
                 }
             }
         }

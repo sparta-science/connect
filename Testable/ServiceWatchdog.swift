@@ -12,6 +12,14 @@ public class ServiceWatchdog: NSObject {
                 return ["gui/\(user)/sparta_science.vernal_falls"]
             }
         }
+        func ignoreErrors() -> [Int32] {
+            switch self {
+            case .start:
+                return []
+            case .stop:
+                return [ESRCH]
+            }
+        }
     }
     @Inject var notifier: StateNotifier
     @Inject var launcherFactory: () -> ProcessLauncher
@@ -34,7 +42,8 @@ public class ServiceWatchdog: NSObject {
         // swiftlint:disable:next force_try
         try! launcherFactory().run(command: "/bin/launchctl",
                                    args: [command.rawValue] + command.arguments(user: userId),
-                                   in: installationURL)
+                                   in: installationURL,
+                                   ignoreErrors: command.ignoreErrors())
     }
 
     func onChange(state: State) {

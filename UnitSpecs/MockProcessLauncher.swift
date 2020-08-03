@@ -7,7 +7,7 @@ final class MockProcessLauncher: ProcessLauncher {
         didRun.append(command)
         didRun.append(contentsOf: args)
         didRun.append(folder.absoluteString)
-        didRun.append(contentsOf: ignoreErrors.map{ $0.description })
+        didRun.append(contentsOf: ignoreErrors.map { $0.description })
     }
 }
 
