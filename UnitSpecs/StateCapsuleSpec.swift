@@ -39,6 +39,13 @@ class StateCapsuleSpec: QuickSpec {
                     expect(subject.state) == .complete
                 }
             }
+            context(StateCapsule.update(progress:)) {
+                it("should set state to busy with new progress") {
+                    let progress = Progress(totalUnitCount: 2020, parent: .init(), pendingUnitCount: 10)
+                    subject.update(progress: progress)
+                    expect(subject.state.progress()) == progress
+                }
+            }
         }
     }
 }

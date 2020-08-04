@@ -5,6 +5,7 @@ public protocol StateContainer {
     func startReceiving()
     func reset()
     func complete()
+    func update(progress: Progress)
 }
 
 open class StateCapsule {
@@ -21,6 +22,10 @@ open class StateCapsule {
 }
 
 extension StateCapsule: StateContainer {
+    public func update(progress: Progress) {
+        state = .busy(value: progress)
+    }
+
     public func complete() {
         state = .complete
     }
