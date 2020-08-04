@@ -37,10 +37,7 @@ extension Installer: Installation {
     }
 
     func downloading(_ progress: Progress) {
-        // TODO: use method on container
-        if case .busy = stateContainer.state {
-            stateContainer.state = .busy(value: progress)
-        }
+        stateContainer.update(progress: progress)
     }
 
     public func beginInstallation(login: LoginRequest) {

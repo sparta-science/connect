@@ -23,7 +23,9 @@ open class StateCapsule {
 
 extension StateCapsule: StateContainer {
     public func update(progress: Progress) {
-        state = .busy(value: progress)
+        if case .busy = state {
+            state = .busy(value: progress)
+        }
     }
 
     public func complete() {

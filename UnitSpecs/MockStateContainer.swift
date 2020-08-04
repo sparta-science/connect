@@ -3,7 +3,9 @@ import Testable
 
 final class MockStateContainer: StateContainer {
     func update(progress: Progress) {
-        
+        if case .busy = state {
+            state = .busy(value: progress)
+        }
     }
 
     func complete() {

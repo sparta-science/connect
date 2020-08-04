@@ -63,13 +63,18 @@ class InstallerSpec: QuickSpec {
                         let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
                         expect(unTaredContents) == ""
                     }
-                    it("should report downloding progress") {
-                        subject.beginInstallation(login: request)
-                        expect(stateContainer.state).toEventually(equal(.complete))
-                        stateContainer.state = .busy(value: .init())
-                        let progress = Progress()
-                        downloader.didProvideReporting!(progress)
-                        expect(stateContainer.state) == .busy(value: progress)
+                    context("download progress") {
+                        beforeEach {
+                            expect(downloader.didProvideReporting).to(beNil())
+                            subject.beginInstallation(login: request)
+                            expect(stateContainer.state).toEventually(equal(.complete))
+                            stateContainer.state = .busy(value: .init())
+                        }
+                        it("should set state to busy with the progress of download") {
+                            let progress = Progress()
+                            downloader.didProvideReporting!(progress)
+                            expect(stateContainer.state.progress()) === progress
+                        }
                     }
                     it("should not become busy by pending callback of progressing downloads") {
                         subject.beginInstallation(login: request)
