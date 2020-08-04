@@ -99,12 +99,10 @@ extension Installer: Installation {
 
     public func cancelInstallation() {
         cancellables.forEach { $0.cancel() }
-        // TODO: use method on container
-        stateContainer.state = .login
+        stateContainer.reset()
     }
 
     public func uninstall() {
-        // TODO: use method on container
-        stateContainer.state = .login
+        stateContainer.reset()
     }
 }

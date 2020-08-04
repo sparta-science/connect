@@ -3,6 +3,7 @@ import Foundation
 public protocol StateContainer {
     var state: State { get set }
     func startReceiving()
+    func reset()
 }
 
 open class StateCapsule {
@@ -19,6 +20,10 @@ open class StateCapsule {
 }
 
 extension StateCapsule: StateContainer {
+    public func reset() {
+        state = .login
+    }
+
     public func startReceiving() {
         state = .startReceiving()
     }

@@ -27,6 +27,12 @@ class StateCapsuleSpec: QuickSpec {
                     expect(subject.state.progress()).notTo(beNil())
                 }
             }
+            context(StateCapsule.reset) {
+                it("should reset state to login") {
+                    subject.reset()
+                    expect(subject.state) == .login
+                }
+            }
         }
     }
 }
