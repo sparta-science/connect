@@ -48,9 +48,10 @@ public struct AppAssembly: Assembly {
         container.autoregister { Installer() }
         container.register { $0 + Installer.self as Installation }
         container.autoregister { Downloader() }
+        container.autoregister { StateTracker() }
         container.register { $0 + Downloader.self as Downloading }
         container.register(AnyPublisher<State, Never>.self) {
-            ($0 ~> Installer.self).$state.eraseToAnyPublisher()
+            ($0 ~> StateTracker.self).$state.eraseToAnyPublisher()
         }
         container.autoregister { ErrorReporter() }
         container.register { $0 + ErrorReporter.self as ErrorReporting }
