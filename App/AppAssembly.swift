@@ -22,6 +22,7 @@ public extension Container {
 }
 
 public struct AppAssembly: Assembly {
+    // swiftlint:disable:next function_body_length
     public func assemble(container: Container) {
         // MARK: System
         container.autoregister { ProcessInfo.processInfo }
@@ -49,6 +50,7 @@ public struct AppAssembly: Assembly {
         container.register { $0 + Installer.self as Installation }
         container.autoregister { Downloader() }
         container.autoregister { StateCapsule() }
+        container.register { $0 + StateCapsule.self as StateContainer }
         container.register { $0 + Downloader.self as Downloading }
         container.register(AnyPublisher<State, Never>.self) {
             ($0 ~> StateCapsule.self).$state.eraseToAnyPublisher()
