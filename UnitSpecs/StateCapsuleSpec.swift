@@ -33,6 +33,12 @@ class StateCapsuleSpec: QuickSpec {
                     expect(subject.state) == .login
                 }
             }
+            context(StateCapsule.complete) {
+                it("should set state to complete") {
+                    subject.complete()
+                    expect(subject.state) == .complete
+                }
+            }
         }
     }
 }

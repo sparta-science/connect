@@ -4,6 +4,7 @@ public protocol StateContainer {
     var state: State { get set }
     func startReceiving()
     func reset()
+    func complete()
 }
 
 open class StateCapsule {
@@ -20,6 +21,10 @@ open class StateCapsule {
 }
 
 extension StateCapsule: StateContainer {
+    public func complete() {
+        state = .complete
+    }
+
     public func reset() {
         state = .login
     }

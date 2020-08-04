@@ -89,8 +89,7 @@ extension Installer: Installation {
     private func when(complete: Subscribers.Completion<Error>) {
         switch complete {
         case .finished:
-            // TODO: use method on container
-            stateContainer.state = .complete
+            stateContainer.complete()
         case .failure(let error):
             cancelInstallation()
             errorReporter.report(error: error)

@@ -2,6 +2,10 @@ import Foundation
 import Testable
 
 final class MockStateContainer: StateContainer {
+    func complete() {
+        state = .complete
+    }
+
     func reset() {
         state = .login
     }
