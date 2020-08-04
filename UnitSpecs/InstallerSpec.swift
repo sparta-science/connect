@@ -60,15 +60,17 @@ class InstallerSpec: QuickSpec {
                         expect(unTaredContents) == ""
                     }
                     context("download progress") {
+                        var progressReporter: Progressing!
                         beforeEach {
                             expect(downloader.didProvideReporting).to(beNil())
                             subject.beginInstallation(login: request)
                             expect(stateContainer.state).toEventually(equal(.complete))
+                            progressReporter = downloader.didProvideReporting
                             stateContainer.state = .busy(value: .init())
                         }
                         it("should set state to busy with the progress of download") {
                             let progress = Progress()
-                            downloader.didProvideReporting!(progress)
+                            progressReporter(progress)
                             expect(stateContainer.state.progress()) === progress
                         }
                     }
