@@ -37,6 +37,8 @@
 		4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C96248F604B0058C5D4 /* FileHelper.swift */; };
 		4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */; };
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
+		4A515D3724D9CE4D00B65B41 /* StateTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3624D9CE4D00B65B41 /* StateTracker.swift */; };
+		4A515D3924D9CEE200B65B41 /* StateTrackerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3824D9CEE200B65B41 /* StateTrackerSpec.swift */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
@@ -209,6 +211,8 @@
 		4A3F3C96248F604B0058C5D4 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
+		4A515D3624D9CE4D00B65B41 /* StateTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTracker.swift; sourceTree = "<group>"; };
+		4A515D3824D9CEE200B65B41 /* StateTrackerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTrackerSpec.swift; sourceTree = "<group>"; };
 		4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "tiny-valid.tar.gz"; sourceTree = "<group>"; };
 		4A77486B24BD3DFC00A4277E /* .envrc */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc; sourceTree = "<group>"; };
 		4A77486C24BD3DFD00A4277E /* .envrc.sample */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc.sample; sourceTree = "<group>"; };
@@ -488,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */,
+				4A515D3824D9CEE200B65B41 /* StateTrackerSpec.swift */,
 				4AEE63A324D4C626001EBCFD /* ServiceWatchdogSpec.swift */,
 				4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */,
 				4A203BCA24B926CE00ECD5EC /* ProcessLauncherSpec.swift */,
@@ -615,6 +620,7 @@
 				4BD4D34F24ABBC61009D8380 /* State.swift */,
 				4BD4D35124ABBC88009D8380 /* Login.swift */,
 				4A2BB2C424AD153A005D1CE6 /* HTTPLoginResponse.swift */,
+				4A515D3624D9CE4D00B65B41 /* StateTracker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1121,6 +1127,7 @@
 				4BD4D35024ABBC61009D8380 /* State.swift in Sources */,
 				4AE7645024AAEF8600CAC3BA /* Init.swift in Sources */,
 				4AE7649124AC7C5A00CAC3BA /* LoginRequest.swift in Sources */,
+				4A515D3724D9CE4D00B65B41 /* StateTracker.swift in Sources */,
 				4A203BC924B926AE00ECD5EC /* ProcessLauncher.swift in Sources */,
 				4A203BBC24B8386300ECD5EC /* DebugFileServer.swift in Sources */,
 				4AEE63A224D4C608001EBCFD /* ServiceWatchdog.swift in Sources */,
@@ -1206,6 +1213,7 @@
 				4A203BD624BA992900ECD5EC /* StateNotifierSpec.swift in Sources */,
 				4AE7645424AAF0A400CAC3BA /* TestHelper.swift in Sources */,
 				4BD4D35C24ABBF80009D8380 /* ApiServerSpec.swift in Sources */,
+				4A515D3924D9CEE200B65B41 /* StateTrackerSpec.swift in Sources */,
 				4AEE828224ABEC2A00E93E03 /* TabViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
