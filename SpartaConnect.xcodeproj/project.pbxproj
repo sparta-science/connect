@@ -39,6 +39,7 @@
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
 		4A515D3724D9CE4D00B65B41 /* StateTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3624D9CE4D00B65B41 /* StateTracker.swift */; };
 		4A515D3924D9CEE200B65B41 /* StateTrackerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3824D9CEE200B65B41 /* StateTrackerSpec.swift */; };
+		4A515D3B24D9DBB100B65B41 /* MockStateTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3A24D9DBB100B65B41 /* MockStateTracker.swift */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
@@ -213,6 +214,7 @@
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
 		4A515D3624D9CE4D00B65B41 /* StateTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTracker.swift; sourceTree = "<group>"; };
 		4A515D3824D9CEE200B65B41 /* StateTrackerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTrackerSpec.swift; sourceTree = "<group>"; };
+		4A515D3A24D9DBB100B65B41 /* MockStateTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStateTracker.swift; sourceTree = "<group>"; };
 		4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "tiny-valid.tar.gz"; sourceTree = "<group>"; };
 		4A77486B24BD3DFC00A4277E /* .envrc */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc; sourceTree = "<group>"; };
 		4A77486C24BD3DFD00A4277E /* .envrc.sample */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc.sample; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 				4AE7646924AAFF3700CAC3BA /* TypeInject.swift */,
 				4AE7645324AAF0A400CAC3BA /* TestHelper.swift */,
 				4AEE63A524D4C98E001EBCFD /* MockProcessLauncher.swift */,
+				4A515D3A24D9DBB100B65B41 /* MockStateTracker.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1182,6 +1185,7 @@
 				4AE7649924AD3AD200CAC3BA /* MockErrorReporter.swift in Sources */,
 				4AE7646224AAFCFE00CAC3BA /* WindowControllerSpec.swift in Sources */,
 				4AE7646624AAFEB300CAC3BA /* DependencyInjectionConfiguration.swift in Sources */,
+				4A515D3B24D9DBB100B65B41 /* MockStateTracker.swift in Sources */,
 				4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */,
 				4AB9C9D424B70D9900B181B7 /* Injected.swift in Sources */,
 				4AE7648824AC52EB00CAC3BA /* LoginControllerSpec.swift in Sources */,

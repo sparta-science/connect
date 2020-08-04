@@ -8,13 +8,9 @@ class InstallerSpec: QuickSpec {
         describe(Installer.self) {
             var subject: Installer!
             beforeEach {
-                var stateTracker = StateTracker()
-                var defaults: UserDefaults
-                defaults = .init()
-                stateTracker = .init()
-                TestDependency.register(Inject(defaults))
-                TestDependency.register(Inject(stateTracker))
-
+                let stateTracker: MockStateTracker!
+                stateTracker = .createAndInject()
+                stateTracker.mockedState = .login
                 subject = .init()
             }
             context(Installer.beginInstallation(login:)) {
