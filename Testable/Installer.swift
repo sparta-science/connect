@@ -11,6 +11,12 @@ public class Installer: NSObject {
     var scriptURL: URL
     @Inject var fileManager: FileManager
     @Inject var downloader: Downloading
+    @Inject var stateTracker: StateTracker
+
+    override public init() {
+        super.init()
+        state = stateTracker.loadState()
+    }
 }
 
 extension Installer: Installation {
