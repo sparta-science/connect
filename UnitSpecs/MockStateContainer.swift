@@ -2,21 +2,26 @@ import Foundation
 import Testable
 
 final class MockStateContainer: StateContainer {
+    var didTransition: [String] = []
     func update(progress: Progress) {
+        didTransition.append(#function)
         if case .busy = state {
             state = .busy(value: progress)
         }
     }
 
     func complete() {
+        didTransition.append(#function)
         state = .complete
     }
 
     func reset() {
+        didTransition.append(#function)
         state = .login
     }
 
     func startReceiving() {
+        didTransition.append(#function)
         state = .startReceiving()
     }
 

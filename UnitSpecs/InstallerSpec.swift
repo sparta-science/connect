@@ -42,24 +42,20 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should transition to busy then to complete") {
                         subject.beginInstallation(login: request)
-                        guard case .busy = stateContainer.state else {
-                            fail("should be busy")
-                            return
-                        }
-                        expect(stateContainer.state).toEventually(equal(.complete))
+                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "complete()"]))
                         let config = installationUrl.appendingPathComponent("vernal_falls_config.yml")
                         verify(file: "expected-config.yml", at: config)
                     }
                     it("should download vernal falls archive") {
                         subject.beginInstallation(login: request)
-                        expect(stateContainer.state).toEventually(equal(.complete))
+                        expect(stateContainer.didTransition).toEventually(contain("complete()"))
                         expect(downloader.didProvideReporting).notTo(beNil())
                         verify(file: "tiny-valid.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
                     it("should install vernal falls") {
                         subject.beginInstallation(login: request)
-                        expect(stateContainer.state).toEventually(equal(.complete))
+                        expect(stateContainer.didTransition).toEventually(contain("complete()"))
                         let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
                         expect(unTaredContents) == ""
                     }
