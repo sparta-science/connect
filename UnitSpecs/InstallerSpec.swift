@@ -7,8 +7,9 @@ class InstallerSpec: QuickSpec {
     override func spec() {
         describe(Installer.self) {
             var subject: Installer!
+            var stateTracker: MockStateTracker!
             beforeEach {
-                let stateTracker: MockStateTracker = .createAndInject()
+                stateTracker = .createAndInject()
                 stateTracker.mockedState = .login
                 subject = .init()
             }
@@ -41,40 +42,40 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should transition to busy then to complete") {
                         subject.beginInstallation(login: request)
-                        guard case .busy = subject.state else {
+                        guard case .busy = stateTracker.state else {
                             fail("should be busy")
                             return
                         }
-                        expect(subject.state).toEventually(equal(.complete))
+                        expect(stateTracker.state).toEventually(equal(.complete))
                         let config = installationUrl.appendingPathComponent("vernal_falls_config.yml")
                         verify(file: "expected-config.yml", at: config)
                     }
                     it("should download vernal falls archive") {
                         subject.beginInstallation(login: request)
-                        expect(subject.state).toEventually(equal(.complete))
+                        expect(stateTracker.state).toEventually(equal(.complete))
                         expect(downloader.didProvideReporting).notTo(beNil())
                         verify(file: "tiny-valid.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
                     it("should install vernal falls") {
                         subject.beginInstallation(login: request)
-                        expect(subject.state).toEventually(equal(.complete))
+                        expect(stateTracker.state).toEventually(equal(.complete))
                         let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
                         expect(unTaredContents) == ""
                     }
                     it("should report downloding progress") {
                         subject.beginInstallation(login: request)
-                        expect(subject.state).toEventually(equal(.complete))
-                        subject.state = .busy(value: .init())
+                        expect(stateTracker.state).toEventually(equal(.complete))
+                        stateTracker.state = .busy(value: .init())
                         let progress = Progress()
                         downloader.didProvideReporting!(progress)
-                        expect(subject.state) == .busy(value: progress)
+                        expect(stateTracker.state) == .busy(value: progress)
                     }
                     it("should not become busy by pending callback of progressing downloads") {
                         subject.beginInstallation(login: request)
-                        expect(subject.state).toEventually(equal(.complete))
+                        expect(stateTracker.state).toEventually(equal(.complete))
                         downloader.didProvideReporting!(.init())
-                        expect(subject.state) == .complete
+                        expect(stateTracker.state) == .complete
                     }
                     context("installation failure") {
                         var errorReporter: MockErrorReporter!
@@ -85,7 +86,7 @@ class InstallerSpec: QuickSpec {
                         }
                         it("should report error and status code") {
                             subject.beginInstallation(login: request)
-                            expect(subject.state).toEventually(equal(.login))
+                            expect(stateTracker.state).toEventually(equal(.login))
                             let reportedError = errorReporter.didReport as? LocalizedError
                             expect(reportedError?.localizedDescription)
                                 == "Failed with exit code: 1"
@@ -107,15 +108,15 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should report errors while connecting") {
                         beginLogin(urlString: "file://invalid-url")
-                        expect(subject.state.progress()).toNot(beNil())
-                        expect(subject.state).toEventually(equal(.login))
+                        expect(stateTracker.state.progress()).toNot(beNil())
+                        expect(stateTracker.state).toEventually(equal(.login))
                         expect(errorReporter.didReport!.localizedDescription)
                             == "The requested URL was not found on this server."
                     }
                     it("should start progress, transition back to login and report error from server") {
                         beginLogin(urlString: testBundleUrl("server-error-response.json").absoluteString)
-                        expect(subject.state.progress()).toNot(beNil())
-                        expect(subject.state).toEventually(equal(.login))
+                        expect(stateTracker.state.progress()).toNot(beNil())
+                        expect(stateTracker.state).toEventually(equal(.login))
                         let reportedError = errorReporter.didReport as? LocalizedError
                         expect(reportedError?.localizedDescription)
                             == "Server Error"
@@ -126,20 +127,20 @@ class InstallerSpec: QuickSpec {
             }
             context(Installer.cancelInstallation) {
                 beforeEach {
-                    subject.state = .busy(value: .init())
+                    stateTracker.state = .busy(value: .init())
                 }
                 it("should transition to login") {
                     subject.cancelInstallation()
-                    expect(subject.state) == .login
+                    expect(stateTracker.state) == .login
                 }
             }
             context(Installer.uninstall) {
                 beforeEach {
-                    subject.state = .complete
+                    stateTracker.state = .complete
                 }
                 it("should transition to login") {
                     subject.uninstall()
-                    expect(subject.state) == .login
+                    expect(stateTracker.state) == .login
                 }
             }
         }

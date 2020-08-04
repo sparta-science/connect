@@ -2,7 +2,6 @@ import AppKit
 import Combine
 
 public class Installer: NSObject {
-    @Published public var state: State = .login
     var cancellables = Set<AnyCancellable>()
     @Inject var errorReporter: ErrorReporting
     @Inject("installation url")
@@ -12,11 +11,6 @@ public class Installer: NSObject {
     @Inject var fileManager: FileManager
     @Inject var downloader: Downloading
     @Inject var stateTracker: StateTracker
-
-    override public init() {
-        super.init()
-        state = stateTracker.loadState()
-    }
 }
 
 extension Installer: Installation {
@@ -43,13 +37,13 @@ extension Installer: Installation {
     }
 
     func downloading(_ progress: Progress) {
-        if case .busy = state {
-            state = .busy(value: progress)
+        if case .busy = stateTracker.state {
+            stateTracker.state = .busy(value: progress)
         }
     }
 
     public func beginInstallation(login: LoginRequest) {
-        state = .startReceiving()
+        stateTracker.state = .startReceiving()
 
         URLSession.shared
             .dataTaskPublisher(for: loginRequest(login))
@@ -94,7 +88,7 @@ extension Installer: Installation {
     private func when(complete: Subscribers.Completion<Error>) {
         switch complete {
         case .finished:
-            state = .complete
+            stateTracker.state = .complete
         case .failure(let error):
             cancelInstallation()
             errorReporter.report(error: error)
@@ -103,10 +97,10 @@ extension Installer: Installation {
 
     public func cancelInstallation() {
         cancellables.forEach { $0.cancel() }
-        state = .login
+        stateTracker.state = .login
     }
 
     public func uninstall() {
-        state = .login
+        stateTracker.state = .login
     }
 }
