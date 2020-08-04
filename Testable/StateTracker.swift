@@ -1,8 +1,9 @@
 import Foundation
 
 public class StateTracker {
+    @Inject var defaults: UserDefaults
     public init() {}
     public func loadState() -> State {
-        UserDefaults.standard.bool(forKey: "complete") ? .complete : .login
+        defaults.bool(forKey: "complete") ? .complete : .login
     }
 }

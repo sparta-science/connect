@@ -7,14 +7,17 @@ class StateTrackerSpec: QuickSpec {
         describe(StateTracker.self) {
             context(StateTracker.loadState) {
                 var subject: StateTracker!
+                var defaults: UserDefaults!
                 beforeEach {
                     subject = .init()
+                    defaults = .init()
+                    TestDependency.register(Inject(defaults!))
                 }
                 afterEach {
-                    UserDefaults.standard.removeObject(forKey: "complete")
+                    defaults.removeObject(forKey: "complete")
                 }
                 it("should return saved state") {
-                    UserDefaults.standard.set(true, forKey: "complete")
+                    defaults.set(true, forKey: "complete")
                     expect(subject.loadState()) == .complete
                 }
                 it("should return .login by default") {
