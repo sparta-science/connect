@@ -10,7 +10,7 @@ public class Installer: NSObject {
     var scriptURL: URL
     @Inject var fileManager: FileManager
     @Inject var downloader: Downloading
-    @Inject var stateTracker: StateTracker
+    @Inject var stateContainer: StateContainer
 }
 
 extension Installer: Installation {
@@ -37,13 +37,14 @@ extension Installer: Installation {
     }
 
     func downloading(_ progress: Progress) {
-        if case .busy = stateTracker.state {
-            stateTracker.state = .busy(value: progress)
+        // TODO: use method on container
+        if case .busy = stateContainer.state {
+            stateContainer.state = .busy(value: progress)
         }
     }
 
     public func beginInstallation(login: LoginRequest) {
-        stateTracker.state = .startReceiving()
+        stateContainer.startReceiving()
 
         URLSession.shared
             .dataTaskPublisher(for: loginRequest(login))
@@ -88,7 +89,8 @@ extension Installer: Installation {
     private func when(complete: Subscribers.Completion<Error>) {
         switch complete {
         case .finished:
-            stateTracker.state = .complete
+            // TODO: use method on container
+            stateContainer.state = .complete
         case .failure(let error):
             cancelInstallation()
             errorReporter.report(error: error)
@@ -97,10 +99,12 @@ extension Installer: Installation {
 
     public func cancelInstallation() {
         cancellables.forEach { $0.cancel() }
-        stateTracker.state = .login
+        // TODO: use method on container
+        stateContainer.state = .login
     }
 
     public func uninstall() {
-        stateTracker.state = .login
+        // TODO: use method on container
+        stateContainer.state = .login
     }
 }

@@ -48,10 +48,10 @@ public struct AppAssembly: Assembly {
         container.autoregister { Installer() }
         container.register { $0 + Installer.self as Installation }
         container.autoregister { Downloader() }
-        container.autoregister { StateTracker() }
+        container.autoregister { StateCapsule() }
         container.register { $0 + Downloader.self as Downloading }
         container.register(AnyPublisher<State, Never>.self) {
-            ($0 ~> StateTracker.self).$state.eraseToAnyPublisher()
+            ($0 ~> StateCapsule.self).$state.eraseToAnyPublisher()
         }
         container.autoregister { ErrorReporter() }
         container.register { $0 + ErrorReporter.self as ErrorReporting }
@@ -74,5 +74,6 @@ public struct AppAssembly: Assembly {
         container.autoregister { { ProcessLauncher() } }
         container.autoregister { ServiceWatchdog() }
         container.autoregister(name: "user id") { getuid() }
+        container.autoregister { UserDefaults.standard }
     }
 }
