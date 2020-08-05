@@ -13,7 +13,6 @@ final class MockDownloader: Downloading {
     var didProvideReporting: Progressing?
     func createDownload(url: URL, reporting: @escaping Progressing) -> AnyPublisher<URL, Error> {
         didProvideReporting = reporting
-        reporting(Progress(totalUnitCount: 100))
         let result = Result<URL, Error>(catching: { tempUrl })
         return result.publisher.eraseToAnyPublisher()
     }

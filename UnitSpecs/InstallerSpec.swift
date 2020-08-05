@@ -42,7 +42,7 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should transition to busy then to complete") {
                         subject.beginInstallation(login: request)
-                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "update(progress:)", "complete()"]))
+                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "complete()"]))
                         let config = installationUrl.appendingPathComponent("vernal_falls_config.yml")
                         verify(file: "expected-config.yml", at: config)
                     }
