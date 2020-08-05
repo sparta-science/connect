@@ -9,6 +9,7 @@ class StateCapsuleSpec: QuickSpec {
             var subject: StateCapsule!
             beforeEach {
                 defaults = .init()
+                defaults.removeObject(forKey: "complete")
                 TestDependency.register(Inject(defaults!))
                 subject = .init()
             }
@@ -28,15 +29,17 @@ class StateCapsuleSpec: QuickSpec {
                 }
             }
             context(StateCapsule.reset) {
-                it("should reset state to login") {
+                it("should reset state to login and save false to defaults") {
                     subject.reset()
                     expect(subject.state) == .login
+                    expect(defaults.bool(forKey: "complete")) == false
                 }
             }
             context(StateCapsule.complete) {
-                it("should set state to complete") {
+                it("should set state to complete and save true to defaults") {
                     subject.complete()
                     expect(subject.state) == .complete
+                    expect(defaults.bool(forKey: "complete")) == true
                 }
             }
             context(StateCapsule.update(progress:)) {
