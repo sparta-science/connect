@@ -42,7 +42,7 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should transition to busy then to complete") {
                         subject.beginInstallation(login: request)
-                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "complete()"]))
+                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "update(progress:)", "complete()"]))
                         let config = installationUrl.appendingPathComponent("vernal_falls_config.yml")
                         verify(file: "expected-config.yml", at: config)
                     }
@@ -71,7 +71,7 @@ class InstallerSpec: QuickSpec {
                         it("should set state to busy with the progress of download") {
                             let progress = Progress()
                             progressReporter(progress)
-                            expect(stateContainer.state.progress()) === progress
+                            expect(stateContainer.didProgress) == progress
                         }
                     }
                     it("should not become busy by pending callback of progressing downloads") {

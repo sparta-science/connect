@@ -36,10 +36,6 @@ extension Installer: Installation {
         installationURL.appendingPathComponent("vernal_falls.tar.gz")
     }
 
-    func downloading(_ progress: Progress) {
-        stateContainer.update(progress: progress)
-    }
-
     public func beginInstallation(login: LoginRequest) {
         stateContainer.startReceiving()
 
@@ -62,7 +58,7 @@ extension Installer: Installation {
 
     private func startDownload(message: HTTPLoginMessage) -> DownloadPublisher {
         downloader.createDownload(url: message.downloadUrl,
-                                  reporting: downloading(_:))
+                                  reporting: stateContainer.update(progress:))
     }
 
     private func process(downloaded: URL) throws {

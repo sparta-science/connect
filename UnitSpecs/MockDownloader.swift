@@ -10,9 +10,10 @@ final class MockDownloader: Downloading {
             try! fileManager.copyItem(at: downloadedContentsUrl!, to: tempUrl)
         }
     }
-    var didProvideReporting: ((Progress) -> Void)?
-    func createDownload(url: URL, reporting: @escaping (Progress) -> Void) -> AnyPublisher<URL, Error> {
+    var didProvideReporting: Progressing?
+    func createDownload(url: URL, reporting: @escaping Progressing) -> AnyPublisher<URL, Error> {
         didProvideReporting = reporting
+        reporting(Progress(totalUnitCount: 100))
         let result = Result<URL, Error>(catching: { tempUrl })
         return result.publisher.eraseToAnyPublisher()
     }
