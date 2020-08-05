@@ -23,9 +23,12 @@ class StateCapsuleSpec: QuickSpec {
             }
 
             context(StateCapsule.startReceiving) {
-                it("should start state progress") {
+                it("should start file receive progress") {
                     subject.startReceiving()
-                    expect(subject.state.progress()).notTo(beNil())
+                    let progress = subject.state.progress()
+                    expect(progress?.isCancellable) == true
+                    expect(progress?.kind) == .file
+                    expect(progress?.fileOperationKind) == .receiving
                 }
             }
             context(StateCapsule.reset) {

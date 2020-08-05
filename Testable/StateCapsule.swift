@@ -39,6 +39,10 @@ extension StateCapsule: StateContainer {
     }
 
     public func startReceiving() {
-        state = .startReceiving()
+        state = .busy(value: Init(.init()) {
+            $0.kind = .file
+            $0.fileOperationKind = .receiving
+            $0.isCancellable = true
+        })
     }
 }
