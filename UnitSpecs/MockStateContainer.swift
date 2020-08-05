@@ -19,17 +19,11 @@ final class MockStateContainer: StateContainer {
 
     func startReceiving() {
         didTransition.append(#function)
-        state = .startReceiving()
     }
-
-    var mockedState: State?
+    
     var state: State {
-        get {
-            mockedState!
-        }
-        set {
-            mockedState = newValue
-        }
+        get { fatalError("should not be called by test") }
+        set { fatalError("should not be called by test") }
     }
 }
 

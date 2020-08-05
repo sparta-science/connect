@@ -10,7 +10,6 @@ class InstallerSpec: QuickSpec {
             var stateContainer: MockStateContainer!
             beforeEach {
                 stateContainer = .createAndInject()
-                stateContainer.mockedState = .login
                 subject = .init()
             }
             context(Installer.beginInstallation(login:)) {
@@ -66,7 +65,6 @@ class InstallerSpec: QuickSpec {
                             subject.beginInstallation(login: request)
                             expect(stateContainer.didTransition).toEventually(contain("complete()"))
                             progressReporter = downloader.didProvideReporting
-                            stateContainer.state = .busy(value: .init())
                         }
                         it("should set state to busy with the progress of download") {
                             let progress = Progress()
