@@ -30,12 +30,16 @@ extension StateCapsule: StateContainer {
 
     public func complete() {
         state = .complete
-        defaults.set(true, forKey: "complete")
+        save(complete: true)
     }
 
     public func reset() {
         state = .login
-        defaults.set(false, forKey: "complete")
+        save(complete: false)
+    }
+
+    private func save(complete: Bool) {
+        defaults.set(complete, forKey: "complete")
     }
 
     public func startReceiving() {
