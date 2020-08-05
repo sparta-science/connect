@@ -83,7 +83,7 @@ class InstallerSpec: QuickSpec {
                         }
                         it("should report error and status code") {
                             subject.beginInstallation(login: request)
-                            expect(stateContainer.state).toEventually(equal(.login))
+                            expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
                             let reportedError = errorReporter.didReport as? LocalizedError
                             expect(reportedError?.localizedDescription)
                                 == "Failed with exit code: 1"
@@ -105,15 +105,13 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should report errors while connecting") {
                         beginLogin(urlString: "file://invalid-url")
-                        expect(stateContainer.state.progress()).toNot(beNil())
-                        expect(stateContainer.state).toEventually(equal(.login))
+                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
                         expect(errorReporter.didReport!.localizedDescription)
                             == "The requested URL was not found on this server."
                     }
                     it("should start progress, transition back to login and report error from server") {
                         beginLogin(urlString: testBundleUrl("server-error-response.json").absoluteString)
-                        expect(stateContainer.state.progress()).toNot(beNil())
-                        expect(stateContainer.state).toEventually(equal(.login))
+                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
                         let reportedError = errorReporter.didReport as? LocalizedError
                         expect(reportedError?.localizedDescription)
                             == "Server Error"
@@ -123,21 +121,15 @@ class InstallerSpec: QuickSpec {
                 }
             }
             context(Installer.cancelInstallation) {
-                beforeEach {
-                    stateContainer.state = .busy(value: .init())
-                }
                 it("should transition to login") {
                     subject.cancelInstallation()
-                    expect(stateContainer.state) == .login
+                    expect(stateContainer.didTransition) == ["reset()"]
                 }
             }
             context(Installer.uninstall) {
-                beforeEach {
-                    stateContainer.state = .complete
-                }
                 it("should transition to login") {
                     subject.uninstall()
-                    expect(stateContainer.state) == .login
+                    expect(stateContainer.didTransition) == ["reset()"]
                 }
             }
         }

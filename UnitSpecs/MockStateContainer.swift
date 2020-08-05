@@ -15,7 +15,6 @@ final class MockStateContainer: StateContainer {
 
     func reset() {
         didTransition.append(#function)
-        state = .login
     }
 
     func startReceiving() {
