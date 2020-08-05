@@ -64,7 +64,7 @@ class InstallerSpec: QuickSpec {
                         beforeEach {
                             expect(downloader.didProvideReporting).to(beNil())
                             subject.beginInstallation(login: request)
-                            expect(stateContainer.state).toEventually(equal(.complete))
+                            expect(stateContainer.didTransition).toEventually(contain("complete()"))
                             progressReporter = downloader.didProvideReporting
                             stateContainer.state = .busy(value: .init())
                         }
@@ -73,12 +73,6 @@ class InstallerSpec: QuickSpec {
                             progressReporter(progress)
                             expect(stateContainer.didProgress) == progress
                         }
-                    }
-                    it("should not become busy by pending callback of progressing downloads") {
-                        subject.beginInstallation(login: request)
-                        expect(stateContainer.state).toEventually(equal(.complete))
-                        downloader.didProvideReporting!(.init())
-                        expect(stateContainer.state) == .complete
                     }
                     context("installation failure") {
                         var errorReporter: MockErrorReporter!

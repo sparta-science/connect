@@ -7,14 +7,10 @@ final class MockStateContainer: StateContainer {
     func update(progress: Progress) {
         didProgress = progress
         didTransition.append(#function)
-        if case .busy = state {
-            state = .busy(value: progress)
-        }
     }
 
     func complete() {
         didTransition.append(#function)
-        state = .complete
     }
 
     func reset() {
