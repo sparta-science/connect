@@ -53,7 +53,7 @@ public struct AppAssembly: Assembly {
         container.register { $0 + StateCapsule.self as StateContainer }
         container.register { $0 + Downloader.self as Downloading }
         container.register(AnyPublisher<State, Never>.self) {
-            ($0 ~> StateCapsule.self).$state.eraseToAnyPublisher()
+            ($0 ~> StateCapsule.self).publisher()
         }
         container.autoregister { ErrorReporter() }
         container.register { $0 + ErrorReporter.self as ErrorReporting }

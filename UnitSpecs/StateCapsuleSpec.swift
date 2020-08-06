@@ -1,6 +1,7 @@
+import Combine
 import Nimble
 import Quick
-import Testable
+@testable import Testable
 
 class StateCapsuleSpec: QuickSpec {
     override func spec() {
@@ -19,6 +20,19 @@ class StateCapsuleSpec: QuickSpec {
                 }
                 it("should load initial state") {
                     expect(StateCapsule().state) == .complete
+                }
+            }
+            context(StateCapsule.publisher) {
+                it("should be state publisher") {
+                    expect(subject.publisher()).to(beAKindOf(AnyPublisher<State, Never>.self))
+                }
+                it("should publish state changes") {
+                    waitUntil { done in
+                        _ = subject.publisher().sink {
+                            expect($0) == .login
+                            done()
+                        }
+                    }
                 }
             }
 

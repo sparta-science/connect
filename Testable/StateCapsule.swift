@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 
 public protocol StateContainer {
@@ -8,15 +9,20 @@ public protocol StateContainer {
 }
 
 open class StateCapsule {
-    @Published public var state: State
-
+    @Published var state: State = .login
     @Inject var defaults: UserDefaults
+
     public init() {
-        state = .login
         state = loadState()
+    }
+    public func publisher() -> AnyPublisher<State, Never> {
+        $state.eraseToAnyPublisher()
     }
     private func loadState() -> State {
         defaults.bool(forKey: "complete") ? .complete : .login
+    }
+    private func save(complete: Bool) {
+        defaults.set(complete, forKey: "complete")
     }
 }
 
@@ -35,10 +41,6 @@ extension StateCapsule: StateContainer {
     public func reset() {
         state = .login
         save(complete: false)
-    }
-
-    private func save(complete: Bool) {
-        defaults.set(complete, forKey: "complete")
     }
 
     public func startReceiving() {
