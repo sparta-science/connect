@@ -14,7 +14,7 @@ class MoveToApplicationsSpec: QuickSpec {
                 let didFinish = NSApplication.didFinishLaunchingNotification
                 beforeEach {
                     center = .init()
-                    subject.center = center
+                    TestDependency.register(Inject(center!))
                     subject.awakeFromNib()
                 }
                 it("should start waiting for app to finish lauching") {

@@ -653,7 +653,7 @@
                 <customObject id="SN6-AC-GBZ" customClass="ServiceWatchdog" customModule="Testable"/>
                 <customObject id="Iwp-kM-eAr" customClass="MoveToApplications" customModule="Testable"/>
             </objects>
-            <point key="canvasLocation" x="-211" y="-441"/>
+            <point key="canvasLocation" x="-339" y="-500"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
