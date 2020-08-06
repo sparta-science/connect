@@ -1,7 +1,6 @@
 import Foundation
 
 public protocol StateContainer {
-    var state: State { get set }
     func startReceiving()
     func reset()
     func complete()
