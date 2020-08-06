@@ -32,6 +32,17 @@ class MoveToApplicationsSpec: QuickSpec {
                         }
                     }
                 }
+                context("retain cycle") {
+                    it("should not happen") {
+                        weak var weakInstance: MoveToApplications?
+                        autoreleasepool {
+                            subject.awakeFromNib()
+                            weakInstance = subject
+                            subject = nil
+                        }
+                        expect(weakInstance).to(beNil())
+                    }
+                }
             }
         }
     }

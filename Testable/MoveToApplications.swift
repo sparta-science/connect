@@ -5,15 +5,12 @@ public class MoveToApplications: NSObject {
     @Inject var center: NotificationCenter
     @Inject("move to applications") public var move: () -> Void
 
-    func finishedLaunching(_: Notification) {
-        move()
-    }
     func waitFor(_ name: Notification.Name) {
-        // swiftlint:disable:next discarded_notification_center_observer
-        center.addObserver(forName: name,
-                           object: nil,
-                           queue: nil,
-                           using: finishedLaunching)
+        _ = center.addObserver(forName: name,
+                               object: nil,
+                               queue: nil) { [weak self] _ in
+                                self?.move()
+        }
     }
     override public func awakeFromNib() {
         super.awakeFromNib()
