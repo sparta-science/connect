@@ -40,10 +40,12 @@ class ServiceWatchdogSpec: QuickSpec {
                     beforeEach {
                         mockErrorReporter = .createAndInject()
                         failingLauncher = .createAndInjectFactory()
-                        failingLauncher.error = NSError(domain: "test", code: 26, userInfo: [NSLocalizedDescriptionKey: "failed to start"])
+                        failingLauncher.error = NSError(domain: "test",
+                                                        code: 26,
+                                                        userInfo: [NSLocalizedDescriptionKey: "failed to start"])
                         mockNotifier.send(state: .complete)
                     }
-                    it("should report the error nicely") {
+                    it("should report the error") {
                         expect(mockErrorReporter.didReport?.localizedDescription) ==  "failed to start"
                     }
                 }
@@ -59,6 +61,21 @@ class ServiceWatchdogSpec: QuickSpec {
                         "bootout",
                         "gui/57/sparta_science.vernal_falls",
                         "file:///tmp/", "3", "36"]
+                }
+            }
+            context("application quits") {
+                var center: NotificationCenter!
+                let willTerminate = NSApplication.willTerminateNotification
+
+                beforeEach {
+                    center = .init()
+                    TestDependency.register(Inject(center!))
+                    subject.awakeFromNib()
+                }
+
+                it("should bootout") {
+                    center.post(name: willTerminate, object: nil)
+                    expect(processLauncher.didRun).to(contain("bootout"))
                 }
             }
         }

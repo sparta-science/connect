@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 
 public class ServiceWatchdog: NSObject {
@@ -28,10 +29,20 @@ public class ServiceWatchdog: NSObject {
     @Inject("user id")
     var userId: uid_t
     @Inject var errorReporter: ErrorReporting
+    @Inject var center: NotificationCenter
+    let appQuitNotification = NSApplication.willTerminateNotification
+    var observer: NSObjectProtocol?
 
     override public init() {
         super.init()
         notifier.start(receiver: onChange(state:))
+    }
+
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        observer = center.addObserver(forName: appQuitNotification, object: nil, queue: nil) { _ in
+            self.launch(command: .stop)
+        }
     }
 
     static let stateCommands: [State: Command] = [
