@@ -77,6 +77,18 @@ class ServiceWatchdogSpec: QuickSpec {
                     center.post(name: willTerminate, object: nil)
                     expect(processLauncher.didRun).to(contain("bootout"))
                 }
+                context("retain cycle") {
+                    it("should not happen") {
+                        weak var service: ServiceWatchdog?
+                        autoreleasepool {
+                            let newInstance = ServiceWatchdog()
+                            service = newInstance
+                            newInstance.awakeFromNib()
+                            center.post(name: willTerminate, object: nil)
+                        }
+                        expect(service).to(beNil())
+                    }
+                }
             }
         }
     }

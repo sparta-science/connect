@@ -35,13 +35,15 @@ public class ServiceWatchdog: NSObject {
 
     override public init() {
         super.init()
-        notifier.start(receiver: onChange(state:))
+        notifier.start { [weak self] state in
+            self?.onChange(state: state)
+        }
     }
 
     override public func awakeFromNib() {
         super.awakeFromNib()
-        observer = center.addObserver(forName: appQuitNotification, object: nil, queue: nil) { _ in
-            self.launch(command: .stop)
+        observer = center.addObserver(forName: appQuitNotification, object: nil, queue: nil) { [weak self] _ in
+            self?.launch(command: .stop)
         }
     }
 
