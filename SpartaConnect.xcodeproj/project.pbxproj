@@ -245,7 +245,7 @@
 		4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_vernal_falls.sh; sourceTree = "<group>"; };
 		4AB9C9D324B70D9900B181B7 /* Injected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsTest.swift; sourceTree = "<group>"; };
-		4ABFA61224DD22260044AE24 /* release.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = release.yml; path = .github/workflows/release.yml; sourceTree = "<group>"; };
+		4ABFA61224DD22260044AE24 /* release.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = release.yml; path = .github/workflows/release.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AC171C724B3DA410096BF33 /* MockLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocator.swift; sourceTree = "<group>"; };
 		4AC171C924B3DD7E0096BF33 /* ServerLocatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerLocatorSpec.swift; sourceTree = "<group>"; };
 		4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssemblySpec.swift; sourceTree = "<group>"; };
