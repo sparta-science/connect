@@ -258,7 +258,6 @@
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		4AD40A99248850E1002728DA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AD40A9B24897C85002728DA /* UITests.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UITests.entitlements; sourceTree = "<group>"; };
-		4AD40A9D24897F51002728DA /* self-hosted.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "self-hosted.yml"; path = ".github/workflows/self-hosted.yml"; sourceTree = "<group>"; tabWidth = 2; };
 		4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyInjection.swift; sourceTree = "<group>"; };
 		4AE7644624AAB3DD00CAC3BA /* ResolveDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResolveDependency.swift; sourceTree = "<group>"; };
 		4AE7644724AAB3DD00CAC3BA /* Inject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
@@ -419,7 +418,6 @@
 				4AE7648C24AC694500CAC3BA /* team.xcconfig */,
 				4AD40A9224870C00002728DA /* ci.yml */,
 				4ABFA61224DD22260044AE24 /* release.yml */,
-				4AD40A9D24897F51002728DA /* self-hosted.yml */,
 				4A9F06D32491D91400714B04 /* Podfile */,
 				4A9F06D12491D91400714B04 /* Podfile.lock */,
 				4A9F06D22491D91400714B04 /* Gemfile */,
