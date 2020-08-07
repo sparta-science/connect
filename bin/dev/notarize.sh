@@ -5,14 +5,14 @@
 xcodebuild -exportArchive -archivePath build/archive.xcarchive \
     -exportOptionsPlist App/export-options.plist \
     -exportPath build/export
-ditto -c -k --keepParent build/export/SpartaConnect.app build/export/SpartaConnect.zip
+ditto -c -k --keepParent build/export/SpartaConnect.app build/export/SpartaConnect-Unnotarized.zip
 xcrun altool --notarize-app \
     --primary-bundle-id "com.spartascience.SpartaConnect" \
     --username $DEVELOPER_ID_LOGIN \
     --password @env:DEVELOPER_ID_PASSWORD \
-    --file build/export/SpartaConnect.zip \
-    --output-format xml > build/notarizing.plist
-request=$(/usr/libexec/PlistBuddy -c "Print :notarization-upload:RequestUUID"  build/notarizing.plist)
+    --file build/export/SpartaConnect-Unnotarized.zip \
+    --output-format xml > build/notarizing-request.plist
+request=$(/usr/libexec/PlistBuddy -c "Print :notarization-upload:RequestUUID"  build/notarizing-request.plist)
 echo Notarization Request ID: $request
 request_status="in progress"
 while [[ "$request_status" == "in progress" ]]; do
@@ -26,5 +26,4 @@ while [[ "$request_status" == "in progress" ]]; do
     echo $request_status
 done
 xcrun stapler staple build/export/SpartaConnect.app
-ditto -c -k --keepParent build/export/SpartaConnect.app build/export/SpartaConnect-Stapled.zip
-
+ditto -c -k --keepParent build/export/SpartaConnect.app build/export/SpartaConnect.zip

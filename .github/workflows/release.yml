@@ -56,11 +56,12 @@ jobs:
       with:
         name: archive.xcarchive
         path: build/archive.zip
-    - name: Export Archive
-      run: |
-        xcodebuild -exportArchive -archivePath build/archive.xcarchive -exportOptionsPlist App/export-options.plist -exportPath build/export
-        ditto -c -k --keepParent build/export/SpartaConnect.app build/export/SpartaConnect.zip
-    - name: Upload exported app
+    - name: Notarize the App
+      env:
+        DEVELOPER_ID_LOGIN: ${{ secrets.DEVELOPER_ID_LOGIN }}
+        DEVELOPER_ID_PASSWORD: ${{ secrets.DEVELOPER_ID_PASSWORD }}
+      run: bin/dev/notarize.sh
+    - name: Upload Notarized app
       uses: actions/upload-artifact@v2
       with:
         name: SpartaConnect
