@@ -48,10 +48,20 @@ jobs:
       run: |
         bundle exec ./bin/xc-scheme.sh SpartaConnect -configuration Release -derivedDataPath build/derived -archivePath build/archive archive
         ls -la build/
-        cd build
+        pushd build # refactor use ditto
         zip --recurse-paths --symlinks archive.zip archive.xcarchive
+        popd
     - name: Upload archive results
       uses: actions/upload-artifact@v2
       with:
         name: archive.xcarchive
         path: build/archive.zip
+    - name: Export Archive
+      run: |
+        xcodebuild -exportArchive -archivePath build/archive.xcarchive -exportOptionsPlist App/export-options.plist -exportPath build/export
+        ditto -c -k --keepParent build/export/SpartaConnect.app build/export/SpartaConnect.zip
+    - name: Upload exported app
+      uses: actions/upload-artifact@v2
+      with:
+        name: SpartaConnect.zip
+        path: build/export/SpartaConnect.zip
