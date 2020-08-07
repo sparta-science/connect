@@ -63,5 +63,5 @@ jobs:
     - name: Upload exported app
       uses: actions/upload-artifact@v2
       with:
-        name: SpartaConnect.zip
+        name: SpartaConnect
         path: build/export/SpartaConnect.zip
