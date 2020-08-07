@@ -38,7 +38,7 @@ jobs:
         configuration: Release
         derived-data-path: build/derived
     - name: Archive
-      run: ./bin/xc-scheme.sh SpartaConnect -configuration Release -derivedDataPath build/derived -archivePath build/archive archive
+      run: bundle exec ./bin/xc-scheme.sh SpartaConnect -configuration Release -derivedDataPath build/derived -archivePath build/archive archive
     - name: Upload archive results
       uses: actions/upload-artifact@v2
       with:
