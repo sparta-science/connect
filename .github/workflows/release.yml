@@ -49,7 +49,7 @@ jobs:
         bundle exec ./bin/xc-scheme.sh SpartaConnect -configuration Release -derivedDataPath build/derived -archivePath build/archive archive
         ls -la build/
         cd build
-        zip -r archive.zip archive.xcarchive
+        zip --recurse-paths --symlinks archive.zip archive.xcarchive
     - name: Upload archive results
       uses: actions/upload-artifact@v2
       with:
