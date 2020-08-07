@@ -2,8 +2,8 @@ name: release-on-github
 
 on:
 push:
-  tags:
-  - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+  branches: [ pz/experiment/create-pre-release ]
+  tags: 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build:
@@ -36,26 +36,10 @@ jobs:
         scheme: SpartaConnect
         action: build
         configuration: Release
-        derived-data-path: derived
-    - name: Upload test results
-      if: always()
+        derived-data-path: build/derived
+    - name: Archive
+      run: ./bin/xc-scheme.sh SpartaConnect -configuration Release -derivedDataPath build/derived -archivePath build/archive archive
+    - name: Upload archive results
       uses: actions/upload-artifact@v2
       with:
-        name: ui-tests.xcresult
-        path: results.zip
-    - name: Upload events
-      if: always()
-      uses: actions/upload-artifact@v2
-      with:
-        name: rare-test-events.plist
-        path: rare-test-events.plist
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-west-1
-      if: always()  # Setup credentials even if the workflow failed
-    - name: Log Build
-      uses: ros-tooling/action-cloudwatch-metrics@0.0.4
-      if: always()  # Need to run to log the workflow failure
+        path: build/archive
