@@ -5,9 +5,16 @@ on:
     branches: [ pz/experiment/create-pre-release ]
     tags: 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
+defaults:
+  run:
+    shell: bash -l {0}
+
 jobs:
   build:
     name: Build and Release
+    env:
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+      NSUnbufferedIO: YES
     runs-on: macos-latest
     timeout-minutes: 20
     steps:
