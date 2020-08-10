@@ -1516,6 +1516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C0571494849A7D807A1DC064 /* Pods-SpartaConnect.debug.xcconfig */;
 			buildSettings = {
+				APPCAST_URL = "https://sparta-test-resources.s3-us-west-1.amazonaws.com/sparta-connect/appcast.xml";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
@@ -1536,6 +1537,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F255137FDAD2130F5982520D /* Pods-SpartaConnect.release.xcconfig */;
 			buildSettings = {
+				APPCAST_URL = "https://github.com/sparta-science/connect/releases/latest/download/appcast.xml";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";

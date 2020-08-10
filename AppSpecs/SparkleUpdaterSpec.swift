@@ -13,8 +13,7 @@ class SparkleUpdaterSpec: QuickSpec {
                 expect(subject.automaticallyDownloadsUpdates) == true
                 expect(subject.automaticallyChecksForUpdates) == true
                 expect(subject.feedURL.absoluteString) ==
-                    "https://github.com/sparta-science/connect/releases/"
-                    + "latest/download/appcast.xml"
+                    "https://sparta-test-resources.s3-us-west-1.amazonaws.com/sparta-connect/appcast.xml"
             }
             it("should check for updates within last 24 hours") {
                 expect(subject.lastUpdateCheckDate.timeIntervalSinceNow) > -24 * 60 * 60
