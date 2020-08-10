@@ -14,6 +14,11 @@ class BundleHelper {
         fileHelper.remove(url: appSupportURL())
     }
 
+    func resetAppState() {
+        eraseInstallation()
+        clearDefaults()
+    }
+
     func findInstalled(file: String) -> NSPredicate {
         fileHelper.find(file: file, at: appSupportURL())
     }
