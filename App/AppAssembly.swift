@@ -72,6 +72,7 @@ public struct AppAssembly: Assembly {
         container.register(name: "installation script url") {
             ($0 ~> Bundle.self).url(forResource: "install_vernal_falls", withExtension: "sh")!
         }
+        container.autoregister(name: "unique client id") { getMacSerialNumber() }
         container.autoregister { StateNotifier() }.inObjectScope(.transient)
         container.autoregister { { ProcessLauncher() } }
         container.autoregister { ServiceWatchdog() }
