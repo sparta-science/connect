@@ -40,8 +40,8 @@ jobs:
       uses: sersoft-gmbh/xcodebuild-action@master
       with:
         workspace: SpartaConnect.xcworkspace
-        scheme: SpartaConnect
-        action: build
+        scheme: Release UITests
+        action: test
         configuration: Release
         derived-data-path: build/derived
     - name: Archive
