@@ -80,6 +80,7 @@
 		4AC2E0C324E30E5A0033D023 /* RareEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC624B8E22400ECD5EC /* RareEventMonitor.swift */; };
 		4AC2E0C424E30E5A0033D023 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
 		4AC2E0C624E30E5A0033D023 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
+		4AC2E0D024E314E00033D023 /* AlreadyUpToDateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2E0CF24E314E00033D023 /* AlreadyUpToDateTest.swift */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */; };
@@ -282,6 +283,7 @@
 		4AC171D524B538F10096BF33 /* DownloaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderSpec.swift; sourceTree = "<group>"; };
 		4AC171D924B58A100096BF33 /* Downloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloading.swift; sourceTree = "<group>"; };
 		4AC2E0CC24E30E5A0033D023 /* ReleaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReleaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AC2E0CF24E314E00033D023 /* AlreadyUpToDateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlreadyUpToDateTest.swift; sourceTree = "<group>"; };
 		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 		4AA188A92486FA90009CFACE /* UITests */ = {
 			isa = PBXGroup;
 			children = (
+				4AC2E0CE24E3148F0033D023 /* Release */,
 				4A0AB97D249D373E00D74826 /* LoginTest.swift */,
 				4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */,
 				4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */,
@@ -569,6 +572,14 @@
 				4A3F3C99248F607F0058C5D4 /* Supporting Files */,
 			);
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		4AC2E0CE24E3148F0033D023 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				4AC2E0CF24E314E00033D023 /* AlreadyUpToDateTest.swift */,
+			);
+			name = Release;
 			sourceTree = "<group>";
 		};
 		4AE7644424AAB3D100CAC3BA /* Dependency Injection */ = {
@@ -1363,6 +1374,7 @@
 				4AC2E0B624E30E5A0033D023 /* UpdateAppTest.swift in Sources */,
 				4AC2E0B724E30E5A0033D023 /* Principal.swift in Sources */,
 				4AC2E0B824E30E5A0033D023 /* WorkspaceHelper.swift in Sources */,
+				4AC2E0D024E314E00033D023 /* AlreadyUpToDateTest.swift in Sources */,
 				4AC2E0B924E30E5A0033D023 /* XCTWaiter+Extension.swift in Sources */,
 				4AC2E0BA24E30E5A0033D023 /* TestHelper.swift in Sources */,
 				4AC2E0BB24E30E5A0033D023 /* SetupTestSuite.swift in Sources */,
@@ -1800,6 +1812,13 @@
 				CODE_SIGN_ENTITLEMENTS = UITests/UITests.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
+				ENABLE_NS_ASSERTIONS = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
 				INFOPLIST_FILE = UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1810,6 +1829,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = SpartaConnect;
 			};
 			name = Release;
