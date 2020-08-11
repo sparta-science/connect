@@ -10,7 +10,7 @@ class LoginRequestSpec: QuickSpec {
             }
         }
 
-        describe(loginRequest(_:)) {
+        describe(loginRequest(_:clientId:)) {
             var login: LoginRequest!
             var subject: URLRequest!
             beforeEach {
@@ -19,13 +19,13 @@ class LoginRequestSpec: QuickSpec {
                     $0!.password = "jumping hoops"
                     $0!.baseUrlString = "http://localhost:4000"
                 }
-                subject = loginRequest(login)
+                subject = loginRequest(login, clientId: "testClientId")
             }
             it("should create post with params") {
                 expect(subject.httpMethod) == "POST"
                 expect(subject.url?.absoluteString) ==
                     "http://localhost:4000/api/app-setup"
-                    + "?client-id=TestOnlyDeleteMePlease"
+                    + "?client-id=testClientId"
                     + "&email=meanwhile%2Beffortless%40example%2Ecom"
                     + "&password=jumping%20hoops"
             }

@@ -22,6 +22,7 @@ class InstallerSpec: QuickSpec {
                         downloader = .createAndInject()
                         TestDependency.register(Inject(FileManager.default))
                         TestDependency.register(Inject(installationUrl, name: "installation url"))
+                        TestDependency.register(Inject("successful client id", name: "unique client id"))
                         let scriptUrl = testBundle.url(forResource: "install_vernal_falls", withExtension: "sh")!
                         TestDependency.register(Inject(scriptUrl, name: "installation script url"))
 
@@ -94,6 +95,7 @@ class InstallerSpec: QuickSpec {
                     var errorReporter: MockErrorReporter!
                     beforeEach {
                         errorReporter = .createAndInject()
+                        TestDependency.register(Inject("failing client id", name: "unique client id"))
                     }
                     func beginLogin(urlString: String) {
                         let loginRequest = Init(LoginRequest()) {

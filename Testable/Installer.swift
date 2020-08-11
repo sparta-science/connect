@@ -4,13 +4,12 @@ import Combine
 public class Installer: NSObject {
     var cancellables = Set<AnyCancellable>()
     @Inject var errorReporter: ErrorReporting
-    @Inject("installation url")
-    var installationURL: URL
-    @Inject("installation script url")
-    var scriptURL: URL
+    @Inject("installation url") var installationURL: URL
+    @Inject("installation script url") var scriptURL: URL
     @Inject var fileManager: FileManager
     @Inject var downloader: Downloading
     @Inject var stateContainer: StateContainer
+    @Inject("unique client id") var clientId: String
 }
 
 extension Installer: Installation {
@@ -40,7 +39,7 @@ extension Installer: Installation {
         stateContainer.startReceiving()
 
         URLSession.shared
-            .dataTaskPublisher(for: loginRequest(login))
+            .dataTaskPublisher(for: loginRequest(login, clientId: clientId))
             .map { $0.data }
             .decode(type: HTTPLoginResponse.self, decoder: JSONDecoder())
             .tryMap(transform(response:))
