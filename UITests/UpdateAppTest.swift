@@ -70,10 +70,10 @@ class UpdateAppTest: XCTestCase {
 
     func verifyUpdated() {
         app.wait(until: .runningForeground, "wait for app to relaunch")
-        app.windows["Window"].waitToAppear(time: .launch)
+        app.windows["Connect to Sparta Science"].waitToAppear(time: .launch)
         app.menuBars.menuBarItems["SpartaConnect"].click()
         app.menuBars.menus.menuItems["About SpartaConnect"].click()
-        app.dialogs.staticTexts["Version 1.0 (1.0.3)"].waitToAppear()
+        app.dialogs.staticTexts["Version 100.0.3 (100.0.3)"].waitToAppear()
         app.dialogs.buttons[XCUIIdentifierCloseWindow].click()
     }
 
