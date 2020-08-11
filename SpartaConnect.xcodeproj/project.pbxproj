@@ -61,6 +61,25 @@
 		4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D124B51DC40096BF33 /* MockDownloader.swift */; };
 		4AC171D624B538F10096BF33 /* DownloaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D524B538F10096BF33 /* DownloaderSpec.swift */; };
 		4AC171DA24B58A100096BF33 /* Downloading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171D924B58A100096BF33 /* Downloading.swift */; };
+		4AC2E0B324E30E5A0033D023 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */; };
+		4AC2E0B424E30E5A0033D023 /* SecurityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CE249B52930023C93F /* SecurityHelper.swift */; };
+		4AC2E0B524E30E5A0033D023 /* OpenAtLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */; };
+		4AC2E0B624E30E5A0033D023 /* UpdateAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */; };
+		4AC2E0B724E30E5A0033D023 /* Principal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BCC24B96F6F00ECD5EC /* Principal.swift */; };
+		4AC2E0B824E30E5A0033D023 /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
+		4AC2E0B924E30E5A0033D023 /* XCTWaiter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */; };
+		4AC2E0BA24E30E5A0033D023 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7645324AAF0A400CAC3BA /* TestHelper.swift */; };
+		4AC2E0BB24E30E5A0033D023 /* SetupTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5C25124E2035E003815FB /* SetupTestSuite.swift */; };
+		4AC2E0BC24E30E5A0033D023 /* SpartaConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */; };
+		4AC2E0BD24E30E5A0033D023 /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
+		4AC2E0BE24E30E5A0033D023 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* LoginTest.swift */; };
+		4AC2E0BF24E30E5A0033D023 /* TempAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */; };
+		4AC2E0C024E30E5A0033D023 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
+		4AC2E0C124E30E5A0033D023 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
+		4AC2E0C224E30E5A0033D023 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C96248F604B0058C5D4 /* FileHelper.swift */; };
+		4AC2E0C324E30E5A0033D023 /* RareEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC624B8E22400ECD5EC /* RareEventMonitor.swift */; };
+		4AC2E0C424E30E5A0033D023 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
+		4AC2E0C624E30E5A0033D023 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		4AD40A9124870708002728DA /* UtilityFunctionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */; };
 		4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644524AAB3DC00CAC3BA /* DependencyInjection.swift */; };
@@ -157,6 +176,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4A3F3C71248C92720058C5D4;
 			remoteInfo = Testable;
+		};
+		4AC2E0B024E30E5A0033D023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AA188812486FA90009CFACE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AA188882486FA90009CFACE;
+			remoteInfo = SpartaConnect;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -255,6 +281,7 @@
 		4AC171D124B51DC40096BF33 /* MockDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDownloader.swift; sourceTree = "<group>"; };
 		4AC171D524B538F10096BF33 /* DownloaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderSpec.swift; sourceTree = "<group>"; };
 		4AC171D924B58A100096BF33 /* Downloading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloading.swift; sourceTree = "<group>"; };
+		4AC2E0CC24E30E5A0033D023 /* ReleaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReleaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD40A9024870708002728DA /* UtilityFunctionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctionsSpec.swift; sourceTree = "<group>"; };
 		4AD40A9224870C00002728DA /* ci.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = ci.yml; path = .github/workflows/ci.yml; sourceTree = "<group>"; tabWidth = 2; };
 		4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
@@ -363,6 +390,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC2E0C524E30E5A0033D023 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC2E0C624E30E5A0033D023 /* Pods_UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +512,7 @@
 				4AA188A62486FA90009CFACE /* UITests.xctest */,
 				4A3F3C72248C92720058C5D4 /* Testable.framework */,
 				4A3F3C83248C92AE0058C5D4 /* AppSpecs.xctest */,
+				4AC2E0CC24E30E5A0033D023 /* ReleaseUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -814,6 +850,26 @@
 			productReference = 4AA188A62486FA90009CFACE /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4AC2E0AE24E30E5A0033D023 /* ReleaseUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AC2E0C924E30E5A0033D023 /* Build configuration list for PBXNativeTarget "ReleaseUITests" */;
+			buildPhases = (
+				4AC2E0B124E30E5A0033D023 /* [CP] Check Pods Manifest.lock */,
+				4AC2E0B224E30E5A0033D023 /* Sources */,
+				4AC2E0C524E30E5A0033D023 /* Frameworks */,
+				4AC2E0C724E30E5A0033D023 /* Resources */,
+				4AC2E0C824E30E5A0033D023 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AC2E0AF24E30E5A0033D023 /* PBXTargetDependency */,
+			);
+			name = ReleaseUITests;
+			productName = SpartaConnectUITests;
+			productReference = 4AC2E0CC24E30E5A0033D023 /* ReleaseUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -863,6 +919,7 @@
 				4AA188A52486FA90009CFACE /* UITests */,
 				4A3F3C71248C92720058C5D4 /* Testable */,
 				4AA1889A2486FA90009CFACE /* UnitSpecs */,
+				4AC2E0AE24E30E5A0033D023 /* ReleaseUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -908,6 +965,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		4AA188A42486FA90009CFACE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AC2E0C724E30E5A0033D023 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -993,6 +1057,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpartaConnect/Pods-SpartaConnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AC2E0B124E30E5A0033D023 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4AC2E0C824E30E5A0033D023 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UITests/Pods-UITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UITests/Pods-UITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UITests/Pods-UITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4AE7647B24AB1FFA00CAC3BA /* Swift Lint autocorrect */ = {
@@ -1250,6 +1353,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4AC2E0B224E30E5A0033D023 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AC2E0B324E30E5A0033D023 /* XCUIApplication+Extension.swift in Sources */,
+				4AC2E0B424E30E5A0033D023 /* SecurityHelper.swift in Sources */,
+				4AC2E0B524E30E5A0033D023 /* OpenAtLoginTest.swift in Sources */,
+				4AC2E0B624E30E5A0033D023 /* UpdateAppTest.swift in Sources */,
+				4AC2E0B724E30E5A0033D023 /* Principal.swift in Sources */,
+				4AC2E0B824E30E5A0033D023 /* WorkspaceHelper.swift in Sources */,
+				4AC2E0B924E30E5A0033D023 /* XCTWaiter+Extension.swift in Sources */,
+				4AC2E0BA24E30E5A0033D023 /* TestHelper.swift in Sources */,
+				4AC2E0BB24E30E5A0033D023 /* SetupTestSuite.swift in Sources */,
+				4AC2E0BC24E30E5A0033D023 /* SpartaConnectApp.swift in Sources */,
+				4AC2E0BD24E30E5A0033D023 /* XCTestHelper.swift in Sources */,
+				4AC2E0BE24E30E5A0033D023 /* LoginTest.swift in Sources */,
+				4AC2E0BF24E30E5A0033D023 /* TempAppHelper.swift in Sources */,
+				4AC2E0C024E30E5A0033D023 /* XCUIElement+Extension.swift in Sources */,
+				4AC2E0C124E30E5A0033D023 /* MoveToApplicationsTest.swift in Sources */,
+				4AC2E0C224E30E5A0033D023 /* FileHelper.swift in Sources */,
+				4AC2E0C324E30E5A0033D023 /* RareEventMonitor.swift in Sources */,
+				4AC2E0C424E30E5A0033D023 /* BundleHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1272,6 +1400,11 @@
 			isa = PBXTargetDependency;
 			target = 4A3F3C71248C92720058C5D4 /* Testable */;
 			targetProxy = 4AC171C524B3D86E0096BF33 /* PBXContainerItemProxy */;
+		};
+		4AC2E0AF24E30E5A0033D023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AA188882486FA90009CFACE /* SpartaConnect */;
+			targetProxy = 4AC2E0B024E30E5A0033D023 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1637,6 +1770,50 @@
 			};
 			name = Release;
 		};
+		4AC2E0CA24E30E5A0033D023 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90E02B24A18480BFAE8694AE /* Pods-UITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_ENTITLEMENTS = UITests/UITests.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				INFOPLIST_FILE = UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TEST_TARGET_NAME = SpartaConnect;
+			};
+			name = Debug;
+		};
+		4AC2E0CB24E30E5A0033D023 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55ACDC80CAFF61B83E74C6FC /* Pods-UITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_ENTITLEMENTS = UITests/UITests.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				INFOPLIST_FILE = UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.spartascience.SpartaConnectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TEST_TARGET_NAME = SpartaConnect;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1690,6 +1867,15 @@
 			buildConfigurations = (
 				4AA188B62486FA90009CFACE /* Debug */,
 				4AA188B72486FA90009CFACE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AC2E0C924E30E5A0033D023 /* Build configuration list for PBXNativeTarget "ReleaseUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AC2E0CA24E30E5A0033D023 /* Debug */,
+				4AC2E0CB24E30E5A0033D023 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

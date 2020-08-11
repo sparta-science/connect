@@ -19,6 +19,6 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>NSPrincipalClass</key>
-	<string>UITests.Principal</string>
+	<string>$(TARGET_NAME).Principal</string>
 </dict>
 </plist>
