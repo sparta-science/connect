@@ -37,6 +37,8 @@
 		4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C96248F604B0058C5D4 /* FileHelper.swift */; };
 		4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */; };
 		4A3F3CA32490CD740058C5D4 /* BundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */; };
+		4A48A37E24E33FA80063A141 /* GetMacSerialNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A48A37D24E33FA80063A141 /* GetMacSerialNumber.swift */; };
+		4A48A38024E340770063A141 /* GetMacSerialNumberSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A48A37F24E340770063A141 /* GetMacSerialNumberSpec.swift */; };
 		4A515D3724D9CE4D00B65B41 /* StateCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3624D9CE4D00B65B41 /* StateCapsule.swift */; };
 		4A515D3924D9CEE200B65B41 /* StateCapsuleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3824D9CEE200B65B41 /* StateCapsuleSpec.swift */; };
 		4A515D3B24D9DBB100B65B41 /* MockStateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */; };
@@ -240,6 +242,8 @@
 		4A3F3C96248F604B0058C5D4 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
 		4A3F3C9A249074EF0058C5D4 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		4A3F3CA22490CD730058C5D4 /* BundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleHelper.swift; sourceTree = "<group>"; };
+		4A48A37D24E33FA80063A141 /* GetMacSerialNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMacSerialNumber.swift; sourceTree = "<group>"; };
+		4A48A37F24E340770063A141 /* GetMacSerialNumberSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMacSerialNumberSpec.swift; sourceTree = "<group>"; };
 		4A515D3624D9CE4D00B65B41 /* StateCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCapsule.swift; sourceTree = "<group>"; };
 		4A515D3824D9CEE200B65B41 /* StateCapsuleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCapsuleSpec.swift; sourceTree = "<group>"; };
 		4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStateContainer.swift; sourceTree = "<group>"; };
@@ -557,6 +561,7 @@
 				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
 				4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */,
 				4AE7645624AAF15600CAC3BA /* Supporting Files */,
+				4A48A37F24E340770063A141 /* GetMacSerialNumberSpec.swift */,
 			);
 			path = UnitSpecs;
 			sourceTree = "<group>";
@@ -723,6 +728,7 @@
 				4AE7649A24AD3C8500CAC3BA /* ErrorReporter.swift */,
 				4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */,
 				4A203BD124BA954600ECD5EC /* StateNotifier.swift */,
+				4A48A37D24E33FA80063A141 /* GetMacSerialNumber.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -1250,6 +1256,7 @@
 				4A515D3724D9CE4D00B65B41 /* StateCapsule.swift in Sources */,
 				4A203BC924B926AE00ECD5EC /* ProcessLauncher.swift in Sources */,
 				4A203BBC24B8386300ECD5EC /* DebugFileServer.swift in Sources */,
+				4A48A37E24E33FA80063A141 /* GetMacSerialNumber.swift in Sources */,
 				4AEE63A224D4C608001EBCFD /* ServiceWatchdog.swift in Sources */,
 				4AE7646E24AB04B500CAC3BA /* ProgressController.swift in Sources */,
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
@@ -1327,6 +1334,7 @@
 				4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */,
 				4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */,
 				4AE7646A24AAFF3700CAC3BA /* TypeInject.swift in Sources */,
+				4A48A38024E340770063A141 /* GetMacSerialNumberSpec.swift in Sources */,
 				4AC171D224B51DC40096BF33 /* MockDownloader.swift in Sources */,
 				4AE7645224AAF00B00CAC3BA /* QuickHelper.swift in Sources */,
 				4AE7644E24AAB44D00CAC3BA /* DependencyInjectionSpec.swift in Sources */,
