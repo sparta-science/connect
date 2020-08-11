@@ -1,7 +1,6 @@
 import XCTest
 
 class SetupTestSuite: NSObject {
-    var successful = true
     static let shared = SetupTestSuite()
 
     static func startObserving() {
@@ -17,10 +16,19 @@ class SetupTestSuite: NSObject {
         try! process.run()
         process.waitUntilExit()
     }
+
+    func terminatePreviousInstances(bundleId: String) {
+        NSRunningApplication.runningApplications(withBundleIdentifier: bundleId).forEach {
+            $0.terminate()
+        }
+    }
 }
 
 extension SetupTestSuite: XCTestObservation {
     func testBundleWillStart(_ testBundle: Bundle) {
+        let bundleHelper = BundleHelper()
+        terminatePreviousInstances(bundleId: bundleHelper.bundleId)
+        bundleHelper.resetAppState()
         stopVernalFalls()
     }
 }

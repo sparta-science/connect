@@ -7,7 +7,6 @@ class LoginTest: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
-        bundleHelper.resetAppState()
         app.start()
         app.activate()
         app.wait(until: .runningForeground)
