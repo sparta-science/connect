@@ -39,9 +39,9 @@ cat > sparta_science.vernal_falls.plist <<EOF
     <key>WorkingDirectory</key>
     <string>$pwd/vernal_falls/CURRENT</string>
     <key>StandardOutPath</key>
-    <string>$pwd/log/vernal_falls.log</string>
+    <string>$HOME/Library/Logs/com.spartascience.SpartaConnect/vernal_falls.log</string>
     <key>StandardErrorPath</key>
-    <string>$pwd/log/vernal_falls.log</string>
+    <string>$HOME/Library/Logs/com.spartascience.SpartaConnect/vernal_falls.log</string>
     <key>ProcessType</key>
     <string>Interactive</string>
 </dict>
