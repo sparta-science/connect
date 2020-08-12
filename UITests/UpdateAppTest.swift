@@ -15,6 +15,7 @@ class UpdateAppTest: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
+        executionTimeAllowance = 200
         tempAppHelper.prepare(for: self)
         tempAppHelper.bundleHelper.clearDefaults()
         tempAppHelper.clearCache()

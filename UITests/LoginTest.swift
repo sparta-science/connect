@@ -7,6 +7,7 @@ class LoginTest: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
+        executionTimeAllowance = 120
         app.start()
         app.activate()
         app.wait(until: .runningForeground)

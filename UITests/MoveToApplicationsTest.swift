@@ -8,6 +8,7 @@ class MoveToApplicationsTest: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
+        executionTimeAllowance = 60
         moveAppHelper.prepare(for: self)
     }
 

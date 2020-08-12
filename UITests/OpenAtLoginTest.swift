@@ -7,6 +7,7 @@ class OpenAtLoginTest: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
+        executionTimeAllowance = 60
         removeLoginItem()
         app.start()
     }

@@ -67,7 +67,7 @@ jobs:
       with:
         workspace: SpartaConnect.xcworkspace
         scheme: UITests
-        build-settings: -resultBundlePath ui-tests
+        build-settings: -resultBundlePath ui-tests -test-timeouts-enabled YES
     - name: Sparta Metrics
       env:
         SUBMIT_METRICS_URL: ${{ secrets.SUBMIT_METRICS_URL }}
@@ -76,7 +76,7 @@ jobs:
       if: always()
       run: |
         cp /tmp/rare-test-events.plist . || true
-        zip -r results.zip ui-tests.xcresult
+        zip -r results.zip ui-tests.xcresult || true
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
