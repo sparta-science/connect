@@ -561,9 +561,9 @@
 				4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */,
 				4AE7644D24AAB44D00CAC3BA /* DependencyInjectionSpec.swift */,
 				4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */,
+				4A48A37F24E340770063A141 /* GetMacSerialNumberSpec.swift */,
 				4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */,
 				4AE7645624AAF15600CAC3BA /* Supporting Files */,
-				4A48A37F24E340770063A141 /* GetMacSerialNumberSpec.swift */,
 			);
 			path = UnitSpecs;
 			sourceTree = "<group>";
@@ -838,6 +838,7 @@
 				4AA188982486FA90009CFACE /* Frameworks */,
 				4AA188992486FA90009CFACE /* Resources */,
 				820E7A1C1DCF67D57CBEA990 /* [CP] Embed Pods Frameworks */,
+				4A145FDA24E3E0B000C259E1 /* Record Serial Number */,
 			);
 			buildRules = (
 			);
@@ -1076,6 +1077,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpartaConnect/Pods-SpartaConnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A145FDA24E3E0B000C259E1 /* Record Serial Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Record Serial Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/serial-number.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/bin/dev/get-serial-number.sh > ${SCRIPT_OUTPUT_FILE_0}\n";
 			showEnvVarsInLog = 0;
 		};
 		4AC2E0B124E30E5A0033D023 /* [CP] Check Pods Manifest.lock */ = {

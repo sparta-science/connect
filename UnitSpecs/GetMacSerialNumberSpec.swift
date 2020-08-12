@@ -5,14 +5,14 @@ import Testable
 class GetMacSerialNumberSpec: QuickSpec {
     override func spec() {
         describe(getMacSerialNumber) {
-            let serialNumberPattern = "\\w{12}"
-            context("virtual machine serial number") {
-                it("should match the same expression") {
-                    expect("VMEH2wS0js7y").to(match(serialNumberPattern))
-                }
+            var serialNumber: String!
+            beforeEach {
+                serialNumber = String(data: testData("serial-number.txt"),
+                                      encoding: .ascii)
             }
-            it("should be a 12 character string of alphanumerics") {
-                expect(getMacSerialNumber()).to(match(serialNumberPattern))
+
+            it("should match serial number") {
+                expect(getMacSerialNumber() + "\n") == serialNumber
             }
         }
     }
