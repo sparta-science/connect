@@ -2,7 +2,9 @@ name: release-on-github
 
 on:
   push:
-    branches: [ pz/experiment/create-pre-release ]
+    branches:
+      # test creating a release without creating tags on this branch:
+      - experiment/create-release
     tags: 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 defaults:
