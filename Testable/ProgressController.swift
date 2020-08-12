@@ -8,7 +8,7 @@ public class ProgressController: NSViewController {
     @IBOutlet public var cancelButton: NSButton!
     @IBOutlet public var progressLabel: NSTextField!
     @IBAction public func cancelInstallation(_ sender: NSButton) {
-        installer.cancelInstallation()
+        installer.uninstall()
     }
 
     private func update(progress: Progress) {

@@ -8,21 +8,21 @@ class InstallerSpec: QuickSpec {
         describe(Installer.self) {
             var subject: Installer!
             var stateContainer: MockStateContainer!
+            var fileManager: FileManager!
+            let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
             beforeEach {
                 stateContainer = .createAndInject()
                 subject = .init()
+                fileManager = .default
+                TestDependency.register(Inject(fileManager!))
+                TestDependency.register(Inject(installationUrl, name: "installation url"))
             }
             context(Installer.beginInstallation(login:)) {
-                let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
                 context("success") {
                     var downloader: MockDownloader!
                     var request: LoginRequest!
-                    var fileManager: FileManager!
                     beforeEach {
                         downloader = .createAndInject()
-                        fileManager = .default
-                        TestDependency.register(Inject(fileManager!))
-                        TestDependency.register(Inject(installationUrl, name: "installation url"))
                         TestDependency.register(Inject("irrelevant client id for success case", name: "unique client id"))
                         let scriptUrl = testBundle.url(forResource: "install_vernal_falls", withExtension: "sh")!
                         TestDependency.register(Inject(scriptUrl, name: "installation script url"))
@@ -121,29 +121,14 @@ class InstallerSpec: QuickSpec {
                     }
                 }
             }
-            context(Installer.cancelInstallation) {
-                it("should transition to login") {
-                    subject.cancelInstallation()
-                    expect(stateContainer.didTransition) == ["reset()"]
-                }
-            }
             context(Installer.uninstall) {
-                var fileManager: FileManager!
-                var installationUrl: URL!
-
                 beforeEach {
-                    installationUrl = .init(fileURLWithPath: "/tmp/test-uninstallation")
-                    TestDependency.register(Inject(installationUrl!, name: "installation url"))
-                    fileManager = .default
-                    TestDependency.register(Inject(fileManager!))
-                    try! fileManager.createDirectory(at: installationUrl, withIntermediateDirectories: true, attributes: nil)
+                    try! fileManager.createDirectory(at: installationUrl, withIntermediateDirectories: true)
                 }
-
                 it("should transition to login") {
                     subject.uninstall()
                     expect(stateContainer.didTransition) == ["reset()"]
                 }
-                
                 it("should remove entire application support subfolder") {
                     subject.uninstall()
                     expect(fileManager.fileExists(atPath: installationUrl.path)) == false

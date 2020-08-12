@@ -21,9 +21,9 @@ class ProgressControllerSpec: QuickSpec {
                 beforeEach {
                     mockInstaller = .createAndInject()
                 }
-                it("should tell installer to cancel installation") {
+                it("should tell installer to uninstall") {
                     subject.cancelInstallation(.init())
-                    expect(mockInstaller.didCall) == "cancelInstallation()"
+                    expect(mockInstaller.didCall) == "uninstall()"
                 }
             }
             context("state changes") {

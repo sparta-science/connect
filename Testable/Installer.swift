@@ -83,14 +83,9 @@ extension Installer: Installation {
         case .finished:
             stateContainer.complete()
         case .failure(let error):
-            cancelInstallation()
             errorReporter.report(error: error)
+            uninstall()
         }
-    }
-
-    public func cancelInstallation() {
-        cancellables.forEach { $0.cancel() }
-        stateContainer.reset()
     }
 
     public func uninstall() {
