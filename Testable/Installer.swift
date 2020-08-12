@@ -89,6 +89,7 @@ extension Installer: Installation {
     }
 
     public func uninstall() {
+        cancellables.forEach { $0.cancel() }
         try? fileManager.removeItem(at: installationURL)
         stateContainer.reset()
     }

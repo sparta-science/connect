@@ -133,6 +133,19 @@ class InstallerSpec: QuickSpec {
                     subject.uninstall()
                     expect(fileManager.fileExists(atPath: installationUrl.path)) == false
                 }
+                context("cancel") {
+                    var request: LoginRequest!
+                    beforeEach {
+                        request = Init(.init()) {
+                            $0?.baseUrlString = testBundleUrl("successful-response-invalid-tar.json").absoluteString
+                        }
+                        TestDependency.register(Inject("irrelevant client id for success case", name: "unique client id"))
+                    }
+                    it("should cancel the installation") {
+                        subject.beginInstallation(login: request)
+                        expect { subject.uninstall() }.notTo(throwError())
+                    }
+                }
             }
         }
     }
