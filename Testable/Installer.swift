@@ -94,6 +94,7 @@ extension Installer: Installation {
     }
 
     public func uninstall() {
+        try? fileManager.removeItem(at: installationURL)
         stateContainer.reset()
     }
 }

@@ -17,10 +17,11 @@ class InstallerSpec: QuickSpec {
                 context("success") {
                     var downloader: MockDownloader!
                     var request: LoginRequest!
-                    let fileManager = FileManager.default
+                    var fileManager: FileManager!
                     beforeEach {
                         downloader = .createAndInject()
-                        TestDependency.register(Inject(FileManager.default))
+                        fileManager = .default
+                        TestDependency.register(Inject(fileManager!))
                         TestDependency.register(Inject(installationUrl, name: "installation url"))
                         TestDependency.register(Inject("irrelevant client id for success case", name: "unique client id"))
                         let scriptUrl = testBundle.url(forResource: "install_vernal_falls", withExtension: "sh")!
@@ -127,9 +128,25 @@ class InstallerSpec: QuickSpec {
                 }
             }
             context(Installer.uninstall) {
+                var fileManager: FileManager!
+                var installationUrl: URL!
+
+                beforeEach {
+                    installationUrl = .init(fileURLWithPath: "/tmp/test-uninstallation")
+                    TestDependency.register(Inject(installationUrl!, name: "installation url"))
+                    fileManager = .default
+                    TestDependency.register(Inject(fileManager!))
+                    try! fileManager.createDirectory(at: installationUrl, withIntermediateDirectories: true, attributes: nil)
+                }
+
                 it("should transition to login") {
                     subject.uninstall()
                     expect(stateContainer.didTransition) == ["reset()"]
+                }
+                
+                it("should remove entire application support subfolder") {
+                    subject.uninstall()
+                    expect(fileManager.fileExists(atPath: installationUrl.path)) == false
                 }
             }
         }
