@@ -36,7 +36,6 @@ class InstallerSpec: QuickSpec {
                         stubLogin("successful-response-invalid-tar.json")
                     }
                     beforeEach {
-                        
                         downloader = .createAndInject()
                         let scriptUrl = testBundle.url(forResource: "install_vernal_falls", withExtension: "sh")!
                         TestDependency.register(Inject(scriptUrl, name: "installation script url"))
