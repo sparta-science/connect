@@ -8,31 +8,30 @@ import Foundation
  - Returns: The string with the serial.
  */
 public func getMacSerialNumber() -> String {
-    var serialNumber: String? {
+    getPlatformExpertDevice(property: kIOPlatformSerialNumberKey)
+}
+
+public func getPlatformExpertDevice(property: String) -> String {
+    var value: String? {
         let platformExpert = IOServiceGetMatchingService(
             kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice")
         )
-
-        guard platformExpert > 0 else {
-            return nil
-        }
 
         defer {
             IOObjectRelease(platformExpert)
         }
 
-        let serialNumberKey = kIOPlatformSerialNumberKey as CFString
         let property = IORegistryEntryCreateCFProperty(platformExpert,
-                                                       serialNumberKey,
+                                                       property as CFString,
                                                        kCFAllocatorDefault,
                                                        0)
 
-        guard let serialNumber = property?.takeUnretainedValue() as? String else {
+        guard let value = property?.takeUnretainedValue() as? String else {
             return nil
         }
 
-        return serialNumber.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        return value.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
-    return serialNumber ?? "Unknown"
+    return value ?? "Unknown"
 }

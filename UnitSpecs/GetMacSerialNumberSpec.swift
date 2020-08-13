@@ -15,5 +15,12 @@ class GetMacSerialNumberSpec: QuickSpec {
                 expect(getMacSerialNumber() + "\n") == serialNumber
             }
         }
+        describe(getPlatformExpertDevice(property:)) {
+            context("invalid") {
+                it("should be Unknown") {
+                    expect(getPlatformExpertDevice(property: "invalid")) == "Unknown"
+                }
+            }
+        }
     }
 }
