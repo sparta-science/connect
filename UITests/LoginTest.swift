@@ -30,6 +30,7 @@ class LoginTest: XCTestCase {
             app.enter(password: "goes")
             app.loginButton.click()
 
+            verifyOrgNameDisplayed(orgName: "Training Ground")
             verifyInstalled(file: "vernal_falls_config.yml")
             verifyInstalled(file: "vernal_falls.tar.gz")
             verifyInstalled(file: "vernal_falls")
@@ -37,6 +38,10 @@ class LoginTest: XCTestCase {
         }
         app.disconnect()
         verifyStopped(serviceName: "sparta_science.vernal_falls")
+    }
+
+    func verifyOrgNameDisplayed(orgName: String) {
+        XCTAssertEqual(app.orgNameLabel.value as? String, orgName)
     }
 
     func testFailedInstallation() throws {
