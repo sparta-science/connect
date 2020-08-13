@@ -42,17 +42,22 @@ class TestResolver: ResolveDependency {
         let key = lookup.hashValue
         used.insert(key)
         var injected = dependencies[key] as? Inject<Service>
-        let site = World.sharedWorld.currentExampleMetadata!.example.callsite
         if injected == nil {
-            QuickSpec.current.recordFailure(withDescription:
-            """
+            let failure = "no test dependency: \(name ?? "") \(serviceType)"
+            if let site = World.sharedWorld.currentExampleMetadata?.example.callsite {
+                QuickSpec.current.recordFailure(withDescription:
+                """
 
 
-            \(URL(fileURLWithPath: site.file).lastPathComponent):\(site.line)
+                \(URL(fileURLWithPath: site.file).lastPathComponent):\(site.line)
 
-            no test dependency: \(name ?? "") \(serviceType)
+                \(failure)
 
-            """, inFile: site.file, atLine: Int(site.line), expected: false)
+                """, inFile: site.file, atLine: Int(site.line), expected: false)
+            } else {
+                assertionFailure(failure)
+            }
+
         }
         return injected!.wrappedValue
     }
