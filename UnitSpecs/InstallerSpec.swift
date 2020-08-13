@@ -9,6 +9,7 @@ class InstallerSpec: QuickSpec {
             var subject: Installer!
             var stateContainer: MockStateContainer!
             var fileManager: FileManager!
+            var defaults: UserDefaults!
             let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
             beforeEach {
                 stateContainer = .createAndInject()
@@ -35,6 +36,7 @@ class InstallerSpec: QuickSpec {
                         stubLogin("successful-response-invalid-tar.json")
                     }
                     beforeEach {
+                        
                         downloader = .createAndInject()
                         let scriptUrl = testBundle.url(forResource: "install_vernal_falls", withExtension: "sh")!
                         TestDependency.register(Inject(scriptUrl, name: "installation script url"))
@@ -42,6 +44,8 @@ class InstallerSpec: QuickSpec {
                         try? fileManager.removeItem(at: installationUrl)
                         expect(fileManager.fileExists(atPath: installationUrl.path)) == false
                         downloader.downloadedContentsUrl = testBundleUrl("tiny-valid.tar.gz")
+                        defaults = .init()
+                        TestDependency.register(Inject(defaults!))
                     }
                     func verify(file: String, at url: URL) {
                         let expectedPath = testBundleUrl(file).path
@@ -64,11 +68,13 @@ class InstallerSpec: QuickSpec {
                         verify(file: "tiny-valid.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
-                    it("should install vernal falls") {
+                    it("should install vernal falls and save the org name") {
+                        defaults.removeObject(forKey: "org.name")
                         simulateSuccessLogin()
                         expect(stateContainer.didTransition).toEventually(contain("complete()"))
                         let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
                         expect(unTaredContents) == ""
+                        expect(defaults.value(forKey: "org.name") as? String) == "Training Ground"
                     }
                     context("download progress") {
                         var progressReporter: Progressing!
@@ -142,6 +148,8 @@ class InstallerSpec: QuickSpec {
                 context("download started") {
                     var downloader: WaitingToBeCancelled!
                     beforeEach {
+                        defaults = .init()
+                        TestDependency.register(Inject(defaults!))
                         downloader = .createAndInject()
                         waitUntil { downloadRequest in
                             downloader.startDownloading = downloadRequest

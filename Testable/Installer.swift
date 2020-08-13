@@ -10,6 +10,7 @@ public class Installer: NSObject {
     @Inject var downloader: Downloading
     @Inject var stateContainer: StateContainer
     @Inject("unique client id") var clientId: String
+    @Inject var defaults: UserDefaults
 }
 
 extension Installer: Installation {
@@ -71,11 +72,15 @@ extension Installer: Installation {
         case .failure(value: let serverError):
             throw PresentableError.server(message: serverError.error)
         case .success(value: let success):
-            //                self.process(success.org)
+            saveOrgName(org: success.org)
             try prepareLocation()
             try writeVernalFallsConfig(dictionary: success.vernalFallsConfig)
             return success.message
         }
+    }
+
+    func saveOrgName(org: Organization) {
+        defaults.set(org.name, forKey: "org.name")
     }
 
     private func when(complete: Subscribers.Completion<Error>) {

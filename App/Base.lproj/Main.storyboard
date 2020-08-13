@@ -1024,19 +1024,23 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-1N-m9g">
-                                <rect key="frame" x="137" y="129" width="101" height="16"/>
+                                <rect key="frame" x="137" y="129" width="145" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Training Ground" id="B8S-Xu-nFl">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="org_not_found" id="B8S-Xu-nFl">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <accessibility description="organization"/>
+                                <connections>
+                                    <binding destination="47i-8z-o9m" name="value" keyPath="values.org.name" id="1LV-7x-GgE"/>
+                                </connections>
                             </textField>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="Av8-CC-Vcx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="47i-8z-o9m"/>
             </objects>
             <point key="canvasLocation" x="99" y="1054"/>
         </scene>
