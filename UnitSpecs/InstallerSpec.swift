@@ -17,10 +17,22 @@ class InstallerSpec: QuickSpec {
                 TestDependency.register(Inject(fileManager!))
                 TestDependency.register(Inject(installationUrl, name: "installation url"))
             }
+            func beginLogin(urlString: String) {
+                let loginRequest = Init(LoginRequest()) {
+                    $0.baseUrlString = urlString
+                }
+                subject.beginInstallation(login: loginRequest)
+            }
+            func stubLogin(_ jsonFileName: String) {
+                beginLogin(urlString: testBundleUrl(jsonFileName).absoluteString)
+            }
+
             context(Installer.beginInstallation(login:)) {
                 context("success") {
                     var downloader: MockDownloader!
-                    var request: LoginRequest!
+                    func simulateSuccessLogin() {
+                        stubLogin("successful-response-invalid-tar.json")
+                    }
                     beforeEach {
                         downloader = .createAndInject()
                         TestDependency.register(Inject("irrelevant client id for success case", name: "unique client id"))
@@ -29,9 +41,6 @@ class InstallerSpec: QuickSpec {
 
                         try? fileManager.removeItem(at: installationUrl)
                         expect(fileManager.fileExists(atPath: installationUrl.path)) == false
-                        request = Init(.init()) {
-                            $0?.baseUrlString = testBundleUrl("successful-response-invalid-tar.json").absoluteString
-                        }
                         downloader.downloadedContentsUrl = testBundleUrl("tiny-valid.tar.gz")
                     }
                     func verify(file: String, at url: URL) {
@@ -42,20 +51,20 @@ class InstallerSpec: QuickSpec {
                         expect(equalContent).to(beTrue(), description: "found: \(String(describing: try? String(contentsOf: url)))")
                     }
                     it("should transition to busy then to complete") {
-                        subject.beginInstallation(login: request)
+                        simulateSuccessLogin()
                         expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "complete()"]))
                         let config = installationUrl.appendingPathComponent("vernal_falls_config.yml")
                         verify(file: "expected-config.yml", at: config)
                     }
                     it("should download vernal falls archive") {
-                        subject.beginInstallation(login: request)
+                        simulateSuccessLogin()
                         expect(stateContainer.didTransition).toEventually(contain("complete()"))
                         expect(downloader.didProvideReporting).notTo(beNil())
                         verify(file: "tiny-valid.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
                     it("should install vernal falls") {
-                        subject.beginInstallation(login: request)
+                        simulateSuccessLogin()
                         expect(stateContainer.didTransition).toEventually(contain("complete()"))
                         let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
                         expect(unTaredContents) == ""
@@ -64,7 +73,7 @@ class InstallerSpec: QuickSpec {
                         var progressReporter: Progressing!
                         beforeEach {
                             expect(downloader.didProvideReporting).to(beNil())
-                            subject.beginInstallation(login: request)
+                            simulateSuccessLogin()
                             expect(stateContainer.didTransition).toEventually(contain("complete()"))
                             progressReporter = downloader.didProvideReporting
                         }
@@ -82,7 +91,7 @@ class InstallerSpec: QuickSpec {
                             downloader.downloadedContentsUrl = invalidArchive
                         }
                         it("should report error and status code") {
-                            subject.beginInstallation(login: request)
+                            simulateSuccessLogin()
                             expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
                             let reportedError = errorReporter.didReport as? LocalizedError
                             expect(reportedError?.localizedDescription)
@@ -98,12 +107,6 @@ class InstallerSpec: QuickSpec {
                         errorReporter = .createAndInject()
                         TestDependency.register(Inject("irrelevant client id for failure case", name: "unique client id"))
                     }
-                    func beginLogin(urlString: String) {
-                        let loginRequest = Init(LoginRequest()) {
-                            $0.baseUrlString = urlString
-                        }
-                        subject.beginInstallation(login: loginRequest)
-                    }
                     it("should report errors while connecting") {
                         beginLogin(urlString: "file://invalid-url")
                         expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
@@ -111,7 +114,7 @@ class InstallerSpec: QuickSpec {
                             == "The requested URL was not found on this server."
                     }
                     it("should start progress, transition back to login and report error from server") {
-                        beginLogin(urlString: testBundleUrl("server-error-response.json").absoluteString)
+                        stubLogin("server-error-response.json")
                         expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
                         let reportedError = errorReporter.didReport as? LocalizedError
                         expect(reportedError?.localizedDescription)
@@ -138,16 +141,12 @@ class InstallerSpec: QuickSpec {
                 }
                 context("download started") {
                     var downloader: WaitingToBeCancelled!
-                    var request: LoginRequest!
                     beforeEach {
                         downloader = .createAndInject()
-                        request = Init(.init()) {
-                            $0.baseUrlString = testBundleUrl("successful-response-valid-archive.json").absoluteString
-                        }
                         TestDependency.register(Inject("to be cancelled", name: "unique client id"))
                         waitUntil { downloadRequest in
                             downloader.startDownloading = downloadRequest
-                            subject.beginInstallation(login: request)
+                            stubLogin("successful-response-valid-archive.json")
                         }
                     }
                     it("should cancel download") {
