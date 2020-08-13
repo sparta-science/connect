@@ -122,28 +122,37 @@ class InstallerSpec: QuickSpec {
                 }
             }
             context(Installer.uninstall) {
-                beforeEach {
-                    try! fileManager.createDirectory(at: installationUrl, withIntermediateDirectories: true)
-                }
                 it("should transition to login") {
                     subject.uninstall()
                     expect(stateContainer.didTransition) == ["reset()"]
                 }
-                it("should remove entire application support subfolder") {
-                    subject.uninstall()
-                    expect(fileManager.fileExists(atPath: installationUrl.path)) == false
+                context("application support subfolder") {
+                    beforeEach {
+                        try! fileManager.createDirectory(at: installationUrl,
+                                                         withIntermediateDirectories: true)
+                    }
+                    it("should be removed") {
+                        subject.uninstall()
+                        expect(fileManager.fileExists(atPath: installationUrl.path)) == false
+                    }
                 }
-                context("cancel") {
+                context("download started") {
+                    var downloader: WaitingToBeCancelled!
                     var request: LoginRequest!
                     beforeEach {
+                        downloader = .createAndInject()
                         request = Init(.init()) {
-                            $0?.baseUrlString = testBundleUrl("successful-response-invalid-tar.json").absoluteString
+                            $0.baseUrlString = testBundleUrl("successful-response-valid-archive.json").absoluteString
                         }
                         TestDependency.register(Inject("to be cancelled", name: "unique client id"))
+                        waitUntil { downloadRequest in
+                            downloader.startDownloading = downloadRequest
+                            subject.beginInstallation(login: request)
+                        }
                     }
-                    it("should cancel the installation") {
-                        subject.beginInstallation(login: request)
-                        expect { subject.uninstall() }.notTo(throwError())
+                    it("should cancel download") {
+                        subject.uninstall()
+                        expect(downloader.wasCancelled) == true
                     }
                 }
             }
