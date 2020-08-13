@@ -139,7 +139,7 @@ class InstallerSpec: QuickSpec {
                         request = Init(.init()) {
                             $0?.baseUrlString = testBundleUrl("successful-response-invalid-tar.json").absoluteString
                         }
-                        TestDependency.register(Inject("irrelevant client id for success case", name: "unique client id"))
+                        TestDependency.register(Inject("to be cancelled", name: "unique client id"))
                     }
                     it("should cancel the installation") {
                         subject.beginInstallation(login: request)

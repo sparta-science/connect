@@ -57,7 +57,6 @@ class TestResolver: ResolveDependency {
             } else {
                 assertionFailure(failure)
             }
-
         }
         return injected!.wrappedValue
     }
