@@ -333,7 +333,6 @@
 		4AEE63A324D4C626001EBCFD /* ServiceWatchdogSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceWatchdogSpec.swift; sourceTree = "<group>"; };
 		4AEE63A524D4C98E001EBCFD /* MockProcessLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProcessLauncher.swift; sourceTree = "<group>"; };
 		4AEE828124ABEC2A00E93E03 /* TabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewControllerSpec.swift; sourceTree = "<group>"; };
-		4AEFCBA724B3A2FD0065EA46 /* successful-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "successful-response.json"; path = "UnitSpecs/successful-response.json"; sourceTree = SOURCE_ROOT; };
 		4AEFCBA924B504090065EA46 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4B70D63824D3405A003C1EBB /* PresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableError.swift; sourceTree = "<group>"; };
@@ -646,7 +645,6 @@
 				4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */,
 				4AA188902486FA90009CFACE /* Assets.xcassets */,
 				4AA188952486FA90009CFACE /* Info.plist */,
-				4AEFCBA624B3A2A80065EA46 /* FakeServer */,
 				4AE7647D24AB239C00CAC3BA /* .swiftlint.yml */,
 				4AA188962486FA90009CFACE /* SpartaConnect.entitlements */,
 			);
@@ -661,14 +659,6 @@
 				4A3F3C75248C92720058C5D4 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4AEFCBA624B3A2A80065EA46 /* FakeServer */ = {
-			isa = PBXGroup;
-			children = (
-				4AEFCBA724B3A2FD0065EA46 /* successful-response.json */,
-			);
-			path = FakeServer;
 			sourceTree = "<group>";
 		};
 		4BD4D35524ABBE26009D8380 /* Model */ = {
