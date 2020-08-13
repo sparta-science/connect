@@ -18,6 +18,7 @@ class InstallerSpec: QuickSpec {
                 TestDependency.register(Inject(installationUrl, name: "installation url"))
             }
             func beginLogin(urlString: String) {
+                TestDependency.register(Inject("irrelevant", name: "unique client id"))
                 let loginRequest = Init(LoginRequest()) {
                     $0.baseUrlString = urlString
                 }
@@ -35,7 +36,6 @@ class InstallerSpec: QuickSpec {
                     }
                     beforeEach {
                         downloader = .createAndInject()
-                        TestDependency.register(Inject("irrelevant client id for success case", name: "unique client id"))
                         let scriptUrl = testBundle.url(forResource: "install_vernal_falls", withExtension: "sh")!
                         TestDependency.register(Inject(scriptUrl, name: "installation script url"))
 
@@ -52,7 +52,8 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should transition to busy then to complete") {
                         simulateSuccessLogin()
-                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "complete()"]))
+                        expect(stateContainer.didTransition)
+                            .toEventually(equal(["startReceiving()", "complete()"]))
                         let config = installationUrl.appendingPathComponent("vernal_falls_config.yml")
                         verify(file: "expected-config.yml", at: config)
                     }
@@ -105,7 +106,6 @@ class InstallerSpec: QuickSpec {
                     var errorReporter: MockErrorReporter!
                     beforeEach {
                         errorReporter = .createAndInject()
-                        TestDependency.register(Inject("irrelevant client id for failure case", name: "unique client id"))
                     }
                     it("should report errors while connecting") {
                         beginLogin(urlString: "file://invalid-url")
@@ -143,7 +143,6 @@ class InstallerSpec: QuickSpec {
                     var downloader: WaitingToBeCancelled!
                     beforeEach {
                         downloader = .createAndInject()
-                        TestDependency.register(Inject("to be cancelled", name: "unique client id"))
                         waitUntil { downloadRequest in
                             downloader.startDownloading = downloadRequest
                             stubLogin("successful-response-valid-archive.json")
