@@ -38,6 +38,15 @@ class LoginTest: XCTestCase {
         }
         app.disconnect()
         verifyStopped(serviceName: "sparta_science.vernal_falls")
+
+        XCTContext.runActivity(named: "log in with different org") { _ in
+            app.select(server: "simulate UC Santa Cruz")
+            app.enter(username: "banana-slugs")
+            app.enter(password: "everything")
+            app.loginButton.click()
+
+            verifyOrgNameDisplayed(orgName: "UC Santa Cruz")
+        }
     }
 
     func verifyOrgNameDisplayed(orgName: String) {
