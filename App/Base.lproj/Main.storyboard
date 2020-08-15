@@ -1047,7 +1047,7 @@
                                             </textFieldCell>
                                             <accessibility description="organization"/>
                                             <connections>
-                                                <binding destination="47i-8z-o9m" name="value" keyPath="values.org.name" id="1LV-7x-GgE"/>
+                                                <binding destination="47i-8z-o9m" name="value" keyPath="values.org name" id="Axz-wQ-jXU"/>
                                             </connections>
                                         </textField>
                                     </gridCell>

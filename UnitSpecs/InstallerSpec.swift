@@ -68,12 +68,12 @@ class InstallerSpec: QuickSpec {
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
                     it("should install vernal falls and save the org name") {
-                        defaults.removeObject(forKey: "org.name")
+                        defaults.removeObject(forKey: "org name")
                         simulateSuccessLogin()
                         expect(stateContainer.didTransition).toEventually(contain("complete()"))
                         let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
                         expect(unTaredContents) == ""
-                        expect(defaults.value(forKey: "org.name") as? String) == "Training Ground"
+                        expect(defaults.value(forKey: "org name") as? String) == "Training Ground"
                     }
                     context("download progress") {
                         var progressReporter: Progressing!
