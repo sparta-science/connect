@@ -80,7 +80,7 @@ extension Installer: Installation {
     }
 
     func saveOrgName(org: Organization) {
-        (NSUserDefaultsController.shared.values as AnyObject).setValue(org.name, forKey: "org.name")
+        defaults.set(org.name, forKey: "org.name")
     }
 
     private func when(complete: Subscribers.Completion<Error>) {

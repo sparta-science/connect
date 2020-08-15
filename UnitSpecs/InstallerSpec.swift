@@ -9,6 +9,7 @@ class InstallerSpec: QuickSpec {
             var subject: Installer!
             var stateContainer: MockStateContainer!
             var fileManager: FileManager!
+            var defaults: UserDefaults!
             let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
             beforeEach {
                 stateContainer = .createAndInject()
@@ -42,6 +43,8 @@ class InstallerSpec: QuickSpec {
                         try? fileManager.removeItem(at: installationUrl)
                         expect(fileManager.fileExists(atPath: installationUrl.path)) == false
                         downloader.downloadedContentsUrl = testBundleUrl("tiny-valid.tar.gz")
+                        defaults = .init()
+                        TestDependency.register(Inject(defaults!))
                     }
                     func verify(file: String, at url: URL) {
                         let expectedPath = testBundleUrl(file).path
@@ -65,12 +68,12 @@ class InstallerSpec: QuickSpec {
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
                     it("should install vernal falls and save the org name") {
-                        (NSUserDefaultsController.shared.values as AnyObject).setValue(nil, forKey:"org.name")
+                        defaults.removeObject(forKey: "org.name")
                         simulateSuccessLogin()
                         expect(stateContainer.didTransition).toEventually(contain("complete()"))
                         let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
                         expect(unTaredContents) == ""
-                        expect((NSUserDefaultsController.shared.values as AnyObject).value(forKey: "org.name") as? String) == "Training Ground"
+                        expect(defaults.value(forKey: "org.name") as? String) == "Training Ground"
                     }
                     context("download progress") {
                         var progressReporter: Progressing!
@@ -144,6 +147,8 @@ class InstallerSpec: QuickSpec {
                 context("download started") {
                     var downloader: WaitingToBeCancelled!
                     beforeEach {
+                        defaults = .init()
+                        TestDependency.register(Inject(defaults!))
                         downloader = .createAndInject()
                         waitUntil { downloadRequest in
                             downloader.startDownloading = downloadRequest

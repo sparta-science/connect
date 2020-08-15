@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		302D1458B2EB23D6A2F0ED09 /* Pods_AppSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */; };
 		4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */; };
-		4A089F7924E6FD6D00532692 /* successful-response-uc-santa-cruz.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A089F7724E6FD3100532692 /* successful-response-uc-santa-cruz.json */; };
 		4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* LoginTest.swift */; };
 		4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */; };
 		4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */; };
@@ -211,7 +210,6 @@
 		18383CF04CD5A0B420B6B253 /* Pods-AppSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppSpecs.debug.xcconfig"; path = "Target Support Files/Pods-AppSpecs/Pods-AppSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		4275614E6C55701F69F0E518 /* Pods_UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboardSpec.swift; sourceTree = "<group>"; };
-		4A089F7724E6FD3100532692 /* successful-response-uc-santa-cruz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "successful-response-uc-santa-cruz.json"; sourceTree = "<group>"; };
 		4A0AB977249D369A00D74826 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerSpec.swift; sourceTree = "<group>"; };
 		4A0AB97D249D373E00D74826 /* LoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
@@ -617,7 +615,6 @@
 				4AE764A024AD6F0400CAC3BA /* expected-config.yml */,
 				4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */,
 				4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */,
-				4A089F7724E6FD3100532692 /* successful-response-uc-santa-cruz.json */,
 				4AE7649624AD390600CAC3BA /* server-error-response.json */,
 				4AE7648924AC536600CAC3BA /* MockInstaller.swift */,
 				4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */,
@@ -961,7 +958,6 @@
 			files = (
 				4A203BB824B7EC9000ECD5EC /* successful-response-valid-archive.json in Resources */,
 				4AA188912486FA90009CFACE /* Assets.xcassets in Resources */,
-				4A089F7924E6FD6D00532692 /* successful-response-uc-santa-cruz.json in Resources */,
 				4AA188942486FA90009CFACE /* Main.storyboard in Resources */,
 				4A203BB724B7EC8D00ECD5EC /* successful-response-invalid-tar.json in Resources */,
 				4AA9AAC924B79BEA00A9D144 /* install_vernal_falls.sh in Resources */,
