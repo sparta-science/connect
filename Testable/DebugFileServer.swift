@@ -1,6 +1,6 @@
 enum DebugFileServer: String, CaseIterable {
     case failure = "simulate install failure"
-    case success = "simulate install success"
+    case success = "simulate SF State Gators"
     case bananaSlug = "simulate UC Santa Cruz"
 
     static let files: [Self: String] = [

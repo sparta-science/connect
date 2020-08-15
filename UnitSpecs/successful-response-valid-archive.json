@@ -6,14 +6,14 @@
    },
    "org":{
       "id":38,
-      "logoUrl":"https://cdn.filestackcontent.com/7UIZTVUJfSx6sfQQ53taw",
-      "name":"Training Ground",
+      "logoUrl":"https://news.sfsu.edu/sites/default/files/u34/gator_web.png",
+      "name":"San Francisco State Gators",
       "touchIconUrl":null
    },
    "user":{
-      "email":"sparta@example.com",
-      "id":4728,
-      "name":"Test Sparta User"
+      "email":"coach@sfsu.edu.example.com",
+      "id":96,
+      "name":"Gators' Coach"
    },
    "vernalFallsConfig":{
       "channel_shared_secret":"5d3315364-8962-43a6-997f-1b723c0c761a",

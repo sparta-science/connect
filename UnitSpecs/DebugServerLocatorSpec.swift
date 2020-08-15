@@ -16,7 +16,7 @@ class DebugServerLocatorSpec: QuickSpec {
                         "staging",
                         "production",
                         "simulate install failure",
-                        "simulate install success",
+                        "simulate SF State Gators",
                         "simulate UC Santa Cruz"
                     ]
                 }
@@ -38,7 +38,7 @@ class DebugServerLocatorSpec: QuickSpec {
                 }
                 context("simulated") {
                     beforeEach {
-                        login.environment = "simulate install success"
+                        login.environment = "simulate SF State Gators"
                         TestDependency.register(Inject(testBundle))
                     }
                     it("should be json path") {

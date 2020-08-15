@@ -25,7 +25,7 @@ class LoginTest: XCTestCase {
 
     func testSuccessfulInstallationAndLaunch() throws {
         XCTContext.runActivity(named: "successful download, installation and launch") { _ in
-            app.select(server: "simulate install success")
+            app.select(server: "simulate SF State Gators")
             app.enter(username: "anything")
             app.enter(password: "goes")
             app.loginButton.click()
@@ -34,7 +34,7 @@ class LoginTest: XCTestCase {
             verifyInstalled(file: "vernal_falls.tar.gz")
             verifyInstalled(file: "vernal_falls")
             verifyLaunched(serviceName: "sparta_science.vernal_falls")
-            verifyOrgNameDisplayed(orgName: "Training Ground")
+            verifyOrgNameDisplayed(orgName: "San Francisco State Gators")
         }
         app.disconnect()
         verifyStopped(serviceName: "sparta_science.vernal_falls")
