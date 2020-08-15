@@ -6,13 +6,11 @@ import Testable
 class InstallerSpec: QuickSpec {
     override func spec() {
         describe(Installer.self) {
-            var defaultsControllerValues: AnyObject!
             var subject: Installer!
             var stateContainer: MockStateContainer!
             var fileManager: FileManager!
             let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
             beforeEach {
-                defaultsControllerValues = NSUserDefaultsController.shared.values as AnyObject
                 stateContainer = .createAndInject()
                 subject = .init()
                 fileManager = .default
@@ -67,12 +65,12 @@ class InstallerSpec: QuickSpec {
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
                     }
                     it("should install vernal falls and save the org name") {
-                        defaultsControllerValues.setValue(nil, forKey: "org.name")
+                        (NSUserDefaultsController.shared.values as AnyObject).setValue(nil, forKey:"org.name")
                         simulateSuccessLogin()
                         expect(stateContainer.didTransition).toEventually(contain("complete()"))
                         let unTaredContents = try? String(contentsOf: installationUrl.appendingPathComponent("vernal_falls/small-file.txt"))
                         expect(unTaredContents) == ""
-                        expect(defaultsControllerValues.value(forKey: "org.name") as? String) == "Training Ground"
+                        expect((NSUserDefaultsController.shared.values as AnyObject).value(forKey: "org.name") as? String) == "Training Ground"
                     }
                     context("download progress") {
                         var progressReporter: Progressing!
@@ -132,11 +130,6 @@ class InstallerSpec: QuickSpec {
                 it("should transition to login") {
                     subject.uninstall()
                     expect(stateContainer.didTransition) == ["reset()"]
-                }
-                it("should clean up org name") {
-                    defaultsControllerValues.setValue("Boston Cookie", forKey: "org.name")
-                    subject.uninstall()
-                    expect(defaultsControllerValues.value(forKey: "org.name")).to(beNil())
                 }
                 context("application support subfolder") {
                     beforeEach {

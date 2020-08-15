@@ -10,7 +10,7 @@ public class Installer: NSObject {
     @Inject var downloader: Downloading
     @Inject var stateContainer: StateContainer
     @Inject("unique client id") var clientId: String
-    let defaultsControllerValues = NSUserDefaultsController.shared.values as AnyObject
+    @Inject var defaults: UserDefaults
 }
 
 extension Installer: Installation {
@@ -80,7 +80,7 @@ extension Installer: Installation {
     }
 
     func saveOrgName(org: Organization) {
-        defaultsControllerValues.setValue(org.name, forKey: "org.name")
+        (NSUserDefaultsController.shared.values as AnyObject).setValue(org.name, forKey: "org.name")
     }
 
     private func when(complete: Subscribers.Completion<Error>) {
@@ -96,7 +96,6 @@ extension Installer: Installation {
     public func uninstall() {
         cancellables.forEach { $0.cancel() }
         try? fileManager.removeItem(at: installationURL)
-        defaultsControllerValues.setValue(nil, forKey: "org.name")
         stateContainer.reset()
     }
 }
