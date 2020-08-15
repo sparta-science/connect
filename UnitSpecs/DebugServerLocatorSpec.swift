@@ -16,7 +16,8 @@ class DebugServerLocatorSpec: QuickSpec {
                         "staging",
                         "production",
                         "simulate install failure",
-                        "simulate install success"
+                        "simulate install success",
+                        "simulate UC Santa Cruz"
                     ]
                 }
             }
