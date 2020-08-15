@@ -152,7 +152,7 @@ class InstallerSpec: QuickSpec {
                         downloader = .createAndInject()
                         waitUntil { downloadRequest in
                             downloader.startDownloading = downloadRequest
-                            stubLogin("successful-response-valid-archive.json")
+                            stubLogin("successful-response-sf-state-gators.json")
                         }
                     }
                     it("should cancel download") {

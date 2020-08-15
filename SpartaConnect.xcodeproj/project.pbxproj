@@ -13,9 +13,9 @@
 		4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* LoginTest.swift */; };
 		4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */; };
 		4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */; };
-		4A203BB624B7EB4200ECD5EC /* successful-response-valid-archive.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */; };
+		4A203BB624B7EB4200ECD5EC /* successful-response-sf-state-gators.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A203BB524B7EB4200ECD5EC /* successful-response-sf-state-gators.json */; };
 		4A203BB724B7EC8D00ECD5EC /* successful-response-invalid-tar.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */; };
-		4A203BB824B7EC9000ECD5EC /* successful-response-valid-archive.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */; };
+		4A203BB824B7EC9000ECD5EC /* successful-response-sf-state-gators.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A203BB524B7EB4200ECD5EC /* successful-response-sf-state-gators.json */; };
 		4A203BBA24B8292900ECD5EC /* ServerLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BB924B8292900ECD5EC /* ServerLocator.swift */; };
 		4A203BBC24B8386300ECD5EC /* DebugFileServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BBB24B8386300ECD5EC /* DebugFileServer.swift */; };
 		4A203BBE24B83CDC00ECD5EC /* DebugServerLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BBD24B83CDC00ECD5EC /* DebugServerLocator.swift */; };
@@ -218,7 +218,7 @@
 		4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTWaiter+Extension.swift"; sourceTree = "<group>"; };
 		4A1DC8D06D85415B5E5370B8 /* Pods-UnitSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitSpecs.release.xcconfig"; path = "Target Support Files/Pods-UnitSpecs/Pods-UnitSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAtLoginTest.swift; sourceTree = "<group>"; };
-		4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "successful-response-valid-archive.json"; sourceTree = "<group>"; };
+		4A203BB524B7EB4200ECD5EC /* successful-response-sf-state-gators.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "successful-response-sf-state-gators.json"; sourceTree = "<group>"; };
 		4A203BB924B8292900ECD5EC /* ServerLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerLocator.swift; sourceTree = "<group>"; };
 		4A203BBB24B8386300ECD5EC /* DebugFileServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugFileServer.swift; sourceTree = "<group>"; };
 		4A203BBD24B83CDC00ECD5EC /* DebugServerLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugServerLocator.swift; sourceTree = "<group>"; };
@@ -616,7 +616,7 @@
 				4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */,
 				4AE764A024AD6F0400CAC3BA /* expected-config.yml */,
 				4AE7649424AD37FC00CAC3BA /* successful-response-invalid-tar.json */,
-				4A203BB524B7EB4200ECD5EC /* successful-response-valid-archive.json */,
+				4A203BB524B7EB4200ECD5EC /* successful-response-sf-state-gators.json */,
 				4A089F7724E6FD3100532692 /* successful-response-uc-santa-cruz.json */,
 				4AE7649624AD390600CAC3BA /* server-error-response.json */,
 				4AE7648924AC536600CAC3BA /* MockInstaller.swift */,
@@ -959,7 +959,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A203BB824B7EC9000ECD5EC /* successful-response-valid-archive.json in Resources */,
+				4A203BB824B7EC9000ECD5EC /* successful-response-sf-state-gators.json in Resources */,
 				4AA188912486FA90009CFACE /* Assets.xcassets in Resources */,
 				4A089F7924E6FD6D00532692 /* successful-response-uc-santa-cruz.json in Resources */,
 				4AA188942486FA90009CFACE /* Main.storyboard in Resources */,
@@ -972,7 +972,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A203BB624B7EB4200ECD5EC /* successful-response-valid-archive.json in Resources */,
+				4A203BB624B7EB4200ECD5EC /* successful-response-sf-state-gators.json in Resources */,
 				4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */,
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
 				4AE7649524AD37FC00CAC3BA /* successful-response-invalid-tar.json in Resources */,

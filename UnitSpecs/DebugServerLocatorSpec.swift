@@ -43,7 +43,7 @@ class DebugServerLocatorSpec: QuickSpec {
                     }
                     it("should be json path") {
                         expect(subject.loginRequest(login).baseUrlString)
-                            == testBundleUrl("successful-response-valid-archive.json").absoluteString
+                            == testBundleUrl("successful-response-sf-state-gators.json").absoluteString
                     }
                 }
             }
