@@ -26,6 +26,10 @@ public class ServiceWatchdog: NSObject {
     @Inject var launcherFactory: () -> ProcessLauncher
     @Inject("installation url")
     var installationURL: URL
+    @Inject("start script url")
+    var launchScriptURL: URL
+    @Inject("stop script url")
+    var stopScriptURL: URL
     @Inject("user id")
     var userId: uid_t
     @Inject var errorReporter: ErrorReporting
@@ -54,10 +58,8 @@ public class ServiceWatchdog: NSObject {
 
     func launch(command: Command) {
         do {
-            try launcherFactory().run(command: "/bin/launchctl",
-                                      args: [command.rawValue] + command.arguments(user: userId),
-                                      in: command == .start ? installationURL : URL(fileURLWithPath: "/tmp"),
-                                      ignoreErrors: command.ignoreErrors())
+            try launcherFactory().runShellScript(script: command == .start ? launchScriptURL : stopScriptURL,
+                                                 in: installationURL)
         } catch {
             errorReporter.report(error: error)
         }
