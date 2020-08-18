@@ -9,29 +9,28 @@ class ServiceWatchdogSpec: QuickSpec {
             var mockNotifier: MockStateNotifier!
             var processLauncher: MockProcessLauncher!
             let folderUrl = URL(fileURLWithPath: "/tmp/some folder")
+            let scriptUrl = URL(fileURLWithPath: "/tmp/script.sh")
 
             beforeEach {
                 mockNotifier = .createAndInject()
                 subject = .init()
                 expect(subject).notTo(beNil())
                 processLauncher = .createAndInjectFactory()
-                TestDependency.register(Inject(uid_t(57), name: "user id"))
             }
             context("state changes to completed") {
                 beforeEach {
                     TestDependency.register(Inject(folderUrl, name: "installation url"))
+                    TestDependency.register(Inject(scriptUrl, name: "start script url"))
                 }
                 context("successfully") {
                     beforeEach {
                         mockNotifier.send(state: .complete)
                     }
-                    it("should launch service") {
+                    it("should run start bash script in folder url") {
                         expect(processLauncher.didRun) == [
-                            "/bin/launchctl",
-                            "bootstrap",
-                            "gui/57",
-                            "sparta_science.vernal_falls.plist",
-                            folderUrl.absoluteString, "37"]
+                            "/bin/bash",
+                            scriptUrl.path,
+                            folderUrl.absoluteString]
                     }
                 }
                 context("unsuccessfully") {
@@ -52,15 +51,14 @@ class ServiceWatchdogSpec: QuickSpec {
             }
             context("state changes to login") {
                 beforeEach {
+                    TestDependency.register(Inject(scriptUrl, name: "stop script url"))
                     mockNotifier.send(state: .login)
                 }
-                it("should stop service ignoring benign errors") {
-                    // see: https://github.com/sparta-science/connect/wiki/Launch-Control#common-errors
+                it("should run stop bash script in /tmp") {
                     expect(processLauncher.didRun) == [
-                        "/bin/launchctl",
-                        "bootout",
-                        "gui/57/sparta_science.vernal_falls",
-                        "file:///tmp/", "3", "36"]
+                        "/bin/bash",
+                        scriptUrl.path,
+                        "file:///tmp/"]
                 }
             }
             context("application quits") {
@@ -70,13 +68,18 @@ class ServiceWatchdogSpec: QuickSpec {
                 beforeEach {
                     center = .init()
                     TestDependency.register(Inject(center!))
+                    TestDependency.register(Inject(scriptUrl, name: "stop script url"))
                     subject.awakeFromNib()
                 }
 
-                it("should bootout") {
+                it("should run stop bash script in /tmp") {
                     center.post(name: willTerminate, object: nil)
-                    expect(processLauncher.didRun).to(contain("bootout"))
+                    expect(processLauncher.didRun) == [
+                        "/bin/bash",
+                        scriptUrl.path,
+                        "file:///tmp/"]
                 }
+
                 context("retain cycle") {
                     it("should not happen") {
                         weak var service: ServiceWatchdog?
