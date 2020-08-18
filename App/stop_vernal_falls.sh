@@ -10,15 +10,9 @@ while true
 do
     /bin/launchctl bootout gui/$(id -u)/sparta_science.vernal_falls
     result=$?
-    if (( result == EINPROGRESS ))
-    then
-        sleep 1
-    else
-        if (( result == ESRCH ))
-        then
-            exit 0
-        else
-            exit $result
-        fi
-    fi
+    case $result in
+    $EINPROGRESS ) sleep 1 ;;
+    $ESRCH ) exit 0 ;;
+    * ) exit $result ;;
+    esac
 done
