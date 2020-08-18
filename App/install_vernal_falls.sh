@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash -o errexit
 
 #  install_vernal_falls.sh
 #  SpartaConnect

@@ -1,9 +1,18 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-stop_command="/bin/launchctl bootout gui/$(id -u)/sparta_science.vernal_falls"
-echo $stop_command
-
-while [ eval ($stop_command -eq 37) ]
+while true
 do
-    sleep 1
+    /bin/launchctl bootout gui/$(id -u)/sparta_science.vernal_falls
+    result=$?
+    if (( result == 36 ))
+    then
+        sleep 1
+    else
+        if (( result == 3 ))
+        then
+            exit 0
+        else
+            exit $result
+        fi
+    fi
 done

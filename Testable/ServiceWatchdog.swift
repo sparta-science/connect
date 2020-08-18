@@ -27,7 +27,7 @@ public class ServiceWatchdog: NSObject {
     @Inject("installation url")
     var installationURL: URL
     @Inject("start script url")
-    var launchScriptURL: URL
+    var startScriptURL: URL
     @Inject("stop script url")
     var stopScriptURL: URL
     @Inject("user id")
@@ -56,10 +56,18 @@ public class ServiceWatchdog: NSObject {
         .login: .stop
     ]
 
+    func launch(script: URL, in folder: URL) throws {
+        try launcherFactory().runShellScript(script: script, in: folder)
+    }
+
     func launch(command: Command) {
         do {
-            try launcherFactory().runShellScript(script: command == .start ? launchScriptURL : stopScriptURL,
-                                                 in: installationURL)
+            switch command {
+            case .start:
+                try launch(script: startScriptURL, in: installationURL)
+            case .stop:
+                try launch(script: stopScriptURL, in: URL(fileURLWithPath: "/tmp"))
+            }
         } catch {
             errorReporter.report(error: error)
         }
