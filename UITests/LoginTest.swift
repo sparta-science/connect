@@ -24,20 +24,22 @@ class LoginTest: XCTestCase {
     }
 
     func verifyStartStopScriptsRunWithoutErrorsFromAnyState() throws {
-        let commands = [
-            "when already running, should ignore Operation already in progress.": "start_vernal_falls",
-            "stop running, should retry Operation now in progress": "stop_vernal_falls",
-            "stop not running, should ignore No such process": "stop_vernal_falls",
-            "start running, should be successful": "start_vernal_falls"
+        let activityCommands = [
+            "start when already running should ignore Operation already in progress.": "start_vernal_falls",
+            "stop when running should sleep 1 second and retry Operation now in progress": "stop_vernal_falls",
+            "stop when not running should ignore No such process": "stop_vernal_falls",
+            "start when not running should be successful": "start_vernal_falls"
         ]
         let bundle = Bundle(for: type(of: self))
         let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
         let supportFolder = homeDirURL.appendingPathComponent("/Library/Application Support/com.spartascience.SpartaConnect")
         let startTime = Date()
-        try commands.forEach { _, command in
-            let launcher = ProcessLauncher()
-            let startScript = bundle.url(forResource: command, withExtension: "sh")!
-            try launcher.runShellScript(script: startScript, in: supportFolder)
+        try activityCommands.forEach { activity, command in
+            try XCTContext.runActivity(named: activity) { _ in
+                let launcher = ProcessLauncher()
+                let startScript = bundle.url(forResource: command, withExtension: "sh")!
+                try launcher.runShellScript(script: startScript, in: supportFolder)
+            }
         }
         let duration = -startTime.timeIntervalSinceNow
         XCTAssertLessThan(duration, 5, "should run all commands fast")
