@@ -82,7 +82,6 @@ public struct AppAssembly: Assembly {
         container.autoregister { StateNotifier() }.inObjectScope(.transient)
         container.autoregister { { ProcessLauncher() } }
         container.autoregister { ServiceWatchdog() }
-        container.autoregister(name: "user id") { getuid() }
         container.autoregister { UserDefaults.standard }
     }
 }

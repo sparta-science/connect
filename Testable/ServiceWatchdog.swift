@@ -13,8 +13,6 @@ public class ServiceWatchdog: NSObject {
     var startScriptURL: URL
     @Inject("stop script url")
     var stopScriptURL: URL
-    @Inject("user id")
-    var userId: uid_t
     @Inject var errorReporter: ErrorReporting
     @Inject var center: NotificationCenter
     let appQuitNotification = NSApplication.willTerminateNotification
