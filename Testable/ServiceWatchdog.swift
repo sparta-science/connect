@@ -2,25 +2,8 @@ import AppKit
 import Foundation
 
 public class ServiceWatchdog: NSObject {
-    enum Command: String {
-        case start = "bootstrap"
-        case stop = "bootout"
-        func arguments(user: uid_t) -> [String] {
-            switch self {
-            case .start:
-                return ["gui/\(user)", "sparta_science.vernal_falls.plist"]
-            case .stop:
-                return ["gui/\(user)/sparta_science.vernal_falls"]
-            }
-        }
-        func ignoreErrors() -> [Int32] {
-            switch self {
-            case .start:
-                return [EALREADY]
-            case .stop:
-                return [ESRCH, EINPROGRESS]
-            }
-        }
+    enum Command {
+        case start, stop
     }
     @Inject var notifier: StateNotifier
     @Inject var launcherFactory: () -> ProcessLauncher
