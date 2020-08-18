@@ -23,6 +23,23 @@ class LoginTest: XCTestCase {
         app.showConnectWindow()
     }
 
+    func verifyStartStopScriptsRunWithoutErrorsFromAnyState() throws {
+        let commands = [
+            "when already running": "start_vernal_falls",
+            "stop running": "stop_vernal_falls",
+            "stop not running": "stop_vernal_falls",
+            "start running": "start_vernal_falls"
+        ]
+        let bundle = Bundle(for: type(of: self))
+        let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
+        let supportFolder = homeDirURL.appendingPathComponent("/Library/Application Support/com.spartascience.SpartaConnect")
+        try commands.forEach { _, command in
+            let launcher = ProcessLauncher()
+            let startScript = bundle.url(forResource: command, withExtension: "sh")!
+            try launcher.runShellScript(script: startScript, in: supportFolder)
+        }
+    }
+
     func testSuccessfulInstallationAndLaunch() throws {
         XCTContext.runActivity(named: "successful download, installation and launch") { _ in
             app.select(server: "simulate SF State Gators")
@@ -36,6 +53,7 @@ class LoginTest: XCTestCase {
             verifyLaunched(serviceName: "sparta_science.vernal_falls")
             verifyOrgNameDisplayed(orgName: "San Francisco State Gators")
         }
+        try verifyStartStopScriptsRunWithoutErrorsFromAnyState()
         app.disconnect()
         verifyStopped(serviceName: "sparta_science.vernal_falls")
 

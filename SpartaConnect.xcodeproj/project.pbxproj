@@ -49,6 +49,11 @@
 		4A8CD1DE24EB307C00AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
 		4A8CD1DF24EB308200AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
 		4A8CD1E024EB308200AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
+		4A8CD1E224EC33C100AE8D8E /* ProcessLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */; };
+		4A8CD1E324EC33C800AE8D8E /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D63824D3405A003C1EBB /* PresentableError.swift */; };
+		4A8CD1E424EC33D300AE8D8E /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644F24AAEF8600CAC3BA /* Init.swift */; };
+		4A8CD1E524EC353200AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
+		4A8CD1E624EC353200AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
 		4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CE249B52930023C93F /* SecurityHelper.swift */; };
@@ -997,6 +1002,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8CD1E524EC353200AE8D8E /* start_vernal_falls.sh in Resources */,
+				4A8CD1E624EC353200AE8D8E /* stop_vernal_falls.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1384,6 +1391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8CD1E324EC33C800AE8D8E /* PresentableError.swift in Sources */,
 				4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */,
 				4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */,
 				4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */,
@@ -1392,12 +1400,14 @@
 				4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */,
 				4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */,
 				4AE7645524AAF0D500CAC3BA /* TestHelper.swift in Sources */,
+				4A8CD1E424EC33D300AE8D8E /* Init.swift in Sources */,
 				4AB5C25224E2035E003815FB /* SetupTestSuite.swift in Sources */,
 				4AC171CE24B3F6F80096BF33 /* SpartaConnectApp.swift in Sources */,
 				4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */,
 				4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */,
 				4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */,
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
+				4A8CD1E224EC33C100AE8D8E /* ProcessLauncher.swift in Sources */,
 				4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */,
 				4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */,
 				4A203BC724B8E22400ECD5EC /* RareEventMonitor.swift in Sources */,
