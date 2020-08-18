@@ -25,19 +25,26 @@ class LoginTest: XCTestCase {
 
     func verifyStartStopScriptsRunWithoutErrorsFromAnyState() throws {
         let commands = [
-            "when already running": "start_vernal_falls",
-            "stop running": "stop_vernal_falls",
-            "stop not running": "stop_vernal_falls",
-            "start running": "start_vernal_falls"
+            "when already running, should ignore Operation already in progress.": "start_vernal_falls",
+            "stop running, should retry Operation now in progress": "stop_vernal_falls",
+            "stop not running, should ignore No such process": "stop_vernal_falls",
+            "start running, should be successful": "start_vernal_falls"
         ]
         let bundle = Bundle(for: type(of: self))
         let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
         let supportFolder = homeDirURL.appendingPathComponent("/Library/Application Support/com.spartascience.SpartaConnect")
+        let startTime = Date()
         try commands.forEach { _, command in
             let launcher = ProcessLauncher()
             let startScript = bundle.url(forResource: command, withExtension: "sh")!
             try launcher.runShellScript(script: startScript, in: supportFolder)
         }
+        let duration = -startTime.timeIntervalSinceNow
+        XCTAssertLessThan(duration, 5, "should run all commands fast")
+        XCTAssertGreaterThan(duration, 1, """
+                should be sleeping at least 1 second when stopping running instance
+                as launchctl returns EINPROGRESS=36 # Operation now in progress
+        """)
     }
 
     func testSuccessfulInstallationAndLaunch() throws {
