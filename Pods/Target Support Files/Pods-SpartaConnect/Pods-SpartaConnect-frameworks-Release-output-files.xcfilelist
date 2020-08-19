@@ -5,3 +5,4 @@ ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework
 ${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework
 ${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectAutoregistration.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/USBDeviceSwift.framework

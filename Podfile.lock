@@ -9,6 +9,7 @@ PODS:
   - Swinject (2.7.1)
   - SwinjectAutoregistration (2.7.0):
     - Swinject (~> 2.7)
+  - USBDeviceSwift (1.0.3)
 
 DEPENDENCIES:
   - Alamofire
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - Sparkle
   - SwiftLint
   - SwinjectAutoregistration
+  - USBDeviceSwift
 
 SPEC REPOS:
   trunk:
@@ -30,6 +32,7 @@ SPEC REPOS:
     - SwiftLint
     - Swinject
     - SwinjectAutoregistration
+    - USBDeviceSwift
 
 EXTERNAL SOURCES:
   "NSBundle+LoginItem":
@@ -50,7 +53,8 @@ SPEC CHECKSUMS:
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectAutoregistration: 330f5012642a8b5c89a8a4adb0c5e52df07382c0
+  USBDeviceSwift: b9e85b70d8a78a2f4196881d7b673b7a8b9d117a
 
-PODFILE CHECKSUM: 8298a1eca62e28b70872e482f4b4e6221c2c8e6d
+PODFILE CHECKSUM: 0014830ef96e65db198bd0ce97a2b8eaa7b9b8fa
 
 COCOAPODS: 1.9.3

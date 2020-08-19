@@ -18,6 +18,7 @@ target 'SpartaConnect' do
     # fix memory issues, expose setter in header
     # https://github.com/nklizhe/NSBundle-LoginItem/pull/7
     :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
+  pod 'USBDeviceSwift'            # monitor connected force plate
 
   target 'AppSpecs' do
     inherit! :search_paths
