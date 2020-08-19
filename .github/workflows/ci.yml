@@ -5,6 +5,9 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+  schedule:
+     # Every hour between 8 pm and 7 am PST on weekday
+    - cron:  '0 3-14 * * 1-5' # https://crontab.guru/#0_3-14_*_*_1-5
 
 jobs:
   build-and-test:
