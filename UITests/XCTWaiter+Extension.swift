@@ -1,5 +1,24 @@
 import XCTest
 
+extension XCTWaiter.Result: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .completed:
+            return "completed"
+        case .timedOut:
+            return "timedOut"
+        case .incorrectOrder:
+            return "incorrectOrder"
+        case .invertedFulfillment:
+            return "invertedFulfillment"
+        case .interrupted:
+            return "interrupted"
+        @unknown default:
+            return "unknown"
+        }
+    }
+}
+
 extension XCTWaiter {
     @discardableResult
     static func wait(for expectation: XCTestExpectation,
