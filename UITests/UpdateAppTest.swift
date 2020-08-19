@@ -53,11 +53,11 @@ class UpdateAppTest: XCTestCase {
         repeat {
             agent.activate()
             let predicate = NSPredicate(format: "title == Open")
-            let button = agent.buttons.matching(predicate).element
-            if app.state != .notRunning, button.exists {
+            let openButton = agent.buttons.matching(predicate).element
+            if openButton.exists {
                 NSLog("agent: " + agent.debugDescription)
                 RareEventMonitor.log(.uiagentWarning)
-                button.click()
+                openButton.click()
             }
         } while !app.wait(for: .runningForeground)
         app.activate()
