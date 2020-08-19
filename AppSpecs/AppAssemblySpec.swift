@@ -18,6 +18,16 @@ class AppAssemblySpec: QuickSpec {
                         )
                     }
                 }
+                context("start script url") {
+                    beforeEach {
+                        injectedUrl = Inject<URL>("start script url")
+                    }
+                    it("should contain launchctl bootstap") {
+                        expect(try? String(contentsOf: injectedUrl.wrappedValue)).to(
+                            contain("/bin/launchctl bootstrap gui")
+                        )
+                    }
+                }
                 context("installation script url") {
                     beforeEach {
                         injectedUrl = Inject<URL>("installation script url")
