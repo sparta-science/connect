@@ -35,14 +35,14 @@ class TempAppHelper {
     func prepare(for test: XCTestCase) {
         let openFirstTimeMonitor = test.addUIInterruptionMonitor(
             withDescription: "open first time"
-        ) { alert -> Bool in
-            if alert.buttons["Show Application"].exists {
-                NSLog("alert: " + alert.debugDescription)
-                XCTAssertTrue(alert.staticTexts[
+        ) { dialog -> Bool in
+            if dialog.label == "alert", dialog.buttons["Show Application"].exists {
+                NSLog("alert: " + dialog.debugDescription)
+                XCTAssertTrue(dialog.staticTexts[
                     "You are opening the application “SpartaConnectForUITest” for the first time. "
                         + "Are you sure you want to open this application?"
                 ].exists)
-                alert.buttons["Open"].click()
+                dialog.buttons["Open"].click()
                 RareEventMonitor.log(.firstTimeOpenAlert)
                 return true
             }
