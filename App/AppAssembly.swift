@@ -83,5 +83,6 @@ public struct AppAssembly: Assembly {
         container.autoregister { { ProcessLauncher() } }
         container.autoregister { ServiceWatchdog() }
         container.autoregister { UserDefaults.standard }
+        container.autoregister { ForcePlateDetector() as ForcePlateDetection }
     }
 }

@@ -54,6 +54,9 @@
 		4A8CD1E424EC33D300AE8D8E /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644F24AAEF8600CAC3BA /* Init.swift */; };
 		4A8CD1E524EC353200AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
 		4A8CD1E624EC353200AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
+		4A8CD1E824EDCD4F00AE8D8E /* ForcePlateDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD1E724EDCD4F00AE8D8E /* ForcePlateDetection.swift */; };
+		4A8CD1EA24EDCD7E00AE8D8E /* MockDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD1E924EDCD7E00AE8D8E /* MockDetector.swift */; };
+		4A8CD1EC24EDCF0100AE8D8E /* ForcePlateDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD1EB24EDCF0100AE8D8E /* ForcePlateDetector.swift */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
 		4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CE249B52930023C93F /* SecurityHelper.swift */; };
@@ -268,6 +271,9 @@
 		4A81510524A337EC0080D260 /* ConnectedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
 		4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = stop_vernal_falls.sh; sourceTree = "<group>"; };
 		4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = start_vernal_falls.sh; sourceTree = "<group>"; };
+		4A8CD1E724EDCD4F00AE8D8E /* ForcePlateDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateDetection.swift; sourceTree = "<group>"; };
+		4A8CD1E924EDCD7E00AE8D8E /* MockDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetector.swift; sourceTree = "<group>"; };
+		4A8CD1EB24EDCF0100AE8D8E /* ForcePlateDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateDetector.swift; sourceTree = "<group>"; };
 		4A9F06D02491D91300714B04 /* Gemfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Gemfile.lock; sourceTree = "<group>"; };
 		4A9F06D12491D91400714B04 /* Podfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Podfile.lock; sourceTree = "<group>"; };
 		4A9F06D22491D91400714B04 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
@@ -544,6 +550,7 @@
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4AEFCBA924B504090065EA46 /* Downloader.swift */,
+				4A8CD1EB24EDCF0100AE8D8E /* ForcePlateDetector.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
 				4AE7647724AB133F00CAC3BA /* Supporting Files */,
@@ -622,6 +629,7 @@
 				4AE7645124AAF00B00CAC3BA /* QuickHelper.swift */,
 				4A203BD324BA957E00ECD5EC /* MockStateNotifier.swift */,
 				4AC171D124B51DC40096BF33 /* MockDownloader.swift */,
+				4A8CD1E924EDCD7E00AE8D8E /* MockDetector.swift */,
 				4A81370F24E53F8700D5C856 /* WaitingToBeCancelled.swift */,
 				4AE7649E24AD475A00CAC3BA /* MockError.swift */,
 				4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */,
@@ -730,6 +738,7 @@
 			isa = PBXGroup;
 			children = (
 				4BD4D35D24ABC06F009D8380 /* Installer.swift */,
+				4A8CD1E724EDCD4F00AE8D8E /* ForcePlateDetection.swift */,
 				4AEE63A124D4C608001EBCFD /* ServiceWatchdog.swift */,
 				4B70D63824D3405A003C1EBB /* PresentableError.swift */,
 				4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */,
@@ -1303,6 +1312,7 @@
 				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
 				4A203BBE24B83CDC00ECD5EC /* DebugServerLocator.swift in Sources */,
 				4B70D63924D3405A003C1EBB /* PresentableError.swift in Sources */,
+				4A8CD1E824EDCD4F00AE8D8E /* ForcePlateDetection.swift in Sources */,
 				4AC171DA24B58A100096BF33 /* Downloading.swift in Sources */,
 				4AE7649B24AD3C8500CAC3BA /* ErrorReporter.swift in Sources */,
 				4AE7646D24AB03AA00CAC3BA /* TabViewController.swift in Sources */,
@@ -1336,6 +1346,7 @@
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
+				4A8CD1EC24EDCF0100AE8D8E /* ForcePlateDetector.swift in Sources */,
 				4AE7645924AAF8D900CAC3BA /* DependencyInjection+Container.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1351,6 +1362,7 @@
 				4A515D3B24D9DBB100B65B41 /* MockStateContainer.swift in Sources */,
 				4A81371024E53F8700D5C856 /* WaitingToBeCancelled.swift in Sources */,
 				4AE7648424AB30C600CAC3BA /* ProgressControllerSpec.swift in Sources */,
+				4A8CD1EA24EDCD7E00AE8D8E /* MockDetector.swift in Sources */,
 				4AB9C9D424B70D9900B181B7 /* Injected.swift in Sources */,
 				4AE7648824AC52EB00CAC3BA /* LoginControllerSpec.swift in Sources */,
 				4AE7647624AB105700CAC3BA /* InjectedBundleSpec.swift in Sources */,

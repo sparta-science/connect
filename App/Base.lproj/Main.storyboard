@@ -1004,7 +1004,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
-                                <rect key="frame" x="163.5" y="7" width="108" height="23"/>
+                                <rect key="frame" x="165.5" y="7" width="108" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1014,13 +1014,15 @@
                                     <action selector="disconnect:" target="MMH-yp-aMN" id="7Eh-OY-WDD"/>
                                 </connections>
                             </button>
-                            <gridView xPlacement="center" yPlacement="center" rowAlignment="none" rowSpacing="0.0" columnSpacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IY4-xr-KTB">
+                            <gridView xPlacement="leading" yPlacement="center" rowAlignment="lastBaseline" rowSpacing="0.0" columnSpacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IY4-xr-KTB">
                                 <rect key="frame" x="20" y="50" width="260" height="110"/>
                                 <constraints>
-                                    <constraint firstItem="1yc-P2-Eb0" firstAttribute="leading" secondItem="IY4-xr-KTB" secondAttribute="leading" id="LUS-Ge-I68"/>
+                                    <constraint firstItem="E6e-1N-m9g" firstAttribute="leading" secondItem="1yc-P2-Eb0" secondAttribute="trailing" constant="2" id="2zD-FB-llK"/>
+                                    <constraint firstItem="1yc-P2-Eb0" firstAttribute="top" secondItem="IY4-xr-KTB" secondAttribute="top" constant="20" id="MHU-Ca-DmE"/>
                                 </constraints>
                                 <rows>
                                     <gridRow id="mAJ-Uv-nnE"/>
+                                    <gridRow id="Gja-sk-TIp"/>
                                 </rows>
                                 <columns>
                                     <gridColumn id="xw9-ny-f3k"/>
@@ -1029,7 +1031,10 @@
                                 <gridCells>
                                     <gridCell row="mAJ-Uv-nnE" column="xw9-ny-f3k" id="fDv-yD-f8r">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1yc-P2-Eb0">
-                                            <rect key="frame" x="-2" y="47" width="89" height="16"/>
+                                            <rect key="frame" x="-2" y="74" width="89" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="fPS-vE-tVA"/>
+                                            </constraints>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Organization: " id="BFB-5H-2AL">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1039,7 +1044,10 @@
                                     </gridCell>
                                     <gridCell row="mAJ-Uv-nnE" column="PoX-sg-26W" id="pUJ-cT-mBf">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-1N-m9g">
-                                            <rect key="frame" x="85" y="47" width="91" height="16"/>
+                                            <rect key="frame" x="85" y="74" width="91" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="7yT-fY-jgn"/>
+                                            </constraints>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="org_not_found" id="B8S-Xu-nFl">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1049,6 +1057,32 @@
                                             <connections>
                                                 <binding destination="47i-8z-o9m" name="value" keyPath="values.org name" id="Axz-wQ-jXU"/>
                                             </connections>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="Gja-sk-TIp" column="xw9-ny-f3k" id="R0c-GG-tFQ">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vy8-Vo-FiY">
+                                            <rect key="frame" x="-2" y="19" width="73" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="KWg-HM-gB2"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Forceplate:" id="C0J-3P-sDe">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="Gja-sk-TIp" column="PoX-sg-26W" id="meg-Tm-aWo">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="peN-k2-2hg">
+                                            <rect key="frame" x="85" y="19" width="69" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="oz1-zZ-Qcx"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="unplugged" id="dYE-Fe-THP">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
                                         </textField>
                                     </gridCell>
                                 </gridCells>
@@ -1061,6 +1095,9 @@
                             <constraint firstItem="YmJ-lp-DU9" firstAttribute="top" secondItem="IY4-xr-KTB" secondAttribute="bottom" constant="20" id="xl3-2g-IKF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="forcePlateName" destination="peN-k2-2hg" id="xcH-1y-8xr"/>
+                    </connections>
                 </viewController>
                 <customObject id="Av8-CC-Vcx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="47i-8z-o9m"/>
