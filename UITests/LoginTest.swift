@@ -43,10 +43,14 @@ class LoginTest: XCTestCase {
         }
         let duration = -startTime.timeIntervalSinceNow
         XCTAssertLessThan(duration, 5, "should run all commands fast")
-        XCTAssertGreaterThan(duration, 1, """
-                should be sleeping at least 1 second when stopping running instance
-                as launchctl returns EINPROGRESS=36 # Operation now in progress
-        """)
+        if #available(macOS 10.16, *) {
+            print("macOS Big Sur Beta launchctl bootout suceeds immediately")
+        } else {
+            XCTAssertGreaterThan(duration, 1, """
+                    should be sleeping at least 1 second when stopping running instance
+                    as launchctl returns EINPROGRESS=36 # Operation now in progress
+            """)
+        }
     }
 
     func testSuccessfulInstallationAndLaunch() throws {
