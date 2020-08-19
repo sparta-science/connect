@@ -28,7 +28,12 @@ class WorkspaceHelper {
 
     func launch(url: URL, arguments: [String] = []) {
         verifyValidAppBundle(url: url)
-        verify(workspace.urlForApplication(toOpen: url) == url)
+        let openApp = workspace.urlForApplication(toOpen: url)
+        if #available(macOS 10.16, *) {
+            verify(openApp == nil, "Big Sur 11.0 Beta (20A5343i)")
+        } else {
+            verify(openApp == url, "app to open was \(String(describing: openApp))")
+        }
         verifyAppRegistedToLaunch(url: url)
         let config = launchConfiguration(arguments: arguments)
         retry("launching app", upToTimes: 5, timeout: .install) { checkError in
