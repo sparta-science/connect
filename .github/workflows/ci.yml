@@ -33,11 +33,8 @@ jobs:
 #      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
     - name: Close Finder Windows using Apple Script
       run: sudo osascript -e 'tell application "Finder" to close windows'
-    - name: Disable Notifications window
-      run: |
-        launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
-        killall NotificationCenter || true
-        killall UserNotificationCenter || true
+    - name: Close Notification window
+      run: killall UserNotificationCenter || true
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
       with:
