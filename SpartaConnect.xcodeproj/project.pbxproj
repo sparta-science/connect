@@ -45,6 +45,15 @@
 		4A515D3B24D9DBB100B65B41 /* MockStateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
 		4A81371024E53F8700D5C856 /* WaitingToBeCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81370F24E53F8700D5C856 /* WaitingToBeCancelled.swift */; };
+		4A8CD1DD24EB307C00AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
+		4A8CD1DE24EB307C00AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
+		4A8CD1DF24EB308200AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
+		4A8CD1E024EB308200AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
+		4A8CD1E224EC33C100AE8D8E /* ProcessLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */; };
+		4A8CD1E324EC33C800AE8D8E /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D63824D3405A003C1EBB /* PresentableError.swift */; };
+		4A8CD1E424EC33D300AE8D8E /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644F24AAEF8600CAC3BA /* Init.swift */; };
+		4A8CD1E524EC353200AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
+		4A8CD1E624EC353200AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
 		4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CE249B52930023C93F /* SecurityHelper.swift */; };
@@ -257,6 +266,8 @@
 		4A8150FF24A32E1C0080D260 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		4A81510324A332530080D260 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		4A81510524A337EC0080D260 /* ConnectedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
+		4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = stop_vernal_falls.sh; sourceTree = "<group>"; };
+		4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = start_vernal_falls.sh; sourceTree = "<group>"; };
 		4A9F06D02491D91300714B04 /* Gemfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Gemfile.lock; sourceTree = "<group>"; };
 		4A9F06D12491D91400714B04 /* Podfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Podfile.lock; sourceTree = "<group>"; };
 		4A9F06D22491D91400714B04 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
@@ -649,6 +660,8 @@
 			isa = PBXGroup;
 			children = (
 				4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */,
+				4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */,
+				4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */,
 				4AA188902486FA90009CFACE /* Assets.xcassets */,
 				4AA188952486FA90009CFACE /* Info.plist */,
 				4AE7647D24AB239C00CAC3BA /* .swiftlint.yml */,
@@ -959,9 +972,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8CD1DD24EB307C00AE8D8E /* stop_vernal_falls.sh in Resources */,
 				4A203BB824B7EC9000ECD5EC /* successful-response-sf-state-gators.json in Resources */,
 				4AA188912486FA90009CFACE /* Assets.xcassets in Resources */,
 				4A089F7924E6FD6D00532692 /* successful-response-uc-santa-cruz.json in Resources */,
+				4A8CD1DE24EB307C00AE8D8E /* start_vernal_falls.sh in Resources */,
 				4AA188942486FA90009CFACE /* Main.storyboard in Resources */,
 				4A203BB724B7EC8D00ECD5EC /* successful-response-invalid-tar.json in Resources */,
 				4AA9AAC924B79BEA00A9D144 /* install_vernal_falls.sh in Resources */,
@@ -975,8 +990,10 @@
 				4A203BB624B7EB4200ECD5EC /* successful-response-sf-state-gators.json in Resources */,
 				4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */,
 				4AE7649724AD390600CAC3BA /* server-error-response.json in Resources */,
+				4A8CD1E024EB308200AE8D8E /* stop_vernal_falls.sh in Resources */,
 				4AE7649524AD37FC00CAC3BA /* successful-response-invalid-tar.json in Resources */,
 				4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */,
+				4A8CD1DF24EB308200AE8D8E /* start_vernal_falls.sh in Resources */,
 				4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -985,6 +1002,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8CD1E524EC353200AE8D8E /* start_vernal_falls.sh in Resources */,
+				4A8CD1E624EC353200AE8D8E /* stop_vernal_falls.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1372,6 +1391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A8CD1E324EC33C800AE8D8E /* PresentableError.swift in Sources */,
 				4A3F3C9B249074EF0058C5D4 /* XCUIApplication+Extension.swift in Sources */,
 				4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */,
 				4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */,
@@ -1380,12 +1400,14 @@
 				4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */,
 				4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */,
 				4AE7645524AAF0D500CAC3BA /* TestHelper.swift in Sources */,
+				4A8CD1E424EC33D300AE8D8E /* Init.swift in Sources */,
 				4AB5C25224E2035E003815FB /* SetupTestSuite.swift in Sources */,
 				4AC171CE24B3F6F80096BF33 /* SpartaConnectApp.swift in Sources */,
 				4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */,
 				4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */,
 				4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */,
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
+				4A8CD1E224EC33C100AE8D8E /* ProcessLauncher.swift in Sources */,
 				4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */,
 				4A3F3C97248F604B0058C5D4 /* FileHelper.swift in Sources */,
 				4A203BC724B8E22400ECD5EC /* RareEventMonitor.swift in Sources */,

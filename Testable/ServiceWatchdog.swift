@@ -2,32 +2,17 @@ import AppKit
 import Foundation
 
 public class ServiceWatchdog: NSObject {
-    enum Command: String {
-        case start = "bootstrap"
-        case stop = "bootout"
-        func arguments(user: uid_t) -> [String] {
-            switch self {
-            case .start:
-                return ["gui/\(user)", "sparta_science.vernal_falls.plist"]
-            case .stop:
-                return ["gui/\(user)/sparta_science.vernal_falls"]
-            }
-        }
-        func ignoreErrors() -> [Int32] {
-            switch self {
-            case .start:
-                return [EALREADY]
-            case .stop:
-                return [ESRCH, EINPROGRESS]
-            }
-        }
+    enum Command {
+        case start, stop
     }
     @Inject var notifier: StateNotifier
     @Inject var launcherFactory: () -> ProcessLauncher
     @Inject("installation url")
     var installationURL: URL
-    @Inject("user id")
-    var userId: uid_t
+    @Inject("start script url")
+    var startScriptURL: URL
+    @Inject("stop script url")
+    var stopScriptURL: URL
     @Inject var errorReporter: ErrorReporting
     @Inject var center: NotificationCenter
     let appQuitNotification = NSApplication.willTerminateNotification
@@ -52,12 +37,18 @@ public class ServiceWatchdog: NSObject {
         .login: .stop
     ]
 
+    func launch(script: URL, in folder: URL) throws {
+        try launcherFactory().runShellScript(script: script, in: folder)
+    }
+
     func launch(command: Command) {
         do {
-            try launcherFactory().run(command: "/bin/launchctl",
-                                      args: [command.rawValue] + command.arguments(user: userId),
-                                      in: command == .start ? installationURL : URL(fileURLWithPath: "/tmp"),
-                                      ignoreErrors: command.ignoreErrors())
+            switch command {
+            case .start:
+                try launch(script: startScriptURL, in: installationURL)
+            case .stop:
+                try launch(script: stopScriptURL, in: URL(fileURLWithPath: "/tmp"))
+            }
         } catch {
             errorReporter.report(error: error)
         }

@@ -5,7 +5,7 @@ open class ProcessLauncher {
 
     open func runShellScript(script: URL, in folder: URL) throws {
         try run(command: "/bin/bash",
-                args: ["-o", "errexit", script.path],
+                args: [script.path],
                 in: folder)
     }
 

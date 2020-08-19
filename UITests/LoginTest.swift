@@ -23,6 +23,32 @@ class LoginTest: XCTestCase {
         app.showConnectWindow()
     }
 
+    func verifyStartStopScriptsRunWithoutErrorsFromAnyState() throws {
+        let activityCommands = [
+            "start when already running should ignore Operation already in progress.": "start_vernal_falls",
+            "stop when running should sleep 1 second and retry Operation now in progress": "stop_vernal_falls",
+            "stop when not running should ignore No such process": "stop_vernal_falls",
+            "start when not running should be successful": "start_vernal_falls"
+        ]
+        let bundle = Bundle(for: type(of: self))
+        let homeDirURL = FileManager.default.homeDirectoryForCurrentUser
+        let supportFolder = homeDirURL.appendingPathComponent("/Library/Application Support/com.spartascience.SpartaConnect")
+        let startTime = Date()
+        try activityCommands.forEach { activity, command in
+            try XCTContext.runActivity(named: activity) { _ in
+                let launcher = ProcessLauncher()
+                let startScript = bundle.url(forResource: command, withExtension: "sh")!
+                try launcher.runShellScript(script: startScript, in: supportFolder)
+            }
+        }
+        let duration = -startTime.timeIntervalSinceNow
+        XCTAssertLessThan(duration, 5, "should run all commands fast")
+        XCTAssertGreaterThan(duration, 1, """
+                should be sleeping at least 1 second when stopping running instance
+                as launchctl returns EINPROGRESS=36 # Operation now in progress
+        """)
+    }
+
     func testSuccessfulInstallationAndLaunch() throws {
         XCTContext.runActivity(named: "successful download, installation and launch") { _ in
             app.select(server: "simulate SF State Gators")
@@ -36,6 +62,7 @@ class LoginTest: XCTestCase {
             verifyLaunched(serviceName: "sparta_science.vernal_falls")
             verifyOrgNameDisplayed(orgName: "San Francisco State Gators")
         }
+        try verifyStartStopScriptsRunWithoutErrorsFromAnyState()
         app.disconnect()
         verifyStopped(serviceName: "sparta_science.vernal_falls")
 
