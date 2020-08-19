@@ -20,6 +20,10 @@ jobs:
       run: |
         sudo scutil --set LocalHostName "SpartaConnectGitHubCI"
         sudo scutil --set ComputerName "SpartaConnectGitHubCI"
+    - name: Do not disturb the build with Notifications
+      run: |
+        npm install --global do-not-disturb-cli
+        do-not-disturb on
     - name: Disable firewall
       run: |
         sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
