@@ -22,6 +22,20 @@ class TempAppHelper {
         workspaceHelper.verifyAppRegistedToLaunch(url: tempUrl)
     }
 
+    func waitForAppToLaunchDismissingFirstTimeOpenAlerts() {
+        let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
+        repeat {
+            agent.activate()
+            let predicate = NSPredicate(format: "title == Open")
+            let openButton = agent.buttons.matching(predicate).element
+            if agent.state == .runningForeground, openButton.exists {
+                NSLog("agent: " + agent.debugDescription)
+                RareEventMonitor.log(.uiagentWarning)
+                openButton.click()
+            }
+        } while !tempApp().wait(for: .runningForeground)
+    }
+
     func hasDownloaded(fileName: String) -> NSPredicate {
         bundleHelper.find(file: fileName,
                           inCache: "org.sparkle-project.Sparkle/PersistentDownloads")

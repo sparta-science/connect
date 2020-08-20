@@ -49,17 +49,7 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         app.wait(until: .notRunning, "wait for app to terminate")
         tempAppHelper.verifyAppRegistedToLaunch()
-        let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
-        repeat {
-            agent.activate()
-            let predicate = NSPredicate(format: "title == Open")
-            let openButton = agent.buttons.matching(predicate).element
-            if openButton.exists {
-                NSLog("agent: " + agent.debugDescription)
-                RareEventMonitor.log(.uiagentWarning)
-                openButton.click()
-            }
-        } while !app.wait(for: .runningForeground)
+        tempAppHelper.waitForAppToLaunchDismissingFirstTimeOpenAlerts()
         app.activate()
     }
 
