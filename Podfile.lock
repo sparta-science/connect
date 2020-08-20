@@ -1,11 +1,11 @@
 PODS:
-  - Alamofire (5.2.1)
-  - LetsMove (1.24)
+  - Alamofire (5.2.2)
+  - LetsMove (1.25)
   - Nimble (8.1.1)
   - "NSBundle+LoginItem (1.0.4)"
   - Quick (3.0.0)
   - Sparkle (1.23.0)
-  - SwiftLint (0.39.2)
+  - SwiftLint (0.40.0)
   - Swinject (2.7.1)
   - SwinjectAutoregistration (2.7.0):
     - Swinject (~> 2.7)
@@ -44,13 +44,13 @@ CHECKOUT OPTIONS:
     :git: https://github.com/paulz/NSBundle-LoginItem.git
 
 SPEC CHECKSUMS:
-  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
-  LetsMove: fefe56bc7bc7fb7d37049e28a14f297961229fc5
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  LetsMove: 7b9fe44737707d984fbd3f47af46609a9a07b461
   Nimble: 5f8a2fb6fa343a7242dfdd9d42f7267419d464b2
   "NSBundle+LoginItem": 43a2fad3858e519c7a7fa117daf12e53278ee902
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
   Sparkle: 55b1a87ba69d56913375a281546b7c82dec95bb0
-  SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
+  SwiftLint: 4154893c73a4c52d6240195507eb7a3e3c64087e
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   SwinjectAutoregistration: 330f5012642a8b5c89a8a4adb0c5e52df07382c0
   USBDeviceSwift: b9e85b70d8a78a2f4196881d7b673b7a8b9d117a
