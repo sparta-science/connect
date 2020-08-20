@@ -3,7 +3,7 @@ import Foundation
 
 public protocol StateContainer {
     func startReceiving()
-    func reset()
+    func reset(after: @escaping () -> Void)
     func complete()
     func update(progress: Progress)
 }
@@ -38,9 +38,13 @@ extension StateCapsule: StateContainer {
         save(complete: true)
     }
 
-    public func reset() {
-        state = .login
-        save(complete: false)
+    public func reset(after: @escaping () -> Void) {
+        state = .busy(value: .init())
+        DispatchQueue.main.async {
+            after()
+            self.state = .login
+            self.save(complete: false)
+        }
     }
 
     public func startReceiving() {

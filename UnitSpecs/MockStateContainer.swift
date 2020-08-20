@@ -2,6 +2,11 @@ import Foundation
 import Testable
 
 final class MockStateContainer: StateContainer {
+    func reset(after: () -> Void) {
+        after()
+        didTransition.append(#function)
+    }
+
     var didTransition: [String] = []
     var didProgress: Progress?
 
@@ -11,10 +16,6 @@ final class MockStateContainer: StateContainer {
     }
 
     func complete() {
-        didTransition.append(#function)
-    }
-
-    func reset() {
         didTransition.append(#function)
     }
 

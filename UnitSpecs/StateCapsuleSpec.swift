@@ -47,7 +47,11 @@ class StateCapsuleSpec: QuickSpec {
             }
             context(StateCapsule.reset) {
                 it("should reset state to login and save false to defaults") {
-                    subject.reset()
+                    defaults.set(true, forKey: "complete")
+                    waitUntil { done in
+                        subject.reset(after: done)
+                        expect(subject.state.progress()).notTo(beNil())
+                    }
                     expect(subject.state) == .login
                     expect(defaults.bool(forKey: "complete")) == false
                 }

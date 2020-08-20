@@ -98,7 +98,7 @@ class InstallerSpec: QuickSpec {
                         }
                         it("should report error and status code") {
                             simulateSuccessLogin()
-                            expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
+                            expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset(after:)"]))
                             let reportedError = errorReporter.didReport as? LocalizedError
                             expect(reportedError?.localizedDescription)
                                 == "Failed with exit code: 1"
@@ -114,13 +114,13 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should report errors while connecting") {
                         beginLogin(urlString: "file://invalid-url")
-                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
+                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset(after:)"]))
                         expect(errorReporter.didReport!.localizedDescription)
                             == "The requested URL was not found on this server."
                     }
                     it("should start progress, transition back to login and report error from server") {
                         stubLogin("server-error-response.json")
-                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset()"]))
+                        expect(stateContainer.didTransition).toEventually(equal(["startReceiving()", "reset(after:)"]))
                         let reportedError = errorReporter.didReport as? LocalizedError
                         expect(reportedError?.localizedDescription)
                             == "Server Error"
@@ -132,7 +132,7 @@ class InstallerSpec: QuickSpec {
             context(Installer.uninstall) {
                 it("should transition to login") {
                     subject.uninstall()
-                    expect(stateContainer.didTransition) == ["reset()"]
+                    expect(stateContainer.didTransition) == ["reset(after:)"]
                 }
                 context("application support subfolder") {
                     beforeEach {
