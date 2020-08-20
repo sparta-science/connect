@@ -1,6 +1,6 @@
 import XCTest
 
-class LoginTest: XCTestCase {
+class ConnectTest: XCTestCase {
     let app = SpartaConnectApp()
     let bundleHelper = BundleHelper()
 

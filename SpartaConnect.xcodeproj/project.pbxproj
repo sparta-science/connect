@@ -10,7 +10,7 @@
 		302D1458B2EB23D6A2F0ED09 /* Pods_AppSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */; };
 		4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */; };
 		4A089F7924E6FD6D00532692 /* successful-response-uc-santa-cruz.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A089F7724E6FD3100532692 /* successful-response-uc-santa-cruz.json */; };
-		4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* LoginTest.swift */; };
+		4A0AB97E249D373E00D74826 /* ConnectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* ConnectTest.swift */; };
 		4A1C9281249739A600E52F6A /* XCTWaiter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */; };
 		4A1DCC58249031320014E9CF /* OpenAtLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */; };
 		4A203BB624B7EB4200ECD5EC /* successful-response-sf-state-gators.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A203BB524B7EB4200ECD5EC /* successful-response-sf-state-gators.json */; };
@@ -89,7 +89,7 @@
 		4AC2E0BB24E30E5A0033D023 /* SetupTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5C25124E2035E003815FB /* SetupTestSuite.swift */; };
 		4AC2E0BC24E30E5A0033D023 /* SpartaConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC171CD24B3F6F80096BF33 /* SpartaConnectApp.swift */; };
 		4AC2E0BD24E30E5A0033D023 /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
-		4AC2E0BE24E30E5A0033D023 /* LoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* LoginTest.swift */; };
+		4AC2E0BE24E30E5A0033D023 /* ConnectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* ConnectTest.swift */; };
 		4AC2E0BF24E30E5A0033D023 /* TempAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F3C94248F60150058C5D4 /* TempAppHelper.swift */; };
 		4AC2E0C024E30E5A0033D023 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD40A9624884D9D002728DA /* XCUIElement+Extension.swift */; };
 		4AC2E0C124E30E5A0033D023 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
@@ -229,7 +229,7 @@
 		4A089F7724E6FD3100532692 /* successful-response-uc-santa-cruz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "successful-response-uc-santa-cruz.json"; sourceTree = "<group>"; };
 		4A0AB977249D369A00D74826 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerSpec.swift; sourceTree = "<group>"; };
-		4A0AB97D249D373E00D74826 /* LoginTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTest.swift; sourceTree = "<group>"; };
+		4A0AB97D249D373E00D74826 /* ConnectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTest.swift; sourceTree = "<group>"; };
 		4A1C9280249739A600E52F6A /* XCTWaiter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTWaiter+Extension.swift"; sourceTree = "<group>"; };
 		4A1DC8D06D85415B5E5370B8 /* Pods-UnitSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnitSpecs.release.xcconfig"; path = "Target Support Files/Pods-UnitSpecs/Pods-UnitSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAtLoginTest.swift; sourceTree = "<group>"; };
@@ -596,7 +596,7 @@
 			isa = PBXGroup;
 			children = (
 				4AC2E0CE24E3148F0033D023 /* Release */,
-				4A0AB97D249D373E00D74826 /* LoginTest.swift */,
+				4A0AB97D249D373E00D74826 /* ConnectTest.swift */,
 				4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */,
 				4A1DCC57249031320014E9CF /* OpenAtLoginTest.swift */,
 				4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */,
@@ -1379,7 +1379,7 @@
 				4AB5C25224E2035E003815FB /* SetupTestSuite.swift in Sources */,
 				4AC171CE24B3F6F80096BF33 /* SpartaConnectApp.swift in Sources */,
 				4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */,
-				4A0AB97E249D373E00D74826 /* LoginTest.swift in Sources */,
+				4A0AB97E249D373E00D74826 /* ConnectTest.swift in Sources */,
 				4A3F3C95248F60150058C5D4 /* TempAppHelper.swift in Sources */,
 				4AD40A9724884D9D002728DA /* XCUIElement+Extension.swift in Sources */,
 				4A8CD1E224EC33C100AE8D8E /* ProcessLauncher.swift in Sources */,
@@ -1406,7 +1406,7 @@
 				4AC2E0BB24E30E5A0033D023 /* SetupTestSuite.swift in Sources */,
 				4AC2E0BC24E30E5A0033D023 /* SpartaConnectApp.swift in Sources */,
 				4AC2E0BD24E30E5A0033D023 /* XCTestHelper.swift in Sources */,
-				4AC2E0BE24E30E5A0033D023 /* LoginTest.swift in Sources */,
+				4AC2E0BE24E30E5A0033D023 /* ConnectTest.swift in Sources */,
 				4AC2E0BF24E30E5A0033D023 /* TempAppHelper.swift in Sources */,
 				4AC2E0C024E30E5A0033D023 /* XCUIElement+Extension.swift in Sources */,
 				4AC2E0C124E30E5A0033D023 /* MoveToApplicationsTest.swift in Sources */,
