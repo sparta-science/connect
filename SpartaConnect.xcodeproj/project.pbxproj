@@ -43,6 +43,8 @@
 		4A515D3724D9CE4D00B65B41 /* StateCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3624D9CE4D00B65B41 /* StateCapsule.swift */; };
 		4A515D3924D9CEE200B65B41 /* StateCapsuleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3824D9CEE200B65B41 /* StateCapsuleSpec.swift */; };
 		4A515D3B24D9DBB100B65B41 /* MockStateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */; };
+		4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */; };
+		4A6D268F24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
 		4A81371024E53F8700D5C856 /* WaitingToBeCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81370F24E53F8700D5C856 /* WaitingToBeCancelled.swift */; };
 		4A8CD1DD24EB307C00AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
@@ -264,6 +266,8 @@
 		4A515D3624D9CE4D00B65B41 /* StateCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCapsule.swift; sourceTree = "<group>"; };
 		4A515D3824D9CEE200B65B41 /* StateCapsuleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCapsuleSpec.swift; sourceTree = "<group>"; };
 		4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStateContainer.swift; sourceTree = "<group>"; };
+		4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitor.swift; sourceTree = "<group>"; };
+		4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitorSpec.swift; sourceTree = "<group>"; };
 		4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "tiny-valid.tar.gz"; sourceTree = "<group>"; };
 		4A77486B24BD3DFC00A4277E /* .envrc */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc; sourceTree = "<group>"; };
 		4A77486C24BD3DFD00A4277E /* .envrc.sample */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc.sample; sourceTree = "<group>"; };
@@ -465,6 +469,7 @@
 			children = (
 				4A3F3C85248C92AE0058C5D4 /* SparkleUpdaterSpec.swift */,
 				4AC171D524B538F10096BF33 /* DownloaderSpec.swift */,
+				4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */,
 				4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */,
 				4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
@@ -551,6 +556,7 @@
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4AEFCBA924B504090065EA46 /* Downloader.swift */,
 				4A8CD1EB24EDCF0100AE8D8E /* ForcePlateDetector.swift */,
+				4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
 				4AE7647724AB133F00CAC3BA /* Supporting Files */,
@@ -1289,6 +1295,7 @@
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
 				4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */,
 				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
+				4A6D268F24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */,
 				4AE7645724AAF21D00CAC3BA /* QuickHelper.swift in Sources */,
@@ -1304,6 +1311,7 @@
 				4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */,
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
+				4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
 				4A8CD1EC24EDCF0100AE8D8E /* ForcePlateDetector.swift in Sources */,
 				4AE7645924AAF8D900CAC3BA /* DependencyInjection+Container.swift in Sources */,
