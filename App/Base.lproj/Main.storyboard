@@ -885,7 +885,7 @@
                                     </gridCell>
                                     <gridCell row="DZf-o3-6fq" column="qfz-VJ-eeS" id="CNQ-u5-oEb">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bgq-XU-cem">
-                                            <rect key="frame" x="-0.5" y="-1" width="201" height="23"/>
+                                            <rect key="frame" x="0.0" y="-1" width="200" height="23"/>
                                             <buttonCell key="cell" type="roundTextured" title="Login" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HPO-8B-9Ka">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -951,7 +951,7 @@
                                         <rect key="frame" x="50" y="0.0" width="100" height="50"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                                <rect key="frame" x="22.5" y="13" width="56" height="23"/>
+                                                <rect key="frame" x="22" y="13" width="56" height="23"/>
                                                 <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1004,7 +1004,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" id="YmJ-lp-DU9">
-                                <rect key="frame" x="165.5" y="7" width="108" height="23"/>
+                                <rect key="frame" x="166" y="7" width="107" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
