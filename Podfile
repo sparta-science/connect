@@ -35,3 +35,12 @@ target 'UITests' do
   pod 'NSBundle+LoginItem', # launch at login option
     :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
 end
+
+# Disable Xcode warning about available Swift conversion to the latest version of Swift
+# https://github.com/CocoaPods/CocoaPods/issues/8674#issuecomment-524097348
+already_migrated = 9999
+post_install do |installer|
+  installer.pods_project.root_object.attributes['LastSwiftMigration'] = already_migrated
+  installer.pods_project.root_object.attributes['LastSwiftUpdateCheck'] = already_migrated
+  installer.pods_project.root_object.attributes['LastUpgradeCheck'] = already_migrated
+end
