@@ -29,3 +29,4 @@ jobs:
     - run: pod update
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v3.1.2
+      title: Update dependencies
