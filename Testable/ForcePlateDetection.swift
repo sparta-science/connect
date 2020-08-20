@@ -1,3 +1,3 @@
 public protocol ForcePlateDetection {
-    func start(updating: @escaping (String) -> Void)
+    func start(updating: @escaping (String?) -> Void)
 }

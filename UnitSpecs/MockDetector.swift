@@ -1,8 +1,8 @@
 import Testable
 
 final class MockDetector: ForcePlateDetection {
-    var detection: ((String) -> Void)?
-    func start(updating: @escaping (String) -> Void) {
+    var detection: ((String?) -> Void)?
+    func start(updating: @escaping (String?) -> Void) {
         detection = updating
     }
 }

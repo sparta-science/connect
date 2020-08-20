@@ -23,20 +23,36 @@ class ForcePlateMonitorSpec: QuickSpec {
         describe(ForcePlateMonitor.self) {
             var subject: ForcePlateMonitor!
             var fake: FakeMonitor!
-            var updating: ((String) -> Void)!
+            var stub: ((String?) -> Void)!
+            var center: NotificationCenter!
             beforeEach {
                 fake = .init()
-                subject = .init(monitor: fake)
-                updating = { _ in }
+                center = .init()
+                subject = .init(monitor: fake, center: center)
+                stub = { _ in }
             }
             context(ForcePlateMonitor.start) {
                 it("should start device monitor") {
-                    subject.start(updating: updating)
+                    subject.start(updating: stub)
                     expect(fake.didStartOnBackground).toEventually(beTrue())
                 }
                 it("should configure filter") {
-                    subject.start(updating: updating)
+                    subject.start(updating: stub)
                     expect(fake.filterDevices).notTo(beNil())
+                }
+                context("update") {
+                    it("should call updating") {
+                        waitUntil { done in
+                            subject.start { deviceName in
+                                expect(deviceName) == "force plate"
+                                done()
+                            }
+                            var device = SerialDevice(path: "")
+                            device.name = "force plate"
+                            let detected = ["device": device]
+                            center.post(name: .SerialDeviceAdded, object: detected)
+                        }
+                    }
                 }
                 context(\SerialDeviceMonitor.filterDevices) {
                     var devices: [SerialDevice]!
@@ -51,10 +67,10 @@ class ForcePlateMonitorSpec: QuickSpec {
                             wrongProduct,
                             wrongVendor
                         ]
-                        subject.start(updating: updating)
-                        it("should only allow valid") {
-                            expect(fake.filterDevices!(devices)).to(haveCount(1))
-                        }
+                        subject.start(updating: stub)
+                    }
+                    it("should only allow valid") {
+                        expect(fake.filterDevices!(devices)).to(haveCount(1))
                     }
                 }
             }
