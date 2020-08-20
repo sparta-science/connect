@@ -12,6 +12,14 @@ public class ConnectedController: NSViewController {
         }
     }
 
+    override public func viewDidAppear() {
+        super.viewDidAppear()
+    }
+
+    override public func viewDidDisappear() {
+        super.viewDidDisappear()
+    }
+
     @IBAction public func disconnect(_ sender: NSButton) {
         installer.uninstall()
     }
