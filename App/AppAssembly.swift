@@ -3,6 +3,7 @@ import LetsMove
 import Swinject
 import SwinjectAutoregistration
 import Testable
+import USBDeviceSwift
 
 // swiftlint:disable:next static_operator
 private func + <Service>(resolver: Resolver, service: Service.Type) -> Service {
@@ -83,6 +84,9 @@ public struct AppAssembly: Assembly {
         container.autoregister { { ProcessLauncher() } }
         container.autoregister { ServiceWatchdog() }
         container.autoregister { UserDefaults.standard }
-        container.autoregister { ForcePlateDetector() as ForcePlateDetection }
+        container.autoregister { SerialDeviceMonitor() }
+        container.register {
+            ForcePlateMonitor(monitor: $0~>, center: $0~>) as ForcePlateDetection
+        }
     }
 }

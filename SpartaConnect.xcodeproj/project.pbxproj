@@ -58,7 +58,6 @@
 		4A8CD1E624EC353200AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
 		4A8CD1E824EDCD4F00AE8D8E /* ForcePlateDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD1E724EDCD4F00AE8D8E /* ForcePlateDetection.swift */; };
 		4A8CD1EA24EDCD7E00AE8D8E /* MockDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD1E924EDCD7E00AE8D8E /* MockDetector.swift */; };
-		4A8CD1EC24EDCF0100AE8D8E /* ForcePlateDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8CD1EB24EDCF0100AE8D8E /* ForcePlateDetector.swift */; };
 		4A9F71CB24989E5F0023C93F /* XCTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CA24989E5F0023C93F /* XCTestHelper.swift */; };
 		4A9F71CD2498A0410023C93F /* WorkspaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CC2498A0410023C93F /* WorkspaceHelper.swift */; };
 		4A9F71CF249B52930023C93F /* SecurityHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F71CE249B52930023C93F /* SecurityHelper.swift */; };
@@ -279,7 +278,6 @@
 		4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = start_vernal_falls.sh; sourceTree = "<group>"; };
 		4A8CD1E724EDCD4F00AE8D8E /* ForcePlateDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateDetection.swift; sourceTree = "<group>"; };
 		4A8CD1E924EDCD7E00AE8D8E /* MockDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetector.swift; sourceTree = "<group>"; };
-		4A8CD1EB24EDCF0100AE8D8E /* ForcePlateDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateDetector.swift; sourceTree = "<group>"; };
 		4A9F06D02491D91300714B04 /* Gemfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Gemfile.lock; sourceTree = "<group>"; };
 		4A9F06D12491D91400714B04 /* Podfile.lock */ = {isa = PBXFileReference; explicitFileType = text.yaml; path = Podfile.lock; sourceTree = "<group>"; };
 		4A9F06D22491D91400714B04 /* Gemfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Gemfile; sourceTree = "<group>"; };
@@ -555,7 +553,6 @@
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4AEFCBA924B504090065EA46 /* Downloader.swift */,
-				4A8CD1EB24EDCF0100AE8D8E /* ForcePlateDetector.swift */,
 				4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
 				4AA188922486FA90009CFACE /* Main.storyboard */,
@@ -1313,7 +1310,6 @@
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */,
 				4AE7645E24AAF93000CAC3BA /* AppAssembly.swift in Sources */,
-				4A8CD1EC24EDCF0100AE8D8E /* ForcePlateDetector.swift in Sources */,
 				4AE7645924AAF8D900CAC3BA /* DependencyInjection+Container.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
