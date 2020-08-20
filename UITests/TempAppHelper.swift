@@ -22,7 +22,7 @@ class TempAppHelper {
         workspaceHelper.verifyAppRegistedToLaunch(url: tempUrl)
     }
 
-    func waitForAppToLaunchDismissingFirstTimeOpenAlerts() {
+    func waitForAppToLaunchDismissingFirstTimeOpenAlerts(app: XCUIApplication) {
         let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
         repeat {
             agent.activate()
@@ -33,7 +33,9 @@ class TempAppHelper {
                 RareEventMonitor.log(.uiagentWarning)
                 openButton.click()
             }
-        } while !tempApp().wait(for: .runningForeground)
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.0))
+        } while app.state == .notRunning
+        app.activate()
     }
 
     func hasDownloaded(fileName: String) -> NSPredicate {

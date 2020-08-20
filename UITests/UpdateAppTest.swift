@@ -49,7 +49,7 @@ class UpdateAppTest: XCTestCase {
         updatingWindow.buttons["Install and Relaunch"].waitToAppear().click()
         app.wait(until: .notRunning, "wait for app to terminate")
         tempAppHelper.verifyAppRegistedToLaunch()
-        tempAppHelper.waitForAppToLaunchDismissingFirstTimeOpenAlerts()
+        tempAppHelper.waitForAppToLaunchDismissingFirstTimeOpenAlerts(app: app)
         app.activate()
     }
 
