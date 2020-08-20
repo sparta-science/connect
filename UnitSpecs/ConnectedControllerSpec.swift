@@ -23,17 +23,9 @@ class ConnectedControllerSpec: QuickSpec {
                         nameLabel = .init()
                         subject.forcePlateName = nameLabel
                     }
-                    context("connected") {
-                        it("should update name") {
-                            mockDetector.detection!("my forceplate")
-                            expect(subject.forcePlateName.stringValue) == "my forceplate"
-                        }
-                    }
-                    context("disconnected") {
-                        it("should update change to unplugged") {
-                            mockDetector.detection!(nil)
-                            expect(subject.forcePlateName.stringValue) == "unplugged"
-                        }
+                    it("should update name") {
+                        mockDetector.detection!("my forceplate")
+                        expect(subject.forcePlateName.stringValue) == "my forceplate"
                     }
                 }
             }

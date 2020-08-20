@@ -7,8 +7,8 @@ public class ConnectedController: NSViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        forcePlateDetector.onChange { [weak self] name in
-            self?.forcePlateName.stringValue = name ?? "unplugged"
+        forcePlateDetector.start { [weak self] name in
+            self?.forcePlateName.stringValue = name
         }
     }
 

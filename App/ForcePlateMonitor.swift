@@ -23,6 +23,3 @@ public class ForcePlateMonitor {
         }
     }
 }
-
-extension ForcePlateMonitor: Starting {
-}
