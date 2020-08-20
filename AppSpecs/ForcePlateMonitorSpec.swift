@@ -30,7 +30,7 @@ class ForcePlateMonitorSpec: QuickSpec {
             context(ForcePlateMonitor.start) {
                 it("should start device monitor") {
                     subject.start()
-                    expect(fake.didStartOnBackground) == true
+                    expect(fake.didStartOnBackground).toEventually(beTrue())
                 }
                 it("should configure filter") {
                     subject.start()
