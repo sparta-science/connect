@@ -31,11 +31,11 @@ class ForcePlateMonitorSpec: QuickSpec {
             }
             context(ForcePlateMonitor.start) {
                 it("should start device monitor") {
-                    subject.start(update: updating)
+                    subject.start(updating: updating)
                     expect(fake.didStartOnBackground).toEventually(beTrue())
                 }
                 it("should configure filter") {
-                    subject.start(update: updating)
+                    subject.start(updating: updating)
                     expect(fake.filterDevices).notTo(beNil())
                 }
                 context(\SerialDeviceMonitor.filterDevices) {
@@ -51,7 +51,7 @@ class ForcePlateMonitorSpec: QuickSpec {
                             wrongProduct,
                             wrongVendor
                         ]
-                        subject.start(update: updating)
+                        subject.start(updating: updating)
                         it("should only allow valid") {
                             expect(fake.filterDevices!(devices)).to(haveCount(1))
                         }

@@ -14,7 +14,7 @@ public class ForcePlateMonitor {
 }
 
 extension ForcePlateMonitor: ForcePlateDetection {
-    public func start(update: @escaping (String) -> Void) {
+    public func start(updating: @escaping (String) -> Void) {
         serialDeviceMonitor.filterDevices = {
             $0.filter {
                 $0.vendorId == Identifier.stMicroelectronics.rawValue

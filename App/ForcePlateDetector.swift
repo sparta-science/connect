@@ -1,6 +1,6 @@
 import Testable
 
 class ForcePlateDetector: ForcePlateDetection {
-    func start(update: @escaping (String) -> Void) {
+    func start(updating: @escaping (String) -> Void) {
     }
 }
