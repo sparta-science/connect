@@ -1,0 +1,33 @@
+name: on-github
+
+on:
+  push:
+    branches:
+      - experiment/update-dependencies
+  schedule:
+    # Friday Morning
+    - cron: '0 8 * * 5' # https://crontab.guru/#0_8_*_*_5
+
+jobs:
+  check-dependencies:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+    - uses: actions/checkout@v2.3.1
+    - uses: actions/cache@v2
+      with:
+        path: ./vendor/bundle
+        key: bundled-gems-${{ hashFiles('**/Gemfile.lock') }}
+    - name: ruby version
+      run: ruby --version
+    - name: bundle
+      run: |
+        gem install bundler
+        bundle config path ./vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - run: bundle update
+    - run: pod update
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3.1.2
+      with:
+        title: Update dependencies
