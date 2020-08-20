@@ -45,7 +45,7 @@ jobs:
     - uses: actions/cache@v2
       with:
         path: ./vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        key: bundled-gems-${{ hashFiles('**/Gemfile.lock') }}
     - name: ruby version
       run: ruby --version
     - name: bundle
