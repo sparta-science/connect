@@ -36,11 +36,19 @@ target 'UITests' do
     :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
 end
 
-# Disable Xcode warning about available Swift conversion to the latest version of Swift
-# https://github.com/CocoaPods/CocoaPods/issues/8674#issuecomment-524097348
 already_migrated = 9999
 post_install do |installer|
+  # Disable Xcode warning about available Swift conversion to the latest version of Swift
+  # https://github.com/CocoaPods/CocoaPods/issues/8674#issuecomment-524097348
   installer.pods_project.root_object.attributes['LastSwiftMigration'] = already_migrated
   installer.pods_project.root_object.attributes['LastSwiftUpdateCheck'] = already_migrated
   installer.pods_project.root_object.attributes['LastUpgradeCheck'] = already_migrated
+
+  # Fix Xcode warning update to recommended settings caused by overriding architecture settings
+  # https://github.com/CocoaPods/CocoaPods/issues/8242#issuecomment-572046678
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete('ARCHS')
+    end
+  end
 end
