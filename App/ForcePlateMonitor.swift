@@ -1,9 +1,5 @@
-import Foundation
+import Testable
 import USBDeviceSwift
-
-protocol Starting {
-    func start()
-}
 
 public enum Identifier: Int {
     case stMicroelectronics = 0x0483
