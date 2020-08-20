@@ -41,16 +41,52 @@ class ForcePlateMonitorSpec: QuickSpec {
                     expect(fake.filterDevices).notTo(beNil())
                 }
                 context("update") {
-                    it("should call updating") {
-                        waitUntil { done in
-                            subject.start { deviceName in
-                                expect(deviceName) == "force plate"
-                                done()
+                    var device: SerialDevice!
+                    beforeEach {
+                        device = SerialDevice(path: "/dev/not-used")
+                    }
+                    context(Notification.Name.SerialDeviceRemoved) {
+                        it("should be identified by name") {
+                            waitUntil { done in
+                                subject.start { deviceName in
+                                    expect(deviceName).to(beNil())
+                                    done()
+                                }
+                                center.post(name: .SerialDeviceRemoved,
+                                            object: ["device": device])
                             }
-                            var device = SerialDevice(path: "")
-                            device.name = "force plate"
-                            let detected = ["device": device]
-                            center.post(name: .SerialDeviceAdded, object: detected)
+                        }
+                    }
+                    context(Notification.Name.SerialDeviceAdded) {
+                        func expectTo(beShownAs name: String,
+                                      file: FileString = #file,
+                                      line: UInt = #line) {
+                            waitUntil { done in
+                                subject.start { deviceName in
+                                    expect(deviceName, file: file, line: line) == name
+                                    done()
+                                }
+                                center.post(name: .SerialDeviceAdded,
+                                            object: ["device": device])
+                            }
+                        }
+                        context("device with name and no serial number") {
+                            it("should be identified by name") {
+                                device.name = "force plate"
+                                expectTo(beShownAs: "force plate")
+                            }
+                        }
+                        context("device with serial number and name") {
+                            it("should be identified by serial number") {
+                                device.name = "force plate"
+                                device.serialNumber = "SerialNumber"
+                                expectTo(beShownAs: "SerialNumber")
+                            }
+                        }
+                        context("device with no serial number nor name") {
+                            it("should be shown as connected") {
+                                expectTo(beShownAs: "connected")
+                            }
                         }
                     }
                 }
