@@ -1044,11 +1044,11 @@
                                     </gridCell>
                                     <gridCell row="mAJ-Uv-nnE" column="PoX-sg-26W" id="pUJ-cT-mBf">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-1N-m9g">
-                                            <rect key="frame" x="85" y="74" width="91" height="16"/>
+                                            <rect key="frame" x="85" y="74" width="80" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="7yT-fY-jgn"/>
                                             </constraints>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="org_not_found" id="B8S-Xu-nFl">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="not available" id="B8S-Xu-nFl">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
