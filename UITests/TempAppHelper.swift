@@ -27,8 +27,8 @@ class TempAppHelper {
         repeat {
             agent.activate()
             let predicate = NSPredicate(format: "title == 'Open'")
-            let openButton = agent.buttons.matching(predicate).element
-            if agent.state == .runningForeground, openButton.exists {
+            let openButton = agent.dialogs["alert"].buttons.matching(predicate).element
+            if openButton.exists {
                 NSLog("agent: " + agent.debugDescription)
                 RareEventMonitor.log(.uiagentWarning)
                 openButton.click()
