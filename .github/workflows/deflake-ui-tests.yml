@@ -1,4 +1,4 @@
-name: on-github
+name: deflaking-on-github
 
 on:
   push:

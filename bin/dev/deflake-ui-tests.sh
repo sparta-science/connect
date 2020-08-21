@@ -26,9 +26,9 @@ killall SpartaConnect
 xcode_scheme SpartaConnect clean build
 time while { xcode_scheme UITests test -resultBundlePath test-results/ui-tests-latest } do
     source $(dirname $0)/../post-sparta-metrics.sh
-    mv test-results/ui-tests-latest.xcresult test-results/ui-tests-$(date +%s).xcresult
-    rm test-results/ui-tests-latest
     test "$1" = "events" && test -f /tmp/events-detected-during-ui-tests.txt && die "stopping because of events"
     (( SECONDS / 60 > TIME_LIMIT_MINUTES )) && echo "reached time limit $TIME_LIMIT_MINUTES minutes" && exit 0
+    mv test-results/ui-tests-latest.xcresult test-results/ui-tests-$(date +%s).xcresult
+    rm test-results/ui-tests-latest
 done
-die "completed deflaking"
+die "a test failed while deflaking"
