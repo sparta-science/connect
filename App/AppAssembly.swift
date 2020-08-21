@@ -88,5 +88,6 @@ public struct AppAssembly: Assembly {
         container.register {
             ForcePlateMonitor(monitor: $0~>, center: $0~>) as ForcePlateDetection
         }
+        container.autoregister { ConnectionMonitor() as HealthCheck }
     }
 }

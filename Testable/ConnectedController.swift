@@ -1,7 +1,14 @@
 import Cocoa
 
-protocol HealthCheck {
-    func update(complete: (Bool) -> Void)
+public protocol HealthCheck {
+    func update(complete: @escaping (Bool) -> Void)
+}
+
+public class ConnectionMonitor: HealthCheck {
+    public init() {}
+    public func update(complete: @escaping (Bool) -> Void) {
+        complete(true)
+    }
 }
 
 public class ConnectedController: NSViewController {
@@ -17,10 +24,14 @@ public class ConnectedController: NSViewController {
         }
     }
 
+    func updateStatus(connected: Bool) {
+        forcePlateName.stringValue = connected ? "connected" : "not connected"
+        perform(#selector(updateConnectedStatus), with: nil, afterDelay: 1.0)
+    }
+
     @objc func updateConnectedStatus() {
-        healthCheck.update { connected in
-            forcePlateName.stringValue = connected ? "connected" : "not"
-            perform(#selector(updateConnectedStatus), with: nil, afterDelay: 1.0)
+        healthCheck.update { [weak self] connected in
+            self?.updateStatus(connected: connected)
         }
     }
 
