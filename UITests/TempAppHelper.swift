@@ -26,7 +26,7 @@ class TempAppHelper {
         let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
         repeat {
             agent.activate()
-            let predicate = NSPredicate(format: "title == Open")
+            let predicate = NSPredicate(format: "title == 'Open'")
             let openButton = agent.buttons.matching(predicate).element
             if agent.state == .runningForeground, openButton.exists {
                 NSLog("agent: " + agent.debugDescription)
