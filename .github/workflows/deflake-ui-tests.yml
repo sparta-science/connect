@@ -8,10 +8,13 @@ on:
     - cron:  '30 3-14 * * 1-5' # https://crontab.guru/#30_3-14_*_*_1-5
 
 jobs:
-  build-and-test:
+  test-continously:
 
     runs-on: macos-latest
     timeout-minutes: 30
+    env:
+      NSUnbufferedIO: YES
+
     steps:
     - name: Change Local name to avoid name clash causing alert
       run: |
