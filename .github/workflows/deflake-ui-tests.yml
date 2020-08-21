@@ -59,6 +59,13 @@ jobs:
       if: always()
       run: |
         cp /tmp/events-detected-during-ui-tests.txt . || true
+        zip -r results.zip test-results/ui-tests-latest.xcresult || true
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui-tests.xcresult
+        path: results.zip
     - name: Upload events
       if: always()
       uses: actions/upload-artifact@v2

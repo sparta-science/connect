@@ -20,8 +20,10 @@ rm -rf test-results
 rm /tmp/events-detected-during-ui-tests.txt
 killall SpartaConnect
 xcode_scheme SpartaConnect clean build
-time while { xcode_scheme UITests test -resultBundlePath test-results/ui-tests-$(date +%s) } do
+time while { xcode_scheme UITests test -resultBundlePath test-results/ui-tests-latest } do
     source $(dirname $0)/../post-sparta-metrics.sh
+    mv test-results/ui-tests-latest.xcresult test-results/ui-tests-$(date +%s).xcresult
+    rm test-results/ui-tests-latest
     test "$1" = "events" && test -f /tmp/events-detected-during-ui-tests.txt && die "stopping because of events"
 done
 die "completed deflaking"
