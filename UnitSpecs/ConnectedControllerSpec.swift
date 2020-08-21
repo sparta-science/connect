@@ -5,11 +5,13 @@ import Testable
 class ConnectedControllerSpec: QuickSpec {
     override func spec() {
         describe(ConnectedController.self) {
+            var subject: ConnectedController!
+            beforeEach {
+                subject = .init()
+            }
             describe(ConnectedController.viewDidLoad) {
-                var subject: ConnectedController!
                 var mockDetector: MockDetector!
                 beforeEach {
-                    subject = .init()
                     mockDetector = .createAndInject()
                 }
                 it("should setup observer") {
@@ -27,6 +29,16 @@ class ConnectedControllerSpec: QuickSpec {
                         mockDetector.detection!("my forceplate")
                         expect(subject.forcePlateName.stringValue) == "my forceplate"
                     }
+                }
+            }
+            describe(ConnectedController.viewDidAppear) {
+                var mock: MockHealthCheck!
+                beforeEach {
+                    mock = .createAndInject()
+                }
+                it("should start checking health") {
+                    subject.viewDidAppear()
+                    expect(mock.check).notTo(beNil())
                 }
             }
             context(ConnectedController.disconnect(_:)) {

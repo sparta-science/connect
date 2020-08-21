@@ -154,6 +154,7 @@
 		4BBEFC6A24F0404100327B06 /* ConnectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBEFC6924F0404100327B06 /* ConnectionMonitor.swift */; };
 		4BBEFC6C24F040FA00327B06 /* ConnectionMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBEFC6B24F040FA00327B06 /* ConnectionMonitorSpec.swift */; };
 		4BBEFC6E24F047EE00327B06 /* health-check-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BBEFC6D24F047EE00327B06 /* health-check-success.json */; };
+		4BBEFC7024F04BD700327B06 /* MockHealthCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBEFC6F24F04BD700327B06 /* MockHealthCheck.swift */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
 		4BD4D35024ABBC61009D8380 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34F24ABBC61009D8380 /* State.swift */; };
 		4BD4D35224ABBC88009D8380 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35124ABBC88009D8380 /* Login.swift */; };
@@ -371,6 +372,7 @@
 		4BBEFC6924F0404100327B06 /* ConnectionMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMonitor.swift; sourceTree = "<group>"; };
 		4BBEFC6B24F040FA00327B06 /* ConnectionMonitorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMonitorSpec.swift; sourceTree = "<group>"; };
 		4BBEFC6D24F047EE00327B06 /* health-check-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "health-check-success.json"; sourceTree = "<group>"; };
+		4BBEFC6F24F04BD700327B06 /* MockHealthCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHealthCheck.swift; sourceTree = "<group>"; };
 		4BC13F4F249409D000360A26 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
 		4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenuSpec.swift; sourceTree = "<group>"; };
 		4BD4D34D24ABBC02009D8380 /* Installation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installation.swift; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 				4A203BD324BA957E00ECD5EC /* MockStateNotifier.swift */,
 				4AC171D124B51DC40096BF33 /* MockDownloader.swift */,
 				4A8CD1E924EDCD7E00AE8D8E /* MockDetector.swift */,
+				4BBEFC6F24F04BD700327B06 /* MockHealthCheck.swift */,
 				4A81370F24E53F8700D5C856 /* WaitingToBeCancelled.swift */,
 				4AE7649E24AD475A00CAC3BA /* MockError.swift */,
 				4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */,
@@ -1361,6 +1364,7 @@
 				4AE7647024AB08C200CAC3BA /* MoveToApplicationsSpec.swift in Sources */,
 				4AE7646C24AB030A00CAC3BA /* StatusBarMenuSpec.swift in Sources */,
 				4BD4D35424ABBCB6009D8380 /* StateSpec.swift in Sources */,
+				4BBEFC7024F04BD700327B06 /* MockHealthCheck.swift in Sources */,
 				4A203BC024B83E2900ECD5EC /* DebugServerLocatorSpec.swift in Sources */,
 				4AE7648224AB305300CAC3BA /* ConnectedControllerSpec.swift in Sources */,
 				4BD4D36424ABCB95009D8380 /* MockStatusItem.swift in Sources */,
