@@ -151,6 +151,9 @@
 		4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA924B504090065EA46 /* Downloader.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4B70D63924D3405A003C1EBB /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D63824D3405A003C1EBB /* PresentableError.swift */; };
+		4BBEFC6A24F0404100327B06 /* ConnectionMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBEFC6924F0404100327B06 /* ConnectionMonitor.swift */; };
+		4BBEFC6C24F040FA00327B06 /* ConnectionMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BBEFC6B24F040FA00327B06 /* ConnectionMonitorSpec.swift */; };
+		4BBEFC6E24F047EE00327B06 /* health-check-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BBEFC6D24F047EE00327B06 /* health-check-success.json */; };
 		4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34D24ABBC02009D8380 /* Installation.swift */; };
 		4BD4D35024ABBC61009D8380 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D34F24ABBC61009D8380 /* State.swift */; };
 		4BD4D35224ABBC88009D8380 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35124ABBC88009D8380 /* Login.swift */; };
@@ -365,6 +368,9 @@
 		4B70D63824D3405A003C1EBB /* PresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableError.swift; sourceTree = "<group>"; };
 		4BA6952024AA7546008344B8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		4BA6952224AA77B3008344B8 /* WindowControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowControllerSpec.swift; sourceTree = "<group>"; };
+		4BBEFC6924F0404100327B06 /* ConnectionMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMonitor.swift; sourceTree = "<group>"; };
+		4BBEFC6B24F040FA00327B06 /* ConnectionMonitorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionMonitorSpec.swift; sourceTree = "<group>"; };
+		4BBEFC6D24F047EE00327B06 /* health-check-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "health-check-success.json"; sourceTree = "<group>"; };
 		4BC13F4F249409D000360A26 /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
 		4BC13F5124940AD400360A26 /* StatusBarMenuSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenuSpec.swift; sourceTree = "<group>"; };
 		4BD4D34D24ABBC02009D8380 /* Installation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Installation.swift; sourceTree = "<group>"; };
@@ -588,6 +594,7 @@
 				4A48A37F24E340770063A141 /* GetMacSerialNumberSpec.swift */,
 				4A9F71D2249C67990023C93F /* MoveToApplicationsSpec.swift */,
 				4AE7645624AAF15600CAC3BA /* Supporting Files */,
+				4BBEFC6B24F040FA00327B06 /* ConnectionMonitorSpec.swift */,
 			);
 			path = UnitSpecs;
 			sourceTree = "<group>";
@@ -653,6 +660,7 @@
 				4A203BB524B7EB4200ECD5EC /* successful-response-sf-state-gators.json */,
 				4A089F7724E6FD3100532692 /* successful-response-uc-santa-cruz.json */,
 				4AE7649624AD390600CAC3BA /* server-error-response.json */,
+				4BBEFC6D24F047EE00327B06 /* health-check-success.json */,
 				4AE7648924AC536600CAC3BA /* MockInstaller.swift */,
 				4AE7649824AD3AD200CAC3BA /* MockErrorReporter.swift */,
 				4AC171C724B3DA410096BF33 /* MockLocator.swift */,
@@ -764,6 +772,7 @@
 				4AE7649024AC7C5A00CAC3BA /* LoginRequest.swift */,
 				4A203BD124BA954600ECD5EC /* StateNotifier.swift */,
 				4A48A37D24E33FA80063A141 /* GetMacSerialNumber.swift */,
+				4BBEFC6924F0404100327B06 /* ConnectionMonitor.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -1017,6 +1026,7 @@
 				4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */,
 				4A8CD1DF24EB308200AE8D8E /* start_vernal_falls.sh in Resources */,
 				4AE764A124AD6F0400CAC3BA /* expected-config.yml in Resources */,
+				4BBEFC6E24F047EE00327B06 /* health-check-success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1281,6 +1291,7 @@
 				4A48A37E24E33FA80063A141 /* GetMacSerialNumber.swift in Sources */,
 				4AEE63A224D4C608001EBCFD /* ServiceWatchdog.swift in Sources */,
 				4AE7646E24AB04B500CAC3BA /* ProgressController.swift in Sources */,
+				4BBEFC6A24F0404100327B06 /* ConnectionMonitor.swift in Sources */,
 				4AE7646124AAFCC400CAC3BA /* WindowController.swift in Sources */,
 				4AE7646B24AB02FA00CAC3BA /* StatusBarMenu.swift in Sources */,
 				4AE7644924AAB3DD00CAC3BA /* DependencyInjection.swift in Sources */,
@@ -1357,6 +1368,7 @@
 				4A2BB2C724AD15AC005D1CE6 /* HTTPLoginResponseSpec.swift in Sources */,
 				4AE7649324AC7C6C00CAC3BA /* LoginRequestSpec.swift in Sources */,
 				4A203BD424BA957E00ECD5EC /* MockStateNotifier.swift in Sources */,
+				4BBEFC6C24F040FA00327B06 /* ConnectionMonitorSpec.swift in Sources */,
 				4AE7649F24AD475A00CAC3BA /* MockError.swift in Sources */,
 				4AE7648A24AC536600CAC3BA /* MockInstaller.swift in Sources */,
 				4AC171CA24B3DD7E0096BF33 /* ServerLocatorSpec.swift in Sources */,

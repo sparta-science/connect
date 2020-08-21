@@ -79,6 +79,9 @@ public struct AppAssembly: Assembly {
         container.register(name: "stop script url") {
             ($0 ~> Bundle.self).url(forResource: "stop_vernal_falls", withExtension: "sh")!
         }
+        container.autoregister(name: "health check url") {
+            URL(string: "http://localhost:4002/health_check")!
+        }
         container.autoregister(name: "unique client id") { "sparta-connect-" + getMacSerialNumber() }
         container.autoregister { StateNotifier() }.inObjectScope(.transient)
         container.autoregister { { ProcessLauncher() } }
@@ -88,6 +91,8 @@ public struct AppAssembly: Assembly {
         container.register {
             ForcePlateMonitor(monitor: $0~>, center: $0~>) as ForcePlateDetection
         }
-        container.autoregister { ConnectionMonitor() as HealthCheck }
+        container.register {
+            ConnectionMonitor(url: $0 ~> (URL.self, name: "health check url") ) as HealthCheck
+        }
     }
 }

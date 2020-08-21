@@ -1,16 +1,5 @@
 import Cocoa
 
-public protocol HealthCheck {
-    func update(complete: @escaping (Bool) -> Void)
-}
-
-public class ConnectionMonitor: HealthCheck {
-    public init() {}
-    public func update(complete: @escaping (Bool) -> Void) {
-        complete(true)
-    }
-}
-
 public class ConnectedController: NSViewController {
     @Inject var installer: Installation
     @Inject var forcePlateDetector: ForcePlateDetection
