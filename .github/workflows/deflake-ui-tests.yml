@@ -11,7 +11,7 @@ jobs:
   test-continously:
 
     runs-on: macos-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     env:
       NSUnbufferedIO: YES
 
@@ -53,6 +53,7 @@ jobs:
     - name: deflake UI Tests
       env:
         SUBMIT_METRICS_URL: ${{ secrets.SUBMIT_METRICS_URL }}
+        TIME_LIMIT_MINUTES: 25 
       run: |
         bin/dev/deflake-ui-tests.sh
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
