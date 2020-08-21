@@ -10,11 +10,17 @@ die () {
 
 test $# -eq 0 || test "$1" = "events" || die "optional argument: events"
 
+xc_scheme=$(dirname $0)/../xc-scheme.sh
+
+xcode_scheme() {
+    source $xc_scheme "$@"
+}
+
 rm -rf test-results
 rm /tmp/events-detected-during-ui-tests.txt
 killall SpartaConnect
-set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme SpartaConnect clean build | xcpretty
-time while { set -o pipefail && xcodebuild -workspace SpartaConnect.xcworkspace -scheme UITests test -resultBundlePath test-results/ui-tests-$(date +%s) | xcpretty } do
+xcode_scheme SpartaConnect clean build
+time while { xcode_scheme UITests test -resultBundlePath test-results/ui-tests-$(date +%s) } do
     source $(dirname $0)/../post-sparta-metrics.sh
     test "$1" = "events" && test -f /tmp/events-detected-during-ui-tests.txt && die "stopping because of events"
 done
