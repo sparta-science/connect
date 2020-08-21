@@ -6,6 +6,7 @@ public class ConnectedController: NSViewController {
     @IBOutlet public var forcePlateName: NSTextField!
     @Inject var healthCheck: HealthCheck
     @IBOutlet public var connectionStatus: NSTextField!
+    public var timer: Timer?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +17,11 @@ public class ConnectedController: NSViewController {
 
     func updateStatus(connected: Bool) {
         connectionStatus.stringValue = connected ? "connected" : "not connected"
-        perform(#selector(updateConnectedStatus), with: nil, afterDelay: 1.0)
+        timer = .scheduledTimer(timeInterval: 1.0,
+                                target: self,
+                                selector: #selector(updateConnectedStatus),
+                                userInfo: nil,
+                                repeats: false)
     }
 
     @objc func updateConnectedStatus() {
@@ -32,9 +37,7 @@ public class ConnectedController: NSViewController {
 
     override public func viewDidDisappear() {
         super.viewDidDisappear()
-        NSObject.cancelPreviousPerformRequests(withTarget: self,
-                                               selector: #selector(updateConnectedStatus),
-                                               object: nil)
+        timer?.invalidate()
     }
 
     @IBAction public func disconnect(_ sender: NSButton) {

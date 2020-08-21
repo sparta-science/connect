@@ -47,13 +47,37 @@ class ConnectedControllerSpec: QuickSpec {
                         subject.viewDidAppear()
                         statusLabel = .init()
                         subject.connectionStatus = statusLabel
+                        mock.check!(true)
+                    }
+                    afterEach {
+                        subject.timer?.invalidate()
                     }
                     it("should update status") {
-                        mock.check!(true)
                         expect(subject.connectionStatus.stringValue) == "connected"
                         mock.check!(false)
                         expect(subject.connectionStatus.stringValue) == "not connected"
                     }
+                    it("should create timer") {
+                        expect(subject.timer).notTo(beNil())
+                    }
+                    context("when time fires") {
+                        beforeEach {
+                            mock.check = nil
+                        }
+                        it("should check status") {
+                            subject.timer?.fire()
+                            expect(mock.check).notTo(beNil())
+                        }
+                    }
+                }
+            }
+            describe(ConnectedController.viewDidDisappear) {
+                beforeEach {
+                    subject.timer = .init(timeInterval: 10, repeats: false, block: { _ in })
+                }
+                it("should invalidate timer") {
+                    subject.viewDidDisappear()
+                    expect(subject.timer?.isValid) == false
                 }
             }
             context(ConnectedController.disconnect(_:)) {
