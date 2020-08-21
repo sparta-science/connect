@@ -40,6 +40,21 @@ class ConnectedControllerSpec: QuickSpec {
                     subject.viewDidAppear()
                     expect(mock.check).notTo(beNil())
                 }
+                context("observing") {
+                    var statusLabel: NSTextField!
+
+                    beforeEach {
+                        subject.viewDidAppear()
+                        statusLabel = .init()
+                        subject.connectionStatus = statusLabel
+                    }
+                    it("should update status") {
+                        mock.check!(true)
+                        expect(subject.connectionStatus.stringValue) == "connected"
+                        mock.check!(false)
+                        expect(subject.connectionStatus.stringValue) == "not connected"
+                    }
+                }
             }
             context(ConnectedController.disconnect(_:)) {
                 var mockInstaller: MockInstaller!

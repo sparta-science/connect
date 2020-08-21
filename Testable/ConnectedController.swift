@@ -5,6 +5,7 @@ public class ConnectedController: NSViewController {
     @Inject var forcePlateDetector: ForcePlateDetection
     @IBOutlet public var forcePlateName: NSTextField!
     @Inject var healthCheck: HealthCheck
+    @IBOutlet public var connectionStatus: NSTextField!
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -14,7 +15,7 @@ public class ConnectedController: NSViewController {
     }
 
     func updateStatus(connected: Bool) {
-        forcePlateName.stringValue = connected ? "connected" : "not connected"
+        connectionStatus.stringValue = connected ? "connected" : "not connected"
         perform(#selector(updateConnectedStatus), with: nil, afterDelay: 1.0)
     }
 
