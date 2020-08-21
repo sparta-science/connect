@@ -93,20 +93,27 @@ class ForcePlateMonitorSpec: QuickSpec {
                 context(\SerialDeviceMonitor.filterDevices) {
                     var devices: [SerialDevice]!
                     beforeEach {
-                        let valid = SerialDevice(vendor: .stMicroelectronics, product: .virtualComPort)
+                        let validStm = SerialDevice(vendor: .stMicroelectronics, product: .virtualComPort)
+                        let validFtdi = SerialDevice(vendor: .ftdi, product: .ftdiUsbUart)
                         let noVendor = SerialDevice(path: "")
                         let wrongProduct = SerialDevice(vendor: .stMicroelectronics, product: .stMicroelectronics)
                         let wrongVendor = SerialDevice(vendor: .virtualComPort, product: .virtualComPort)
                         devices = [
-                            valid,
+                            validStm,
+                            validFtdi,
                             noVendor,
                             wrongProduct,
                             wrongVendor
                         ]
                         subject.start(updating: stub)
+                        devices = fake.filterDevices!(devices)
                     }
-                    it("should only allow valid") {
-                        expect(fake.filterDevices!(devices)).to(haveCount(1))
+                    it("should only allow STM virtual com port and FTDI USB UART") {
+                        expect(devices).to(haveCount(2))
+                        expect(devices.first?.vendorId) == Identifier.stMicroelectronics.rawValue
+                        expect(devices.first?.productId) == Identifier.virtualComPort.rawValue
+                        expect(devices.last?.vendorId) == Identifier.ftdi.rawValue
+                        expect(devices.last?.productId) == Identifier.ftdiUsbUart.rawValue
                     }
                 }
             }
