@@ -1,9 +1,14 @@
 import Cocoa
 
+protocol HealthCheck {
+    func update(complete: (Bool) -> Void)
+}
+
 public class ConnectedController: NSViewController {
     @Inject var installer: Installation
     @Inject var forcePlateDetector: ForcePlateDetection
     @IBOutlet public var forcePlateName: NSTextField!
+    @Inject var healthCheck: HealthCheck
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -12,12 +17,23 @@ public class ConnectedController: NSViewController {
         }
     }
 
+    @objc func updateConnectedStatus() {
+        healthCheck.update { connected in
+            forcePlateName.stringValue = connected ? "connected" : "not"
+            perform(#selector(updateConnectedStatus), with: nil, afterDelay: 1.0)
+        }
+    }
+
     override public func viewDidAppear() {
         super.viewDidAppear()
+        updateConnectedStatus()
     }
 
     override public func viewDidDisappear() {
         super.viewDidDisappear()
+        NSObject.cancelPreviousPerformRequests(withTarget: self,
+                                               selector: #selector(updateConnectedStatus),
+                                               object: nil)
     }
 
     @IBAction public func disconnect(_ sender: NSButton) {
