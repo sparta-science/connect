@@ -1,0 +1,75 @@
+name: on-github
+
+on:
+  push:
+    branches: [ deflake-ui-tests ]
+  schedule:
+     # At 30 min past every hour between 8 pm and 7 am PST on weekday
+    - cron:  '30 3-14 * * 1-5' # https://crontab.guru/#30_3-14_*_*_1-5
+
+jobs:
+  test-continously:
+
+    runs-on: macos-latest
+    timeout-minutes: 45
+    env:
+      NSUnbufferedIO: YES
+
+    steps:
+    - name: Change Local name to avoid name clash causing alert
+      run: |
+        sudo scutil --set LocalHostName "SpartaConnectGitHubCI"
+        sudo scutil --set ComputerName "SpartaConnectGitHubCI"
+    - name: Do not disturb the build with Notifications
+      run: |
+        npm install --global do-not-disturb-cli
+        do-not-disturb on
+    - name: Disable firewall
+      run: |
+        sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
+        sudo /usr/libexec/ApplicationFirewall/socketfilterfw -k
+    - name: Close Finder Windows using Apple Script
+      run: sudo osascript -e 'tell application "Finder" to close windows'
+    - name: Close Notification window
+      run: killall UserNotificationCenter || true
+    - uses: apple-actions/import-codesign-certs@v1
+      id: codesign
+      with:
+        p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+        p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+        keychain: certs
+    - uses: actions/checkout@v2.3.1
+    - uses: actions/cache@v2
+      with:
+        path: ./vendor/bundle
+        key: bundled-gems-${{ hashFiles('**/Gemfile.lock') }}
+    - name: ruby version
+      run: ruby --version
+    - name: bundle
+      run: |
+        gem install bundler
+        bundle config path ./vendor/bundle
+        bundle install --jobs 4 --retry 3
+    - name: deflake UI Tests
+      env:
+        SUBMIT_METRICS_URL: ${{ secrets.SUBMIT_METRICS_URL }}
+        TIME_LIMIT_MINUTES: 25 
+      run: |
+        bin/dev/deflake-ui-tests.sh
+    - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
+      if: always()
+      run: |
+        cp /tmp/events-detected-during-ui-tests.txt . || true
+        zip -r results.zip test-results/ui-tests-latest.xcresult || true
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui-tests.xcresult
+        path: results.zip
+    - name: Upload events
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: events-detected-during-ui-tests.txt
+        path: events-detected-during-ui-tests.txt

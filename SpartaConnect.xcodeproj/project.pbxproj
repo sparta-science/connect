@@ -302,6 +302,7 @@
 		4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_vernal_falls.sh; sourceTree = "<group>"; };
 		4AB5C25124E2035E003815FB /* SetupTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTestSuite.swift; sourceTree = "<group>"; };
 		4AB890FF24EEFC9E00518D5C /* update-dependencies.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "update-dependencies.yml"; path = ".github/workflows/update-dependencies.yml"; sourceTree = "<group>"; tabWidth = 2; };
+		4AB8910024EF5F0400518D5C /* deflake-ui-tests.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "deflake-ui-tests.yml"; path = ".github/workflows/deflake-ui-tests.yml"; sourceTree = "<group>"; tabWidth = 2; };
 		4AB9C9D324B70D9900B181B7 /* Injected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveToApplicationsTest.swift; sourceTree = "<group>"; };
 		4ABFA61224DD22260044AE24 /* release.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = release.yml; path = .github/workflows/release.yml; sourceTree = "<group>"; tabWidth = 2; };
@@ -485,6 +486,7 @@
 				4AE7648B24AC694500CAC3BA /* local.xcconfig */,
 				4AE7648C24AC694500CAC3BA /* team.xcconfig */,
 				4AD40A9224870C00002728DA /* ci.yml */,
+				4AB8910024EF5F0400518D5C /* deflake-ui-tests.yml */,
 				4AB890FF24EEFC9E00518D5C /* update-dependencies.yml */,
 				4ABFA61224DD22260044AE24 /* release.yml */,
 				4AD40A9D24897F51002728DA /* self-hosted.yml */,
