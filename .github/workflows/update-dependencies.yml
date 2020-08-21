@@ -1,9 +1,9 @@
-name: on-github
+name: update-dependencies
 
 on:
   push:
     branches:
-      - experiment/update-dependencies
+      - experiment/update-dependencies # debug this workflow
   schedule:
     # Friday Morning
     - cron: '0 8 * * 5' # https://crontab.guru/#0_8_*_*_5

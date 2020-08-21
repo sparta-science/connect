@@ -16,25 +16,8 @@ jobs:
     timeout-minutes: 20
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
-    - name: Change Local name to avoid name clash causing alert
-      run: |
-        sudo scutil --set LocalHostName "SpartaConnectGitHubCI"
-        sudo scutil --set ComputerName "SpartaConnectGitHubCI"
-    - name: Do not disturb the build with Notifications
-      run: |
-        npm install --global do-not-disturb-cli
-        do-not-disturb on
-    - name: Disable firewall
-      run: |
-        sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
-        sudo /usr/libexec/ApplicationFirewall/socketfilterfw -k
-#   Breaks clicking on menu bar button
-#    - name: Close Finder windows not to obscure test screenshots
-#      run: launchctl unload /System/Library/LaunchAgents/com.apple.Finder.plist
-    - name: Close Finder Windows using Apple Script
-      run: sudo osascript -e 'tell application "Finder" to close windows'
-    - name: Close Notification window
-      run: killall UserNotificationCenter || true
+    - name: Prepare github runner
+      run: bin/github/prepare-runner.sh
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
       with:

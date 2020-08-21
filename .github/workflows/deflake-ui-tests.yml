@@ -2,7 +2,8 @@ name: deflaking-on-github
 
 on:
   push:
-    branches: [ deflake-ui-tests ]
+    branches:
+      - deflake-ui-tests  # debug this workflow
   schedule:
      # At 30 min past every hour between 8 pm and 7 am PST on weekday
     - cron:  '30 3-14 * * 1-5' # https://crontab.guru/#30_3-14_*_*_1-5
@@ -16,22 +17,8 @@ jobs:
       NSUnbufferedIO: YES
 
     steps:
-    - name: Change Local name to avoid name clash causing alert
-      run: |
-        sudo scutil --set LocalHostName "SpartaConnectDeflaking"
-        sudo scutil --set ComputerName "SpartaConnectDeflaking"
-    - name: Do not disturb the build with Notifications
-      run: |
-        npm install --global do-not-disturb-cli
-        do-not-disturb on
-    - name: Disable firewall
-      run: |
-        sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate off
-        sudo /usr/libexec/ApplicationFirewall/socketfilterfw -k
-    - name: Close Finder Windows using Apple Script
-      run: sudo osascript -e 'tell application "Finder" to close windows'
-    - name: Close Notification window
-      run: killall UserNotificationCenter || true
+    - name: Prepare github runner
+      run: bin/github/prepare-runner.sh
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
       with:

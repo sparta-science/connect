@@ -485,11 +485,7 @@
 				4AD40A99248850E1002728DA /* README.md */,
 				4AE7648B24AC694500CAC3BA /* local.xcconfig */,
 				4AE7648C24AC694500CAC3BA /* team.xcconfig */,
-				4AD40A9224870C00002728DA /* ci.yml */,
-				4AB8910024EF5F0400518D5C /* deflake-ui-tests.yml */,
-				4AB890FF24EEFC9E00518D5C /* update-dependencies.yml */,
-				4ABFA61224DD22260044AE24 /* release.yml */,
-				4AD40A9D24897F51002728DA /* self-hosted.yml */,
+				4AB8910124EFAD5400518D5C /* GitHub actions workflows */,
 				4A9F06D32491D91400714B04 /* Podfile */,
 				4A9F06D12491D91400714B04 /* Podfile.lock */,
 				4A9F06D22491D91400714B04 /* Gemfile */,
@@ -607,6 +603,18 @@
 				4A3F3C99248F607F0058C5D4 /* Supporting Files */,
 			);
 			path = UITests;
+			sourceTree = "<group>";
+		};
+		4AB8910124EFAD5400518D5C /* GitHub actions workflows */ = {
+			isa = PBXGroup;
+			children = (
+				4AD40A9224870C00002728DA /* ci.yml */,
+				4AB8910024EF5F0400518D5C /* deflake-ui-tests.yml */,
+				4AB890FF24EEFC9E00518D5C /* update-dependencies.yml */,
+				4ABFA61224DD22260044AE24 /* release.yml */,
+				4AD40A9D24897F51002728DA /* self-hosted.yml */,
+			);
+			name = "GitHub actions workflows";
 			sourceTree = "<group>";
 		};
 		4AC2E0CE24E3148F0033D023 /* Release */ = {
