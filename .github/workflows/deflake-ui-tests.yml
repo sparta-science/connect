@@ -18,8 +18,8 @@ jobs:
     steps:
     - name: Change Local name to avoid name clash causing alert
       run: |
-        sudo scutil --set LocalHostName "SpartaConnectGitHubCI"
-        sudo scutil --set ComputerName "SpartaConnectGitHubCI"
+        sudo scutil --set LocalHostName "SpartaConnectDeflaking"
+        sudo scutil --set ComputerName "SpartaConnectDeflaking"
     - name: Do not disturb the build with Notifications
       run: |
         npm install --global do-not-disturb-cli
