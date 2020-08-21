@@ -16,15 +16,15 @@ jobs:
     timeout-minutes: 20
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
+    - uses: actions/checkout@v2.3.1
     - name: Prepare github runner
-      run: bin/github/prepare-runner.sh
+      run: bin/github/prepare-runner-for-ui-tests.sh
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
       with:
         p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
-    - uses: actions/checkout@v2.3.1
     - uses: actions/cache@v2
       with:
         path: ./vendor/bundle
