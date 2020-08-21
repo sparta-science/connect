@@ -16,7 +16,7 @@ public class ConnectedController: NSViewController {
     }
 
     func updateStatus(connected: Bool) {
-        connectionStatus.stringValue = connected ? "connected" : "not connected"
+        connectionStatus.stringValue = connected ? "✅ online" : "🛑 offline"
         timer = .scheduledTimer(timeInterval: 1.0,
                                 target: self,
                                 selector: #selector(updateConnectedStatus),

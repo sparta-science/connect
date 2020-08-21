@@ -780,7 +780,7 @@
                                 </connections>
                             </containerView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fdS-do-IcA">
-                                <rect key="frame" x="239" y="17" width="78" height="32"/>
+                                <rect key="frame" x="244" y="16" width="72" height="32"/>
                                 <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7JR-y5-oOb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -813,7 +813,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZO8-NI-6hU">
-                                <rect key="frame" x="50" y="39" width="200" height="102"/>
+                                <rect key="frame" x="50" y="38" width="200" height="104"/>
                                 <rows>
                                     <gridRow id="U7b-GX-FRB">
                                         <connections>
@@ -830,10 +830,10 @@
                                 <gridCells>
                                     <gridCell row="U7b-GX-FRB" column="qfz-VJ-eeS" id="x7g-eT-hlE">
                                         <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vZf-rK-tfG">
-                                            <rect key="frame" x="0.0" y="79" width="200" height="23"/>
+                                            <rect key="frame" x="0.0" y="81" width="200" height="23"/>
                                             <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="bUo-c4-0UE">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="system"/>
                                                 <menu key="menu" id="wF1-fp-ckf"/>
                                             </popUpButtonCell>
                                             <connections>
@@ -844,7 +844,7 @@
                                     </gridCell>
                                     <gridCell row="Dbj-dT-LxX" column="qfz-VJ-eeS" id="1Ls-Ms-Lly">
                                         <textField key="contentView" verticalHuggingPriority="750" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="0dq-pQ-98b">
-                                            <rect key="frame" x="0.0" y="53" width="200" height="21"/>
+                                            <rect key="frame" x="0.0" y="55" width="200" height="21"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="email@example.com" drawsBackground="YES" id="Wng-Bf-IKn">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -863,7 +863,7 @@
                                     </gridCell>
                                     <gridCell row="D5I-e5-LMg" column="qfz-VJ-eeS" id="4DH-qm-PmH">
                                         <secureTextField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RJ1-X1-RDU">
-                                            <rect key="frame" x="0.0" y="26" width="200" height="21"/>
+                                            <rect key="frame" x="0.0" y="28" width="200" height="21"/>
                                             <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="password" drawsBackground="YES" usesSingleLineMode="YES" id="LmG-a4-uLJ">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -885,7 +885,7 @@
                                     </gridCell>
                                     <gridCell row="DZf-o3-6fq" column="qfz-VJ-eeS" id="CNQ-u5-oEb">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bgq-XU-cem">
-                                            <rect key="frame" x="-1" y="-2" width="202" height="23"/>
+                                            <rect key="frame" x="-0.5" y="-1" width="201" height="23"/>
                                             <buttonCell key="cell" type="roundTextured" title="Login" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HPO-8B-9Ka">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -951,7 +951,7 @@
                                         <rect key="frame" x="50" y="0.0" width="100" height="50"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ks0-c5-IkH">
-                                                <rect key="frame" x="24" y="13" width="52" height="23"/>
+                                                <rect key="frame" x="22.5" y="13" width="56" height="23"/>
                                                 <buttonCell key="cell" type="roundTextured" title="Cancel" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nhu-PP-Vt6">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
@@ -1004,7 +1004,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <gridView xPlacement="leading" yPlacement="center" rowAlignment="lastBaseline" rowSpacing="20" columnSpacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="IY4-xr-KTB">
-                                <rect key="frame" x="62" y="26" width="176" height="128"/>
+                                <rect key="frame" x="62" y="25" width="176" height="130"/>
                                 <rows>
                                     <gridRow id="mAJ-Uv-nnE"/>
                                     <gridRow id="Gja-sk-TIp"/>
@@ -1018,7 +1018,7 @@
                                 <gridCells>
                                     <gridCell row="mAJ-Uv-nnE" column="xw9-ny-f3k" id="fDv-yD-f8r">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1yc-P2-Eb0">
-                                            <rect key="frame" x="-2" y="112" width="85" height="16"/>
+                                            <rect key="frame" x="-2" y="114" width="85" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Organization:" id="BFB-5H-2AL">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1028,7 +1028,7 @@
                                     </gridCell>
                                     <gridCell row="mAJ-Uv-nnE" column="PoX-sg-26W" id="pUJ-cT-mBf">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E6e-1N-m9g">
-                                            <rect key="frame" x="86" y="112" width="80" height="16"/>
+                                            <rect key="frame" x="86" y="114" width="80" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="not available" id="B8S-Xu-nFl">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1042,7 +1042,7 @@
                                     </gridCell>
                                     <gridCell row="Gja-sk-TIp" column="xw9-ny-f3k" id="R0c-GG-tFQ">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vy8-Vo-FiY">
-                                            <rect key="frame" x="10" y="76" width="73" height="16"/>
+                                            <rect key="frame" x="10" y="78" width="73" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Forceplate:" id="C0J-3P-sDe">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1052,7 +1052,7 @@
                                     </gridCell>
                                     <gridCell row="Gja-sk-TIp" column="PoX-sg-26W" id="meg-Tm-aWo">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="peN-k2-2hg">
-                                            <rect key="frame" x="86" y="76" width="69" height="16"/>
+                                            <rect key="frame" x="86" y="78" width="69" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="unplugged" id="dYE-Fe-THP">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1062,7 +1062,7 @@
                                     </gridCell>
                                     <gridCell row="hk4-Og-oBZ" column="xw9-ny-f3k" id="QD9-HN-kFV">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dIw-WS-XwM">
-                                            <rect key="frame" x="5" y="40" width="78" height="16"/>
+                                            <rect key="frame" x="5" y="42" width="78" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Connection:" id="IMo-cd-NTe">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1071,8 +1071,8 @@
                                         </textField>
                                     </gridCell>
                                     <gridCell row="hk4-Og-oBZ" column="PoX-sg-26W" id="NNy-fe-jZ8">
-                                        <textField key="contentView" toolTip="connection might take up to 30 seconds to establish" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ADS-eP-6V4">
-                                            <rect key="frame" x="86" y="40" width="92" height="16"/>
+                                        <textField key="contentView" toolTip="It may take up to 30 seconds to connect." horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ADS-eP-6V4">
+                                            <rect key="frame" x="86" y="42" width="92" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="not connected" id="uSl-vN-bPg">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1082,7 +1082,7 @@
                                     </gridCell>
                                     <gridCell row="lud-6V-5fq" column="xw9-ny-f3k" headOfMergedCell="3L6-cm-eps" xPlacement="center" id="3L6-cm-eps">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YmJ-lp-DU9">
-                                            <rect key="frame" x="49" y="-2" width="79" height="23"/>
+                                            <rect key="frame" x="46.5" y="-1" width="83" height="23"/>
                                             <buttonCell key="cell" type="roundTextured" title="Disconnect" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8wT-ea-uL3">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
