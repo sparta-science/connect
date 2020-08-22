@@ -11,10 +11,13 @@ class FakeMonitor: SerialDeviceMonitor {
 }
 
 extension SerialDevice {
-    init(vendor: Identifier, product: Identifier) {
+    init(_ device: ProductOfVendor) {
         self.init(path: "")
-        vendorId = vendor.rawValue
-        productId = product.rawValue
+        vendorId = device.vendor
+        productId = device.product
+    }
+    init(_ device: KnownDevice) {
+        self.init(device.deviceIdentifier())
     }
 }
 
@@ -93,27 +96,24 @@ class ForcePlateMonitorSpec: QuickSpec {
                 context(\SerialDeviceMonitor.filterDevices) {
                     var devices: [SerialDevice]!
                     beforeEach {
-                        let validStm = SerialDevice(vendor: .stMicroelectronics, product: .virtualComPort)
-                        let validFtdi = SerialDevice(vendor: .ftdi, product: .ftdiUsbUart)
+                        let validStm = SerialDevice(.stMicroelectronicsVirtualComPort)
+                        let validFtdi = SerialDevice(.ftdiUsbUart)
                         let noVendor = SerialDevice(path: "")
-                        let wrongProduct = SerialDevice(vendor: .stMicroelectronics, product: .stMicroelectronics)
-                        let wrongVendor = SerialDevice(vendor: .virtualComPort, product: .virtualComPort)
+                        let wrongProduct = SerialDevice(.init(vendor: 1, product: 2))
                         devices = [
                             validStm,
                             validFtdi,
                             noVendor,
-                            wrongProduct,
-                            wrongVendor
+                            wrongProduct
                         ]
                         subject.start(updating: stub)
                         devices = fake.filterDevices!(devices)
                     }
                     it("should only allow STM virtual com port and FTDI USB UART") {
                         expect(devices).to(haveCount(2))
-                        expect(devices.first?.vendorId) == Identifier.stMicroelectronics.rawValue
-                        expect(devices.first?.productId) == Identifier.virtualComPort.rawValue
-                        expect(devices.last?.vendorId) == Identifier.ftdi.rawValue
-                        expect(devices.last?.productId) == Identifier.ftdiUsbUart.rawValue
+                        devices.forEach {
+                            expect(KnownDevice.allDevices).to(contain($0.deviceIdentifier()))
+                        }
                     }
                 }
             }
