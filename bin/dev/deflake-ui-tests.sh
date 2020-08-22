@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 # Run UITest repetedly until first failure
 # optional argument: events - run until until an event is detected
@@ -6,6 +6,7 @@
 #   TIME_LIMIT_MINUTES - optional time limit in minutes
 
 SECONDS=0
+TIME_LIMIT_MINUTES=${TIME_LIMIT_MINUTES:-1000}
 
 die () {
     echo >&2 "$@"
@@ -24,7 +25,8 @@ rm -rf test-results
 rm /tmp/events-detected-during-ui-tests.txt
 killall SpartaConnect
 xcode_scheme SpartaConnect clean build
-time while { xcode_scheme UITests test -resultBundlePath test-results/ui-tests-latest } do
+time while xcode_scheme UITests test -resultBundlePath test-results/ui-tests-latest
+do
     source $(dirname $0)/../post-sparta-metrics.sh
     test "$1" = "events" && test -f /tmp/events-detected-during-ui-tests.txt && die "stopping because of events"
     (( SECONDS / 60 > TIME_LIMIT_MINUTES )) && echo "reached time limit $TIME_LIMIT_MINUTES minutes" && exit 0
