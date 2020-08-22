@@ -18,17 +18,19 @@ public class ServiceWatchdog: NSObject {
     let appQuitNotification = NSApplication.willTerminateNotification
     var observer: NSObjectProtocol?
 
-    override public init() {
-        super.init()
+    override public func awakeFromNib() {
+        super.awakeFromNib()
+        startObserving()
+    }
+
+    private func startObserving() {
         notifier.start { [weak self] state in
             self?.onChange(state: state)
         }
-    }
-
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        observer = center.addObserver(forName: appQuitNotification, object: nil, queue: nil) { [weak self] _ in
-            self?.launch(command: .stop)
+        observer = center.addObserver(forName: appQuitNotification,
+                                      object: nil,
+                                      queue: nil) { [weak self] _ in
+                                        self?.launch(command: .stop)
         }
     }
 

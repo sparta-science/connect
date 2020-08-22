@@ -10,11 +10,14 @@ class ServiceWatchdogSpec: QuickSpec {
             var processLauncher: MockProcessLauncher!
             let fakeFolderUrl = URL(fileURLWithPath: "/fake/folder/just to have valid URL")
             let fakeScriptUrl = URL(fileURLWithPath: "/fake/script/location/that never runs.sh")
+            var center: NotificationCenter!
 
             beforeEach {
                 mockNotifier = .createAndInject()
+                center = .init()
+                TestDependency.register(Inject(center!))
                 subject = .init()
-                expect(subject).notTo(beNil())
+                subject.awakeFromNib()
                 processLauncher = .createAndInjectFactory()
             }
             context("state changes to completed") {
@@ -62,14 +65,10 @@ class ServiceWatchdogSpec: QuickSpec {
                 }
             }
             context("application quits") {
-                var center: NotificationCenter!
                 let willTerminate = NSApplication.willTerminateNotification
 
                 beforeEach {
-                    center = .init()
-                    TestDependency.register(Inject(center!))
                     TestDependency.register(Inject(fakeScriptUrl, name: "stop script url"))
-                    subject.awakeFromNib()
                 }
 
                 it("should run stop bash script in /tmp") {
