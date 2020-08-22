@@ -36,6 +36,11 @@ target 'UITests' do
     :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
 end
 
+target 'ReleaseUITests' do
+  pod 'NSBundle+LoginItem', # launch at login option
+    :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
+end
+
 already_migrated = 9999
 post_install do |installer|
   # Disable Xcode warning about available Swift conversion to the latest version of Swift

@@ -197,24 +197,10 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NSBundle+LoginItem/NSBundle_LoginItem.framework"
-  install_framework "${PODS_ROOT}/Sparkle/Sparkle.framework"
-  install_dsym "${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM"
-  install_framework "${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/USBDeviceSwift/USBDeviceSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/LetsMove/LetsMove.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NSBundle+LoginItem/NSBundle_LoginItem.framework"
-  install_framework "${PODS_ROOT}/Sparkle/Sparkle.framework"
-  install_dsym "${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM"
-  install_framework "${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/SwinjectAutoregistration/SwinjectAutoregistration.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/USBDeviceSwift/USBDeviceSwift.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
