@@ -21,6 +21,11 @@ public extension Container {
         autoregister(Service.self, name: name.flatMap { $0.description }, initializer: initializer)
     }
 }
+extension Resolver {
+    func shellScript(_ name: String) -> URL {
+        (self ~> Bundle.self).url(forResource: name, withExtension: "sh")!
+    }
+}
 
 public struct AppAssembly: Assembly {
     // swiftlint:disable:next function_body_length
@@ -71,13 +76,13 @@ public struct AppAssembly: Assembly {
                 .appendingPathComponent(($0 ~> Bundle.self).bundleIdentifier!)
         }
         container.register(name: "installation script url") {
-            ($0 ~> Bundle.self).url(forResource: "install_vernal_falls", withExtension: "sh")!
+            $0.shellScript("install_vernal_falls")
         }
         container.register(name: "start script url") {
-            ($0 ~> Bundle.self).url(forResource: "start_vernal_falls", withExtension: "sh")!
+            $0.shellScript("start_vernal_falls")
         }
         container.register(name: "stop script url") {
-            ($0 ~> Bundle.self).url(forResource: "stop_vernal_falls", withExtension: "sh")!
+            $0.shellScript("stop_vernal_falls")
         }
         container.autoregister(name: "health check url") {
             URL(string: "http://localhost:4002/health_check")!
