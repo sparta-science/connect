@@ -3,7 +3,7 @@
 # Run UITest repetedly until first failure
 # optional argument: events - run until until an event is detected
 # Environment:
-#   TIME_LIMIT_MINUTES - limit time in minutes to stop running tests
+#   TIME_LIMIT_MINUTES - optional time limit in minutes
 
 SECONDS=0
 

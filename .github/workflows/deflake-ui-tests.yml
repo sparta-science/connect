@@ -44,7 +44,7 @@ jobs:
         SUBMIT_METRICS_URL: ${{ secrets.SUBMIT_METRICS_URL }}
         TIME_LIMIT_MINUTES: 25 
       run: |
-        bin/dev/deflake-ui-tests.sh
+        bin/dev/deflake-ui-tests.sh events
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: |
@@ -62,3 +62,4 @@ jobs:
       with:
         name: events-detected-during-ui-tests.txt
         path: events-detected-during-ui-tests.txt
+        if-no-files-found: ignore
