@@ -68,6 +68,9 @@
 		4AA9AAC924B79BEA00A9D144 /* install_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */; };
 		4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */; };
 		4AB5C25224E2035E003815FB /* SetupTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5C25124E2035E003815FB /* SetupTestSuite.swift */; };
+		4AB8910424F09C2B00518D5C /* ProcessLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */; };
+		4AB8910524F09C5300518D5C /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D63824D3405A003C1EBB /* PresentableError.swift */; };
+		4AB8910624F09C7000518D5C /* Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7644F24AAEF8600CAC3BA /* Init.swift */; };
 		4AB9C9D424B70D9900B181B7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9C9D324B70D9900B181B7 /* Injected.swift */; };
 		4AB9C9D524B71BD600B181B7 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB9C9D324B70D9900B181B7 /* Injected.swift */; };
 		4ABB7A8C248EB8A7009128E3 /* MoveToApplicationsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB7A8B248EB8A7009128E3 /* MoveToApplicationsTest.swift */; };
@@ -1471,10 +1474,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AB8910524F09C5300518D5C /* PresentableError.swift in Sources */,
 				4AC2E0B324E30E5A0033D023 /* XCUIApplication+Extension.swift in Sources */,
 				4AC2E0B424E30E5A0033D023 /* SecurityHelper.swift in Sources */,
 				4AC2E0B524E30E5A0033D023 /* OpenAtLoginTest.swift in Sources */,
 				4AC2E0B624E30E5A0033D023 /* UpdateAppTest.swift in Sources */,
+				4AB8910624F09C7000518D5C /* Init.swift in Sources */,
 				4AC2E0B724E30E5A0033D023 /* Principal.swift in Sources */,
 				4AC2E0B824E30E5A0033D023 /* WorkspaceHelper.swift in Sources */,
 				4AC2E0D024E314E00033D023 /* AlreadyUpToDateTest.swift in Sources */,
@@ -1488,6 +1493,7 @@
 				4AC2E0C024E30E5A0033D023 /* XCUIElement+Extension.swift in Sources */,
 				4AC2E0C124E30E5A0033D023 /* MoveToApplicationsTest.swift in Sources */,
 				4AC2E0C224E30E5A0033D023 /* FileHelper.swift in Sources */,
+				4AB8910424F09C2B00518D5C /* ProcessLauncher.swift in Sources */,
 				4AC2E0C324E30E5A0033D023 /* RareEventMonitor.swift in Sources */,
 				4AC2E0C424E30E5A0033D023 /* BundleHelper.swift in Sources */,
 			);
