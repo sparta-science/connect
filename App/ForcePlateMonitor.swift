@@ -8,6 +8,36 @@ public enum Identifier: Int {
     case ftdiUsbUart = 0x6001
 }
 
+struct DeviceIdentifier: Equatable {
+    var vendor, product: Int
+    init(vendor: Int, product: Int) {
+        self.vendor = vendor
+        self.product = product
+    }
+}
+
+enum KnownDevices: CaseIterable {
+    case stMicroelectronicsVirtualComPort
+    case ftdiUsbUart
+    func deviceIdentifier() -> DeviceIdentifier {
+        switch self {
+        case .stMicroelectronicsVirtualComPort:
+            return DeviceIdentifier(vendor: 0x0483, product: 0x5740)
+        case .ftdiUsbUart:
+            return DeviceIdentifier(vendor: 0x0403, product: 0x6001)
+        }
+    }
+    static var allDevices: [DeviceIdentifier] {
+        allCases.map { $0.deviceIdentifier() }
+    }
+}
+
+extension SerialDevice {
+    func deviceIdentifier() -> DeviceIdentifier {
+        DeviceIdentifier(vendor: vendorId ?? 0, product: productId ?? 0)
+    }
+}
+
 public class ForcePlateMonitor {
     let serialDeviceMonitor: SerialDeviceMonitor
     let center: NotificationCenter
@@ -20,6 +50,9 @@ public class ForcePlateMonitor {
 
 extension ForcePlateMonitor: ForcePlateDetection {
     public func start(updating: @escaping (String?) -> Void) {
+        serialDeviceMonitor.filterDevices = {
+            $0.filter { KnownDevices.allDevices.contains($0.deviceIdentifier()) }
+        }
         serialDeviceMonitor.filterDevices = {
             $0.filter {
                 ($0.vendorId == Identifier.stMicroelectronics.rawValue
