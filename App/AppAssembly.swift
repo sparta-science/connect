@@ -82,7 +82,9 @@ public struct AppAssembly: Assembly {
         container.autoregister(name: "health check url") {
             URL(string: "http://localhost:4002/health_check")!
         }
-        container.autoregister(name: "unique client id") { "sparta-connect-" + getMacSerialNumber() }
+        container.autoregister(name: "unique client id") {
+            "sparta-connect-" + getMacSerialNumber()
+        }
         container.autoregister { StateNotifier() }.inObjectScope(.transient)
         container.autoregister { { ProcessLauncher() } }
         container.autoregister { ServiceWatchdog() }
