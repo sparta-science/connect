@@ -6,6 +6,15 @@ import Testable
 class AppAssemblySpec: QuickSpec {
     override func spec() {
         describe(AppAssembly.self) {
+            context("unique-client-id") {
+                var clientId: Inject<String>!
+                beforeEach {
+                    clientId = .init("unique client id")
+                }
+                it("should begin with sparta connect") {
+                    expect(clientId.wrappedValue).to(beginWith("sparta-connect-"))
+                }
+            }
             context(Inject<URL>.self) {
                 var injectedUrl: Inject<URL>!
                 context("installation url") {
