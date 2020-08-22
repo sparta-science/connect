@@ -97,7 +97,7 @@ class ForcePlateMonitorSpec: QuickSpec {
                 context(\SerialDeviceMonitor.filterDevices) {
                     var devices: [SerialDevice]!
                     beforeEach {
-                        let validStm = SerialDevice(.stMicroelectronicsVirtualComPort)
+                        let validStm = SerialDevice(.stmVirtualComPort)
                         let validFtdi = SerialDevice(.ftdiUsbUart)
                         let noVendor = SerialDevice(path: "")
                         let wrongProduct = SerialDevice(.init(vendor: 1, product: 2))
