@@ -46,7 +46,8 @@
             </SkippedTests>
          </TestableReference>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            useTestSelectionWhitelist = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4AC2E0AE24E30E5A0033D023"
@@ -54,23 +55,20 @@
                BlueprintName = "ReleaseUITests"
                ReferencedContainer = "container:SpartaConnect.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
+            <SelectedTests>
                <Test
-                  Identifier = "LoginTest/testFailedInstallation()">
+                  Identifier = "AlreadyUpToDateTest/testAlreadyUpToDate()">
                </Test>
                <Test
-                  Identifier = "LoginTest/testInvalidLogin()">
+                  Identifier = "ConnectTest/testClickConnectShowsConnectWindow()">
                </Test>
                <Test
-                  Identifier = "LoginTest/testSuccessfulInstallationAndLaunch()">
+                  Identifier = "MoveToApplicationsTest/testMoveToApplications()">
                </Test>
                <Test
-                  Identifier = "UpdateAppTest/testAutoUpgrade()">
+                  Identifier = "OpenAtLoginTest/testOpenAtLoginAddsLoginItem()">
                </Test>
-               <Test
-                  Identifier = "UpdateAppTest/testUpgradeOnQuit()">
-               </Test>
-            </SkippedTests>
+            </SelectedTests>
          </TestableReference>
       </Testables>
    </TestAction>
