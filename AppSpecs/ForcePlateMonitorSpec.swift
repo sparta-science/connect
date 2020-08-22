@@ -1,6 +1,7 @@
 import Nimble
 import Quick
 import SpartaConnect
+import Testable
 @testable import USBDeviceSwift
 
 class FakeMonitor: SerialDeviceMonitor {
