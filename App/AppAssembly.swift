@@ -25,6 +25,9 @@ extension Resolver {
     func shellScript(_ name: String) -> URL {
         (self ~> Bundle.self).url(forResource: name, withExtension: "sh")!
     }
+    func url(name: String) -> URL {
+        self ~> (service: URL.self, name: name)
+    }
 }
 
 public struct AppAssembly: Assembly {
@@ -41,9 +44,12 @@ public struct AppAssembly: Assembly {
                 .statusItem(withLength: NSStatusItem.squareLength)
         }
         container.register { $0 + NSApplication.self as ApplicationAdapter }
+        container.autoregister { UserDefaults.standard }
 
         // MARK: Third party
-        container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary }
+        container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary
+        }
+        container.autoregister { SerialDeviceMonitor() }
 
         // MARK: Application
         #if DEBUG
@@ -72,8 +78,10 @@ public struct AppAssembly: Assembly {
                                               create: false)
         }
         container.register(name: "installation url") {
-            ($0 ~> (service: URL.self, name: "app support url"))
-                .appendingPathComponent(($0 ~> Bundle.self).bundleIdentifier!)
+            $0.url(name: "app support url")
+                .appendingPathComponent(
+                    ($0 ~> Bundle.self).bundleIdentifier!
+            )
         }
         container.register(name: "installation script url") {
             $0.shellScript("install_vernal_falls")
@@ -93,13 +101,11 @@ public struct AppAssembly: Assembly {
         container.autoregister { StateNotifier() }.inObjectScope(.transient)
         container.autoregister { { ProcessLauncher() } }
         container.autoregister { ServiceWatchdog() }
-        container.autoregister { UserDefaults.standard }
-        container.autoregister { SerialDeviceMonitor() }
         container.register {
             ForcePlateMonitor(monitor: $0~>, center: $0~>) as ForcePlateDetection
         }
         container.register {
-            ConnectionMonitor(url: $0 ~> (URL.self, name: "health check url") ) as HealthCheck
+            ConnectionMonitor(url: $0.url(name: "health check url")) as HealthCheck
         }
     }
 }
