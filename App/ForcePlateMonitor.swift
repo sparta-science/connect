@@ -8,7 +8,7 @@ public enum Identifier: Int {
     case ftdiUsbUart = 0x6001
 }
 
-struct DeviceIdentifier: Equatable {
+struct ProductOfVendor: Equatable {
     var vendor, product: Int
     init(vendor: Int, product: Int) {
         self.vendor = vendor
@@ -19,22 +19,22 @@ struct DeviceIdentifier: Equatable {
 enum KnownDevices: CaseIterable {
     case stMicroelectronicsVirtualComPort
     case ftdiUsbUart
-    func deviceIdentifier() -> DeviceIdentifier {
+    func deviceIdentifier() -> ProductOfVendor {
         switch self {
         case .stMicroelectronicsVirtualComPort:
-            return DeviceIdentifier(vendor: 0x0483, product: 0x5740)
+            return ProductOfVendor(vendor: 0x0483, product: 0x5740)
         case .ftdiUsbUart:
-            return DeviceIdentifier(vendor: 0x0403, product: 0x6001)
+            return ProductOfVendor(vendor: 0x0403, product: 0x6001)
         }
     }
-    static var allDevices: [DeviceIdentifier] {
+    static var allDevices: [ProductOfVendor] {
         allCases.map { $0.deviceIdentifier() }
     }
 }
 
 extension SerialDevice {
-    func deviceIdentifier() -> DeviceIdentifier {
-        DeviceIdentifier(vendor: vendorId ?? 0, product: productId ?? 0)
+    func deviceIdentifier() -> ProductOfVendor {
+        ProductOfVendor(vendor: vendorId ?? 0, product: productId ?? 0)
     }
 }
 
