@@ -1,0 +1,63 @@
+name: deflaking-on-self-hosted
+
+on:
+  push:
+  schedule:
+     # Every 10 min between 8 pm and 7 am PST on weekday
+    - cron:  '*/10 3-14 * * 1-5' # https://crontab.guru/#*/10_3-14_*_*_1-5
+     # Every 10 min on weekend
+    - cron:  '*/10 * * * 0,6'  # https://crontab.guru/#*/10_*_*_*_0,6
+
+defaults:
+  run:
+    shell: bash -l {0}
+
+jobs:
+  build-then-test:
+
+    runs-on: self-hosted
+    timeout-minutes: 45
+
+    env:
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+      NSUnbufferedIO: YES
+
+    steps:
+    - run: rm ~/Library/Keychains/certs.keychain-db || true
+    - uses: apple-actions/import-codesign-certs@v1
+      id: codesign
+      with:
+        p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+        p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+        keychain: certs
+    - name: Checkout
+      uses: actions/checkout@v2.3.1
+    - name: bundle
+      run: |
+        ruby -v
+        gem install bundler:2.1.4 --conservative
+        bundle
+    - name: deflake UI Tests
+      env:
+        SUBMIT_METRICS_URL: ${{ secrets.SUBMIT_METRICS_URL }}
+        TIME_LIMIT_MINUTES: 25
+      run: |
+        bin/dev/deflake-ui-tests.sh
+    - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
+      if: always()
+      run: |
+        cp /tmp/events-detected-during-ui-tests.txt . || true
+        zip -r results.zip test-results/ui-tests-latest.xcresult || true
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ui-tests.xcresult
+        path: results.zip
+    - name: Upload events
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: events-detected-during-ui-tests.txt
+        path: events-detected-during-ui-tests.txt
+        if-no-files-found: ignore
