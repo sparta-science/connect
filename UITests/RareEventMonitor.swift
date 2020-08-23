@@ -17,13 +17,13 @@ class RareEventMonitor: NSObject {
         center.addTestObserver(shared)
     }
 
-    var events = [RareEvent]()
+    var recordedEvents = [RareEvent]()
     func logEvent(_ event: RareEvent) {
-        events.append(event)
+        recordedEvents.append(event)
     }
     func counts() -> [String: Int] {
         let empty = RareEvent.allCases.map { ($0.rawValue, 0) }
-        let combined = empty + events.map { ($0.rawValue, 1) }
+        let combined = empty + recordedEvents.map { ($0.rawValue, 1) }
         return Dictionary(combined,
                    uniquingKeysWith: +)
     }
@@ -85,9 +85,9 @@ extension RareEventMonitor: XCTestObservation {
     func testBundleDidFinish(_ testBundle: Bundle) {
         if successful {
             reportMetrics()
-            if !events.isEmpty {
-                print("warning: there are some events: \(events.map { $0.rawValue })")
-                try! "detected events: \(events)".write(toFile: "/tmp/events-detected-during-ui-tests.txt", atomically: true, encoding: .ascii)
+            if !recordedEvents.isEmpty {
+                print("warning: there are some events: \(recordedEvents.map { $0.rawValue })")
+                try! "detected events: \(recordedEvents)".write(toFile: "/tmp/events-detected-during-ui-tests.txt", atomically: true, encoding: .ascii)
             }
         } else {
             print("error: skipping metrics due to failures")
