@@ -8,8 +8,8 @@ class RareEventMonitor: NSObject {
     var successful = true
     static let shared = RareEventMonitor()
 
-    static func log(_ event: RareEvent) {
-        shared.logEvent(event)
+    static func log(_ event: RareEvent, location: (StaticString, UInt) = (#file, #line)) {
+        shared.logEvent(event, location: location)
     }
 
     static func startMonitoring() {
@@ -18,7 +18,7 @@ class RareEventMonitor: NSObject {
     }
 
     var recordedEvents = [RareEvent]()
-    func logEvent(_ event: RareEvent) {
+    func logEvent(_ event: RareEvent, location: (StaticString, UInt) = (#file, #line)) {
         recordedEvents.append(event)
     }
     func counts() -> [String: Int] {

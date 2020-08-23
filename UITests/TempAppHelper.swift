@@ -23,7 +23,8 @@ class TempAppHelper {
         workspaceHelper.verifyAppRegistedToLaunch(url: tempUrl)
     }
 
-    func waitForAppToLaunchDismissingFirstTimeOpenAlerts(app: XCUIApplication) {
+    func waitForAppToLaunchDismissingFirstTimeOpenAlerts(app: XCUIApplication,
+                                                         location: (StaticString, UInt) = (#file, #line)) {
         let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
         repeat {
             if agent.dialogs.count > 0 {
@@ -45,7 +46,8 @@ class TempAppHelper {
     }
 
     @discardableResult
-    func handleFistTimeOpenAlert(dialog: XCUIElement) -> Bool {
+    func handleFistTimeOpenAlert(dialog: XCUIElement,
+                                 location: (StaticString, UInt) = (#file, #line)) -> Bool {
         if dialog.label == "alert", dialog.buttons["Show Application"].exists {
             NSLog("alert: " + dialog.debugDescription)
             XCTAssertTrue(dialog.staticTexts[
@@ -53,18 +55,17 @@ class TempAppHelper {
                     + "Are you sure you want to open this application?"
             ].exists)
             dialog.buttons["Open"].click()
-            RareEventMonitor.log(.firstTimeOpenAlert)
+            RareEventMonitor.log(.firstTimeOpenAlert, location: location)
             return true
         }
         return false
     }
 
-    func prepare(for test: XCTestCase) {
-        let openFirstTimeMonitor = test.addUIInterruptionMonitor(
-            withDescription: "open first time",
-            handler: handleFistTimeOpenAlert(dialog:)
-        )
-        removeMonitor = { test.removeUIInterruptionMonitor(openFirstTimeMonitor) }
+    func prepare(for test: XCTestCase, location: (StaticString, UInt) = (#file, #line)) {
+        let monitor = test.addUIInterruptionMonitor(withDescription: "open first time") { [unowned self] dialog in
+            self.handleFistTimeOpenAlert(dialog: dialog, location: location)
+        }
+        removeMonitor = { test.removeUIInterruptionMonitor(monitor) }
         removeTempApp()
         let original = XCUIApplication().url
         fileHelper.copy(original, to: tempUrl)
