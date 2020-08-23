@@ -1,7 +1,8 @@
 import XCTest
 
 class TempAppHelper {
-    let tempUrl = URL(fileURLWithPath: "/tmp/SpartaConnectForUITest.app")
+    let appNameForTesting = "SpartaConnectForUITest"
+    lazy var tempUrl = URL(fileURLWithPath: "/tmp/\(appNameForTesting).app")
     let bundleHelper = BundleHelper()
     let fileHelper = FileHelper()
     var removeMonitor: (() -> Void)!
@@ -25,13 +26,8 @@ class TempAppHelper {
     func waitForAppToLaunchDismissingFirstTimeOpenAlerts(app: XCUIApplication) {
         let agent = XCUIApplication(bundleIdentifier: "com.apple.coreservices.uiagent")
         repeat {
-            agent.activate()
-            let predicate = NSPredicate(format: "title == 'Open'")
-            let openButton = agent.dialogs["alert"].buttons.matching(predicate).element
-            if openButton.exists {
-                NSLog("agent: " + agent.debugDescription)
-                RareEventMonitor.log(.uiagentWarning)
-                openButton.click()
+            if agent.dialogs.count > 0 {
+                handleFistTimeOpenAlert(dialog: agent.dialogs.firstMatch)
             }
             RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.0))
         } while app.state == .notRunning
@@ -48,22 +44,26 @@ class TempAppHelper {
                                arguments: arguments)
     }
 
+    @discardableResult
+    func handleFistTimeOpenAlert(dialog: XCUIElement) -> Bool {
+        if dialog.label == "alert", dialog.buttons["Show Application"].exists {
+            NSLog("alert: " + dialog.debugDescription)
+            XCTAssertTrue(dialog.staticTexts[
+                "You are opening the application “\(appNameForTesting)” for the first time. "
+                    + "Are you sure you want to open this application?"
+            ].exists)
+            dialog.buttons["Open"].click()
+            RareEventMonitor.log(.firstTimeOpenAlert)
+            return true
+        }
+        return false
+    }
+
     func prepare(for test: XCTestCase) {
         let openFirstTimeMonitor = test.addUIInterruptionMonitor(
-            withDescription: "open first time"
-        ) { dialog -> Bool in
-            if dialog.label == "alert", dialog.buttons["Show Application"].exists {
-                NSLog("alert: " + dialog.debugDescription)
-                XCTAssertTrue(dialog.staticTexts[
-                    "You are opening the application “SpartaConnectForUITest” for the first time. "
-                        + "Are you sure you want to open this application?"
-                ].exists)
-                dialog.buttons["Open"].click()
-                RareEventMonitor.log(.firstTimeOpenAlert)
-                return true
-            }
-            return false
-        }
+            withDescription: "open first time",
+            handler: handleFistTimeOpenAlert(dialog:)
+        )
         removeMonitor = { test.removeUIInterruptionMonitor(openFirstTimeMonitor) }
         removeTempApp()
         let original = XCUIApplication().url

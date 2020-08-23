@@ -1,10 +1,7 @@
 import XCTest
 
 enum RareEvent: String, CaseIterable {
-    case uiagentWarning
     case firstTimeOpenAlert
-    case hadToRetryLaunching
-    case appIsNotReadyToBeLaunched
 }
 
 class RareEventMonitor: NSObject {
@@ -46,16 +43,13 @@ class RareEventMonitor: NSObject {
             "host": "entry.1585459658",
             "time": "entry.60160137",
             "commit": "entry.634580662",
-            "uiagentWarning": "entry.2044854151",
-            "firstTimeOpenAlert": "entry.682716004",
-            "hadToRetryLaunching": "entry.1903891707",
-            "appIsNotReadyToBeLaunched": "entry.2015326007"
+            "firstTimeOpenAlert": "entry.682716004"
         ][dataKey]!
     }
     func createForm(data: [String: String]) -> String {
-        var components = URLComponents()
-        components.queryItems = data.map { URLQueryItem(name: formKey(dataKey: $0), value: $1) }
-        return components.percentEncodedQuery!
+        Init(URLComponents()) {
+            $0.queryItems = data.map { URLQueryItem(name: formKey(dataKey: $0), value: $1) }
+        }.percentEncodedQuery!
     }
     func writeSpartaMetrics() {
         let formUrl = URL(fileURLWithPath: "/tmp/sparta-ui-test-metrics-url-encoded-form.txt")
