@@ -3,10 +3,10 @@ name: deflaking-on-self-hosted
 on:
   push:
   schedule:
-     # Every 10 min between 8 pm and 7 am PST on weekday
-    - cron:  '*/10 3-14 * * 1-5' # https://crontab.guru/#*/10_3-14_*_*_1-5
-     # Every 10 min on weekend
-    - cron:  '*/10 * * * 0,6'  # https://crontab.guru/#*/10_*_*_*_0,6
+    # Every 30 min on weekday nights (between 8 pm and 7 am PST)
+    - cron:  '*/30 3-14 * * 1-5' # https://crontab.guru/#*/30_3-14_*_*_1-5
+    # Every 30 min on weekend
+    - cron:  '*/30 * * * 0,6'  # https://crontab.guru/#*/30_*_*_*_0,6
 
 defaults:
   run:

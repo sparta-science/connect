@@ -5,9 +5,9 @@ on:
     branches:
       - deflake-ui-tests  # debug this workflow
   schedule:
-     # At 30 min past every hour between 8 pm and 7 am PST on weekday
-    - cron:  '30 3-14 * * 1-5' # https://crontab.guru/#30_3-14_*_*_1-5
-     # Every 30 min on weekend
+    # Every 30 min on weekday nights (between 8 pm and 7 am PST)
+    - cron:  '*/30 3-14 * * 1-5' # https://crontab.guru/#*/30_3-14_*_*_1-5
+    # Every 30 min on weekend
     - cron:  '*/30 * * * 0,6'  # https://crontab.guru/#*/30_*_*_*_0,6
 
 jobs:
