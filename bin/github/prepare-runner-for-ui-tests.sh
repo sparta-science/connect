@@ -3,8 +3,9 @@
 # Prepare GitHub runner
 
 # Change Local name to avoid name clash causing alert
-sudo scutil --set LocalHostName "$GITHUB_WORKFLOW"
-sudo scutil --set ComputerName "$GITHUB_WORKFLOW"
+suffix=$RANDOM
+sudo scutil --set LocalHostName "$GITHUB_WORKFLOW-$suffix"
+sudo scutil --set ComputerName "$GITHUB_WORKFLOW-$suffix"
 
 # Close Notification window
 killall UserNotificationCenter || true

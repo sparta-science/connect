@@ -34,7 +34,7 @@ class RareEventMonitor: NSObject {
             commit = sha.trimmingCharacters(in: .whitespacesAndNewlines)
         }
         values["time"] = Date().timeIntervalSinceReferenceDate.description
-        values["host"] = Host.current().localizedName!
+        values["host"] = ProcessInfo.processInfo.environment["GITHUB_WORKFLOW"] ?? Host.current().localizedName!
         values["commit"] = commit
         return values
     }
