@@ -43,6 +43,7 @@ class TempAppHelper {
     func launch(arguments: [String] = []) {
         workspaceHelper.launch(url: tempUrl,
                                arguments: arguments)
+        tempApp().wait(until: .runningForeground, "should be launched")
     }
 
     @discardableResult

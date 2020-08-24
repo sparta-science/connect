@@ -82,7 +82,6 @@ class UpdateAppTest: XCTestCase {
     func testAutoUpgrade() throws {
         preventAutomaticDownloadOfUpdates()
         tempAppHelper.launch(arguments: arguments)
-        app.wait(until: .runningForeground)
         dismissMainWindowAsAWorkaroundUpdateWindowNotFound()
         app.activate()
         checkForUpdatesAndInstall()
@@ -134,13 +133,11 @@ class UpdateAppTest: XCTestCase {
 
     func testUpgradeOnQuit() {
         tempAppHelper.launch(arguments: arguments)
-        app.wait(until: .runningForeground)
         waitForUpdatesDownloaded()
         checkForUpdatesAndInstallOnQuit()
         quitApp()
         waitForUpdatesInstalled()
         tempAppHelper.launch(arguments: arguments)
-        app.wait(until: .runningForeground)
         verifyUpdated()
     }
 }

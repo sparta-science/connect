@@ -29,7 +29,7 @@ class MoveToApplicationsTest: XCTestCase {
         let alert = tempApp.waitForMoveAlert()
         alert.buttons["Move to Applications Folder"].click()
         alert.waitToDisappear()
-        tempApp.wait(until: .notRunning, "wait for app to terminate")
+        tempApp.wait(until: .notRunning, "should terminate to move")
     }
 
     func testMoveToApplications() throws {
