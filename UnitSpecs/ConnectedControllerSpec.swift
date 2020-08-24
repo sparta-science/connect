@@ -53,9 +53,9 @@ class ConnectedControllerSpec: QuickSpec {
                         subject.timer?.invalidate()
                     }
                     it("should update status") {
-                        expect(subject.connectionStatus.stringValue) == "✅ online"
+                        expect(subject.connectionStatus.stringValue) == "🟢 online"
                         mock.check!(false)
-                        expect(subject.connectionStatus.stringValue) == "🛑 offline"
+                        expect(subject.connectionStatus.stringValue) == "🔴 offline"
                     }
                     it("should create timer") {
                         expect(subject.timer).notTo(beNil())
