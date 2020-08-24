@@ -53,12 +53,6 @@ class UpdateAppTest: XCTestCase {
         app.activate()
     }
 
-    func dismissMoveToApplicationsAlert() {
-        let alert = app.waitForMoveAlert()
-        alert.buttons["Do Not Move"].click()
-        alert.waitToDisappear()
-    }
-
     func verifyUpdated() {
         app.wait(until: .runningForeground, "wait for app to relaunch")
         app.windows["Connect to Sparta Science"].waitToAppear(time: .launch)
@@ -86,7 +80,7 @@ class UpdateAppTest: XCTestCase {
         app.activate()
         checkForUpdatesAndInstall()
         installAndRelaunch()
-        dismissMoveToApplicationsAlert()
+        app.respondToMoveAlert("Do Not Move")
         verifyUpdated()
     }
 

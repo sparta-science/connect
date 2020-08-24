@@ -14,7 +14,13 @@ class SpartaConnectApp: XCUIApplication {
     func waitForAnimationsToFinish() {
         activate()
     }
-    func waitForMoveAlert() -> XCUIElement {
+    func respondToMoveAlert(_ button: String) {
+        Init(waitForMoveAlert()) {
+            $0.buttons[button].click()
+            $0.waitToDisappear()
+        }
+    }
+    private func waitForMoveAlert() -> XCUIElement {
         XCTContext.runActivity(named: "wait for move alert") { _ in
             let alert = dialogs["alert"]
             alert.staticTexts["I can move myself to the Applications folder if you'd like."]
