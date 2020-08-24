@@ -2,6 +2,7 @@ import XCTest
 
 enum RareEvent: String, CaseIterable {
     case firstTimeOpenAlert
+    case hadToRetryLaunching
 }
 
 class RareEventMonitor: NSObject {
@@ -43,7 +44,8 @@ class RareEventMonitor: NSObject {
             "host": "entry.1585459658",
             "time": "entry.60160137",
             "commit": "entry.634580662",
-            "firstTimeOpenAlert": "entry.682716004"
+            "firstTimeOpenAlert": "entry.682716004",
+            "hadToRetryLaunching": "entry.1903891707"
         ][dataKey]!
     }
     func createForm(data: [String: String]) -> String {
