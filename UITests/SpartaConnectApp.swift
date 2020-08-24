@@ -15,19 +15,9 @@ class SpartaConnectApp: XCUIApplication {
         activate()
     }
     func respondToMoveAlert(_ button: String) {
-        Init(waitForMoveAlert()) {
-            $0.buttons[button].click()
-            $0.waitToDisappear()
-        }
-    }
-    private func waitForMoveAlert() -> XCUIElement {
-        XCTContext.runActivity(named: "wait for move alert") { _ in
-            let alert = dialogs["alert"]
-            alert.staticTexts["I can move myself to the Applications folder if you'd like."]
-                .waitToAppear(time: .install)
-            waitForAnimationsToFinish()
-            return alert
-        }
+        dismiss(alert: "I can move myself to the Applications folder if you'd like.",
+                byClicking: button,
+                timeout: .install)
     }
     func connectWindow() -> XCUIElement {
         windows["Connect to Sparta Science"]
@@ -93,8 +83,13 @@ class SpartaConnectApp: XCUIApplication {
             disconnectButton.waitToDisappear()
         }
     }
-    func dismiss(alert: String, byClicking button: String) {
-        dialogs.staticTexts[alert].waitToAppear()
-        dialogs.buttons[button].click()
+    func dismiss(alert text: String, byClicking button: String, timeout: Timeout = .test) {
+        XCTContext.runActivity(named: "dismiss " + text) { _ in
+            let alert = dialogs["alert"]
+            alert.staticTexts[text].waitToAppear(time: timeout)
+            waitForAnimationsToFinish()
+            alert.buttons[button].click()
+            alert.waitToDisappear()
+        }
     }
 }
