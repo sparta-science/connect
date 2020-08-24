@@ -2,6 +2,9 @@ name: deflaking-on-self-hosted
 
 on:
   push:
+    branches:
+      - master            # detect flakiness
+      - deflake-ui-tests  # debug this workflow
   schedule:
     # Every 30 min on weekday nights (between 8 pm and 7 am PST)
     - cron:  '*/30 3-14 * * 1-5' # https://crontab.guru/#*/30_3-14_*_*_1-5
