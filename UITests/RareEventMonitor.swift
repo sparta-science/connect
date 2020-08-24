@@ -1,8 +1,14 @@
 import XCTest
 
+/**
+ Rare Test events tracked on web to measure trends and remote no longer needed workarounds
+
+     See metrics reported:
+     https://docs.google.com/spreadsheets/d/1_O2j2Ng1n5OEmTO8oK2q6Qd3-OYVJRkjsRUSu0Kv79I
+ */
 enum RareEvent: String, CaseIterable {
-    case firstTimeOpenAlert
-    case hadToRetryLaunching
+    case firstTimeOpenAlert     // 4% chance on github runner, cause https://github.com/sparta-science/connect/issues/55
+    case hadToRetryLaunching    // 0.3% chance on self-hosted or github, cause https://github.com/sparta-science/connect/issues/17
 }
 
 class RareEventMonitor: NSObject {
