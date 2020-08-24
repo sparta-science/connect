@@ -10,9 +10,10 @@ class DebugServerLocatorSpec: QuickSpec {
                 subject = .init()
             }
             context(\DebugServerLocator.availableServers) {
-                it("should list all backends") {
+                it("should list all backends including simulated") {
                     expect(subject.availableServers) == [
                         "localhost",
+                        "offline",
                         "staging",
                         "production",
                         "simulate install failure",

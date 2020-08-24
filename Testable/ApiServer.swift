@@ -3,11 +3,13 @@ import Foundation
 public enum ApiServer: String, CaseIterable {
     // swiftlint:disable explicit_enum_raw_value
     case localhost
+    case offline
     case staging
     case production
 
     static let servers: [Self: String] = [
         .localhost: "http://localhost:4000",
+        .offline: "http://spartascan.local",
         .staging: "https://staging.spartascience.com",
         .production: "https://home.spartascience.com"
     ]

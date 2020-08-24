@@ -24,6 +24,7 @@ class ServerLocatorSpec: QuickSpec {
                 it("should list all backends") {
                     expect(subject.availableServers) == [
                         "localhost",
+                        "offline",
                         "staging",
                         "production"
                     ]
