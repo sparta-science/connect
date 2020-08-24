@@ -1009,7 +1009,11 @@
                                     <gridRow id="mAJ-Uv-nnE"/>
                                     <gridRow id="Gja-sk-TIp"/>
                                     <gridRow id="hk4-Og-oBZ"/>
-                                    <gridRow id="lud-6V-5fq"/>
+                                    <gridRow id="lud-6V-5fq">
+                                        <connections>
+                                            <binding destination="47i-8z-o9m" name="hidden" keyPath="values.offline installation" id="amw-1k-Agb"/>
+                                        </connections>
+                                    </gridRow>
                                 </rows>
                                 <columns>
                                     <gridColumn xPlacement="trailing" id="xw9-ny-f3k"/>
