@@ -9,13 +9,16 @@ public class ServerLocator: NSObject {
         super.init()
     }
     func baseUrlString(_ server: String) -> String {
-        ApiServer(rawValue: server)!.serverUrlString()
+        let host = ApiServer.displayNames.first {
+            $0.value == server
+        }
+        return host?.key.serverUrlString() ?? ""
     }
 }
 
 extension ServerLocator: ServerLocatorProtocol {
     public var availableServers: [String] {
-        ApiServer.allCases.map { $0.rawValue }
+        Array(ApiServer.displayNames.values)
     }
     public func loginRequest(_ login: Login) -> LoginRequest {
         Init(LoginRequest()) {
