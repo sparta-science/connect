@@ -1,7 +1,6 @@
 import Foundation
 
 public enum ApiServer: CaseIterable {
-    // swiftlint:disable explicit_enum_raw_value
     case localhost
     case offline
     case staging
