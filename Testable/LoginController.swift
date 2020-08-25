@@ -1,7 +1,7 @@
 import Cocoa
 
 public class LoginController: NSViewController {
-    @objc var hideEnvironments: Bool = isReleaseBuild()
+    @objc var enableEnvironments: Bool = isDebugBuild()
     @objc public let login = Login()
     @Inject var installer: Installation
     @Inject var processInfo: ProcessInfo
