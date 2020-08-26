@@ -7,11 +7,17 @@ class LocalServer: NSObject {
     let decoder = Init(JSONDecoder()) {
         $0.keyDecodingStrategy = .convertFromSnakeCase
     }
+    let encoder = Init(JSONEncoder()) {
+        $0.keyEncodingStrategy = .convertToSnakeCase
+    }
     func handleOffline(data: Data) -> HttpResponseBody {
-        if let json = try? self.decoder.decode(ScienceInputs.self, from: data) {
-            print(json)
+        if let inputs = try? decoder.decode(ScienceInputs.self, from: data) {
+            let outputs = science(inputs: inputs)
+            if let encoded = try? encoder.encode(outputs) {
+                return .data(encoded)
+            }
         }
-        return .json(["hello"])
+        return .json(["something went wrong"])
     }
     func startServer() {
         server = HttpServer()
