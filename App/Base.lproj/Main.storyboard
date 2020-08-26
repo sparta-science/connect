@@ -1120,6 +1120,7 @@
                 </viewController>
                 <customObject id="Av8-CC-Vcx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="47i-8z-o9m"/>
+                <customObject id="XcV-Kh-Fit" customClass="LocalServer" customModule="SpartaConnect" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="99" y="1054"/>
         </scene>
