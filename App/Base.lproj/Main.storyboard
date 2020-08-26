@@ -668,6 +668,13 @@
                         <value key="minSize" type="size" width="320" height="260"/>
                         <value key="maxSize" type="size" width="320" height="260"/>
                         <connections>
+                            <binding destination="X7l-gp-uz4" name="title" keyPath="values.offline installation" id="2Y6-bd-eiM">
+                                <dictionary key="options">
+                                    <string key="NSNullPlaceholder">Connect to Sparta Science</string>
+                                    <bool key="NSValidatesImmediately" value="YES"/>
+                                    <string key="NSValueTransformerName">Testable.TitleValueTransformer</string>
+                                </dictionary>
+                            </binding>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
@@ -730,6 +737,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
                 <customObject id="pLn-GC-5BG" customClass="InjectedBundle" customModule="Testable"/>
+                <userDefaultsController id="X7l-gp-uz4"/>
             </objects>
             <point key="canvasLocation" x="-217" y="-21"/>
         </scene>
