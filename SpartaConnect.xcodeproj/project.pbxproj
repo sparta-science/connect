@@ -161,6 +161,8 @@
 		4AEF80C024F710FE00E8B49C /* TitleValueTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80BF24F710FE00E8B49C /* TitleValueTransformer.swift */; };
 		4AEF80C224F715E600E8B49C /* LocalServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80C124F715E600E8B49C /* LocalServer.swift */; };
 		4AEF80C424F71B6100E8B49C /* ScienceInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80C324F71B6100E8B49C /* ScienceInputs.swift */; };
+		4AEF80C624F71CE500E8B49C /* ScienceOutputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80C524F71CE500E8B49C /* ScienceOutputs.swift */; };
+		4AEF80C924F71D3F00E8B49C /* Science.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80C724F71D3900E8B49C /* Science.swift */; };
 		4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA924B504090065EA46 /* Downloader.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4B70D63924D3405A003C1EBB /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D63824D3405A003C1EBB /* PresentableError.swift */; };
@@ -390,6 +392,8 @@
 		4AEF80BF24F710FE00E8B49C /* TitleValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTransformer.swift; sourceTree = "<group>"; };
 		4AEF80C124F715E600E8B49C /* LocalServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServer.swift; sourceTree = "<group>"; };
 		4AEF80C324F71B6100E8B49C /* ScienceInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceInputs.swift; sourceTree = "<group>"; };
+		4AEF80C524F71CE500E8B49C /* ScienceOutputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceOutputs.swift; sourceTree = "<group>"; };
+		4AEF80C724F71D3900E8B49C /* Science.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Science.swift; sourceTree = "<group>"; };
 		4AEFCBA924B504090065EA46 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4B70D63824D3405A003C1EBB /* PresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableError.swift; sourceTree = "<group>"; };
@@ -595,6 +599,7 @@
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4AEFCBA924B504090065EA46 /* Downloader.swift */,
+				4AEF80C724F71D3900E8B49C /* Science.swift */,
 				4AEF80C124F715E600E8B49C /* LocalServer.swift */,
 				4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
@@ -756,6 +761,7 @@
 			children = (
 				4BD4D34D24ABBC02009D8380 /* Installation.swift */,
 				4AEF80C324F71B6100E8B49C /* ScienceInputs.swift */,
+				4AEF80C524F71CE500E8B49C /* ScienceOutputs.swift */,
 				4AEF80BF24F710FE00E8B49C /* TitleValueTransformer.swift */,
 				4BD4D35924ABBF59009D8380 /* ApiServer.swift */,
 				4A203BBB24B8386300ECD5EC /* DebugFileServer.swift */,
@@ -1360,6 +1366,7 @@
 				4BD4D35A24ABBF59009D8380 /* ApiServer.swift in Sources */,
 				4AE7644B24AAB3DD00CAC3BA /* Inject.swift in Sources */,
 				4BD4D35224ABBC88009D8380 /* Login.swift in Sources */,
+				4AEF80C624F71CE500E8B49C /* ScienceOutputs.swift in Sources */,
 				4BD4D34E24ABBC02009D8380 /* Installation.swift in Sources */,
 				4AE7644C24AAB3DD00CAC3BA /* DependencyContainer.swift in Sources */,
 				4AE7644A24AAB3DD00CAC3BA /* ResolveDependency.swift in Sources */,
@@ -1423,6 +1430,7 @@
 			files = (
 				4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */,
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
+				4AEF80C924F71D3F00E8B49C /* Science.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4AEF80C224F715E600E8B49C /* LocalServer.swift in Sources */,
 				4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */,

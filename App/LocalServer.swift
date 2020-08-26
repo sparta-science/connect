@@ -17,7 +17,7 @@ class LocalServer: NSObject {
         server = HttpServer()
         if let server = server {
             server["/offline"] = { request in
-                return .ok(self.handleOffline(data: Data(request.body)))
+                .ok(self.handleOffline(data: Data(request.body)))
             }
             // swiftlint:disable:next force_try
             try! server.start(4_080)
