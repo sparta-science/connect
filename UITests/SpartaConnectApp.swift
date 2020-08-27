@@ -80,7 +80,7 @@ class SpartaConnectApp: XCUIApplication {
         XCTContext.runActivity(named: "disconnect") { _ in
             let disconnectButton = connectWindow().buttons["Disconnect"]
             disconnectButton.click()
-            disconnectButton.waitToDisappear()
+            disconnectButton.waitToDisappear(timeout: .launch)
         }
     }
     func dismiss(alert text: String, byClicking button: String, timeout: Timeout = .test) {
