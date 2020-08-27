@@ -1,12 +1,12 @@
 import Foundation
 
 public struct ScienceInputs: Codable {
-    let input: [Input]
+    public let input: [Input]
 }
 
-struct Input: Codable {
-    let load, explode, drive, avgMass: Double
-    let maxVerticalJumpHeight: Double
-    let gender: Int
-    let id: String
+public struct Input: Codable {
+    public let load, explode, drive, avgMass: Double
+    public let maxVerticalJumpHeight: Double
+    public let gender: Int
+    public let id: String
 }
