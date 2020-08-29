@@ -32,7 +32,7 @@ jobs:
       run: bin/github/check-self-hosted-runner.swift
     - name: cancelling
       uses: andymckay/cancel-action@0.2
-      if: ${{ contains(steps.runner-check.outputs, 'cancel') }}
+      if: ${{ steps.runner-check.outputs.cancel == 'true' }}
     - name: bundle
       run: |
         ruby -v
