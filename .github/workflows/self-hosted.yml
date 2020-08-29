@@ -28,7 +28,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2.3.1
     - name: Check Runner
+      id: runner-check
       run: bin/github/check-self-hosted-runner.swift
+    - name: cancelling
+      uses: andymckay/cancel-action@0.2
+      if: ${{ contains(steps.runner-check.outputs, 'cancel') }}
     - name: bundle
       run: |
         ruby -v

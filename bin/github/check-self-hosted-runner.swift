@@ -7,8 +7,8 @@ func checkIfScreenIsLocked() {
         print(session)
         if let locked = session["CGSSessionScreenIsLocked"] {
             print("screen locked: ", locked)
-            print("::warning ::Not ready to run")
-            exit(3)
+            print("::warning ::Not ready to run as screen is locked")
+            print("::set-output name=cancel::screen is locked")
         }
     }
 }
