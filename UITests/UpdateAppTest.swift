@@ -16,6 +16,7 @@ class UpdateAppTest: XCTestCase {
         try super.setUpWithError()
         continueAfterFailure = false
         executionTimeAllowance = 200
+        try tempAppHelper.skipForOtherTeams()
         tempAppHelper.prepare(for: self)
         tempAppHelper.bundleHelper.clearDefaults()
         tempAppHelper.clearCache()
@@ -23,7 +24,7 @@ class UpdateAppTest: XCTestCase {
 
     override func tearDownWithError() throws {
         app.terminate()
-        if testRun?.totalFailureCount == 0 {
+        if let run = testRun, run.totalFailureCount == 0, run.skipCount == 0 {
             tempAppHelper.cleanup()
         }
         try super.tearDownWithError()

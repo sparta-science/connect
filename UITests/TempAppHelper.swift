@@ -62,6 +62,11 @@ class TempAppHelper {
         return false
     }
 
+    func skipForOtherTeams() throws {
+        let team = workspaceHelper.securityHelper.testDevelopmentTeam()
+        try XCTSkipUnless(team == "GB9B5L6A6K", "skipping for team: \(team)")
+    }
+
     func prepare(for test: XCTestCase, location: (StaticString, UInt) = (#file, #line)) {
         let monitor = test.addUIInterruptionMonitor(withDescription: "open first time") { [unowned self] dialog in
             self.handleFistTimeOpenAlert(dialog: dialog, location: location)

@@ -20,5 +20,7 @@
 	<string>1</string>
 	<key>NSPrincipalClass</key>
 	<string>$(TARGET_NAME).Principal</string>
+	<key>Test Development Team</key>
+	<string>$(DEVELOPMENT_TEAM)</string>
 </dict>
 </plist>
