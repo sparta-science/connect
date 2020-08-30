@@ -18,6 +18,10 @@ jobs:
       NSUnbufferedIO: YES
 
     steps:
+    - name: Cancel when screen is locked
+      uses: sparta-science/cancel-on-screen-lock@v0.2
+      with:
+        repo-token: ${{ github.token }}
     - run: rm ~/Library/Keychains/certs.keychain-db || true
     - uses: apple-actions/import-codesign-certs@v1
       id: codesign
@@ -27,8 +31,6 @@ jobs:
         keychain: certs
     - name: Checkout
       uses: actions/checkout@v2.3.1
-    - name: Check Runner
-      run: bin/github/check-self-hosted-runner.swift
     - name: bundle
       run: |
         ruby -v
@@ -72,8 +74,8 @@ jobs:
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: |
-        cp /tmp/rare-test-events.plist .
-        zip -r results.zip ui-tests.xcresult
+        cp /tmp/rare-test-events.plist . || true
+        zip -r results.zip ui-tests.xcresult || true
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
