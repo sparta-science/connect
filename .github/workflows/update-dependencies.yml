@@ -31,3 +31,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3.1.2
       with:
         title: Update dependencies
+        body: |
+          Automated scheduled changes
+          https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Triggered by ${{ github.event_name }}
