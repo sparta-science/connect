@@ -1,0 +1,128 @@
+{
+  "storage" : "model.espresso.weights",
+  "properties" : {
+
+  },
+  "format_version" : 200,
+  "layers" : [
+    {
+      "top" : "model_1\/flatten_1\/Reshape",
+      "weights" : {
+
+      },
+      "dst_w" : 6,
+      "dst_n" : 1,
+      "dst_nd_rank" : 2,
+      "type" : "reshape",
+      "mode" : 0,
+      "dst_h" : -1,
+      "dynamic_shape" : false,
+      "bottom" : "jump",
+      "dst_seq" : 1,
+      "name" : "model_1\/flatten_1\/Reshape",
+      "dst_k" : 1
+    },
+    {
+      "nB" : 6,
+      "top" : "model_1\/dense_1\/Relu",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 50,
+      "blob_weights" : 3,
+      "type" : "inner_product",
+      "has_relu" : 1,
+      "bottom" : "model_1\/flatten_1\/Reshape",
+      "blob_biases" : 1,
+      "has_tanh" : 0,
+      "name" : "model_1\/dense_1\/BiasAdd",
+      "has_prelu" : 0
+    },
+    {
+      "nB" : 50,
+      "top" : "model_1\/dense_2\/Relu",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 50,
+      "blob_weights" : 7,
+      "type" : "inner_product",
+      "has_relu" : 1,
+      "bottom" : "model_1\/dense_1\/Relu",
+      "blob_biases" : 5,
+      "has_tanh" : 0,
+      "name" : "model_1\/dense_2\/BiasAdd",
+      "has_prelu" : 0
+    },
+    {
+      "nB" : 50,
+      "top" : "model_1\/dense_3\/Relu",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 50,
+      "blob_weights" : 11,
+      "type" : "inner_product",
+      "has_relu" : 1,
+      "bottom" : "model_1\/dense_2\/Relu",
+      "blob_biases" : 9,
+      "has_tanh" : 0,
+      "name" : "model_1\/dense_3\/BiasAdd",
+      "has_prelu" : 0
+    },
+    {
+      "nB" : 50,
+      "top" : "model_1\/dense_4\/Relu",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 50,
+      "blob_weights" : 15,
+      "type" : "inner_product",
+      "has_relu" : 1,
+      "bottom" : "model_1\/dense_3\/Relu",
+      "blob_biases" : 13,
+      "has_tanh" : 0,
+      "name" : "model_1\/dense_4\/BiasAdd",
+      "has_prelu" : 0
+    },
+    {
+      "nB" : 50,
+      "top" : "model_1\/dense_5\/Relu",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 50,
+      "blob_weights" : 19,
+      "type" : "inner_product",
+      "has_relu" : 1,
+      "bottom" : "model_1\/dense_4\/Relu",
+      "blob_biases" : 17,
+      "has_tanh" : 0,
+      "name" : "model_1\/dense_5\/BiasAdd",
+      "has_prelu" : 0
+    },
+    {
+      "nB" : 50,
+      "top" : "mskHealth",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 2,
+      "blob_weights" : 23,
+      "type" : "inner_product",
+      "has_relu" : 0,
+      "bottom" : "model_1\/dense_5\/Relu",
+      "blob_biases" : 21,
+      "has_tanh" : 0,
+      "name" : "Identity",
+      "has_prelu" : 0
+    }
+  ]
+}

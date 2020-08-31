@@ -1,0 +1,11 @@
+framework module EdgeScience {
+  umbrella header "EdgeScience.h"
+
+  export *
+  module * { export * }
+}
+
+module EdgeScience.Swift {
+    header "EdgeScience-Swift.h"
+    requires objc
+}

@@ -1,0 +1,60 @@
+{
+  "layer_shapes" : {
+    "model_1\/flatten_1\/Reshape" : {
+      "k" : 1,
+      "w" : 6,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "model_1\/dense_5\/Relu" : {
+      "k" : 1,
+      "w" : 50,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "mskHealth" : {
+      "k" : 1,
+      "w" : 2,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "model_1\/dense_4\/Relu" : {
+      "k" : 1,
+      "w" : 50,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "model_1\/dense_3\/Relu" : {
+      "k" : 1,
+      "w" : 50,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "model_1\/dense_2\/Relu" : {
+      "k" : 1,
+      "w" : 50,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    },
+    "jump" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "_rank" : 3,
+      "h" : 6
+    },
+    "model_1\/dense_1\/Relu" : {
+      "k" : 1,
+      "w" : 50,
+      "n" : 1,
+      "_rank" : 2,
+      "h" : 1
+    }
+  }
+}

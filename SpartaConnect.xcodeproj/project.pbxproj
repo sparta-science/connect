@@ -48,6 +48,8 @@
 		4A515D3724D9CE4D00B65B41 /* StateCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3624D9CE4D00B65B41 /* StateCapsule.swift */; };
 		4A515D3924D9CEE200B65B41 /* StateCapsuleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3824D9CEE200B65B41 /* StateCapsuleSpec.swift */; };
 		4A515D3B24D9DBB100B65B41 /* MockStateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */; };
+		4A642B6624FD9F870060F491 /* EdgeScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; };
+		4A642B6724FD9F870060F491 /* EdgeScience.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */; };
 		4A6D268F24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
@@ -224,6 +226,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4A642B6724FD9F870060F491 /* EdgeScience.framework in Embed Frameworks */,
 				4A3F3C7A248C92720058C5D4 /* Testable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -284,6 +287,7 @@
 		4A515D3624D9CE4D00B65B41 /* StateCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCapsule.swift; sourceTree = "<group>"; };
 		4A515D3824D9CEE200B65B41 /* StateCapsuleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCapsuleSpec.swift; sourceTree = "<group>"; };
 		4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStateContainer.swift; sourceTree = "<group>"; };
+		4A642B6524FD9F870060F491 /* EdgeScience.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EdgeScience.framework; path = App/EdgeScience.framework; sourceTree = "<group>"; };
 		4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitor.swift; sourceTree = "<group>"; };
 		4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitorSpec.swift; sourceTree = "<group>"; };
 		4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "tiny-valid.tar.gz"; sourceTree = "<group>"; };
@@ -430,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A3F3C79248C92720058C5D4 /* Testable.framework in Frameworks */,
+				4A642B6624FD9F870060F491 /* EdgeScience.framework in Frameworks */,
 				E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -818,6 +823,7 @@
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A642B6524FD9F870060F491 /* EdgeScience.framework */,
 				8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */,
 				6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */,
 				4275614E6C55701F69F0E518 /* Pods_UITests.framework */,
@@ -1787,6 +1793,10 @@
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/App",
+				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1806,6 +1816,10 @@
 				CODE_SIGN_ENTITLEMENTS = App/SpartaConnect.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/App",
+				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
