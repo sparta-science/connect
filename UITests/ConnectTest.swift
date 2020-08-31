@@ -66,6 +66,14 @@ class ConnectTest: XCTestCase {
             verifyLaunched(serviceName: "sparta_science.vernal_falls")
             verifyOrgNameDisplayed(orgName: "San Francisco State Gators")
         }
+        XCTContext.runActivity(named: "offline installation hides disconnect") { _ in
+            let appDefaults = UserDefaults(suiteName: "com.spartascience.SpartaConnect")!
+            appDefaults.set(true, forKey: "offline installation")
+            let disconnectButton = app.connectWindow().buttons["Disconnect"]
+            disconnectButton.waitToDisappear()
+            appDefaults.set(false, forKey: "offline installation")
+            disconnectButton.waitToAppear()
+        }
         try verifyStartStopScriptsRunWithoutErrorsFromAnyState()
         app.disconnect()
         verifyStopped(serviceName: "sparta_science.vernal_falls")
