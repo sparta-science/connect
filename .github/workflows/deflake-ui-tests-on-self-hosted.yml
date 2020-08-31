@@ -27,7 +27,7 @@ jobs:
 
     steps:
     - name: Cancel when screen is locked
-      uses: sparta-science/cancel-on-screen-lock@v0.2
+      uses: sparta-science/cancel-on-screen-lock@v1
       with:
         repo-token: ${{ github.token }}
     - run: rm ~/Library/Keychains/certs.keychain-db || true
