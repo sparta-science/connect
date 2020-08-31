@@ -61,7 +61,7 @@ class ServiceWatchdogSpec: QuickSpec {
                     expect(processLauncher.didRun) == [
                         "/bin/bash",
                         fakeScriptUrl.path,
-                        "file:///tmp/"]
+                        "file://" + NSTemporaryDirectory()]
                 }
             }
             context("application quits") {
@@ -76,7 +76,7 @@ class ServiceWatchdogSpec: QuickSpec {
                     expect(processLauncher.didRun) == [
                         "/bin/bash",
                         fakeScriptUrl.path,
-                        "file:///tmp/"]
+                        "file://" + NSTemporaryDirectory()]
                 }
 
                 context("retain cycle") {

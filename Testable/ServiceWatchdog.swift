@@ -49,7 +49,7 @@ public class ServiceWatchdog: NSObject {
             case .start:
                 try launch(script: startScriptURL, in: installationURL)
             case .stop:
-                try launch(script: stopScriptURL, in: URL(fileURLWithPath: "/tmp"))
+                try launch(script: stopScriptURL, in: URL(fileURLWithPath: NSTemporaryDirectory()))
             }
         } catch {
             errorReporter.report(error: error)
