@@ -26,7 +26,7 @@ jobs:
         p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
-    - uses: actions/checkout@v2.3.1
+    - uses: actions/checkout@v2.3.2
     - name: Check bundle version matches git tag
       uses: sparta-science/check-version-matches-tag@v1.0.3
       with:
@@ -38,7 +38,7 @@ jobs:
     - name: ruby bundle
       run: |
         ruby --version
-        gem install --no-rdoc --no-ri bundler
+        bundler --version
         bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
     - name: Build
