@@ -66,6 +66,10 @@ jobs:
       env:
         DEVELOPER_ID_LOGIN: ${{ secrets.DEVELOPER_ID_LOGIN }}
         DEVELOPER_ID_PASSWORD: ${{ secrets.DEVELOPER_ID_PASSWORD }}
+        ARCHIVE: build/archive.xcarchive
+        EXPORT_OPTIONS: App/export-options.plist
+        APP_NAME: SpartaConnect
+        BUNDLE_ID: com.spartascience.SpartaConnect
       run: bin/dev/notarize.sh
     - name: Upload Notarized app
       uses: actions/upload-artifact@v2
@@ -73,10 +77,10 @@ jobs:
         name: SpartaConnect
         path: build/export/SpartaConnect.zip
     - name: Create Release
-      id: create_release
+      if: startsWith(github.ref, 'refs/tags/v')
       uses: softprops/action-gh-release@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        GITHUB_TOKEN: ${{ github.token }}
       with:
         draft: true
         prerelease: true
