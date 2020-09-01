@@ -71,14 +71,24 @@ class ProgressControllerSpec: QuickSpec {
                         }
                     }
                     context("determinate") {
+                        let expectedProgress = 0.333_3
+
+                        func localized(progress: Double) -> String {
+                            let formatter = NumberFormatter()
+                            formatter.numberStyle = .percent
+
+                            return formatter.string(from: NSNumber(value: progress))!
+                        }
                         beforeEach {
                             progress.totalUnitCount = 3
                             progress.completedUnitCount = 1
                             mockNotifier.send(state: .busy(value: progress))
                         }
                         it("should set fraction completed") {
-                            expect(progressIndicator.doubleValue).to(beCloseTo(0.333_3))
-                            expect(progressLabel.stringValue) == "33% completed"
+                            let localizedCompleted = localized(progress: expectedProgress) + " completed"
+
+                            expect(progressIndicator.doubleValue).to(beCloseTo(expectedProgress))
+                            expect(progressLabel.stringValue) == localizedCompleted
                         }
                     }
                 }
