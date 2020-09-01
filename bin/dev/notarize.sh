@@ -36,4 +36,5 @@ while [[ "$request_status" == "in progress" ]]; do
     echo $request_status
 done
 xcrun stapler staple "build/export/$APP_NAME.app"
+xcrun stapler validate "build/export/$APP_NAME.app"
 ditto -c -k --keepParent "build/export/$APP_NAME.app" "build/export/$APP_NAME.zip"
