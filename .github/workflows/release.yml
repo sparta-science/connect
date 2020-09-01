@@ -33,13 +33,13 @@ jobs:
         plist-path: App/Info.plist
     - uses: actions/cache@v2.1.1
       with:
-        path: ./vendor/bundle
+        path: vendor/bundle
         key: bundled-gems-${{ hashFiles('**/Gemfile.lock') }}
     - name: ruby bundle
       run: |
         ruby --version
-        gem install bundler
-        bundle config path ./vendor/bundle
+        gem install --no-rdoc --no-ri bundler
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
     - name: Build
       uses: sersoft-gmbh/xcodebuild-action@master
