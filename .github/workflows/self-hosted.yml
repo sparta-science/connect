@@ -74,7 +74,7 @@ jobs:
     - name: Archive results # due to: https://github.com/actions/upload-artifact/issues/76
       if: always()
       run: |
-        cp /tmp/rare-test-events.plist . || true
+        cp $TMPDIR/rare-test-events.plist . || true
         zip -r results.zip ui-tests.xcresult || true
     - name: Upload test results
       if: always()
