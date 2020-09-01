@@ -31,14 +31,13 @@ jobs:
       uses: sparta-science/check-version-matches-tag@v1.0.3
       with:
         plist-path: App/Info.plist
-    - uses: actions/cache@v2
+    - uses: actions/cache@v2.1.1
       with:
         path: ./vendor/bundle
         key: bundled-gems-${{ hashFiles('**/Gemfile.lock') }}
-    - name: ruby version
-      run: ruby --version
-    - name: bundle
+    - name: ruby bundle
       run: |
+        ruby --version
         gem install bundler
         bundle config path ./vendor/bundle
         bundle install --jobs 4 --retry 3
