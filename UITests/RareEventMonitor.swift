@@ -37,7 +37,7 @@ class RareEventMonitor: NSObject {
     func spartaMetrics() -> [String: String] {
         var values = counts().mapValues { $0.description }
         var commit = "unknown"
-        if let sha = try? String(contentsOfFile: "/tmp/git-commit-sha.txt", encoding: .ascii) {
+        if let sha = try? String(contentsOf: temp(path: "git-commit-sha.txt"), encoding: .ascii) {
             commit = sha.trimmingCharacters(in: .whitespacesAndNewlines)
         }
         values["time"] = Date().timeIntervalSinceReferenceDate.description
@@ -60,7 +60,7 @@ class RareEventMonitor: NSObject {
         }.percentEncodedQuery!
     }
     func writeSpartaMetrics() {
-        let formUrl = URL(fileURLWithPath: "/tmp/sparta-ui-test-metrics-url-encoded-form.txt")
+        let formUrl = temp(path: "sparta-ui-test-metrics-url-encoded-form.txt")
         try! createForm(data: spartaMetrics()).write(to: formUrl,
                                                      atomically: true,
                                                      encoding: .ascii)
@@ -70,10 +70,10 @@ class RareEventMonitor: NSObject {
     }
     func writeAwsMetrics() {
         try! JSONEncoder().encode(awsMetrics())
-            .write(to: URL(fileURLWithPath: "/tmp/aws-ui-test-metrics.json"))
+            .write(to: temp(path: "aws-ui-test-metrics.json"))
     }
     func writeCounts() {
-        let fileUrl = URL(fileURLWithPath: "/tmp/rare-test-events.plist")
+        let fileUrl = temp(path: "rare-test-events.plist")
         NSDictionary(dictionary: counts())
             .write(to: fileUrl, atomically: true)
     }
@@ -95,7 +95,7 @@ extension RareEventMonitor: XCTestObservation {
             reportMetrics()
             if !recordedEvents.isEmpty {
                 print("warning: there are some events: \(recordedEvents.map { $0.rawValue })")
-                try! "detected events: \(recordedEvents)".write(toFile: "/tmp/events-detected-during-ui-tests.txt", atomically: true, encoding: .ascii)
+                try! "detected events: \(recordedEvents)".write(to: temp(path: "events-detected-during-ui-tests.txt"), atomically: true, encoding: .ascii)
             }
         } else {
             print("error: skipping metrics due to failures")

@@ -2,7 +2,7 @@ import XCTest
 
 class TempAppHelper {
     let appNameForTesting = "SpartaConnectForUITest"
-    lazy var tempUrl = URL(fileURLWithPath: "/tmp/\(appNameForTesting).app")
+    lazy var tempUrl = temp(path: "\(appNameForTesting).app")
     let bundleHelper = BundleHelper()
     let fileHelper = FileHelper()
     var removeMonitor: (() -> Void)!

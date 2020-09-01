@@ -10,7 +10,7 @@ class InstallerSpec: QuickSpec {
             var stateContainer: MockStateContainer!
             var fileManager: FileManager!
             var defaults: UserDefaults!
-            let installationUrl = URL(fileURLWithPath: "/tmp/test-installation")
+            let installationUrl = temp(path: "test-installation")
             beforeEach {
                 stateContainer = .createAndInject()
                 subject = .init()

@@ -57,7 +57,7 @@ class ServiceWatchdogSpec: QuickSpec {
                     TestDependency.register(Inject(fakeScriptUrl, name: "stop script url"))
                     mockNotifier.send(state: .login)
                 }
-                it("should run stop bash script in /tmp") {
+                it("should run stop bash script in temporary folder") {
                     expect(processLauncher.didRun) == [
                         "/bin/bash",
                         fakeScriptUrl.path,
@@ -71,7 +71,7 @@ class ServiceWatchdogSpec: QuickSpec {
                     TestDependency.register(Inject(fakeScriptUrl, name: "stop script url"))
                 }
 
-                it("should run stop bash script in /tmp") {
+                it("should run stop bash script in temporary folder") {
                     center.post(name: willTerminate, object: nil)
                     expect(processLauncher.didRun) == [
                         "/bin/bash",

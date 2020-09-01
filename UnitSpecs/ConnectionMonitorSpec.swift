@@ -22,7 +22,7 @@ class ConnectionMonitorSpec: QuickSpec {
                 }
                 context("error") {
                     beforeEach {
-                        subject = .init(url: URL(fileURLWithPath: "/tmp/not-found.json"))
+                        subject = .init(url: temp(path: "not-found.json"))
                     }
                     it("should complete with false") {
                         waitUntil { done in

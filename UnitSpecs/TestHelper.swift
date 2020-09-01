@@ -54,3 +54,7 @@ extension RunLoop {
         current.run(until: Date(timeIntervalSinceNow: timeInterval))
     }
 }
+
+func temp(path: String) -> URL {
+    URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(path)
+}
