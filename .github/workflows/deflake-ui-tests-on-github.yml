@@ -28,16 +28,15 @@ jobs:
         p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
         p12-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
         keychain: certs
-    - uses: actions/cache@v2
+    - uses: actions/cache@v2.1.1
       with:
-        path: ./vendor/bundle
+        path: vendor/bundle
         key: bundled-gems-${{ hashFiles('**/Gemfile.lock') }}
-    - name: ruby version
-      run: ruby --version
-    - name: bundle
+    - name: ruby bundle
       run: |
-        gem install bundler
-        bundle config path ./vendor/bundle
+        ruby --version
+        bundler --version
+        bundle config path vendor/bundle
         bundle install --jobs 4 --retry 3
     - name: deflake UI Tests
       env:
