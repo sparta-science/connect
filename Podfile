@@ -1,5 +1,4 @@
 platform :macos, '10.15'
-inhibit_all_warnings!
 use_frameworks!
 
 def bdd
@@ -9,16 +8,22 @@ end
 
 pod 'SwiftLint'                   # enforce Swift style and conventions
 
+def bundle_login
+  pod 'NSBundle+LoginItem',       # launch at login option
+    :inhibit_warnings => true,   # 'LSSharedFileListItemCopyResolvedURL' has been marked as being introduced in macOS 10.10
+    # fix memory issues, expose setter in header
+    # https://github.com/nklizhe/NSBundle-LoginItem/pull/7
+    :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
+end
+
 target 'SpartaConnect' do
   pod 'Alamofire'                 # networking
   pod 'SwinjectAutoregistration'  # autoregister using init for dependency injection
   pod 'Sparkle'                   # auto-update the app
-  pod 'LetsMove'                  # move app to Applications folder
-  pod 'NSBundle+LoginItem',       # launch at login option
-    # fix memory issues, expose setter in header
-    # https://github.com/nklizhe/NSBundle-LoginItem/pull/7
-    :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
-  pod 'USBDeviceSwift'            # monitor connected force plate
+  bundle_login
+  pod 'LetsMove',                 # move app to Applications folder
+    :inhibit_warnings => true   # 'trashItemAtURL:resultingItemURL:error:' has been marked as being introduced in macOS 10.8 here
+  pod 'USBDeviceSwift', :inhibit_warnings => true # monitor connected force plate
 
   target 'AppSpecs' do
     inherit! :search_paths
@@ -32,13 +37,11 @@ target 'UnitSpecs' do
 end
 
 target 'UITests' do
-  pod 'NSBundle+LoginItem', # launch at login option
-    :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
+  bundle_login
 end
 
 target 'ReleaseUITests' do
-  pod 'NSBundle+LoginItem', # launch at login option
-    :git => 'https://github.com/paulz/NSBundle-LoginItem.git'
+  bundle_login
 end
 
 already_migrated = 9999
