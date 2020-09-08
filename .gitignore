@@ -104,3 +104,6 @@ iOSInjectionProject/
 
 # Bundler cached gems
 /vendor
+
+## MacOS System Files
+.DS_Store
