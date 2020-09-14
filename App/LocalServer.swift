@@ -2,7 +2,7 @@ import Foundation
 import Swifter
 import Testable
 
-class LocalServer: NSObject {
+public class LocalServer: NSObject {
     var server: HttpServer?
     let decoder = Init(JSONDecoder()) {
         $0.keyDecodingStrategy = .convertFromSnakeCase
@@ -29,7 +29,7 @@ class LocalServer: NSObject {
             try! server.start(4_080)
         }
     }
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         startServer()
     }

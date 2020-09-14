@@ -1,12 +1,12 @@
-import Quick
 import Nimble
+import Quick
 import Testable
 
 class TitleValueTransformerSpec: QuickSpec {
     override func spec() {
         describe(TitleValueTransformer.self) {
             describe(TitleValueTransformer.allowsReverseTransformation) {
-                it("should be false"){
+                it("should be false") {
                     expect(TitleValueTransformer.allowsReverseTransformation()) == false
                 }
             }

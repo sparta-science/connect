@@ -49,6 +49,7 @@
 		4A515D3924D9CEE200B65B41 /* StateCapsuleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3824D9CEE200B65B41 /* StateCapsuleSpec.swift */; };
 		4A515D3B24D9DBB100B65B41 /* MockStateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */; };
 		4A552630250FEE3100CD5B5F /* TitleValueTransformerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A55262F250FEE3100CD5B5F /* TitleValueTransformerSpec.swift */; };
+		4A552632250FF34100CD5B5F /* LocalServerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A552631250FF34100CD5B5F /* LocalServerSpec.swift */; };
 		4A642B6624FD9F870060F491 /* EdgeScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; };
 		4A642B6724FD9F870060F491 /* EdgeScience.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */; };
@@ -294,6 +295,7 @@
 		4A515D3824D9CEE200B65B41 /* StateCapsuleSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCapsuleSpec.swift; sourceTree = "<group>"; };
 		4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStateContainer.swift; sourceTree = "<group>"; };
 		4A55262F250FEE3100CD5B5F /* TitleValueTransformerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTransformerSpec.swift; sourceTree = "<group>"; };
+		4A552631250FF34100CD5B5F /* LocalServerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServerSpec.swift; sourceTree = "<group>"; };
 		4A642B6524FD9F870060F491 /* EdgeScience.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EdgeScience.framework; path = App/EdgeScience.framework; sourceTree = "<group>"; };
 		4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitor.swift; sourceTree = "<group>"; };
 		4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitorSpec.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
+				4A552631250FF34100CD5B5F /* LocalServerSpec.swift */,
 			);
 			path = AppSpecs;
 			sourceTree = "<group>";
@@ -1414,6 +1417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
+				4A552632250FF34100CD5B5F /* LocalServerSpec.swift in Sources */,
 				4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */,
 				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
 				4A1680B124F0EB1100DF81D8 /* ForcePlateDetectionSpec.swift in Sources */,
