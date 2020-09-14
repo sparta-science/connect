@@ -11,8 +11,15 @@ class TitleValueTransformerSpec: QuickSpec {
                 subject = .init()
             }
             describe(TitleValueTransformer.transformedValue(_:)) {
-                it("should show offline title when true") {
-                    expect(subject.transformedValue(true) as? String) == "Connect Offline to Local Sparta"
+                context(true) {
+                    it("should show offline title") {
+                        expect(subject.transformedValue(true) as? String) == "Connect Offline to Local Sparta"
+                    }
+                }
+                context(false) {
+                    it("should show online title") {
+                        expect(subject.transformedValue(false) as? String) == "Connect to Sparta Science"
+                    }
                 }
             }
         }
