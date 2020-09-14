@@ -6,25 +6,17 @@
   "format_version" : 200,
   "layers" : [
     {
-      "top" : "model_1\/flatten_1\/Reshape",
       "weights" : {
 
       },
-      "dst_w" : 6,
-      "dst_n" : 1,
-      "dst_nd_rank" : 2,
-      "type" : "reshape",
-      "mode" : 0,
-      "dst_h" : -1,
-      "dynamic_shape" : false,
-      "bottom" : "jump",
-      "dst_seq" : 1,
-      "name" : "model_1\/flatten_1\/Reshape",
-      "dst_k" : 1
+      "top" : "concatenate_31_output",
+      "type" : "concat",
+      "name" : "concatenate_31",
+      "bottom" : "load,explode,drive,avg_mass,jump_height,gender"
     },
     {
       "nB" : 6,
-      "top" : "model_1\/dense_1\/Relu",
+      "top" : "dense_263__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -33,15 +25,15 @@
       "blob_weights" : 3,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "model_1\/flatten_1\/Reshape",
+      "bottom" : "concatenate_31_output",
       "blob_biases" : 1,
       "has_tanh" : 0,
-      "name" : "model_1\/dense_1\/BiasAdd",
+      "name" : "dense_263",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "model_1\/dense_2\/Relu",
+      "top" : "dense_264__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -50,15 +42,15 @@
       "blob_weights" : 7,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "model_1\/dense_1\/Relu",
+      "bottom" : "dense_263__activation___output",
       "blob_biases" : 5,
       "has_tanh" : 0,
-      "name" : "model_1\/dense_2\/BiasAdd",
+      "name" : "dense_264",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "model_1\/dense_3\/Relu",
+      "top" : "dense_265__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -67,15 +59,15 @@
       "blob_weights" : 11,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "model_1\/dense_2\/Relu",
+      "bottom" : "dense_264__activation___output",
       "blob_biases" : 9,
       "has_tanh" : 0,
-      "name" : "model_1\/dense_3\/BiasAdd",
+      "name" : "dense_265",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "model_1\/dense_4\/Relu",
+      "top" : "dense_266__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -84,15 +76,15 @@
       "blob_weights" : 15,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "model_1\/dense_3\/Relu",
+      "bottom" : "dense_265__activation___output",
       "blob_biases" : 13,
       "has_tanh" : 0,
-      "name" : "model_1\/dense_4\/BiasAdd",
+      "name" : "dense_266",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "model_1\/dense_5\/Relu",
+      "top" : "dense_267__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -101,15 +93,15 @@
       "blob_weights" : 19,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "model_1\/dense_4\/Relu",
+      "bottom" : "dense_266__activation___output",
       "blob_biases" : 17,
       "has_tanh" : 0,
-      "name" : "model_1\/dense_5\/BiasAdd",
+      "name" : "dense_267",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "mskHealth",
+      "top" : "dense_268_output",
       "has_biases" : 1,
       "weights" : {
 
@@ -118,11 +110,89 @@
       "blob_weights" : 23,
       "type" : "inner_product",
       "has_relu" : 0,
-      "bottom" : "model_1\/dense_5\/Relu",
+      "bottom" : "dense_267__activation___output",
       "blob_biases" : 21,
       "has_tanh" : 0,
-      "name" : "Identity",
+      "name" : "dense_268",
       "has_prelu" : 0
+    },
+    {
+      "nB" : 2,
+      "top" : "outputMSK_output",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 1,
+      "blob_weights" : 27,
+      "type" : "inner_product",
+      "has_relu" : 0,
+      "bottom" : "dense_268_output",
+      "blob_biases" : 25,
+      "has_tanh" : 0,
+      "name" : "outputMSK",
+      "has_prelu" : 0
+    },
+    {
+      "nB" : 2,
+      "top" : "outputNeighbors_output",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 1,
+      "blob_weights" : 31,
+      "type" : "inner_product",
+      "has_relu" : 0,
+      "bottom" : "dense_268_output",
+      "blob_biases" : 29,
+      "has_tanh" : 0,
+      "name" : "outputNeighbors",
+      "has_prelu" : 0
+    },
+    {
+      "nB" : 1,
+      "top" : "mskHealth",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 1,
+      "blob_weights" : 35,
+      "type" : "inner_product",
+      "has_relu" : 0,
+      "bottom" : "outputMSK_output",
+      "blob_biases" : 33,
+      "has_tanh" : 0,
+      "name" : "dense_269",
+      "has_prelu" : 0
+    },
+    {
+      "nB" : 1,
+      "top" : "dense_270_output",
+      "has_biases" : 1,
+      "weights" : {
+
+      },
+      "nC" : 1,
+      "blob_weights" : 39,
+      "type" : "inner_product",
+      "has_relu" : 0,
+      "bottom" : "outputNeighbors_output",
+      "blob_biases" : 37,
+      "has_tanh" : 0,
+      "name" : "dense_270",
+      "has_prelu" : 0
+    },
+    {
+      "mode" : 3,
+      "weights" : {
+
+      },
+      "top" : "confidence",
+      "type" : "activation",
+      "name" : "dense_270__activation__",
+      "bottom" : "dense_270_output"
     }
   ]
 }

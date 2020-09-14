@@ -1,59 +1,111 @@
 {
   "layer_shapes" : {
-    "model_1\/flatten_1\/Reshape" : {
-      "k" : 1,
-      "w" : 6,
+    "dense_263__activation___output" : {
+      "k" : 50,
+      "w" : 1,
       "n" : 1,
-      "_rank" : 2,
       "h" : 1
     },
-    "model_1\/dense_5\/Relu" : {
+    "explode" : {
       "k" : 1,
-      "w" : 50,
+      "w" : 1,
       "n" : 1,
-      "_rank" : 2,
+      "h" : 1
+    },
+    "dense_270_output" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "dense_264__activation___output" : {
+      "k" : 50,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "concatenate_31_output" : {
+      "k" : 6,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "dense_268_output" : {
+      "k" : 2,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "outputMSK_output" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "dense_265__activation___output" : {
+      "k" : 50,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "confidence" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "outputNeighbors_output" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "dense_266__activation___output" : {
+      "k" : 50,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "jump_height" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "load" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "dense_267__activation___output" : {
+      "k" : 50,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "avg_mass" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
       "h" : 1
     },
     "mskHealth" : {
       "k" : 1,
-      "w" : 2,
+      "w" : 1,
       "n" : 1,
-      "_rank" : 2,
       "h" : 1
     },
-    "model_1\/dense_4\/Relu" : {
-      "k" : 1,
-      "w" : 50,
-      "n" : 1,
-      "_rank" : 2,
-      "h" : 1
-    },
-    "model_1\/dense_3\/Relu" : {
-      "k" : 1,
-      "w" : 50,
-      "n" : 1,
-      "_rank" : 2,
-      "h" : 1
-    },
-    "model_1\/dense_2\/Relu" : {
-      "k" : 1,
-      "w" : 50,
-      "n" : 1,
-      "_rank" : 2,
-      "h" : 1
-    },
-    "jump" : {
+    "gender" : {
       "k" : 1,
       "w" : 1,
       "n" : 1,
-      "_rank" : 3,
-      "h" : 6
+      "h" : 1
     },
-    "model_1\/dense_1\/Relu" : {
+    "drive" : {
       "k" : 1,
-      "w" : 50,
+      "w" : 1,
       "n" : 1,
-      "_rank" : 2,
       "h" : 1
     }
   }
