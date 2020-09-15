@@ -164,7 +164,6 @@
 		4AEF80C224F715E600E8B49C /* LocalServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80C124F715E600E8B49C /* LocalServer.swift */; };
 		4AEF80C424F71B6100E8B49C /* ScienceInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80C324F71B6100E8B49C /* ScienceInputs.swift */; };
 		4AEF80C624F71CE500E8B49C /* ScienceOutputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80C524F71CE500E8B49C /* ScienceOutputs.swift */; };
-		4AEF80C924F71D3F00E8B49C /* Science.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEF80C724F71D3900E8B49C /* Science.swift */; };
 		4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEFCBA924B504090065EA46 /* Downloader.swift */; };
 		4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */; };
 		4B70D63924D3405A003C1EBB /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D63824D3405A003C1EBB /* PresentableError.swift */; };
@@ -254,6 +253,7 @@
 		4A0AB977249D369A00D74826 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerSpec.swift; sourceTree = "<group>"; };
 		4A0AB97D249D373E00D74826 /* ConnectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTest.swift; sourceTree = "<group>"; };
+		4A12BD69251143D00061CC78 /* predictMskHealth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = predictMskHealth.swift; sourceTree = "<group>"; };
 		4A1680B024F0EB1100DF81D8 /* ForcePlateDetectionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateDetectionSpec.swift; sourceTree = "<group>"; };
 		4A1680B224F0EC6100DF81D8 /* HealthCheckSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCheckSpec.swift; sourceTree = "<group>"; };
 		4A1680B424F11CE800DF81D8 /* KnownDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDevice.swift; sourceTree = "<group>"; };
@@ -605,6 +605,7 @@
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4AEFCBA924B504090065EA46 /* Downloader.swift */,
 				4AEF80C724F71D3900E8B49C /* Science.swift */,
+				4A12BD69251143D00061CC78 /* predictMskHealth.swift */,
 				4AEF80C124F715E600E8B49C /* LocalServer.swift */,
 				4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
@@ -1437,7 +1438,6 @@
 			files = (
 				4AEFCBAA24B504090065EA46 /* Downloader.swift in Sources */,
 				4AE7645C24AAF91300CAC3BA /* SyncronizedWrapper.swift in Sources */,
-				4AEF80C924F71D3F00E8B49C /* Science.swift in Sources */,
 				4AA1888D2486FA90009CFACE /* AppDelegate.swift in Sources */,
 				4AEF80C224F715E600E8B49C /* LocalServer.swift in Sources */,
 				4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */,
