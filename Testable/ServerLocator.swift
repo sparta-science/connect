@@ -18,7 +18,7 @@ public class ServerLocator: NSObject {
 
 extension ServerLocator: ServerLocatorProtocol {
     public var availableServers: [String] {
-        Array(ApiServer.displayNames.values)
+        Array(ApiServer.displayNames.values).sorted()
     }
     public func loginRequest(_ login: Login) -> LoginRequest {
         Init(LoginRequest()) {
