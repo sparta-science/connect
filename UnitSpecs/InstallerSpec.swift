@@ -43,8 +43,7 @@ class InstallerSpec: QuickSpec {
                         try? fileManager.removeItem(at: installationUrl)
                         expect(fileManager.fileExists(atPath: installationUrl.path)) == false
                         downloader.downloadedContentsUrl = testBundleUrl("tiny-valid.tar.gz")
-                        defaults = .init()
-                        TestDependency.register(Inject(defaults!))
+                        defaults = .createAndInject()
                     }
                     func verify(file: String, at url: URL) {
                         let expectedPath = testBundleUrl(file).path
@@ -147,8 +146,7 @@ class InstallerSpec: QuickSpec {
                 context("download started") {
                     var downloader: WaitingToBeCancelled!
                     beforeEach {
-                        defaults = .init()
-                        TestDependency.register(Inject(defaults!))
+                        defaults = .createAndInject()
                         downloader = .createAndInject()
                         waitUntil { downloadRequest in
                             downloader.startDownloading = downloadRequest
