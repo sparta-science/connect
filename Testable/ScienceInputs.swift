@@ -10,4 +10,3 @@ public struct ScienceInputs: Codable {
         public let id: String
     }
 }
-
