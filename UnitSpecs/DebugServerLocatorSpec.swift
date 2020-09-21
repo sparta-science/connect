@@ -33,7 +33,6 @@ class DebugServerLocatorSpec: QuickSpec {
                     var defaults: UserDefaults!
                     beforeEach {
                         defaults = .createAndInject()
-                        
                     }
                     context("online") {
                         it("should return a LoginRequest with a base url") {

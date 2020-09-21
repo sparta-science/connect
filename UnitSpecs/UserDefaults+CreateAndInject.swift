@@ -1,6 +1,6 @@
 import Foundation
-import Testable
 @testable import Quick
+import Testable
 
 extension UserDefaults: CreateAndInject {
     typealias ActAs = UserDefaults
@@ -9,6 +9,6 @@ extension UserDefaults: CreateAndInject {
         let uniqueSuite = "test-user-defaults-" + exampleName
         return Init(UserDefaults(suiteName: uniqueSuite)!) {
             TestDependency.register(Inject<UserDefaults>($0))
-            } as! Self
+        } as! Self
     }
 }
