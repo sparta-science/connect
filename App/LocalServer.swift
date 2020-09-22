@@ -14,13 +14,13 @@ public class LocalServer: NSObject {
         $0.keyEncodingStrategy = .convertToSnakeCase
     }
     func handleOffline(data: Data) -> HttpResponseBody {
-        if let inputs = try? decoder.decode(ScienceInputs.self, from: data) {
+//        if let inputs = try? decoder.decode(ScienceInputs.self, from: data) {
 //            let outputs = science.predictMskHealth(load: inputs., explode: <#T##Double#>, drive: <#T##Double#>, mass: <#T##Double#>, jumpHeight: <#T##Double#>, isMale: <#T##Bool#>)
 //            if let encoded = try? encoder.encode(outputs) {
 //                return .data(encoded)
 //            }
             return .json(["something went wrong"])
-        }
+//        }
         return .json(["something went wrong"])
     }
     func startServer() {
