@@ -27,13 +27,13 @@ public class LocalServer: NSObject {
     let encoder = Init(JSONEncoder()) {
         $0.keyEncodingStrategy = .convertToSnakeCase
     }
-    func handleOffline(data: Data) -> HttpResponseBody {
+    func handleMskHealthRequest(data: Data) -> HttpResponseBody {
         if let inputs = try? decoder.decode(ScienceInputs.self, from: data) {
-            let outputs = science.convert(predictions: science.predictMskHealth(inputs), ids: inputs.input.map { $0.id })
+            let outputs = science.convert(predictions: science.predictMskHealth(inputs),
+                                          ids: inputs.input.map { $0.id })
             if let encoded = try? encoder.encode(outputs) {
                 return .data(encoded)
             }
-            return .json(["something went wrong"])
         }
         return .json(["something went wrong"])
     }
@@ -41,7 +41,7 @@ public class LocalServer: NSObject {
         server = HttpServer()
         if let server = server {
             server["/msk-health"] = { request in
-                .ok(self.handleOffline(data: Data(request.body)))
+                .ok(self.handleMskHealthRequest(data: Data(request.body)))
             }
             server["/health-check"] = { request in
                 .ok(.html("ok"))
