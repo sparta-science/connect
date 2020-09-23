@@ -8,9 +8,8 @@ extension MskWrapper {
         let features = predictions.map { mskHealth -> Features in
             if let mskHealth = mskHealth {
                 return Features(mskHealth: mskHealth, approved: true)
-            } else {
-                return Features(mskHealth: 0, approved: false)
             }
+            return Features(mskHealth: 0, approved: false)
         }
         let instances = zip(ids, features).map { Instance(id: $0, features: $1) }
         return ScienceOutputs(instances: instances)

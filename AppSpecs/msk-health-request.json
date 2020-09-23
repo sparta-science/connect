@@ -3,20 +3,20 @@
         {
             "load": 70,
             "explode": 74,
-            "drive": 61.872243566255600,
-            "avg_mass": 79.25914345542160,
-            "max_vertical_jump_height": 0.659206909404694,
+            "drive": 20,
+            "avg_mass": 90,
+            "max_vertical_jump_height": 0.2,
             "gender": 1,
-            "id": "ssss"
+            "id": "invalid jump"
         },
         {
-            "load": 48.76803277017547,
-            "explode": 54.65072628243488,
-            "drive": 59.34748545159043,
-            "avg_mass": 67.3589825121515,
-            "max_vertical_jump_height": 0.5742181730323963,
+            "load": 48,
+            "explode": 54,
+            "drive": 59,
+            "avg_mass": 67,
+            "max_vertical_jump_height": 0.57,
             "gender": 0,
-            "id": "1235"
+            "id": "valid jump"
         }
     ]
 }
