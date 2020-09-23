@@ -13,6 +13,12 @@ class LocalServerSpec: QuickSpec {
                     }
                 }
             }
+            describe("/health-check") {
+                it("should return ok") {
+                    let dataResponse = try! Data(contentsOf: URL(string: "http://localhost:4080/health-check")!)
+                    expect(String(data: dataResponse, encoding: .utf8)) == "ok"
+                }
+            }
         }
     }
 }
