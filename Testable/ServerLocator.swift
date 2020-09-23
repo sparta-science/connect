@@ -12,7 +12,7 @@ public class ServerLocator: NSObject {
         let host = ApiServer.displayNames.first {
             $0.value == server
         }
-        return host?.key.serverUrlString() ?? ""
+        return host!.key.serverUrlString()
     }
 }
 
