@@ -43,6 +43,8 @@ jobs:
         workspace: SpartaConnect.xcworkspace
         scheme: SpartaConnect
         action: build
+    - name: Debugging with tmate
+      uses: mxschmitt/action-tmate@v3
     - name: App Specs
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
