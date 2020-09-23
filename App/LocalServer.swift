@@ -3,6 +3,20 @@ import Foundation
 import Swifter
 import Testable
 
+extension MskWrapper {
+    func convert(predictions: [Double?]) -> ScienceOutputs {
+        let instances = predictions.map { mskHealth in
+            if let mskHealth = mskHealth {
+                return Features(mskHealth: mskHealth, approved: true)
+            } else {
+                return Features(mskHealth: 0, approved: false)
+            }
+        }
+        .map { Instance(id: "TODO: bs pz we need to pass shas", features: $0) }
+        return ScienceOutputs(instances: instances)
+    }
+}
+
 public class LocalServer: NSObject {
     let science = MskWrapper()
 
@@ -14,13 +28,13 @@ public class LocalServer: NSObject {
         $0.keyEncodingStrategy = .convertToSnakeCase
     }
     func handleOffline(data: Data) -> HttpResponseBody {
-//        if let inputs = try? decoder.decode(ScienceInputs.self, from: data) {
-//            let outputs = science.predictMskHealth(load: inputs., explode: <#T##Double#>, drive: <#T##Double#>, mass: <#T##Double#>, jumpHeight: <#T##Double#>, isMale: <#T##Bool#>)
-//            if let encoded = try? encoder.encode(outputs) {
-//                return .data(encoded)
-//            }
+        if let inputs = try? decoder.decode(ScienceInputs.self, from: data) {
+            let outputs = science.convert(predictions: science.predictMskHealth(inputs))
+            if let encoded = try? encoder.encode(outputs) {
+                return .data(encoded)
+            }
             return .json(["something went wrong"])
-//        }
+        }
         return .json(["something went wrong"])
     }
     func startServer() {
