@@ -56,6 +56,14 @@ class DebugServerLocatorSpec: QuickSpec {
                         }
                     }
                 }
+                context("staging") {
+                    beforeEach {
+                        login.environment = "staging"
+                    }
+                    it("should go to staging.spartascience.com") {
+                        expect(subject.loginRequest(login).baseUrlString) == "https://staging.spartascience.com/api/app-setup"
+                    }
+                }
                 context("simulated") {
                     beforeEach {
                         login.environment = "simulate SF State Gators"
