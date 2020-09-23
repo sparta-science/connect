@@ -1,0 +1,22 @@
+{
+    "input": [
+        {
+            "load": 70,
+            "explode": 74,
+            "drive": 61.872243566255600,
+            "avg_mass": 79.25914345542160,
+            "max_vertical_jump_height": 0.659206909404694,
+            "gender": 1,
+            "id": "ssss"
+        },
+        {
+            "load": 48.76803277017547,
+            "explode": 54.65072628243488,
+            "drive": 59.34748545159043,
+            "avg_mass": 67.3589825121515,
+            "max_vertical_jump_height": 0.5742181730323963,
+            "gender": 0,
+            "id": "1235"
+        }
+    ]
+}

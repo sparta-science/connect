@@ -1,5 +1,6 @@
 import Combine
 import LetsMove
+import Swifter
 import Swinject
 import SwinjectAutoregistration
 import Testable
@@ -107,5 +108,6 @@ public struct AppAssembly: Assembly {
         container.register {
             ConnectionMonitor(url: $0.url(name: "health check url")) as HealthCheck
         }
+        container.autoregister { HttpServer() }
     }
 }

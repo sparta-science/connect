@@ -54,6 +54,8 @@
 		4A642B6724FD9F870060F491 /* EdgeScience.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */; };
 		4A6D268F24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */; };
+		4A6FA32F251C0D290065DB51 /* msk-health-request.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A6FA32E251C0D290065DB51 /* msk-health-request.json */; };
+		4A6FA331251C0E800065DB51 /* msk-health-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A6FA330251C0E800065DB51 /* msk-health-response.json */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
 		4A81371024E53F8700D5C856 /* WaitingToBeCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81370F24E53F8700D5C856 /* WaitingToBeCancelled.swift */; };
 		4A8CD1DD24EB307C00AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
@@ -298,6 +300,8 @@
 		4A642B6524FD9F870060F491 /* EdgeScience.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EdgeScience.framework; path = App/EdgeScience.framework; sourceTree = "<group>"; };
 		4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitor.swift; sourceTree = "<group>"; };
 		4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitorSpec.swift; sourceTree = "<group>"; };
+		4A6FA32E251C0D290065DB51 /* msk-health-request.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "msk-health-request.json"; sourceTree = "<group>"; };
+		4A6FA330251C0E800065DB51 /* msk-health-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "msk-health-response.json"; sourceTree = "<group>"; };
 		4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "tiny-valid.tar.gz"; sourceTree = "<group>"; };
 		4A77486B24BD3DFC00A4277E /* .envrc */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc; sourceTree = "<group>"; };
 		4A77486C24BD3DFD00A4277E /* .envrc.sample */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc.sample; sourceTree = "<group>"; };
@@ -523,6 +527,8 @@
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
 				4A552631250FF34100CD5B5F /* LocalServerSpec.swift */,
+				4A6FA330251C0E800065DB51 /* msk-health-response.json */,
+				4A6FA32E251C0D290065DB51 /* msk-health-request.json */,
 			);
 			path = AppSpecs;
 			sourceTree = "<group>";
@@ -1053,6 +1059,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6FA331251C0E800065DB51 /* msk-health-response.json in Resources */,
+				4A6FA32F251C0D290065DB51 /* msk-health-request.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

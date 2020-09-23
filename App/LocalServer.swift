@@ -20,7 +20,7 @@ extension MskWrapper {
 public class LocalServer: NSObject {
     let science = MskWrapper()
 
-    var server: HttpServer?
+    @Inject var server: HttpServer
     let decoder = Init(JSONDecoder()) {
         $0.keyDecodingStrategy = .convertFromSnakeCase
     }
@@ -38,17 +38,14 @@ public class LocalServer: NSObject {
         return .json(["something went wrong"])
     }
     func startServer() {
-        server = HttpServer()
-        if let server = server {
-            server["/msk-health"] = { request in
-                .ok(self.handleMskHealthRequest(data: Data(request.body)))
-            }
-            server["/health-check"] = { request in
-                .ok(.html("ok"))
-            }
-            // swiftlint:disable:next force_try
-            try! server.start(4_080)
+        server["/msk-health"] = { request in
+            .ok(self.handleMskHealthRequest(data: Data(request.body)))
         }
+        server["/health-check"] = { request in
+            .ok(.html("ok"))
+        }
+        // swiftlint:disable:next force_try
+        try! server.start(4_080)
     }
     override public func awakeFromNib() {
         super.awakeFromNib()
