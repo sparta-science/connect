@@ -4,15 +4,11 @@ import Quick
 class MainStoryboardSpec: QuickSpec {
     override func spec() {
         describe(NSStoryboard.main.self) {
-            var storyboard: NSStoryboard!
-            beforeEach {
-                storyboard = NSStoryboard.main
-            }
             context("initial controller") {
                 var windowController: NSWindowController!
                 var window: NSWindow!
                 beforeEach {
-                    windowController = storyboard.instantiateInitialController()
+                    windowController = NSApp.orderedWindows.first!.windowController!
                     window = windowController.window
                 }
                 context(\NSWindowController.contentViewController) {
