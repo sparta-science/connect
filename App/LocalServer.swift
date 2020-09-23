@@ -4,15 +4,15 @@ import Swifter
 import Testable
 
 extension MskWrapper {
-    func convert(predictions: [Double?]) -> ScienceOutputs {
-        let instances = predictions.map { mskHealth in
+    func convert(predictions: [Double?], ids: [String]) -> ScienceOutputs {
+        let features = predictions.map { mskHealth -> Features in
             if let mskHealth = mskHealth {
                 return Features(mskHealth: mskHealth, approved: true)
             } else {
                 return Features(mskHealth: 0, approved: false)
             }
         }
-        .map { Instance(id: "TODO: bs pz we need to pass shas", features: $0) }
+        let instances = zip(ids, features).map { Instance(id: $0, features: $1) }
         return ScienceOutputs(instances: instances)
     }
 }
@@ -29,7 +29,7 @@ public class LocalServer: NSObject {
     }
     func handleOffline(data: Data) -> HttpResponseBody {
         if let inputs = try? decoder.decode(ScienceInputs.self, from: data) {
-            let outputs = science.convert(predictions: science.predictMskHealth(inputs))
+            let outputs = science.convert(predictions: science.predictMskHealth(inputs), ids: inputs.input.map { $0.id })
             if let encoded = try? encoder.encode(outputs) {
                 return .data(encoded)
             }
