@@ -395,7 +395,6 @@
 		4AEF80BF24F710FE00E8B49C /* TitleValueTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTransformer.swift; sourceTree = "<group>"; };
 		4AEF80C124F715E600E8B49C /* LocalServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServer.swift; sourceTree = "<group>"; };
 		4AEF80C524F71CE500E8B49C /* ScienceOutputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceOutputs.swift; sourceTree = "<group>"; };
-		4AEF80C724F71D3900E8B49C /* Science.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Science.swift; sourceTree = "<group>"; };
 		4AEFCBA924B504090065EA46 /* Downloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		4AF8412724A1709E00DD5C7A /* UtilityFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityFunctions.swift; sourceTree = "<group>"; };
 		4AFFDAD525196B8A00B5DEB0 /* UserDefaults+CreateAndInject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CreateAndInject.swift"; sourceTree = "<group>"; };
@@ -603,7 +602,6 @@
 			children = (
 				4AA1888C2486FA90009CFACE /* AppDelegate.swift */,
 				4AEFCBA924B504090065EA46 /* Downloader.swift */,
-				4AEF80C724F71D3900E8B49C /* Science.swift */,
 				4AEF80C124F715E600E8B49C /* LocalServer.swift */,
 				4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */,
 				4AE7645A24AAF8FF00CAC3BA /* Dependency Injection */,
