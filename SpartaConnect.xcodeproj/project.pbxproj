@@ -50,8 +50,6 @@
 		4A515D3B24D9DBB100B65B41 /* MockStateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */; };
 		4A552630250FEE3100CD5B5F /* TitleValueTransformerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A55262F250FEE3100CD5B5F /* TitleValueTransformerSpec.swift */; };
 		4A552632250FF34100CD5B5F /* LocalServerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A552631250FF34100CD5B5F /* LocalServerSpec.swift */; };
-		4A642B6624FD9F870060F491 /* EdgeScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; };
-		4A642B6724FD9F870060F491 /* EdgeScience.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A6D268D24EDD8050073C6AB /* ForcePlateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */; };
 		4A6D268F24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
@@ -76,6 +74,8 @@
 		4AA188AB2486FA90009CFACE /* UpdateAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */; };
 		4AA9AAC924B79BEA00A9D144 /* install_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */; };
 		4AA9AACA24B7A1FA00A9D144 /* install_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */; };
+		4AACEFAE251BCCB600CF9631 /* EdgeScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AACEF96251BCBF500CF9631 /* EdgeScience.framework */; };
+		4AACEFAF251BCCB600CF9631 /* EdgeScience.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4AACEF96251BCBF500CF9631 /* EdgeScience.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4AB5C25224E2035E003815FB /* SetupTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5C25124E2035E003815FB /* SetupTestSuite.swift */; };
 		4AB8910424F09C2B00518D5C /* ProcessLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A203BC824B926AE00ECD5EC /* ProcessLauncher.swift */; };
 		4AB8910524F09C5300518D5C /* PresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D63824D3405A003C1EBB /* PresentableError.swift */; };
@@ -232,7 +232,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4A642B6724FD9F870060F491 /* EdgeScience.framework in Embed Frameworks */,
+				4AACEFAF251BCCB600CF9631 /* EdgeScience.framework in Embed Frameworks */,
 				4A3F3C7A248C92720058C5D4 /* Testable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -295,7 +295,6 @@
 		4A515D3A24D9DBB100B65B41 /* MockStateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStateContainer.swift; sourceTree = "<group>"; };
 		4A55262F250FEE3100CD5B5F /* TitleValueTransformerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueTransformerSpec.swift; sourceTree = "<group>"; };
 		4A552631250FF34100CD5B5F /* LocalServerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServerSpec.swift; sourceTree = "<group>"; };
-		4A642B6524FD9F870060F491 /* EdgeScience.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EdgeScience.framework; path = App/EdgeScience.framework; sourceTree = "<group>"; };
 		4A6D268C24EDD8050073C6AB /* ForcePlateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitor.swift; sourceTree = "<group>"; };
 		4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitorSpec.swift; sourceTree = "<group>"; };
 		4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "tiny-valid.tar.gz"; sourceTree = "<group>"; };
@@ -332,6 +331,7 @@
 		4AA188AA2486FA90009CFACE /* UpdateAppTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAppTest.swift; sourceTree = "<group>"; };
 		4AA188AC2486FA90009CFACE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA9AAC824B79BEA00A9D144 /* install_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = install_vernal_falls.sh; sourceTree = "<group>"; };
+		4AACEF96251BCBF500CF9631 /* EdgeScience.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EdgeScience.framework; path = App/EdgeScience.framework; sourceTree = "<group>"; };
 		4AB5C25124E2035E003815FB /* SetupTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupTestSuite.swift; sourceTree = "<group>"; };
 		4AB890FF24EEFC9E00518D5C /* update-dependencies.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "update-dependencies.yml"; path = ".github/workflows/update-dependencies.yml"; sourceTree = "<group>"; tabWidth = 2; };
 		4AB8910024EF5F0400518D5C /* deflake-ui-tests-on-github.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; name = "deflake-ui-tests-on-github.yml"; path = ".github/workflows/deflake-ui-tests-on-github.yml"; sourceTree = "<group>"; tabWidth = 2; };
@@ -447,7 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A3F3C79248C92720058C5D4 /* Testable.framework in Frameworks */,
-				4A642B6624FD9F870060F491 /* EdgeScience.framework in Frameworks */,
+				4AACEFAE251BCCB600CF9631 /* EdgeScience.framework in Frameworks */,
 				E50CD271610EBEC63E79AC1A /* Pods_SpartaConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -843,7 +843,7 @@
 		94E1F5559CB8D4D75B27F03B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4A642B6524FD9F870060F491 /* EdgeScience.framework */,
+				4AACEF96251BCBF500CF9631 /* EdgeScience.framework */,
 				8A32BB0827C211B805B4B16F /* Pods_AppSpecs.framework */,
 				6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */,
 				4275614E6C55701F69F0E518 /* Pods_UITests.framework */,
@@ -1821,7 +1821,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/App",
+					"$(PROJECT_DIR)/App/**",
 				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1844,7 +1844,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/App",
+					"$(PROJECT_DIR)/App/**",
 				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,5 +1,8 @@
 {
   "storage" : "model.espresso.weights",
+  "analyses" : {
+
+  },
   "properties" : {
 
   },
@@ -8,13 +11,14 @@
     {
       "axis_h" : 4,
       "axis_w" : 0,
-      "axis_k" : 2,
       "bottom" : "jump",
+      "axis_k" : 2,
       "axis_n" : 3,
       "axis_seq" : 1,
       "weights" : {
 
       },
+      "debug_info" : "flatten_3__permute__",
       "top" : "flatten_3_output__permute__",
       "type" : "transpose",
       "name" : "flatten_3__permute__"
@@ -26,6 +30,7 @@
       },
       "mode" : 1,
       "nd_axis" : 0,
+      "debug_info" : "flatten_3",
       "top" : "flatten_3_output",
       "type" : "flatten",
       "name" : "flatten_3"
@@ -44,6 +49,7 @@
       "bottom" : "flatten_3_output",
       "blob_biases" : 1,
       "has_tanh" : 0,
+      "debug_info" : "dense_7",
       "name" : "dense_7",
       "has_prelu" : 0
     },
@@ -61,6 +67,7 @@
       "bottom" : "dense_7__activation___output",
       "blob_biases" : 5,
       "has_tanh" : 0,
+      "debug_info" : "dense_8",
       "name" : "dense_8",
       "has_prelu" : 0
     },
@@ -78,6 +85,7 @@
       "bottom" : "dense_8__activation___output",
       "blob_biases" : 9,
       "has_tanh" : 0,
+      "debug_info" : "dense_9",
       "name" : "dense_9",
       "has_prelu" : 0
     },
@@ -95,6 +103,7 @@
       "bottom" : "dense_9__activation___output",
       "blob_biases" : 13,
       "has_tanh" : 0,
+      "debug_info" : "dense_10",
       "name" : "dense_10",
       "has_prelu" : 0
     },
@@ -112,6 +121,7 @@
       "bottom" : "dense_10__activation___output",
       "blob_biases" : 17,
       "has_tanh" : 0,
+      "debug_info" : "dense_11",
       "name" : "dense_11",
       "has_prelu" : 0
     },
@@ -129,6 +139,7 @@
       "bottom" : "dense_11__activation___output",
       "blob_biases" : 21,
       "has_tanh" : 0,
+      "debug_info" : "dense_12",
       "name" : "dense_12",
       "has_prelu" : 0
     },
@@ -146,6 +157,7 @@
       "bottom" : "dense_12_output",
       "blob_biases" : 25,
       "has_tanh" : 0,
+      "debug_info" : "outputMSK",
       "name" : "outputMSK",
       "has_prelu" : 0
     },
@@ -163,11 +175,12 @@
       "bottom" : "dense_12_output",
       "blob_biases" : 29,
       "has_tanh" : 0,
+      "debug_info" : "outputNeighbors",
       "name" : "outputNeighbors",
       "has_prelu" : 0
     },
     {
-      "nB" : 1,
+      "has_prelu" : 0,
       "top" : "mskHealth",
       "has_biases" : 1,
       "weights" : {
@@ -177,11 +190,15 @@
       "blob_weights" : 35,
       "type" : "inner_product",
       "has_relu" : 0,
+      "attributes" : {
+        "is_output" : 1
+      },
       "bottom" : "outputMSK_output",
-      "blob_biases" : 33,
+      "debug_info" : "dense_15",
       "has_tanh" : 0,
+      "blob_biases" : 33,
       "name" : "dense_15",
-      "has_prelu" : 0
+      "nB" : 1
     },
     {
       "nB" : 1,
@@ -197,18 +214,23 @@
       "bottom" : "outputNeighbors_output",
       "blob_biases" : 37,
       "has_tanh" : 0,
+      "debug_info" : "dense_16",
       "name" : "dense_16",
       "has_prelu" : 0
     },
     {
-      "mode" : 3,
+      "bottom" : "dense_16_output",
       "weights" : {
 
       },
+      "mode" : 3,
+      "debug_info" : "dense_16__activation__",
       "top" : "confidence",
       "type" : "activation",
       "name" : "dense_16__activation__",
-      "bottom" : "dense_16_output"
+      "attributes" : {
+        "is_output" : 1
+      }
     }
   ]
 }
