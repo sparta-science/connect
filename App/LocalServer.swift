@@ -14,6 +14,10 @@ extension MskWrapper {
         let instances = zip(ids, features).map { Instance(id: $0, features: $1) }
         return ScienceOutputs(instances: instances)
     }
+    func predict(inputs: ScienceInputs) -> ScienceOutputs {
+        convert(predictions: predictMskHealth(inputs),
+                ids: inputs.input.map { $0.id })
+    }
 }
 
 public class LocalServer: NSObject {
@@ -27,12 +31,9 @@ public class LocalServer: NSObject {
         $0.keyEncodingStrategy = .convertToSnakeCase
     }
     func handleMskHealthRequest(data: Data) -> HttpResponseBody {
-        if let inputs = try? decoder.decode(ScienceInputs.self, from: data) {
-            let outputs = science.convert(predictions: science.predictMskHealth(inputs),
-                                          ids: inputs.input.map { $0.id })
-            if let encoded = try? encoder.encode(outputs) {
-                return .data(encoded)
-            }
+        if let inputs = try? decoder.decode(ScienceInputs.self, from: data),
+            let encoded = try? encoder.encode(science.predict(inputs: inputs)) {
+            return .data(encoded)
         }
         return .json(["something went wrong"])
     }
