@@ -18,6 +18,9 @@ class LocalServerSpec: QuickSpec {
                     beforeEach {
                         server = Injected.instance
                     }
+                    func cleanString(data: Data) -> String? {
+                        String(data: data, encoding: .ascii)?.trimmingCharacters(in: .whitespacesAndNewlines)
+                    }
                     it("should respond with an json") {
                         let request = HttpRequest()
                         let sampleRequest = testData("msk-health-request.json")
@@ -27,10 +30,7 @@ class LocalServerSpec: QuickSpec {
                         let result = server.dispatch(request)
                         let response = result.1(request)
                         if case .ok(let body) = response, case .data(let data) = body {
-                            // swiftlint:disable:next nimble_operator
-                            let expectedResponse = testData("msk-health-response.json")
-                            expect(data).to(equal(expectedResponse),
-                                            description: "expecting \(String(data: expectedResponse, encoding: .utf8)!), got \(String(data: data, encoding: .utf8)!)")
+                            expect(cleanString(data: data)) == cleanString(data: testData("msk-health-response.json"))
                         } else {
                             fail("should be ok")
                         }

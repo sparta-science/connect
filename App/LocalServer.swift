@@ -4,7 +4,7 @@ import Swifter
 import Testable
 
 extension MskWrapper {
-    func convert(predictions: [Double?], ids: [String]) -> ScienceOutputs {
+    func convert(predictions: [Decimal?], ids: [String]) -> ScienceOutputs {
         let features = predictions.map { mskHealth -> Features in
             if let mskHealth = mskHealth {
                 return Features(mskHealth: mskHealth, approved: true)
@@ -15,7 +15,18 @@ extension MskWrapper {
         return ScienceOutputs(instances: instances)
     }
     func predict(inputs: ScienceInputs) -> ScienceOutputs {
-        convert(predictions: predictMskHealth(inputs),
+        convert(predictions: predictMskHealth(inputs).map {
+            $0.map {
+                let scale = 1
+
+                var value1 = Decimal($0)
+                var roundedValue1 = Decimal()
+
+                NSDecimalRound(&roundedValue1, &value1, scale, NSDecimalNumber.RoundingMode.plain)
+
+                return roundedValue1
+            }
+        },
                 ids: inputs.input.map { $0.id })
     }
 }

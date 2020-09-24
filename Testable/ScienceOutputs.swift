@@ -20,12 +20,12 @@ public struct Instance: Codable {
 }
 
 public struct Features: Codable {
-    public init(mskHealth: Double, approved: Bool) {
+    public init(mskHealth: Decimal, approved: Bool) {
         self.mskHealth = mskHealth
         mskHealthApproved = approved
         relativeInjRate = 0
         prediction = 0
     }
-    public let prediction, mskHealth, relativeInjRate: Double
+    public let prediction, mskHealth, relativeInjRate: Decimal
     public let mskHealthApproved: Bool
 }
