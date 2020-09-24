@@ -37,25 +37,25 @@ jobs:
       with:
         workspace: SpartaConnect.xcworkspace
         scheme: Testable
+        build-settings: -resultBundlePath test-results -test-timeouts-enabled YES
     - name: Build
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
         workspace: SpartaConnect.xcworkspace
         scheme: SpartaConnect
         action: build
-    - name: Debugging with tmate
-      uses: mxschmitt/action-tmate@v3
     - name: App Specs
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
         workspace: SpartaConnect.xcworkspace
         scheme: AppSpecs
+        build-settings: -resultBundlePath test-results -test-timeouts-enabled YES
     - name: UI Tests
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
         workspace: SpartaConnect.xcworkspace
         scheme: UITests
-        build-settings: -resultBundlePath ui-tests -test-timeouts-enabled YES
+        build-settings: -resultBundlePath test-results -test-timeouts-enabled YES
     - name: Sparta Metrics
       env:
         SUBMIT_METRICS_URL: ${{ secrets.SUBMIT_METRICS_URL }}
@@ -64,12 +64,12 @@ jobs:
       if: always()
       run: |
         cp $TMPDIR/rare-test-events.plist . || true
-        zip -r results.zip ui-tests.xcresult || true
+        zip -r results.zip test-results.xcresult || true
     - name: Upload test results
       if: always()
       uses: actions/upload-artifact@v2
       with:
-        name: ui-tests.xcresult
+        name: test-results.xcresult
         path: results.zip
     - name: Upload events
       if: always()
