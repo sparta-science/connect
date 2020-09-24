@@ -429,10 +429,10 @@
             </objects>
             <point key="canvasLocation" x="-217" y="687"/>
         </scene>
-        <!--View Controller-->
+        <!--Container Controller-->
         <scene sceneID="Qh9-k3-dpq">
             <objects>
-                <viewController showSeguePresentationStyle="single" id="thc-wQ-ERs" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="thc-wQ-ERs" customClass="ContainerController" customModule="Testable" sceneMemberID="viewController">
                     <view key="view" id="NqU-NO-LH9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -453,7 +453,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="performClose:" target="wla-aZ-U1J" id="1d2-Ow-EdN"/>
+                                    <action selector="openSparta:" target="thc-wQ-ERs" id="eGd-lt-oZf"/>
                                 </connections>
                             </button>
                         </subviews>

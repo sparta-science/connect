@@ -61,6 +61,7 @@
 		4A6FA33B251C5DBE0065DB51 /* EdgeScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
 		4A81371024E53F8700D5C856 /* WaitingToBeCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81370F24E53F8700D5C856 /* WaitingToBeCancelled.swift */; };
+		4A823BB2251D66BF00499F46 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A823BB1251D66BF00499F46 /* ContainerController.swift */; };
 		4A8CD1DD24EB307C00AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
 		4A8CD1DE24EB307C00AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
 		4A8CD1DF24EB308200AE8D8E /* start_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */; };
@@ -313,6 +314,7 @@
 		4A8150FF24A32E1C0080D260 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
 		4A81510324A332530080D260 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		4A81510524A337EC0080D260 /* ConnectedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedController.swift; sourceTree = "<group>"; };
+		4A823BB1251D66BF00499F46 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
 		4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = stop_vernal_falls.sh; sourceTree = "<group>"; };
 		4A8CD1DC24EB307C00AE8D8E /* start_vernal_falls.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = start_vernal_falls.sh; sourceTree = "<group>"; };
 		4A8CD1E724EDCD4F00AE8D8E /* ForcePlateDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateDetection.swift; sourceTree = "<group>"; };
@@ -798,6 +800,7 @@
 				4A81510324A332530080D260 /* TabViewController.swift */,
 				4A8150FF24A32E1C0080D260 /* ProgressController.swift */,
 				4A81510524A337EC0080D260 /* ConnectedController.swift */,
+				4A823BB1251D66BF00499F46 /* ContainerController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1415,6 +1418,7 @@
 				4AE7649B24AD3C8500CAC3BA /* ErrorReporter.swift in Sources */,
 				4A1680B724F11D0E00DF81D8 /* ProductOfVendor.swift in Sources */,
 				4AE7646D24AB03AA00CAC3BA /* TabViewController.swift in Sources */,
+				4A823BB2251D66BF00499F46 /* ContainerController.swift in Sources */,
 				4BD4D35E24ABC06F009D8380 /* Installer.swift in Sources */,
 				4AF8412824A1709E00DD5C7A /* UtilityFunctions.swift in Sources */,
 				4A203BBA24B8292900ECD5EC /* ServerLocator.swift in Sources */,
