@@ -29,6 +29,12 @@ class ConnectedControllerSpec: QuickSpec {
                         mockDetector.detection!("my forceplate")
                         expect(subject.forcePlateName.stringValue) == "my forceplate"
                     }
+                    context("no force plate") {
+                        it("should say unplugged") {
+                            mockDetector.detection!(nil)
+                            expect(subject.forcePlateName.stringValue) == "unplugged"
+                        }
+                    }
                 }
             }
             describe(ConnectedController.viewDidAppear) {
