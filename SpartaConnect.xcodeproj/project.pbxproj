@@ -184,7 +184,6 @@
 		4BD4D35E24ABC06F009D8380 /* Installer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D35D24ABC06F009D8380 /* Installer.swift */; };
 		4BD4D36224ABC121009D8380 /* InstallerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D36124ABC121009D8380 /* InstallerSpec.swift */; };
 		4BD4D36424ABCB95009D8380 /* MockStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD4D36324ABCB95009D8380 /* MockStatusItem.swift */; };
-		9149BF10804FBBD640FA90B6 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
 		B57CEB2C447B68BFEE29B832 /* Pods_UnitSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6768FC338AEBE7E81003ECAD /* Pods_UnitSpecs.framework */; };
 		BD171234E00F5CE91418754D /* Pods_ReleaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB360AE82CF1027DA0F366E0 /* Pods_ReleaseUITests.framework */; };
 		BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4275614E6C55701F69F0E518 /* Pods_UITests.framework */; };
@@ -472,7 +471,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDB685B4D699BFC2992BFFD8 /* Pods_UITests.framework in Frameworks */,
-				9149BF10804FBBD640FA90B6 /* Pods_UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
