@@ -44,18 +44,18 @@ jobs:
         workspace: SpartaConnect.xcworkspace
         scheme: SpartaConnect
         action: build
-    - name: App Specs
-      uses: sersoft-gmbh/xcodebuild-action@v1.1
-      with:
-        workspace: SpartaConnect.xcworkspace
-        scheme: AppSpecs
-        build-settings: -resultBundlePath test-results/app-specs -test-timeouts-enabled YES
     - name: UI Tests
       uses: sersoft-gmbh/xcodebuild-action@v1.1
       with:
         workspace: SpartaConnect.xcworkspace
         scheme: UITests
         build-settings: -resultBundlePath test-results/ui-tests -test-timeouts-enabled YES
+    - name: App Specs
+      uses: sersoft-gmbh/xcodebuild-action@v1.1
+      with:
+        workspace: SpartaConnect.xcworkspace
+        scheme: AppSpecs
+        build-settings: -resultBundlePath test-results/app-specs -test-timeouts-enabled YES
     - name: Sparta Metrics
       env:
         SUBMIT_METRICS_URL: ${{ secrets.SUBMIT_METRICS_URL }}
