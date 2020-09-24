@@ -630,18 +630,6 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Help" id="wpr-3q-Mcd">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
-                                    <items>
-                                        <menuItem title="SpartaConnect Help" keyEquivalent="?" id="FKE-Sm-Kum">
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                         </items>
                     </menu>
                     <connections>
@@ -691,11 +679,6 @@
                         <menuItem title="Connect..." keyEquivalent="," id="Q0g-NS-KVI">
                             <connections>
                                 <action selector="showWindow:" target="B8D-0N-5wS" id="ZFr-6S-21u"/>
-                            </connections>
-                        </menuItem>
-                        <menuItem title="SpartaConnect Help" keyEquivalent="?" id="73L-I2-jcr">
-                            <connections>
-                                <action selector="showHelp:" target="Oky-zY-oP4" id="rPg-fP-50j"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Open at Login" state="on" id="5yh-Zc-JVB">
