@@ -429,10 +429,10 @@
             </objects>
             <point key="canvasLocation" x="-217" y="687"/>
         </scene>
-        <!--Connect-->
+        <!--View Controller-->
         <scene sceneID="Qh9-k3-dpq">
             <objects>
-                <viewController title="Connect" showSeguePresentationStyle="single" id="thc-wQ-ERs" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="thc-wQ-ERs" sceneMemberID="viewController">
                     <view key="view" id="NqU-NO-LH9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
                         <autoresizingMask key="autoresizingMask"/>
