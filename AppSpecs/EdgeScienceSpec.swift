@@ -32,7 +32,7 @@ class EdgeScienceSpec: QuickSpec {
                                                          mass: 67,
                                                          jumpHeight: 0.24,
                                                          isMale: true)
-                    expect(known) ≈ (58.75, delta: 0.11)
+                    expect(known) == Decimal(58.8)
                 }
             }
         }

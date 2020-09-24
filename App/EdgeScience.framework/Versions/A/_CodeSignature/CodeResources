@@ -4,9 +4,17 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/.DS_Store</key>
+		<data>
+		3AOC0msofCzXj8udb2HvI+FswQ8=
+		</data>
 		<key>Resources/Info.plist</key>
 		<data>
 		UxadUcnmCtlLdeVdMmHbACE4JqE=
+		</data>
+		<key>Resources/MskHealth.mlmodelc/.DS_Store</key>
+		<data>
+		IExX7K6XcH9tu09JRflmK4pHM8E=
 		</data>
 		<key>Resources/MskHealth.mlmodelc/coremldata.bin</key>
 		<data>
@@ -53,42 +61,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			2RisIER3IQZws0KQ2l7k3sA3LiprlNndm0iIi4yvvx0=
+			xCA+3AfIsxnlr2MWy/k/B5ZPDiLUSCkwRbfp30myOJw=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2RisIER3IQZws0KQ2l7k3sA3LiprlNndm0iIi4yvvx0=
+			xCA+3AfIsxnlr2MWy/k/B5ZPDiLUSCkwRbfp30myOJw=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			87l9RiuP6aJMEWPolBBiGti6CVELkkM5oXV9V8LYeXY=
+			I+L5BkFbJ2C90e6ZHmbklc3kGLisNHPz/g9hHhRmSCs=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SXwrTFz/BT3mAE8eDVj5aRn8AWIkK74sCzlI5in/Wzw=
+			fN903KDdWXA6UTwUQgW71L0MmuxY8as9I/yxCgkyJuc=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			87l9RiuP6aJMEWPolBBiGti6CVELkkM5oXV9V8LYeXY=
+			I+L5BkFbJ2C90e6ZHmbklc3kGLisNHPz/g9hHhRmSCs=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SXwrTFz/BT3mAE8eDVj5aRn8AWIkK74sCzlI5in/Wzw=
+			fN903KDdWXA6UTwUQgW71L0MmuxY8as9I/yxCgkyJuc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

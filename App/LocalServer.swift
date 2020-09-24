@@ -15,18 +15,7 @@ extension MskWrapper {
         return ScienceOutputs(instances: instances)
     }
     func predict(inputs: ScienceInputs) -> ScienceOutputs {
-        convert(predictions: predictMskHealth(inputs).map {
-            $0.map {
-                let scale = 1
-
-                var value1 = Decimal($0)
-                var roundedValue1 = Decimal()
-
-                NSDecimalRound(&roundedValue1, &value1, scale, NSDecimalNumber.RoundingMode.plain)
-
-                return roundedValue1
-            }
-        },
+        convert(predictions: predictMskHealth(inputs),
                 ids: inputs.input.map { $0.id })
     }
 }
