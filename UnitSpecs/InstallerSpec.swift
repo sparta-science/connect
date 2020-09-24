@@ -61,7 +61,7 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should download vernal falls archive") {
                         simulateSuccessLogin()
-                        expect(stateContainer.didTransition).toEventually(contain("complete()"))
+                        expect(stateContainer.didTransition).toEventually(contain("complete()"), timeout: 5.0)
                         expect(downloader.didProvideReporting).notTo(beNil())
                         verify(file: "tiny-valid.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
@@ -79,7 +79,7 @@ class InstallerSpec: QuickSpec {
                         beforeEach {
                             expect(downloader.didProvideReporting).to(beNil())
                             simulateSuccessLogin()
-                            expect(stateContainer.didTransition).toEventually(contain("complete()"))
+                            expect(stateContainer.didTransition).toEventually(contain("complete()"), timeout: 5)
                             progressReporter = downloader.didProvideReporting
                         }
                         it("should set state to busy with the progress of download") {
