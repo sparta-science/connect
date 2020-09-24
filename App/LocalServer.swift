@@ -21,7 +21,7 @@ extension MskWrapper {
 }
 
 public class LocalServer: NSObject {
-    let science = MskWrapper()
+    @Inject var science: MskWrapper
 
     @Inject var server: HttpServer
     let decoder = Init(JSONDecoder()) {
