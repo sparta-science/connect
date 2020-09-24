@@ -1,5 +1,5 @@
-import Quick
 import Nimble
+import Quick
 import Testable
 
 class ScienceOutputsSpec: QuickSpec {
@@ -10,7 +10,7 @@ class ScienceOutputsSpec: QuickSpec {
                     let features = Features(mskHealth: 57.2, approved: true)
                     let instance = Instance(id: "example", features: features)
                     let outputs = ScienceOutputs(instances: [instance])
-                    
+
                     expect(outputs.instances.first?.features.mskHealth) == 57.2
                 }
             }
