@@ -56,6 +56,8 @@
 		4A6D268F24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */; };
 		4A6FA32F251C0D290065DB51 /* msk-health-request.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A6FA32E251C0D290065DB51 /* msk-health-request.json */; };
 		4A6FA331251C0E800065DB51 /* msk-health-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A6FA330251C0E800065DB51 /* msk-health-response.json */; };
+		4A6FA333251C561F0065DB51 /* EdgeScienceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6FA332251C561F0065DB51 /* EdgeScienceSpec.swift */; };
+		4A6FA33B251C5DBE0065DB51 /* EdgeScience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A642B6524FD9F870060F491 /* EdgeScience.framework */; };
 		4A761F1824D540DB00D2FAE1 /* tiny-valid.tar.gz in Resources */ = {isa = PBXBuildFile; fileRef = 4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */; };
 		4A81371024E53F8700D5C856 /* WaitingToBeCancelled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A81370F24E53F8700D5C856 /* WaitingToBeCancelled.swift */; };
 		4A8CD1DD24EB307C00AE8D8E /* stop_vernal_falls.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4A8CD1DB24EB307B00AE8D8E /* stop_vernal_falls.sh */; };
@@ -302,6 +304,7 @@
 		4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateMonitorSpec.swift; sourceTree = "<group>"; };
 		4A6FA32E251C0D290065DB51 /* msk-health-request.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "msk-health-request.json"; sourceTree = "<group>"; };
 		4A6FA330251C0E800065DB51 /* msk-health-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "msk-health-response.json"; sourceTree = "<group>"; };
+		4A6FA332251C561F0065DB51 /* EdgeScienceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeScienceSpec.swift; sourceTree = "<group>"; };
 		4A761F1724D540DB00D2FAE1 /* tiny-valid.tar.gz */ = {isa = PBXFileReference; lastKnownFileType = archive.gzip; path = "tiny-valid.tar.gz"; sourceTree = "<group>"; };
 		4A77486B24BD3DFC00A4277E /* .envrc */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc; sourceTree = "<group>"; };
 		4A77486C24BD3DFD00A4277E /* .envrc.sample */ = {isa = PBXFileReference; explicitFileType = text.script; path = .envrc.sample; sourceTree = "<group>"; };
@@ -441,6 +444,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6FA33B251C5DBE0065DB51 /* EdgeScience.framework in Frameworks */,
 				302D1458B2EB23D6A2F0ED09 /* Pods_AppSpecs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +531,7 @@
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
 				4A3F3C87248C92AE0058C5D4 /* Info.plist */,
 				4A552631250FF34100CD5B5F /* LocalServerSpec.swift */,
+				4A6FA332251C561F0065DB51 /* EdgeScienceSpec.swift */,
 				4A6FA330251C0E800065DB51 /* msk-health-response.json */,
 				4A6FA32E251C0D290065DB51 /* msk-health-request.json */,
 			);
@@ -1423,6 +1428,7 @@
 				4A03F474249A8D27000A2929 /* MainStoryboardSpec.swift in Sources */,
 				4A552632250FF34100CD5B5F /* LocalServerSpec.swift in Sources */,
 				4AE7648024AB2F4100CAC3BA /* PlaceholdersSpec.swift in Sources */,
+				4A6FA333251C561F0065DB51 /* EdgeScienceSpec.swift in Sources */,
 				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
 				4A1680B124F0EB1100DF81D8 /* ForcePlateDetectionSpec.swift in Sources */,
 				4A1680B324F0EC6100DF81D8 /* HealthCheckSpec.swift in Sources */,
@@ -1661,6 +1667,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/App",
+				);
 				INFOPLIST_FILE = AppSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1679,6 +1689,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/App",
+				);
 				INFOPLIST_FILE = AppSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
