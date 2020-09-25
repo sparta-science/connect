@@ -1,8 +1,14 @@
 public enum DebugApiServer: String, CaseIterable {
-    // swiftlint:disable:next explicit_enum_raw_value
+    // swiftlint:disable explicit_enum_raw_value
+    case localhost
     case staging
     func server() -> ApiServer {
-        .staging
+        switch self {
+        case .localhost:
+            return .localhost
+        case .staging:
+            return .staging
+        }
     }
 }
 

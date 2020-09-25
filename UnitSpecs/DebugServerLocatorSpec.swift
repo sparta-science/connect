@@ -14,6 +14,7 @@ class DebugServerLocatorSpec: QuickSpec {
                     expect(subject.availableServers) == [
                         "Sparta Offline System",
                         "home.spartascience.com",
+                        "localhost",
                         "staging",
                         "simulate install failure",
                         "simulate SF State Gators",
