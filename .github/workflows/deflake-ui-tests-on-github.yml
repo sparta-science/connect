@@ -14,12 +14,10 @@ jobs:
   test-continously:
     env:
       DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
-
+      NSUnbufferedIO: YES
     runs-on: macos-latest
     timeout-minutes: 45
-    env:
-      NSUnbufferedIO: YES
-
+    
     steps:
     - name: Prepare macOS runner
       uses: paulz/prepare-macos@v1
