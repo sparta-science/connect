@@ -24,6 +24,7 @@ extension ConnectionMonitor: HealthCheck {
             .autoconnect()
             .map { _ in }
             .flatMap(startCheck)
+            .merge(with: startCheck())
             .eraseToAnyPublisher()
     }
 

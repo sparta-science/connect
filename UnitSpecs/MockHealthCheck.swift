@@ -1,14 +1,11 @@
 import Testable
+import Combine
 
 final class MockHealthCheck: HealthCheck {
-    var check: ((Bool) -> Void)?
-    func start(updating: @escaping (Bool) -> Void) {
-        check = updating
-    }
-
-    var didCall: String?
-    func cancel() {
-        didCall = #function
+    var interval: TimeInterval?
+    func checkHealth(every time: TimeInterval) -> AnyPublisher<Bool, Never> {
+        interval = time
+        return Just(true).eraseToAnyPublisher()
     }
 }
 

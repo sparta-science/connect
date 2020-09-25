@@ -1,24 +1,37 @@
 import Nimble
 import Quick
 import Testable
+import Combine
 
 class ConnectionMonitorSpec: QuickSpec {
     override func spec() {
         describe(ConnectionMonitor.self) {
             var subject: ConnectionMonitor!
-            context(ConnectionMonitor.start(updating:)) {
+            var cancel: Cancellable!
+            afterEach {
+                cancel.cancel()
+            }
+            context(ConnectionMonitor.checkHealth(every:)) {
                 context("connected") {
                     beforeEach {
                         subject = .init(url: testBundleUrl("health-check-success.json"))
                     }
-                    afterEach {
-                        subject.cancel()
-                    }
-                    it("should complete with true") {
+                    it("should publish true immediately") {
                         waitUntil(timeout: 5.0) { done in
-                            subject.start { connected in
+                            cancel = subject.checkHealth(every: 1000).sink { connected in
                                 expect(connected) == true
                                 done()
+                            }
+                        }
+                    }
+                    it("should publish again after time interval") {
+                        var times = 0
+                        waitUntil(timeout: 5.0) { done in
+                            cancel = subject.checkHealth(every: 0).sink { connected in
+                                times += 1
+                                if times == 2 {
+                                    done()
+                                }
                             }
                         }
                     }
@@ -28,10 +41,12 @@ class ConnectionMonitorSpec: QuickSpec {
                         subject = .init(url: temp(path: "not-found.json"))
                     }
                     it("should not complete") {
-                        subject.start { connected in
-                            fail("should not complete, got \(connected)")
-                        }
-                        RunLoop.run(for: 0.1)
+                        cancel = subject.checkHealth(every: 10).sink(receiveCompletion: { complete in
+                            fail("should not complete")
+                        }, receiveValue: { _ in
+                            fail("should not receive")
+                        })
+                        RunLoop.run(for: 0.01)
                     }
                 }
             }
