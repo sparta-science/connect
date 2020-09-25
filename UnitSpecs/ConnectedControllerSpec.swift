@@ -41,20 +41,19 @@ class ConnectedControllerSpec: QuickSpec {
             }
             describe(ConnectedController.viewDidAppear) {
                 var mock: MockHealthCheck!
+                var statusLabel: NSTextField!
                 beforeEach {
                     mock = .createAndInject()
+                    statusLabel = .init()
+                    subject.connectionStatus = statusLabel
                 }
                 it("should start checking health") {
                     subject.viewDidAppear()
                     expect(mock.check).notTo(beNil())
                 }
                 context("observing") {
-                    var statusLabel: NSTextField!
-
                     beforeEach {
                         subject.viewDidAppear()
-                        statusLabel = .init()
-                        subject.connectionStatus = statusLabel
                         mock.check!(true)
                     }
                     it("should update status") {
