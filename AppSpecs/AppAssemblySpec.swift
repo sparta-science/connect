@@ -6,6 +6,14 @@ import Testable
 class AppAssemblySpec: QuickSpec {
     override func spec() {
         describe(AppAssembly.self) {
+            context("singletons") {
+                it("should have injected instances") {
+                    expect(Injected<ErrorReporting>.instance).notTo(beNil())
+                    expect(Injected<Installation>.instance).notTo(beNil())
+                    expect(Injected<StateContainer>.instance).notTo(beNil())
+                    expect(Injected<Downloading>.instance).notTo(beNil())
+                }
+            }
             context("unique-client-id") {
                 var clientId: Inject<String>!
                 beforeEach {

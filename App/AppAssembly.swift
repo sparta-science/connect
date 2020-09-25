@@ -51,19 +51,19 @@ public struct AppAssembly: Assembly {
         // MARK: Third party
         container.autoregister(name: "move to applications") { PFMoveToApplicationsFolderIfNecessary
         }
-        container.autoregister { SerialDeviceMonitor() }
+        container.autoregister(initializer: SerialDeviceMonitor.init)
 
         // MARK: Application
         #if DEBUG
         container.autoregister { DebugServerLocator() as ServerLocator }
         #else
-        container.autoregister { ServerLocator() }
+        container.autoregister(initializer: ServerLocator.init)
         #endif
         container.register { $0 + ServerLocator.self as ServerLocatorProtocol }
-        container.autoregister { Installer() }
+        container.autoregister(initializer: Installer.init)
         container.register { $0 + Installer.self as Installation }
-        container.autoregister { Downloader() }
-        container.autoregister { StateCapsule() }
+        container.autoregister(initializer: Downloader.init)
+        container.autoregister(initializer: StateCapsule.init)
         container.register { $0 + StateCapsule.self as StateContainer }
         container.register { $0 + Downloader.self as Downloading }
         container.register(AnyPublisher<State, Never>.self) {
@@ -102,7 +102,7 @@ public struct AppAssembly: Assembly {
         }
         container.autoregister { StateNotifier() }.inObjectScope(.transient)
         container.autoregister { { ProcessLauncher() } }
-        container.autoregister { ServiceWatchdog() }
+        container.autoregister(initializer: ServiceWatchdog.init)
         container.register {
             ForcePlateMonitor(monitor: $0~>, center: $0~>) as ForcePlateDetection
         }
