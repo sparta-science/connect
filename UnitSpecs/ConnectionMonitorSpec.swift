@@ -1,7 +1,7 @@
+import Combine
 import Nimble
 import Quick
 import Testable
-import Combine
 
 class ConnectionMonitorSpec: QuickSpec {
     override func spec() {
@@ -18,7 +18,7 @@ class ConnectionMonitorSpec: QuickSpec {
                     }
                     it("should publish true immediately") {
                         waitUntil(timeout: 5.0) { done in
-                            cancel = subject.checkHealth(every: 1000).sink { connected in
+                            cancel = subject.checkHealth(every: 1_000).sink { connected in
                                 expect(connected) == true
                                 done()
                             }
@@ -27,7 +27,7 @@ class ConnectionMonitorSpec: QuickSpec {
                     it("should publish again after time interval") {
                         var times = 0
                         waitUntil(timeout: 5.0) { done in
-                            cancel = subject.checkHealth(every: 0).sink { connected in
+                            cancel = subject.checkHealth(every: 0).sink { _ in
                                 times += 1
                                 if times == 2 {
                                     done()
@@ -41,7 +41,7 @@ class ConnectionMonitorSpec: QuickSpec {
                         subject = .init(url: temp(path: "not-found.json"))
                     }
                     it("should not complete") {
-                        cancel = subject.checkHealth(every: 10).sink(receiveCompletion: { complete in
+                        cancel = subject.checkHealth(every: 10).sink(receiveCompletion: { _ in
                             fail("should not complete")
                         }, receiveValue: { _ in
                             fail("should not receive")

@@ -12,7 +12,6 @@
 		4A089F7924E6FD6D00532692 /* successful-response-uc-santa-cruz.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A089F7724E6FD3100532692 /* successful-response-uc-santa-cruz.json */; };
 		4A0AB97E249D373E00D74826 /* ConnectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0AB97D249D373E00D74826 /* ConnectTest.swift */; };
 		4A1680B124F0EB1100DF81D8 /* ForcePlateDetectionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1680B024F0EB1100DF81D8 /* ForcePlateDetectionSpec.swift */; };
-		4A1680B324F0EC6100DF81D8 /* HealthCheckSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1680B224F0EC6100DF81D8 /* HealthCheckSpec.swift */; };
 		4A1680B524F11CE800DF81D8 /* KnownDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1680B424F11CE800DF81D8 /* KnownDevice.swift */; };
 		4A1680B724F11D0E00DF81D8 /* ProductOfVendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1680B624F11D0E00DF81D8 /* ProductOfVendor.swift */; };
 		4A1680B924F11E0F00DF81D8 /* KnownDeviceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1680B824F11E0F00DF81D8 /* KnownDeviceSpec.swift */; };
@@ -258,7 +257,6 @@
 		4A0AB979249D36C200D74826 /* LoginControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerSpec.swift; sourceTree = "<group>"; };
 		4A0AB97D249D373E00D74826 /* ConnectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectTest.swift; sourceTree = "<group>"; };
 		4A1680B024F0EB1100DF81D8 /* ForcePlateDetectionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePlateDetectionSpec.swift; sourceTree = "<group>"; };
-		4A1680B224F0EC6100DF81D8 /* HealthCheckSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCheckSpec.swift; sourceTree = "<group>"; };
 		4A1680B424F11CE800DF81D8 /* KnownDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDevice.swift; sourceTree = "<group>"; };
 		4A1680B624F11D0E00DF81D8 /* ProductOfVendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductOfVendor.swift; sourceTree = "<group>"; };
 		4A1680B824F11E0F00DF81D8 /* KnownDeviceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownDeviceSpec.swift; sourceTree = "<group>"; };
@@ -525,7 +523,6 @@
 				4AC171D524B538F10096BF33 /* DownloaderSpec.swift */,
 				4A6D268E24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift */,
 				4A1680B024F0EB1100DF81D8 /* ForcePlateDetectionSpec.swift */,
-				4A1680B224F0EC6100DF81D8 /* HealthCheckSpec.swift */,
 				4AE7647F24AB2F4100CAC3BA /* PlaceholdersSpec.swift */,
 				4AC171CB24B3F19D0096BF33 /* AppAssemblySpec.swift */,
 				4A03F473249A8D27000A2929 /* MainStoryboardSpec.swift */,
@@ -1432,7 +1429,6 @@
 				4A6FA333251C561F0065DB51 /* EdgeScienceSpec.swift in Sources */,
 				4AE7647224AB0EB200CAC3BA /* TestHelper.swift in Sources */,
 				4A1680B124F0EB1100DF81D8 /* ForcePlateDetectionSpec.swift in Sources */,
-				4A1680B324F0EC6100DF81D8 /* HealthCheckSpec.swift in Sources */,
 				4A6D268F24EDD8AF0073C6AB /* ForcePlateMonitorSpec.swift in Sources */,
 				4A3F3C86248C92AE0058C5D4 /* SparkleUpdaterSpec.swift in Sources */,
 				4AC171CC24B3F19D0096BF33 /* AppAssemblySpec.swift in Sources */,

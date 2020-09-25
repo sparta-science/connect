@@ -1,5 +1,5 @@
-import Testable
 import Combine
+import Testable
 
 final class MockHealthCheck: HealthCheck {
     var interval: TimeInterval?
