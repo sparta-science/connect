@@ -3,9 +3,10 @@ import Combine
 
 final class MockHealthCheck: HealthCheck {
     var interval: TimeInterval?
+    var publisher: AnyPublisher<Bool, Never>?
     func checkHealth(every time: TimeInterval) -> AnyPublisher<Bool, Never> {
         interval = time
-        return Just(true).eraseToAnyPublisher()
+        return publisher!
     }
 }
 

@@ -1,3 +1,4 @@
+import Combine
 import Nimble
 import Quick
 import Testable
@@ -39,7 +40,7 @@ class ConnectedControllerSpec: QuickSpec {
                     }
                 }
             }
-            describe(ConnectedController.viewDidAppear) {
+            context("health check") {
                 var mock: MockHealthCheck!
                 var statusLabel: NSTextField!
                 beforeEach {
@@ -47,38 +48,52 @@ class ConnectedControllerSpec: QuickSpec {
                     statusLabel = .init()
                     subject.connectionStatus = statusLabel
                 }
-                it("should start checking health and show connecting...") {
-                    subject.viewDidAppear()
-                    expect(mock.check).notTo(beNil())
-                    expect(subject.connectionStatus.stringValue) == "connecting..."
+                describe(ConnectedController.viewDidAppear) {
+                    context("error") {
+                        beforeEach {
+                            mock.publisher = Empty().eraseToAnyPublisher()
+                            subject.viewDidAppear()
+                        }
+                        it("should check every second and show connecting...") {
+                            expect(mock.interval) == 1.0
+                            expect(subject.connectionStatus.stringValue) == "connecting..."
+                        }
+                    }
+                    context("success") {
+                        context("connected") {
+                            beforeEach {
+                                mock.publisher = Just(true).eraseToAnyPublisher()
+                                subject.viewDidAppear()
+                            }
+                            it("should show online") {
+                                expect(subject.connectionStatus.stringValue) == "🟢 online"
+                            }
+                        }
+                        context("disconnected") {
+                            beforeEach {
+                                mock.publisher = Just(false).eraseToAnyPublisher()
+                                subject.viewDidAppear()
+                            }
+                            it("should show offline") {
+                                expect(subject.connectionStatus.stringValue) == "🔴 offline"
+                            }
+                        }
+                    }
                 }
-                context("updating") {
+                describe(ConnectedController.viewDidDisappear) {
+                    var wasCancelled = false
                     beforeEach {
+                        mock.publisher = Empty(completeImmediately: false)
+                        .handleEvents(receiveCancel: {
+                            wasCancelled = true
+                        }).eraseToAnyPublisher()
                         subject.viewDidAppear()
-                        mock.check!(true)
+                        expect(wasCancelled) == false
                     }
-                    context("connected") {
-                        it("should show online") {
-                            mock.check!(true)
-                            expect(subject.connectionStatus.stringValue) == "🟢 online"
-                        }
+                    it("should cancel health check") {
+                        subject.viewDidDisappear()
+                        expect(wasCancelled) == true
                     }
-                    context("disconnected") {
-                        it("should show offline") {
-                            mock.check!(false)
-                            expect(subject.connectionStatus.stringValue) == "🔴 offline"
-                        }
-                    }
-                }
-            }
-            describe(ConnectedController.viewDidDisappear) {
-                var mock: MockHealthCheck!
-                beforeEach {
-                    mock = .createAndInject()
-                }
-                it("should cancel health check") {
-                    subject.viewDidDisappear()
-                    expect(mock.didCall) == "cancel()"
                 }
             }
             context(ConnectedController.disconnect(_:)) {
