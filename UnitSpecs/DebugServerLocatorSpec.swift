@@ -65,6 +65,15 @@ class DebugServerLocatorSpec: QuickSpec {
                         expect(subject.loginRequest(login).baseUrlString) == "https://staging.spartascience.com/api/app-setup"
                     }
                 }
+                context("localhost") {
+                    beforeEach {
+                        login.environment = "localhost"
+                    }
+                    it("should go to localhost") {
+                        expect(subject.loginRequest(login).baseUrlString) == "http://localhost:4000/api/app-setup"
+                    }
+                }
+
                 context("simulated") {
                     beforeEach {
                         login.environment = "simulate SF State Gators"
