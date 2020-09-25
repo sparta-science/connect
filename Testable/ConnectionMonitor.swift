@@ -16,6 +16,17 @@ public class ConnectionMonitor {
     let decoder = Init(JSONDecoder()) {
         $0.keyDecodingStrategy = .convertFromSnakeCase
     }
+    
+    func startCheck() -> AnyPublisher<Bool, Never> {
+        URLSession.shared
+            .dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(type: HealthCheckResponse.self, decoder: decoder)
+            .tryMap { $0.websocketActive }
+            .receive(on: DispatchQueue.main)
+            .catch { _ in Empty(completeImmediately: true) }
+            .eraseToAnyPublisher()
+    }
 }
 
 extension ConnectionMonitor: HealthCheck {
@@ -25,17 +36,6 @@ extension ConnectionMonitor: HealthCheck {
             .map { _ in }
             .flatMap(startCheck)
             .merge(with: startCheck())
-            .eraseToAnyPublisher()
-    }
-
-    func startCheck() -> AnyPublisher<Bool, Never> {
-        URLSession.shared
-            .dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: HealthCheckResponse.self, decoder: decoder)
-            .tryMap { $0.websocketActive }
-            .receive(on: DispatchQueue.main)
-            .catch { _ in Empty(completeImmediately: true) }
             .eraseToAnyPublisher()
     }
 }
