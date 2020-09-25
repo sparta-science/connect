@@ -6,17 +6,33 @@
   "format_version" : 200,
   "layers" : [
     {
+      "axis_h" : 4,
+      "axis_w" : 0,
+      "axis_k" : 2,
+      "bottom" : "jump",
+      "axis_n" : 3,
+      "axis_seq" : 1,
       "weights" : {
 
       },
-      "top" : "concatenate_31_output",
-      "type" : "concat",
-      "name" : "concatenate_31",
-      "bottom" : "load,explode,drive,avg_mass,jump_height,gender"
+      "top" : "flatten_3_output__permute__",
+      "type" : "transpose",
+      "name" : "flatten_3__permute__"
+    },
+    {
+      "bottom" : "flatten_3_output__permute__",
+      "weights" : {
+
+      },
+      "mode" : 1,
+      "nd_axis" : 0,
+      "top" : "flatten_3_output",
+      "type" : "flatten",
+      "name" : "flatten_3"
     },
     {
       "nB" : 6,
-      "top" : "dense_263__activation___output",
+      "top" : "dense_7__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -25,15 +41,15 @@
       "blob_weights" : 3,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "concatenate_31_output",
+      "bottom" : "flatten_3_output",
       "blob_biases" : 1,
       "has_tanh" : 0,
-      "name" : "dense_263",
+      "name" : "dense_7",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "dense_264__activation___output",
+      "top" : "dense_8__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -42,15 +58,15 @@
       "blob_weights" : 7,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "dense_263__activation___output",
+      "bottom" : "dense_7__activation___output",
       "blob_biases" : 5,
       "has_tanh" : 0,
-      "name" : "dense_264",
+      "name" : "dense_8",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "dense_265__activation___output",
+      "top" : "dense_9__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -59,15 +75,15 @@
       "blob_weights" : 11,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "dense_264__activation___output",
+      "bottom" : "dense_8__activation___output",
       "blob_biases" : 9,
       "has_tanh" : 0,
-      "name" : "dense_265",
+      "name" : "dense_9",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "dense_266__activation___output",
+      "top" : "dense_10__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -76,15 +92,15 @@
       "blob_weights" : 15,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "dense_265__activation___output",
+      "bottom" : "dense_9__activation___output",
       "blob_biases" : 13,
       "has_tanh" : 0,
-      "name" : "dense_266",
+      "name" : "dense_10",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "dense_267__activation___output",
+      "top" : "dense_11__activation___output",
       "has_biases" : 1,
       "weights" : {
 
@@ -93,15 +109,15 @@
       "blob_weights" : 19,
       "type" : "inner_product",
       "has_relu" : 1,
-      "bottom" : "dense_266__activation___output",
+      "bottom" : "dense_10__activation___output",
       "blob_biases" : 17,
       "has_tanh" : 0,
-      "name" : "dense_267",
+      "name" : "dense_11",
       "has_prelu" : 0
     },
     {
       "nB" : 50,
-      "top" : "dense_268_output",
+      "top" : "dense_12_output",
       "has_biases" : 1,
       "weights" : {
 
@@ -110,10 +126,10 @@
       "blob_weights" : 23,
       "type" : "inner_product",
       "has_relu" : 0,
-      "bottom" : "dense_267__activation___output",
+      "bottom" : "dense_11__activation___output",
       "blob_biases" : 21,
       "has_tanh" : 0,
-      "name" : "dense_268",
+      "name" : "dense_12",
       "has_prelu" : 0
     },
     {
@@ -127,7 +143,7 @@
       "blob_weights" : 27,
       "type" : "inner_product",
       "has_relu" : 0,
-      "bottom" : "dense_268_output",
+      "bottom" : "dense_12_output",
       "blob_biases" : 25,
       "has_tanh" : 0,
       "name" : "outputMSK",
@@ -144,7 +160,7 @@
       "blob_weights" : 31,
       "type" : "inner_product",
       "has_relu" : 0,
-      "bottom" : "dense_268_output",
+      "bottom" : "dense_12_output",
       "blob_biases" : 29,
       "has_tanh" : 0,
       "name" : "outputNeighbors",
@@ -164,12 +180,12 @@
       "bottom" : "outputMSK_output",
       "blob_biases" : 33,
       "has_tanh" : 0,
-      "name" : "dense_269",
+      "name" : "dense_15",
       "has_prelu" : 0
     },
     {
       "nB" : 1,
-      "top" : "dense_270_output",
+      "top" : "dense_16_output",
       "has_biases" : 1,
       "weights" : {
 
@@ -181,7 +197,7 @@
       "bottom" : "outputNeighbors_output",
       "blob_biases" : 37,
       "has_tanh" : 0,
-      "name" : "dense_270",
+      "name" : "dense_16",
       "has_prelu" : 0
     },
     {
@@ -191,8 +207,8 @@
       },
       "top" : "confidence",
       "type" : "activation",
-      "name" : "dense_270__activation__",
-      "bottom" : "dense_270_output"
+      "name" : "dense_16__activation__",
+      "bottom" : "dense_16_output"
     }
   ]
 }

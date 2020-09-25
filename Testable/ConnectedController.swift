@@ -12,6 +12,7 @@ public class ConnectedController: NSViewController {
         super.viewDidLoad()
         forcePlateDetector.start { [weak self] name in
             self?.forcePlateName.stringValue = name ?? "unplugged"
+            self?.forcePlateName.textColor = name == nil ? .systemRed : .labelColor
         }
     }
 

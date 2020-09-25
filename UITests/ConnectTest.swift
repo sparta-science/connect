@@ -107,7 +107,7 @@ class ConnectTest: XCTestCase {
         XCTAssertEqual(app.connectWindow().popUpButtons.count, 1,
                        "should be only 1 button")
         XCTContext.runActivity(named: "invalid login") { _ in
-            app.select(server: "production")
+            app.select(server: "home.spartascience.com")
             XCTAssertFalse(app.loginButton.isEnabled,
                            "should be disabled until form is filled out")
 

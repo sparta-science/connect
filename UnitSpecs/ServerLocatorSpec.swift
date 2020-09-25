@@ -23,16 +23,17 @@ class ServerLocatorSpec: QuickSpec {
             context(\ServerLocator.availableServers) {
                 it("should list all backends") {
                     expect(subject.availableServers) == [
-                        "localhost",
-                        "offline",
-                        "staging",
-                        "production"
+                        "Sparta Offline System",
+                        "home.spartascience.com"
                     ]
                 }
             }
             context(ServerLocator.loginRequest(_:)) {
                 var login: Login!
+                var defaults: UserDefaults!
                 beforeEach {
+                    defaults = .createAndInject()
+                    defaults.set(false, forKey: "offline installation")
                     login = Init(.init()) {
                         $0!.username = "mike"
                         $0!.password = "secret"

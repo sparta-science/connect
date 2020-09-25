@@ -25,9 +25,17 @@ class ConnectedControllerSpec: QuickSpec {
                         nameLabel = .init()
                         subject.forcePlateName = nameLabel
                     }
-                    it("should update name") {
+                    it("should update name and display it with black text") {
                         mockDetector.detection!("my forceplate")
                         expect(subject.forcePlateName.stringValue) == "my forceplate"
+                        expect(subject.forcePlateName.textColor) == .labelColor
+                    }
+                    context("no force plate") {
+                        it("should say unplugged with red text") {
+                            mockDetector.detection!(nil)
+                            expect(subject.forcePlateName.stringValue) == "unplugged"
+                            expect(subject.forcePlateName.textColor) == .systemRed
+                        }
                     }
                 }
             }

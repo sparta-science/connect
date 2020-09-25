@@ -24,6 +24,7 @@ target 'SpartaConnect' do
   pod 'LetsMove',                 # move app to Applications folder
     :inhibit_warnings => true   # 'trashItemAtURL:resultingItemURL:error:' has been marked as being introduced in macOS 10.8 here
   pod 'USBDeviceSwift', :inhibit_warnings => true # monitor connected force plate
+  pod 'Swifter'                   # http server for offline msk health
 
   target 'AppSpecs' do
     inherit! :search_paths

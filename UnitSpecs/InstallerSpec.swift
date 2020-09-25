@@ -43,8 +43,7 @@ class InstallerSpec: QuickSpec {
                         try? fileManager.removeItem(at: installationUrl)
                         expect(fileManager.fileExists(atPath: installationUrl.path)) == false
                         downloader.downloadedContentsUrl = testBundleUrl("tiny-valid.tar.gz")
-                        defaults = .init()
-                        TestDependency.register(Inject(defaults!))
+                        defaults = .createAndInject()
                     }
                     func verify(file: String, at url: URL) {
                         let expectedPath = testBundleUrl(file).path
@@ -62,7 +61,7 @@ class InstallerSpec: QuickSpec {
                     }
                     it("should download vernal falls archive") {
                         simulateSuccessLogin()
-                        expect(stateContainer.didTransition).toEventually(contain("complete()"))
+                        expect(stateContainer.didTransition).toEventually(contain("complete()"), timeout: 5.0)
                         expect(downloader.didProvideReporting).notTo(beNil())
                         verify(file: "tiny-valid.tar.gz",
                                at: installationUrl.appendingPathComponent("vernal_falls.tar.gz"))
@@ -80,7 +79,7 @@ class InstallerSpec: QuickSpec {
                         beforeEach {
                             expect(downloader.didProvideReporting).to(beNil())
                             simulateSuccessLogin()
-                            expect(stateContainer.didTransition).toEventually(contain("complete()"))
+                            expect(stateContainer.didTransition).toEventually(contain("complete()"), timeout: 5)
                             progressReporter = downloader.didProvideReporting
                         }
                         it("should set state to busy with the progress of download") {
@@ -147,8 +146,7 @@ class InstallerSpec: QuickSpec {
                 context("download started") {
                     var downloader: WaitingToBeCancelled!
                     beforeEach {
-                        defaults = .init()
-                        TestDependency.register(Inject(defaults!))
+                        defaults = .createAndInject()
                         downloader = .createAndInject()
                         waitUntil { downloadRequest in
                             downloader.startDownloading = downloadRequest

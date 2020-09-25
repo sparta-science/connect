@@ -4,31 +4,39 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Resources/.DS_Store</key>
+		<data>
+		3AOC0msofCzXj8udb2HvI+FswQ8=
+		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		ht7KS8HIRK1L9Dw9WWIdeTF6kPs=
+		UxadUcnmCtlLdeVdMmHbACE4JqE=
 		</data>
-		<key>Resources/mskHealth.mlmodelc/coremldata.bin</key>
+		<key>Resources/MskHealth.mlmodelc/.DS_Store</key>
 		<data>
-		nZ63lU6dSDOy1k+81Ovrbdooff8=
+		IExX7K6XcH9tu09JRflmK4pHM8E=
 		</data>
-		<key>Resources/mskHealth.mlmodelc/model.espresso.net</key>
+		<key>Resources/MskHealth.mlmodelc/coremldata.bin</key>
 		<data>
-		fDnUdzZKR1qdzLbGCa+JOiRLg1o=
+		cYEQm5/kMYJA2fBA+nTQxAJfrNI=
 		</data>
-		<key>Resources/mskHealth.mlmodelc/model.espresso.shape</key>
+		<key>Resources/MskHealth.mlmodelc/model.espresso.net</key>
 		<data>
-		cNq9HMyq5oCB6V2znDi/noWYk5o=
+		r9JavXgcjb5YgFOofL9FyoDEMFk=
 		</data>
-		<key>Resources/mskHealth.mlmodelc/model.espresso.weights</key>
+		<key>Resources/MskHealth.mlmodelc/model.espresso.shape</key>
 		<data>
-		nhU2t3ub0GUUKyaB2On0FSVWHgA=
+		9umRSsr3994fwfPiCVveMX7JyWM=
 		</data>
-		<key>Resources/mskHealth.mlmodelc/model/coremldata.bin</key>
+		<key>Resources/MskHealth.mlmodelc/model.espresso.weights</key>
+		<data>
+		SS6aeQz6XH8CsGdqeGLItTeG88o=
+		</data>
+		<key>Resources/MskHealth.mlmodelc/model/coremldata.bin</key>
 		<data>
 		yNfQ7w7t+oLS6hqlkoRbmm1LArc=
 		</data>
-		<key>Resources/mskHealth.mlmodelc/neural_network_optionals/coremldata.bin</key>
+		<key>Resources/MskHealth.mlmodelc/neural_network_optionals/coremldata.bin</key>
 		<data>
 		3oqEe/+MND1puFOiFebud17y75Y=
 		</data>
@@ -53,42 +61,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TP3L+KyRBu6UakRxPgvDPvNCw1cqNagJtuHZ+ZAP/Nc=
+			xCA+3AfIsxnlr2MWy/k/B5ZPDiLUSCkwRbfp30myOJw=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			TP3L+KyRBu6UakRxPgvDPvNCw1cqNagJtuHZ+ZAP/Nc=
+			xCA+3AfIsxnlr2MWy/k/B5ZPDiLUSCkwRbfp30myOJw=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			87l9RiuP6aJMEWPolBBiGti6CVELkkM5oXV9V8LYeXY=
+			I+L5BkFbJ2C90e6ZHmbklc3kGLisNHPz/g9hHhRmSCs=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KeviS72BXQ3P27i4CUQcDA3d3w6tktgzBXY9oPVTa9U=
+			fN903KDdWXA6UTwUQgW71L0MmuxY8as9I/yxCgkyJuc=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			87l9RiuP6aJMEWPolBBiGti6CVELkkM5oXV9V8LYeXY=
+			I+L5BkFbJ2C90e6ZHmbklc3kGLisNHPz/g9hHhRmSCs=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KeviS72BXQ3P27i4CUQcDA3d3w6tktgzBXY9oPVTa9U=
+			fN903KDdWXA6UTwUQgW71L0MmuxY8as9I/yxCgkyJuc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -102,45 +110,45 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vh7rLSzQn1SV/AKNGvDQIf/KQwnLVyrRxDyhiSLSenc=
+			VCecgedZIyMVm5Ga0rXiFspWidFZNAJmoUD5x6i3GGY=
 			</data>
 		</dict>
-		<key>Resources/mskHealth.mlmodelc/coremldata.bin</key>
+		<key>Resources/MskHealth.mlmodelc/coremldata.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			F9RIarqDdehRhRLoS+dF1Z8p3uDZjbBNpwdmxYNks6M=
+			C4tKlb2FIXjXsqcuWXWqXFuRG9FkrxxhGO+YwaJb5QQ=
 			</data>
 		</dict>
-		<key>Resources/mskHealth.mlmodelc/model.espresso.net</key>
+		<key>Resources/MskHealth.mlmodelc/model.espresso.net</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ufe7L3ZPYUAb7/NWgH4O4Hx9WEnM2oYoDxWesNCzbak=
+			eQd5FH8TfTOHRwyI03z6WWDs6/FcRgTB2qF7FPUbo60=
 			</data>
 		</dict>
-		<key>Resources/mskHealth.mlmodelc/model.espresso.shape</key>
+		<key>Resources/MskHealth.mlmodelc/model.espresso.shape</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2rtS4iQcSdYga7i8vQVeFrGM0x4dOkVCqaRWN4bwQ6Y=
+			2U2ZFNaM7ptM3hEcze5xh1o7/PbLdJPbBPma8VF3kIs=
 			</data>
 		</dict>
-		<key>Resources/mskHealth.mlmodelc/model.espresso.weights</key>
+		<key>Resources/MskHealth.mlmodelc/model.espresso.weights</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			x5z9UKJdfMo9jFAKr3P3FmgO8YRjKXSqFU6pr9JNdyY=
+			zkQim6iHtkMgVY4Y5vIGAACaO9iPWO4YRuRnwU61Vx0=
 			</data>
 		</dict>
-		<key>Resources/mskHealth.mlmodelc/model/coremldata.bin</key>
+		<key>Resources/MskHealth.mlmodelc/model/coremldata.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
 			9aX9QtFqIDAnmO9u0wmXm0MAPSMg2fDo6pgxqSdZ+0s=
 			</data>
 		</dict>
-		<key>Resources/mskHealth.mlmodelc/neural_network_optionals/coremldata.bin</key>
+		<key>Resources/MskHealth.mlmodelc/neural_network_optionals/coremldata.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>

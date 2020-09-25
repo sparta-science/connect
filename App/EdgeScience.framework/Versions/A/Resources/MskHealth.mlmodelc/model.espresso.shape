@@ -1,37 +1,25 @@
 {
   "layer_shapes" : {
-    "dense_263__activation___output" : {
-      "k" : 50,
-      "w" : 1,
-      "n" : 1,
-      "h" : 1
-    },
-    "explode" : {
-      "k" : 1,
-      "w" : 1,
-      "n" : 1,
-      "h" : 1
-    },
-    "dense_270_output" : {
-      "k" : 1,
-      "w" : 1,
-      "n" : 1,
-      "h" : 1
-    },
-    "dense_264__activation___output" : {
-      "k" : 50,
-      "w" : 1,
-      "n" : 1,
-      "h" : 1
-    },
-    "concatenate_31_output" : {
-      "k" : 6,
-      "w" : 1,
-      "n" : 1,
-      "h" : 1
-    },
-    "dense_268_output" : {
+    "dense_12_output" : {
       "k" : 2,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "confidence" : {
+      "k" : 1,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "dense_10__activation___output" : {
+      "k" : 50,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "flatten_3_output__permute__" : {
+      "k" : 1,
       "w" : 1,
       "n" : 1,
       "h" : 1
@@ -42,13 +30,13 @@
       "n" : 1,
       "h" : 1
     },
-    "dense_265__activation___output" : {
-      "k" : 50,
+    "jump" : {
+      "k" : 1,
       "w" : 1,
       "n" : 1,
       "h" : 1
     },
-    "confidence" : {
+    "flatten_3_output" : {
       "k" : 1,
       "w" : 1,
       "n" : 1,
@@ -60,32 +48,14 @@
       "n" : 1,
       "h" : 1
     },
-    "dense_266__activation___output" : {
+    "dense_11__activation___output" : {
       "k" : 50,
       "w" : 1,
       "n" : 1,
       "h" : 1
     },
-    "jump_height" : {
-      "k" : 1,
-      "w" : 1,
-      "n" : 1,
-      "h" : 1
-    },
-    "load" : {
-      "k" : 1,
-      "w" : 1,
-      "n" : 1,
-      "h" : 1
-    },
-    "dense_267__activation___output" : {
+    "dense_7__activation___output" : {
       "k" : 50,
-      "w" : 1,
-      "n" : 1,
-      "h" : 1
-    },
-    "avg_mass" : {
-      "k" : 1,
       "w" : 1,
       "n" : 1,
       "h" : 1
@@ -96,13 +66,19 @@
       "n" : 1,
       "h" : 1
     },
-    "gender" : {
-      "k" : 1,
+    "dense_8__activation___output" : {
+      "k" : 50,
       "w" : 1,
       "n" : 1,
       "h" : 1
     },
-    "drive" : {
+    "dense_9__activation___output" : {
+      "k" : 50,
+      "w" : 1,
+      "n" : 1,
+      "h" : 1
+    },
+    "dense_16_output" : {
       "k" : 1,
       "w" : 1,
       "n" : 1,

@@ -9,9 +9,8 @@ class StateCapsuleSpec: QuickSpec {
             var defaults: UserDefaults!
             var subject: StateCapsule!
             beforeEach {
-                defaults = .init()
+                defaults = .createAndInject()
                 defaults.removeObject(forKey: "complete")
-                TestDependency.register(Inject(defaults!))
                 subject = .init()
             }
             context(StateCapsule.init) {

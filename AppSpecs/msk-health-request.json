@@ -1,0 +1,22 @@
+{
+    "input": [
+        {
+            "load": 70,
+            "explode": 74,
+            "drive": 20,
+            "avg_mass": 90,
+            "max_vertical_jump_height": 0.2,
+            "gender": 1,
+            "id": "invalid jump"
+        },
+        {
+            "load": 48,
+            "explode": 54,
+            "drive": 59,
+            "avg_mass": 67,
+            "max_vertical_jump_height": 0.57,
+            "gender": 0,
+            "id": "valid jump"
+        }
+    ]
+}

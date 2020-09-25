@@ -12,7 +12,7 @@ class ConnectionMonitorSpec: QuickSpec {
                         subject = .init(url: testBundleUrl("health-check-success.json"))
                     }
                     it("should complete with true") {
-                        waitUntil { done in
+                        waitUntil(timeout: 5.0) { done in
                             subject.update { connected in
                                 expect(connected) == true
                                 done()
