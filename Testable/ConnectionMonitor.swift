@@ -1,14 +1,15 @@
 import Combine
 
 public protocol HealthCheck {
-    func update(complete: @escaping (Bool) -> Void)
+    func start(updating: @escaping (Bool) -> Void)
+    func cancel()
 }
 
 struct HealthCheckResponse: Decodable {
     let websocketActive: Bool
 }
 
-public class ConnectionMonitor: HealthCheck {
+public class ConnectionMonitor {
     let url: URL
     public init(url: URL) {
         self.url = url
@@ -18,16 +19,30 @@ public class ConnectionMonitor: HealthCheck {
         $0.keyDecodingStrategy = .convertFromSnakeCase
     }
 
-    public func update(complete: @escaping (Bool) -> Void) {
-        cancellables.removeAll()
+    func checkHealth() -> AnyPublisher<Bool, Never> {
         URLSession.shared
             .dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: HealthCheckResponse.self, decoder: decoder)
             .tryMap { $0.websocketActive }
             .receive(on: DispatchQueue.main)
-            .catch { _ in Just(false) }
-            .sink { complete($0) }
+            .catch { _ in Empty() }
+            .eraseToAnyPublisher()
+    }
+}
+
+extension ConnectionMonitor: HealthCheck {
+    public func cancel() {
+        cancellables.removeAll()
+    }
+
+    public func start(updating: @escaping (Bool) -> Void) {
+        cancel()
+        Timer.publish(every: 1.0, on: .main, in: .common)
+            .autoconnect()
+            .map { _ in }
+            .flatMap(checkHealth)
+            .sink(receiveValue: updating)
             .store(in: &cancellables)
     }
 }

@@ -6,7 +6,6 @@ public class ConnectedController: NSViewController {
     @IBOutlet public var forcePlateName: NSTextField!
     @Inject var healthCheck: HealthCheck
     @IBOutlet public var connectionStatus: NSTextField!
-    public var timer: Timer?
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -16,29 +15,16 @@ public class ConnectedController: NSViewController {
         }
     }
 
-    func updateStatus(connected: Bool) {
-        connectionStatus.stringValue = connected ? "🟢 online" : "🔴 offline"
-        timer = .scheduledTimer(timeInterval: 1.0,
-                                target: self,
-                                selector: #selector(updateConnectedStatus),
-                                userInfo: nil,
-                                repeats: false)
-    }
-
-    @objc func updateConnectedStatus() {
-        healthCheck.update { [weak self] connected in
-            self?.updateStatus(connected: connected)
-        }
-    }
-
     override public func viewDidAppear() {
         super.viewDidAppear()
-        updateConnectedStatus()
+        healthCheck.start { [weak self] connected in
+            self?.connectionStatus.stringValue = connected ? "🟢 online" : "🔴 offline"
+        }
     }
 
     override public func viewDidDisappear() {
         super.viewDidDisappear()
-        timer?.invalidate()
+        healthCheck.cancel()
     }
 
     @IBAction public func disconnect(_ sender: NSButton) {
