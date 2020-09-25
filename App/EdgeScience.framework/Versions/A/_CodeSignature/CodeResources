@@ -4,17 +4,9 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/.DS_Store</key>
-		<data>
-		3AOC0msofCzXj8udb2HvI+FswQ8=
-		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		UxadUcnmCtlLdeVdMmHbACE4JqE=
-		</data>
-		<key>Resources/MskHealth.mlmodelc/.DS_Store</key>
-		<data>
-		IExX7K6XcH9tu09JRflmK4pHM8E=
+		fgZQ4aMsaoJxN0/Tu1SdipLZg+U=
 		</data>
 		<key>Resources/MskHealth.mlmodelc/coremldata.bin</key>
 		<data>
@@ -61,42 +53,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			xCA+3AfIsxnlr2MWy/k/B5ZPDiLUSCkwRbfp30myOJw=
+			CWQkhJJmBmyHkuRbbmor1GWMyz/uGs8UU5WCsc8bMIM=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xCA+3AfIsxnlr2MWy/k/B5ZPDiLUSCkwRbfp30myOJw=
+			CWQkhJJmBmyHkuRbbmor1GWMyz/uGs8UU5WCsc8bMIM=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64-apple-macos.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			I+L5BkFbJ2C90e6ZHmbklc3kGLisNHPz/g9hHhRmSCs=
+			87l9RiuP6aJMEWPolBBiGti6CVELkkM5oXV9V8LYeXY=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64-apple-macos.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fN903KDdWXA6UTwUQgW71L0MmuxY8as9I/yxCgkyJuc=
+			E2G3XK+0/CeNyIHv/NdsZICbPJMG7iIR22yrzg78RW8=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			I+L5BkFbJ2C90e6ZHmbklc3kGLisNHPz/g9hHhRmSCs=
+			87l9RiuP6aJMEWPolBBiGti6CVELkkM5oXV9V8LYeXY=
 			</data>
 		</dict>
 		<key>Modules/EdgeScience.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fN903KDdWXA6UTwUQgW71L0MmuxY8as9I/yxCgkyJuc=
+			E2G3XK+0/CeNyIHv/NdsZICbPJMG7iIR22yrzg78RW8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -110,7 +102,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VCecgedZIyMVm5Ga0rXiFspWidFZNAJmoUD5x6i3GGY=
+			fd6k0vsHL5ZDV3vWAXKBg74g8jkssRy5gs9dU5QXy5Y=
 			</data>
 		</dict>
 		<key>Resources/MskHealth.mlmodelc/coremldata.bin</key>
