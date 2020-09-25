@@ -97,7 +97,7 @@ class ConnectTest: XCTestCase {
             app.loginButton.click()
 
             verifyInstalled(file: "vernal_falls_config.yml")
-            verifyInstalled(file: "vernal_falls.tar.gz", timeout: .network * 2)
+            verifyInstalled(file: "vernal_falls.tar.gz", timeout: .network)
             app.dismiss(alert: "Failed with exit code: 1", byClicking: "OK")
             app.loginButton.waitToAppear()
         }
