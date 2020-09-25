@@ -17,6 +17,7 @@ public class ConnectedController: NSViewController {
 
     override public func viewDidAppear() {
         super.viewDidAppear()
+        connectionStatus.stringValue = "connecting..."
         healthCheck.start { [weak self] connected in
             self?.connectionStatus.stringValue = connected ? "🟢 online" : "🔴 offline"
         }
