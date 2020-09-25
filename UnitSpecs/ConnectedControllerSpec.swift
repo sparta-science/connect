@@ -47,26 +47,26 @@ class ConnectedControllerSpec: QuickSpec {
                     statusLabel = .init()
                     subject.connectionStatus = statusLabel
                 }
-                it("should start checking health") {
+                it("should start checking health and show connecting...") {
                     subject.viewDidAppear()
                     expect(mock.check).notTo(beNil())
+                    expect(subject.connectionStatus.stringValue) == "connecting..."
                 }
-                context("observing") {
+                context("updating") {
                     beforeEach {
                         subject.viewDidAppear()
                         mock.check!(true)
                     }
-                    it("should update status") {
-                        expect(subject.connectionStatus.stringValue) == "🟢 online"
-                        mock.check!(false)
-                        expect(subject.connectionStatus.stringValue) == "🔴 offline"
-                    }
-                    context("when time fires") {
-                        beforeEach {
-                            mock.check = nil
+                    context("connected") {
+                        it("should show online") {
+                            mock.check!(true)
+                            expect(subject.connectionStatus.stringValue) == "🟢 online"
                         }
-                        it("should check status") {
-                            expect(mock.check).notTo(beNil())
+                    }
+                    context("disconnected") {
+                        it("should show offline") {
+                            mock.check!(false)
+                            expect(subject.connectionStatus.stringValue) == "🔴 offline"
                         }
                     }
                 }
