@@ -26,7 +26,7 @@ public class ConnectionMonitor {
             .decode(type: HealthCheckResponse.self, decoder: decoder)
             .tryMap { $0.websocketActive }
             .receive(on: DispatchQueue.main)
-            .catch { _ in Empty() }
+            .catch { _ in Empty(completeImmediately: true) }
             .eraseToAnyPublisher()
     }
 }

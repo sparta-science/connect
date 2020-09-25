@@ -31,6 +31,7 @@ class ConnectionMonitorSpec: QuickSpec {
                         subject.start { connected in
                             fail("should not complete, got \(connected)")
                         }
+                        RunLoop.run(for: 0.1)
                     }
                 }
             }
