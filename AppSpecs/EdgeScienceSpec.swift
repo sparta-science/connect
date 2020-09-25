@@ -32,7 +32,9 @@ class EdgeScienceSpec: QuickSpec {
                                                          mass: 67,
                                                          jumpHeight: 0.24,
                                                          isMale: true)
-                    expect(known) == Decimal(58.8)
+                    expect(abs(known!.distance(to: Decimal(58.8)))
+                        .isLessThanOrEqualTo(Decimal(0.1))).to(equal(true),
+                                                               description: known?.description)
                 }
             }
         }
