@@ -12,6 +12,7 @@ class AppAssemblySpec: QuickSpec {
                     expect(Injected<Installation>.instance).notTo(beNil())
                     expect(Injected<StateContainer>.instance).notTo(beNil())
                     expect(Injected<Downloading>.instance).notTo(beNil())
+                    expect(Injected<HealthCheck>.instance).notTo(beNil())
                 }
             }
             context("unique-client-id") {
@@ -39,9 +40,19 @@ class AppAssemblySpec: QuickSpec {
                     beforeEach {
                         injectedUrl = Inject<URL>("start script url")
                     }
-                    it("should contain launchctl bootstap") {
+                    it("should bootstap") {
                         expect(try? String(contentsOf: injectedUrl.wrappedValue)).to(
                             contain("/bin/launchctl bootstrap gui")
+                        )
+                    }
+                }
+                context("stop script url") {
+                    beforeEach {
+                        injectedUrl = Inject<URL>("stop script url")
+                    }
+                    it("should bootout") {
+                        expect(try? String(contentsOf: injectedUrl.wrappedValue)).to(
+                            contain("/bin/launchctl bootout gui")
                         )
                     }
                 }
