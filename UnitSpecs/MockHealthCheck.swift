@@ -2,8 +2,13 @@ import Testable
 
 final class MockHealthCheck: HealthCheck {
     var check: ((Bool) -> Void)?
-    func update(complete: @escaping (Bool) -> Void) {
-        check = complete
+    func start(updating: @escaping (Bool) -> Void) {
+        check = updating
+    }
+
+    var didCall: String?
+    func cancel() {
+        didCall = #function
     }
 }
 
