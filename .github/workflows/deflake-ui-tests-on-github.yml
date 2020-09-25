@@ -12,6 +12,8 @@ on:
 
 jobs:
   test-continously:
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
 
     runs-on: macos-latest
     timeout-minutes: 45
