@@ -41,58 +41,67 @@ class ConnectedControllerSpec: QuickSpec {
                 }
             }
             context("health check") {
-                var mock: MockHealthCheck!
                 var statusLabel: NSTextField!
                 beforeEach {
-                    mock = .createAndInject()
                     statusLabel = .init()
                     subject.connectionStatus = statusLabel
                 }
-                describe(ConnectedController.viewDidAppear) {
-                    context("error") {
-                        beforeEach {
-                            mock.publisher = Empty().eraseToAnyPublisher()
-                            subject.viewDidAppear()
-                        }
-                        it("should check every second and show connecting...") {
-                            expect(mock.interval) == 1.0
-                            expect(subject.connectionStatus.stringValue) == "connecting..."
-                        }
-                    }
-                    context("success") {
-                        context("connected") {
-                            beforeEach {
-                                mock.publisher = Just(true).eraseToAnyPublisher()
-                                subject.viewDidAppear()
-                            }
-                            it("should show online") {
-                                expect(subject.connectionStatus.stringValue) == "🟢 online"
-                            }
-                        }
-                        context("disconnected") {
-                            beforeEach {
-                                mock.publisher = Just(false).eraseToAnyPublisher()
-                                subject.viewDidAppear()
-                            }
-                            it("should show offline") {
-                                expect(subject.connectionStatus.stringValue) == "🔴 offline"
-                            }
-                        }
+                describe(ConnectedController.viewWillAppear) {
+                    it("should show connecting...") {
+                        subject.viewWillAppear()
+                        expect(subject.connectionStatus.stringValue) == "connecting..."
                     }
                 }
-                describe(ConnectedController.viewDidDisappear) {
-                    var wasCancelled = false
+                context("with health check mock") {
+                    var mock: MockHealthCheck!
                     beforeEach {
-                        mock.publisher = Empty(completeImmediately: false)
-                        .handleEvents(receiveCancel: {
-                            wasCancelled = true
-                        }).eraseToAnyPublisher()
-                        subject.viewDidAppear()
-                        expect(wasCancelled) == false
+                        mock = .createAndInject()
                     }
-                    it("should cancel health check") {
-                        subject.viewDidDisappear()
-                        expect(wasCancelled) == true
+                    describe(ConnectedController.viewDidAppear) {
+                        context("error") {
+                            beforeEach {
+                                mock.publisher = Empty().eraseToAnyPublisher()
+                                subject.viewDidAppear()
+                            }
+                            it("should check every second and show connecting...") {
+                                expect(mock.interval) == 1.0
+                            }
+                        }
+                        context("success") {
+                            context("connected") {
+                                beforeEach {
+                                    mock.publisher = Just(true).eraseToAnyPublisher()
+                                    subject.viewDidAppear()
+                                }
+                                it("should show online") {
+                                    expect(subject.connectionStatus.stringValue) == "🟢 online"
+                                }
+                            }
+                            context("disconnected") {
+                                beforeEach {
+                                    mock.publisher = Just(false).eraseToAnyPublisher()
+                                    subject.viewDidAppear()
+                                }
+                                it("should show offline") {
+                                    expect(subject.connectionStatus.stringValue) == "🔴 offline"
+                                }
+                            }
+                        }
+                    }
+                    describe(ConnectedController.viewDidDisappear) {
+                        var wasCancelled = false
+                        beforeEach {
+                            mock.publisher = Empty(completeImmediately: false)
+                            .handleEvents(receiveCancel: {
+                                wasCancelled = true
+                            }).eraseToAnyPublisher()
+                            subject.viewDidAppear()
+                            expect(wasCancelled) == false
+                        }
+                        it("should cancel health check") {
+                            subject.viewDidDisappear()
+                            expect(wasCancelled) == true
+                        }
                     }
                 }
             }

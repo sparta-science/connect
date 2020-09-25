@@ -21,10 +21,14 @@ public class ConnectedController: NSViewController {
         connectionStatus.stringValue = connected ? "🟢 online" : "🔴 offline"
     }
 
+    override public func viewWillAppear() {
+        super.viewWillAppear()
+        connectionStatus.stringValue = "connecting..."
+    }
+
     override public func viewDidAppear() {
         super.viewDidAppear()
         cancel()
-        connectionStatus.stringValue = "connecting..."
         healthCheck.checkHealth(every: 1.0)
             .sink(receiveValue: updateStatus)
             .store(in: &cancellables)

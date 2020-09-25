@@ -16,7 +16,7 @@ public class ConnectionMonitor {
     let decoder = Init(JSONDecoder()) {
         $0.keyDecodingStrategy = .convertFromSnakeCase
     }
-    
+
     func startCheck() -> AnyPublisher<Bool, Never> {
         URLSession.shared
             .dataTaskPublisher(for: url)
