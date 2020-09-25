@@ -11,6 +11,9 @@ class ConnectionMonitorSpec: QuickSpec {
                     beforeEach {
                         subject = .init(url: testBundleUrl("health-check-success.json"))
                     }
+                    afterEach {
+                        subject.cancel()
+                    }
                     it("should complete with true") {
                         waitUntil(timeout: 5.0) { done in
                             subject.start { connected in
@@ -24,12 +27,9 @@ class ConnectionMonitorSpec: QuickSpec {
                     beforeEach {
                         subject = .init(url: temp(path: "not-found.json"))
                     }
-                    it("should complete with false") {
-                        waitUntil { done in
-                            subject.start { connected in
-                                expect(connected) == false
-                                done()
-                            }
+                    it("should not complete") {
+                        subject.start { connected in
+                            fail("should not complete, got \(connected)")
                         }
                     }
                 }
