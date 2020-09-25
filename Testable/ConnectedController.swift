@@ -1,4 +1,5 @@
 import Cocoa
+import Combine
 
 public class ConnectedController: NSViewController {
     @Inject var installer: Installation
@@ -6,7 +7,7 @@ public class ConnectedController: NSViewController {
     @IBOutlet public var forcePlateName: NSTextField!
     @Inject var healthCheck: HealthCheck
     @IBOutlet public var connectionStatus: NSTextField!
-    public var timer: Timer?
+    var cancellables = Set<AnyCancellable>()
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -18,27 +19,24 @@ public class ConnectedController: NSViewController {
 
     func updateStatus(connected: Bool) {
         connectionStatus.stringValue = connected ? "🟢 online" : "🔴 offline"
-        timer = .scheduledTimer(timeInterval: 1.0,
-                                target: self,
-                                selector: #selector(updateConnectedStatus),
-                                userInfo: nil,
-                                repeats: false)
-    }
-
-    @objc func updateConnectedStatus() {
-        healthCheck.update { [weak self] connected in
-            self?.updateStatus(connected: connected)
-        }
     }
 
     override public func viewDidAppear() {
         super.viewDidAppear()
-        updateConnectedStatus()
+        cancel()
+        connectionStatus.stringValue = "connecting..."
+        healthCheck.checkHealth(every: 1.0)
+            .sink(receiveValue: updateStatus)
+            .store(in: &cancellables)
     }
 
     override public func viewDidDisappear() {
         super.viewDidDisappear()
-        timer?.invalidate()
+        cancel()
+    }
+
+    func cancel() {
+        cancellables.removeAll()
     }
 
     @IBAction public func disconnect(_ sender: NSButton) {

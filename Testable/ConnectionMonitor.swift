@@ -1,33 +1,41 @@
 import Combine
 
 public protocol HealthCheck {
-    func update(complete: @escaping (Bool) -> Void)
+    func checkHealth(every: TimeInterval) -> AnyPublisher<Bool, Never>
 }
 
 struct HealthCheckResponse: Decodable {
     let websocketActive: Bool
 }
 
-public class ConnectionMonitor: HealthCheck {
+public class ConnectionMonitor {
     let url: URL
     public init(url: URL) {
         self.url = url
     }
-    var cancellables = Set<AnyCancellable>()
     let decoder = Init(JSONDecoder()) {
         $0.keyDecodingStrategy = .convertFromSnakeCase
     }
+}
 
-    public func update(complete: @escaping (Bool) -> Void) {
-        cancellables.removeAll()
+extension ConnectionMonitor: HealthCheck {
+    public func checkHealth(every time: TimeInterval) -> AnyPublisher<Bool, Never> {
+        Timer.publish(every: time, on: .main, in: .common)
+            .autoconnect()
+            .map { _ in }
+            .flatMap(startCheck)
+            .merge(with: startCheck())
+            .eraseToAnyPublisher()
+    }
+
+    func startCheck() -> AnyPublisher<Bool, Never> {
         URLSession.shared
             .dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(type: HealthCheckResponse.self, decoder: decoder)
             .tryMap { $0.websocketActive }
             .receive(on: DispatchQueue.main)
-            .catch { _ in Just(false) }
-            .sink { complete($0) }
-            .store(in: &cancellables)
+            .catch { _ in Empty(completeImmediately: true) }
+            .eraseToAnyPublisher()
     }
 }

@@ -1,9 +1,12 @@
+import Combine
 import Testable
 
 final class MockHealthCheck: HealthCheck {
-    var check: ((Bool) -> Void)?
-    func update(complete: @escaping (Bool) -> Void) {
-        check = complete
+    var interval: TimeInterval?
+    var publisher: AnyPublisher<Bool, Never>?
+    func checkHealth(every time: TimeInterval) -> AnyPublisher<Bool, Never> {
+        interval = time
+        return publisher!
     }
 }
 
