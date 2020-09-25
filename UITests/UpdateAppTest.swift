@@ -4,7 +4,7 @@ enum Timeout: TimeInterval {
     case test = 5
     case launch = 10
     case install = 30
-    case network = 60
+    case network = 120
 }
 
 class UpdateAppTest: XCTestCase {
