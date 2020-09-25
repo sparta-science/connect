@@ -10,7 +10,14 @@ class LocalServerSpec: QuickSpec {
                 context("invalid request") {
                     it("should respond with an error") {
                         let dataResponse = try! Data(contentsOf: URL(string: "http://localhost:4080/msk-health")!)
-                        expect(String(data: dataResponse, encoding: .utf8)) == "[\"something went wrong\"]"
+                        let parsed = try! JSONSerialization.jsonObject(with: dataResponse) as! NSDictionary
+                        expect(parsed["errorMessage"] as? String) == "dataCorrupted(Swift.DecodingError.Context(codingPath: [], debugDescription: \"The given data was not valid JSON.\", underlyingError: Optional(Error Domain=NSCocoaErrorDomain Code=3840 \"No value.\" UserInfo={NSDebugDescription=No value.})))"
+                        expect(parsed["errorType"] as? String) == "DecodingError"
+                        expect(parsed["localizedDescription"] as? String) == "The data couldn’t be read because it isn’t in the correct format."
+
+                        let stackTrace = parsed["stackTrace"] as? NSArray
+                        expect(stackTrace?.count) > 10
+                        expect(stackTrace?[0] as? String).to(beginWith("0   SpartaConnect                       0x0000000"))
                     }
                 }
                 context("valid request") {

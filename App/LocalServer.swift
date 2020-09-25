@@ -31,11 +31,18 @@ public class LocalServer: NSObject {
         $0.keyEncodingStrategy = .convertToSnakeCase
     }
     func handleMskHealthRequest(data: Data) -> HttpResponseBody {
-        if let inputs = try? decoder.decode(ScienceInputs.self, from: data),
-            let encoded = try? encoder.encode(science.predict(inputs: inputs)) {
+        do {
+            let inputs = try decoder.decode(ScienceInputs.self, from: data)
+            let encoded = try encoder.encode(science.predict(inputs: inputs))
             return .data(encoded)
+        } catch {
+            return .json([
+                "localizedDescription": error.localizedDescription,
+                "errorMessage": String(describing: error),
+                "errorType": String(describing: type(of: error)),
+                "stackTrace": Thread.callStackSymbols
+            ])
         }
-        return .json(["something went wrong"])
     }
     func startServer() {
         server["/msk-health"] = { request in
