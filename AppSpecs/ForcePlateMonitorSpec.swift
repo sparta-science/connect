@@ -38,7 +38,7 @@ class ForcePlateMonitorSpec: QuickSpec {
             context(ForcePlateMonitor.start) {
                 it("should start device monitor") {
                     subject.start(updating: stub)
-                    expect(fake.didStartOnBackground).toEventually(beTrue(), timeout: 5)
+                    expect(fake.didStartOnBackground).toEventually(beTrue(), timeout: .seconds(5))
                 }
                 it("should configure filter") {
                     subject.start(updating: stub)
@@ -67,7 +67,7 @@ class ForcePlateMonitorSpec: QuickSpec {
                                       line: UInt = #line) {
                             waitUntil { done in
                                 subject.start { deviceName in
-                                    expect(deviceName, file: file, line: line) == name
+                                    expect(file: file, line: line, deviceName) == name
                                     done()
                                 }
                                 center.post(name: .SerialDeviceAdded,

@@ -17,7 +17,7 @@ class DownloaderSpec: QuickSpec {
             context(Downloader.createDownload(url:reporting:)) {
                 it("should download a text file reporting size") {
                     let url = URL(string: "https://raw.githubusercontent.com/sparta-science/connect/master/LICENSE")!
-                    waitUntil(timeout: 30.0) { done in
+                    waitUntil(timeout: .seconds(30)) { done in
                         subject.createDownload(url: url) { progress in
                             expect([1_074, -1]).to(contain(progress.totalUnitCount))
                             expect(progress.completedUnitCount) == 1_074
@@ -33,7 +33,7 @@ class DownloaderSpec: QuickSpec {
                 }
                 it("should report http errors") {
                     let url = URL(string: "https://raw.githubusercontent.com/foo")!
-                    waitUntil(timeout: 30.0) { done in
+                    waitUntil(timeout: .seconds(30)) { done in
                         subject.createDownload(url: url) { progress in
                             expect(progress.totalUnitCount) == 20
                             expect(progress.completedUnitCount) == 20
