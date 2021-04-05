@@ -21,12 +21,12 @@ public protocol HttpResponseBodyWriter {
 }
 
 public enum HttpResponseBody {
-    
+
     case json(Any)
     case html(String)
     case htmlBody(String)
     case text(String)
-    case data(Data)
+    case data(Data, contentType: String? = nil)
     case custom(Any, (Any) throws -> String)
 
     func content() -> (Int, ((HttpResponseBodyWriter) throws -> Void)?) {
@@ -56,7 +56,7 @@ public enum HttpResponseBody {
                 return (data.count, {
                     try $0.write(data)
                 })
-            case .data(let data):
+            case .data(let data, _):
                 return (data.count, {
                     try $0.write(data)
                 })
@@ -83,9 +83,10 @@ public enum HttpResponse {
     case ok(HttpResponseBody), created, accepted
     case movedPermanently(String)
     case movedTemporarily(String)
-    case badRequest(HttpResponseBody?), unauthorized, forbidden, notFound
+    case badRequest(HttpResponseBody?), unauthorized, forbidden, notFound, notAcceptable
+    case tooManyRequests
     case internalServerError
-    case raw(Int, String, [String:String]?, ((HttpResponseBodyWriter) throws -> Void)? )
+    case raw(Int, String, [String: String]?, ((HttpResponseBodyWriter) throws -> Void)? )
 
     public var statusCode: Int {
         switch self {
@@ -99,6 +100,8 @@ public enum HttpResponse {
         case .unauthorized            : return 401
         case .forbidden               : return 403
         case .notFound                : return 404
+        case .notAcceptable           : return 406
+        case .tooManyRequests         : return 429
         case .internalServerError     : return 500
         case .raw(let code, _, _, _)  : return code
         }
@@ -116,6 +119,8 @@ public enum HttpResponse {
         case .unauthorized             : return "Unauthorized"
         case .forbidden                : return "Forbidden"
         case .notFound                 : return "Not Found"
+        case .notAcceptable            : return "Not Acceptable"
+        case .tooManyRequests          : return "Too Many Requests"
         case .internalServerError      : return "Internal Server Error"
         case .raw(_, let phrase, _, _) : return phrase
         }
@@ -132,6 +137,7 @@ public enum HttpResponse {
             switch body {
             case .json: headers["Content-Type"] = "application/json"
             case .html: headers["Content-Type"] = "text/html"
+            case .data(_, let contentType): headers["Content-Type"] = contentType
             default:break
             }
         case .movedPermanently(let location):

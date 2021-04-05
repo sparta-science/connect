@@ -12,7 +12,7 @@ public protocol HttpServerIODelegate: class {
     func socketConnectionReceived(_ socket: Socket)
 }
 
-public class HttpServerIO {
+open class HttpServerIO {
 
     public weak var delegate: HttpServerIODelegate?
 
@@ -85,9 +85,9 @@ public class HttpServerIO {
                     strongSelf.queue.async {
                         strongSelf.sockets.insert(socket)
                     }
-                    
+
                     strongSelf.handleConnection(socket)
-                    
+
                     strongSelf.queue.async {
                         strongSelf.sockets.remove(socket)
                     }
@@ -111,7 +111,7 @@ public class HttpServerIO {
         self.state = .stopped
     }
 
-    public func dispatch(_ request: HttpRequest) -> ([String: String], (HttpRequest) -> HttpResponse) {
+    open func dispatch(_ request: HttpRequest) -> ([String: String], (HttpRequest) -> HttpResponse) {
         return ([:], { _ in HttpResponse.notFound })
     }
 
@@ -130,7 +130,6 @@ public class HttpServerIO {
                 }
             } catch {
                 print("Failed to send response: \(error)")
-                break
             }
             if let session = response.socketSession() {
                 delegate?.socketConnectionReceived(socket)
@@ -172,7 +171,7 @@ public class HttpServerIO {
 
         // Some web-socket clients (like Jetfire) expects to have header section in a single packet.
         // We can't promise that but make sure we invoke "write" only once for response header section.
-        
+
         var responseHeader = String()
 
         responseHeader.append("HTTP/1.1 \(response.statusCode) \(response.reasonPhrase)\r\n")
