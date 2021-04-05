@@ -1,0 +1,70 @@
+[
+  {
+    "shortDescription" : "Muscular Skeletal Health",
+    "metadataOutputVersion" : "3.0",
+    "outputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 1)",
+        "shortDescription" : "musculoskeletal health value",
+        "shape" : "[1]",
+        "name" : "mskHealth",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 1)",
+        "shortDescription" : "confidence in mskHealth value, 0 (low) to 1 (high), mskHealth is valid when confidence is greater or equal 0.5",
+        "shape" : "[1]",
+        "name" : "confidence",
+        "type" : "MultiArray"
+      }
+    ],
+    "version" : "",
+    "modelParameters" : [
+
+    ],
+    "author" : "Sparta Science",
+    "specificationVersion" : 1,
+    "license" : "This software is subject to the terms and conditions found at https:\/\/spartascience.com\/legal",
+    "isUpdatable" : "0",
+    "availability" : {
+      "macOS" : "10.13",
+      "tvOS" : "11.0",
+      "watchOS" : "4.0",
+      "iOS" : "11.0",
+      "macCatalyst" : "11.0"
+    },
+    "modelType" : {
+      "name" : "MLModelType_neuralNetwork"
+    },
+    "inputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Float32",
+        "formattedType" : "MultiArray (Float32 1)",
+        "shortDescription" : "load, explode, drive, avg mass, jump_height, gender (1=male, 0=female)",
+        "shape" : "[1]",
+        "name" : "jump",
+        "type" : "MultiArray"
+      }
+    ],
+    "userDefinedMetadata" : {
+      "coremltoolsVersion" : "3.4"
+    },
+    "generatedClassName" : "MskHealth",
+    "neuralNetworkLayerTypeHistogram" : {
+      "InnerProduct" : 10,
+      "ActivationSigmoid" : 1,
+      "Permute" : 1,
+      "ActivationReLU" : 5,
+      "Flatten" : 1
+    },
+    "method" : "predict"
+  }
+]
