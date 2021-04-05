@@ -48,7 +48,7 @@ class ServiceWatchdogSpec: QuickSpec {
                         mockNotifier.send(state: .complete)
                     }
                     it("should report the error") {
-                        expect(mockErrorReporter.didReport?.localizedDescription) ==  "failed to start"
+                        expect(mockErrorReporter.didReport?.localizedDescription) == "failed to start"
                     }
                 }
             }

@@ -103,9 +103,9 @@ class DependencyInjectionConfiguration: QuickConfiguration {
         configuration.afterEach { exampleMetadata in
             let testResolver = TestDependency.testResolver
             let location = exampleMetadata.example.callsite
-            expect(testResolver.used,
-                   file: location.file,
-                   line: location.line).to(haveCount(testResolver.dependencies.count),
+            expect(file: location.file,
+                   line: location.line,
+                   testResolver.used).to(haveCount(testResolver.dependencies.count),
                                            description:
                     "unused dependencies: \(testResolver.dependencies.filter { !testResolver.used.contains($0.key) })")
             DependencyInjection.resolver = TestResolver()
