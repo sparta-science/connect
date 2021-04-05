@@ -10,7 +10,7 @@ defaults:
 jobs:
   build-then-test:
 
-    runs-on: [self-hosted, xcode11]
+    runs-on: macos-latest
     timeout-minutes: 20
 
     env:
