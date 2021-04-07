@@ -76,7 +76,7 @@ class UpdateAppTest: XCTestCase {
         ])
     }
 
-    func _testAutoUpgrade() throws {
+    func testAutoUpgrade() throws {
         preventAutomaticDownloadOfUpdates()
         tempAppHelper.launch(arguments: arguments)
         dismissMainWindowAsAWorkaroundUpdateWindowNotFound()
