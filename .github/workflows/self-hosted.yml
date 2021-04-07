@@ -10,7 +10,7 @@ defaults:
 jobs:
   build-then-test:
 
-    runs-on: macos-latest
+    runs-on: [self-hosted, x86_64]
     timeout-minutes: 20
 
     env:
