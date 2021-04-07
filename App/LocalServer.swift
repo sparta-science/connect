@@ -48,7 +48,7 @@ public class LocalServer: NSObject {
         server["/msk-health"] = { request in
             .ok(self.handleMskHealthRequest(data: Data(request.body)))
         }
-        server["/health-check"] = { request in
+        server["/health-check"] = { _ in
             .ok(.html("ok"))
         }
         // swiftlint:disable:next force_try

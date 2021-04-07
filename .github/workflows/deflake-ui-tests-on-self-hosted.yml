@@ -18,11 +18,11 @@ defaults:
 jobs:
   build-then-test:
 
-    runs-on: [self-hosted, xcode11]
+    runs-on: [self-hosted, x86_64]
     timeout-minutes: 45
 
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
       NSUnbufferedIO: YES
 
     steps:

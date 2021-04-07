@@ -15,6 +15,9 @@ class ForcePlateDetectionSpec: QuickSpec {
                 it("should set force plate name to nil") {
                     waitUntil { done in
                         subject.start { forcePlate in
+                            guard forcePlate != "Not Set" else {
+                                return
+                            }
                             expect(forcePlate).to(beNil())
                             done()
                         }

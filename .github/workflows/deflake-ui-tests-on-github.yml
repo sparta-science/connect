@@ -13,7 +13,7 @@ on:
 jobs:
   test-continously:
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
       NSUnbufferedIO: YES
     runs-on: macos-latest
     timeout-minutes: 45

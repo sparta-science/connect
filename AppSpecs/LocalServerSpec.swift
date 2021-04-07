@@ -36,7 +36,7 @@ class LocalServerSpec: QuickSpec {
                         request.body = array
                         let result = server.dispatch(request)
                         let response = result.1(request)
-                        if case .ok(let body) = response, case .data(let data) = body {
+                        if case .ok(let body) = response, case .data(let data, _) = body {
                             expect(cleanString(data: data)) == cleanString(data: testData("msk-health-response.json"))
                         } else {
                             fail("should be ok")

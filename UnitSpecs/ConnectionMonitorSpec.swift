@@ -17,7 +17,7 @@ class ConnectionMonitorSpec: QuickSpec {
                         subject = .init(url: testBundleUrl("health-check-success.json"))
                     }
                     it("should publish true immediately") {
-                        waitUntil(timeout: 5.0) { done in
+                        waitUntil(timeout: .seconds(5)) { done in
                             cancel = subject.checkHealth(every: 1_000).sink { connected in
                                 expect(connected) == true
                                 done()
@@ -26,7 +26,7 @@ class ConnectionMonitorSpec: QuickSpec {
                     }
                     it("should publish again after time interval") {
                         var times = 0
-                        waitUntil(timeout: 5.0) { done in
+                        waitUntil(timeout: .seconds(5)) { done in
                             cancel = subject.checkHealth(every: 0).sink { _ in
                                 times += 1
                                 if times == 2 {
