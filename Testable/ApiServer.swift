@@ -17,7 +17,18 @@ public enum ApiServer: CaseIterable {
         .staging: "https://staging.spartascience.com",
         .production: "https://home.spartascience.com"
     ]
+
     public func serverUrlString() -> String {
-        Self.servers[self].map { $0 + "/api/app-setup" }!
+        if self == .production, let serverUrlString = AppSetupUrl().string {
+            return serverUrlString
+        }
+        return Self.servers[self].map { $0 + "/api/app-setup" }!
+    }
+}
+
+private class AppSetupUrl {
+    @Inject var defaults: UserDefaults
+    var string: String? {
+        defaults.string(forKey: "custom app url")
     }
 }
