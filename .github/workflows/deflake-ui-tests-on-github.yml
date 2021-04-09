@@ -5,10 +5,10 @@ on:
     branches:
       - deflake-ui-tests  # debug this workflow
   schedule:
-    # Every 45 min on weekday nights (between 8 pm and 7 am PST)
-    - cron:  '*/45 3-14 * * 1-5' # https://crontab.guru/#*/45_3-14_*_*_1-5
-    # Every 45 min on weekend
-    - cron:  '*/45 * * * 0,6'  # https://crontab.guru/#*/45_*_*_*_0,6
+    # Every 30 min on weekday nights (between 8 pm and 9 p PST)
+    - cron:  '*/30 3-4 * * 1-5' # https://crontab.guru/#*/30_3-4_*_*_1-5
+    # Every 3rd hour on weekend
+    - cron:  '0 1/3 * * 0,6'  # https://crontab.guru/#0_1/3_*_*_0,6
 
 jobs:
   test-continously:
