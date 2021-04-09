@@ -1003,7 +1003,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Sparta Science";
 				TargetAttributes = {
 					4A3F3C71248C92720058C5D4 = {
