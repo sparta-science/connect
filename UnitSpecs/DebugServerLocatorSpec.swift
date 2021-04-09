@@ -57,25 +57,27 @@ class DebugServerLocatorSpec: QuickSpec {
                         }
                     }
                 }
-                context("staging") {
+                context("with defaults") {
                     beforeEach {
                         TestDependency.register(Inject(UserDefaults.createAndInject()))
-                        login.environment = "staging"
                     }
-                    it("should go to staging.spartascience.com") {
-                        expect(subject.loginRequest(login).baseUrlString) == "https://staging.spartascience.com/api/app-setup"
+                    context("staging") {
+                        beforeEach {
+                            login.environment = "staging"
+                        }
+                        it("should go to staging.spartascience.com") {
+                            expect(subject.loginRequest(login).baseUrlString) == "https://staging.spartascience.com/api/app-setup"
+                        }
+                    }
+                    context("localhost") {
+                        beforeEach {
+                            login.environment = "localhost"
+                        }
+                        it("should go to localhost") {
+                            expect(subject.loginRequest(login).baseUrlString) == "http://localhost:4000/api/app-setup"
+                        }
                     }
                 }
-                context("localhost") {
-                    beforeEach {
-                        TestDependency.register(Inject(UserDefaults.createAndInject()))
-                        login.environment = "localhost"
-                    }
-                    it("should go to localhost") {
-                        expect(subject.loginRequest(login).baseUrlString) == "http://localhost:4000/api/app-setup"
-                    }
-                }
-
                 context("simulated") {
                     beforeEach {
                         login.environment = "simulate SF State Gators"
