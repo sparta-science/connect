@@ -19,14 +19,14 @@ class ApiServerSpec: QuickSpec {
                     }
                     context("defined") {
                         beforeEach {
-                            defaults.set("https://custom.host", forKey: "custom app url")
+                            defaults.set("https://custom.spartascience.com", forKey: "production url")
                         }
                         afterEach {
-                            defaults.removeObject(forKey: "custom app url")
+                            defaults.removeObject(forKey: "production url")
                         }
                         it("should be custom") {
                             expect(ApiServer.production.serverUrlString())
-                                == "https://custom.host"
+                                == "https://custom.spartascience.com/api/app-setup"
                         }
                     }
                 }
