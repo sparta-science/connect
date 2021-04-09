@@ -30,7 +30,7 @@ class MoveToApplicationsTest: XCTestCase {
         tempApp.wait(until: .notRunning, "should terminate to move")
     }
 
-    func testMoveToApplications() throws {
+    func XtestMoveToApplications() throws {
         launchAndChooseToMoveToApplications()
         verifyRunningFromApplications()
     }
