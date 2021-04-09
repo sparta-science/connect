@@ -59,6 +59,7 @@ class DebugServerLocatorSpec: QuickSpec {
                 }
                 context("staging") {
                     beforeEach {
+                        TestDependency.register(Inject(UserDefaults.createAndInject()))
                         login.environment = "staging"
                     }
                     it("should go to staging.spartascience.com") {
@@ -67,6 +68,7 @@ class DebugServerLocatorSpec: QuickSpec {
                 }
                 context("localhost") {
                     beforeEach {
+                        TestDependency.register(Inject(UserDefaults.createAndInject()))
                         login.environment = "localhost"
                     }
                     it("should go to localhost") {
