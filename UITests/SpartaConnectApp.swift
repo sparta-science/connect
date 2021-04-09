@@ -19,6 +19,12 @@ class SpartaConnectApp: XCUIApplication {
                 byClicking: button,
                 timeout: .install)
     }
+    func quit() {
+        activate()
+        clickStatusItem()
+        statusBarMenu().menuItems["Quit SpartaConnect"].click()
+        wait(until: .notRunning, timeout: .install)
+    }
     func connectWindow() -> XCUIElement {
         windows["Connect to Sparta Science"]
     }

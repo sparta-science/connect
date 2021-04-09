@@ -84,13 +84,6 @@ class UpdateAppTest: XCTestCase {
         verifyUpdated()
     }
 
-    func quitApp() {
-        app.activate()
-        app.clickStatusItem()
-        app.statusBarMenu().menuItems["Quit SpartaConnect"].click()
-        app.wait(until: .notRunning, timeout: .install)
-    }
-
     func checkUpdateDownloaded() -> NSPredicate {
         tempAppHelper.hasDownloaded(fileName: "SpartaConnect.app")
     }
@@ -129,7 +122,7 @@ class UpdateAppTest: XCTestCase {
         tempAppHelper.launch(arguments: arguments)
         waitForUpdatesDownloaded()
         checkForUpdatesAndInstallOnQuit()
-        quitApp()
+        app.quit()
         waitForUpdatesInstalled()
         tempAppHelper.launch(arguments: arguments)
         verifyUpdated()

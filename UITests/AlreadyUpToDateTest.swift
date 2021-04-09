@@ -11,7 +11,6 @@ class AlreadyUpToDateTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        app.terminate()
         try super.tearDownWithError()
     }
 
@@ -34,5 +33,7 @@ class AlreadyUpToDateTest: XCTestCase {
 
         updateAlert.staticTexts["You’re up to date!"].waitToAppear()
         updateAlert.buttons["OK"].click()
+        updateAlert.staticTexts["You’re up to date!"].waitToDisappear()
+        app.quit()
     }
 }
