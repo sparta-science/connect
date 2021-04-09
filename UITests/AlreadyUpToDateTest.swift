@@ -32,7 +32,7 @@ class AlreadyUpToDateTest: XCTestCase {
         updateAlert.waitToAppear()
         print(app.debugDescription)
 
-        updateAlert.staticTexts["You’re up-to-date!"].waitToAppear()
+        updateAlert.staticTexts["You’re up to date!"].waitToAppear()
         updateAlert.buttons["OK"].click()
     }
 }
